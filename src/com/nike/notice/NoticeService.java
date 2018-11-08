@@ -1,4 +1,4 @@
-package com.nike.noice;
+package com.nike.notice;
 
 public class NoticeService {
 

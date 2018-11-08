@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nike.action.ActionFoward;
-import com.nike.noice.NoticeService;
+import com.nike.notice.NoticeService;
 
 /**
  * Servlet implementation class NoticeController
