@@ -1,5 +1,5 @@
 package com.nike.board;
 
-public class BoardDAO {
+public interface BoardDAO {
 
 }
