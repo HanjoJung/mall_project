@@ -1,5 +1,8 @@
 package com.nike.qna;
 
-public class QnaDTO {
+import com.nike.board.BoardReplyDTO;
+
+public class QnaDTO extends BoardReplyDTO{
+	
 
 }
