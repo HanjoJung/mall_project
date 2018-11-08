@@ -1,5 +1,7 @@
 package com.nike.notice;
 
-public class NoticeDTO {
+import com.nike.board.BoardDTO;
+
+public class NoticeDTO extends BoardDTO{
 
 }
