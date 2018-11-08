@@ -78,7 +78,7 @@ public class MemberService {
 				result = memberDAO.insert(memberDTO);
 
 			} catch (Exception e1) {
-				e1.printStackTrace();
+				e1.printStackTrace(); 
 			}
 
 			actionFoward.setCheck(true);
