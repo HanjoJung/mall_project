@@ -36,17 +36,17 @@ public class NoticeController extends HttpServlet {
 		String command=request.getPathInfo();
 		ActionFoward actionFoward=null;
 		
-		if(command.equals("/noticeList.do")) {
-//			actionFoward = noticeService.selectList(request, response);
-		} else if (command.equals("/noticeSelectOne.do")) {
-//			actionFoward = noticeService.selectOne(request, response);
-		} else if (command.equals("/noticeWrite.do")) {
-//			actionFoward = noticeService.insert(request, response);
-		} else if (command.equals("/noticeUpdate.do")) {
-//			actionFoward = noticeService.update(request, response);
-		} else if (command.equals("/noticeDelete.do")) {
-//			actionFoward = noticeService.delete(request, response);
-		}
+//		if(command.equals("/noticeList.do")) {
+////			actionFoward = noticeService.selectList(request, response);
+//		} else if (command.equals("/noticeSelectOne.do")) {
+////			actionFoward = noticeService.selectOne(request, response);
+//		} else if (command.equals("/noticeWrite.do")) {
+////			actionFoward = noticeService.insert(request, response);
+//		} else if (command.equals("/noticeUpdate.do")) {
+////			actionFoward = noticeService.update(request, response);
+//		} else if (command.equals("/noticeDelete.do")) {
+////			actionFoward = noticeService.delete(request, response);
+//		}
 
 		if (actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
