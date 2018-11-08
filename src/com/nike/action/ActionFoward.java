@@ -1,6 +1,6 @@
 package com.nike.action;
 
-public class ActionForward {
+public class ActionFoward {
 	private boolean check;
 	private String path;
 	public boolean isCheck() {
