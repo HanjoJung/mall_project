@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nike.page.Row;
 import com.nike.util.DBconnector;
 
 public class MemberDAO {
@@ -88,12 +89,18 @@ public class MemberDAO {
 		return memberDTO;
 	}
 
-	public List<MemberDTO> seleteList() throws Exception {
+	public List<MemberDTO> seleteList(Row row) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "selete * from member";
+		String sql = "select * from " + 
+				"(select rownum R, m.* from " + 
+				"(select * from member order by join_date desc, id desc) m) " + 
+				"where R between ? and ?";
+		
 		List<MemberDTO> ar = new ArrayList<>();
 
 		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, row.getRowStart());
+		st.setInt(2, row.getRowLast());
 		ResultSet rs = st.executeQuery();
 
 		while(rs.next()) {
@@ -107,9 +114,23 @@ public class MemberDAO {
 			memberDTO.setJoin_date(rs.getDate("join_date"));
 			memberDTO.setProfileFname(rs.getString("profileFname"));
 			memberDTO.setProfileOname(rs.getString("profileOname"));
+			ar.add(memberDTO);
 		}
 
 		DBconnector.disConnect(rs, st, con);
 		return ar;
+	}
+	
+	public int totalCount() throws Exception{
+		Connection con = DBconnector.getConnect();
+		String sql = "select count(id) from member";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		rs.next();
+		int result = rs.getInt(1);
+		
+		DBconnector.disConnect(rs, st, con);
+		return result;
 	}
 }

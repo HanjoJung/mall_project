@@ -37,7 +37,7 @@ public class FileController extends HttpServlet {
 		ActionFoward actionFoward=null;
 		
 		if(command.equals("/fileDelete.do")) {
-			actionFoward=fileService.delete(request, response);
+//			actionFoward=fileService.delete(request, response);
 		}
 		if(actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());

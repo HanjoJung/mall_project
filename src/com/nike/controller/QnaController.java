@@ -37,11 +37,11 @@ public class QnaController extends HttpServlet {
 		ActionFoward actionFoward = null;
 		
 		if(command.equals("/qnaList.do")) {
-			actionFoward = qnaService.selectList(request, response);
+//			actionFoward = qnaService.selectList(request, response);
 		}else if(command.equals("/qnaSelectOne.do")) {
-			actionFoward= qnaService.selectOne(request, response);
+//			actionFoward= qnaService.selectOne(request, response);
 		}else if(command.equals("/qnaWrite.do")) {
-			actionFoward= qnaService.insert(request, response);
+//			actionFoward= qnaService.insert(request, response);
 			
 		}
 		

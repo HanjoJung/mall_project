@@ -37,15 +37,15 @@ public class NoticeController extends HttpServlet {
 		ActionFoward actionFoward=null;
 		
 		if(command.equals("/noticeList.do")) {
-			actionFoward = noticeService.selectList(request, response);
+//			actionFoward = noticeService.selectList(request, response);
 		} else if (command.equals("/noticeSelectOne.do")) {
-			actionFoward = noticeService.selectOne(request, response);
+//			actionFoward = noticeService.selectOne(request, response);
 		} else if (command.equals("/noticeWrite.do")) {
-			actionFoward = noticeService.insert(request, response);
+//			actionFoward = noticeService.insert(request, response);
 		} else if (command.equals("/noticeUpdate.do")) {
-			actionFoward = noticeService.update(request, response);
+//			actionFoward = noticeService.update(request, response);
 		} else if (command.equals("/noticeDelete.do")) {
-			actionFoward = noticeService.delete(request, response);
+//			actionFoward = noticeService.delete(request, response);
 		}
 
 		if (actionFoward.isCheck()) {

@@ -3,10 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/502-06/Documents/카카오톡 받은 파일/cos-05Nov2002.jar"/>
-	<classpathentry kind="lib" path="C:/Users/502-06/Documents/카카오톡 받은 파일/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/502-06/Documents/카카오톡 받은 파일/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/502-06/Documents/카카오톡 받은 파일/ojdbc6.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
