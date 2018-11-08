@@ -31,11 +31,11 @@ public class ProductController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String command = request.getPathInfo();
-		ActionFoward actionFoward = null;
-		if(command.equals("/productList.do")) {
-			actionFoward = productService.selectList(request, response);
-		}
+//		String command = request.getPathInfo();
+//		ActionFoward actionFoward = null;
+//		if(command.equals("/productList.do")) {
+//			actionFoward = productService.selectList(request, response);
+//		}
 		
 	}
 

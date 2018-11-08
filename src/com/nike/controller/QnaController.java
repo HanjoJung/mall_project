@@ -36,14 +36,13 @@ public class QnaController extends HttpServlet {
 		String command = request.getPathInfo();
 		ActionFoward actionFoward = null;
 		
-		if(command.equals("/qnaList.do")) {
-//			actionFoward = qnaService.selectList(request, response);
-		}else if(command.equals("/qnaSelectOne.do")) {
-//			actionFoward= qnaService.selectOne(request, response);
-		}else if(command.equals("/qnaWrite.do")) {
-//			actionFoward= qnaService.insert(request, response);
-			
-		}
+//		if(command.equals("/qnaList.do")) {
+////			actionFoward = qnaService.selectList(request, response);
+//		}else if(command.equals("/qnaSelectOne.do")) {
+////			actionFoward= qnaService.selectOne(request, response);
+//		}else if(command.equals("/qnaWrite.do")) {
+////			actionFoward= qnaService.insert(request, response);
+//		}
 		
 		
 		if(actionFoward.isCheck()) {
