@@ -11,8 +11,6 @@ import com.nike.action.ActionFoward;
 import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class MemberService {
 	private MemberDAO memberDAO;
@@ -37,7 +35,6 @@ public class MemberService {
 
 		try {
 			ar = memberDAO.seleteList(rowNumber);
-			System.out.println(ar.size());
 			Pager pager = makePager.makePage(memberDAO.totalCount());
 			request.setAttribute("curPage", curPage);
 			request.setAttribute("list", ar);
@@ -65,13 +62,9 @@ public class MemberService {
 			if (!file.exists()) {
 				file.mkdirs();
 			}
-			MultipartRequest multi;
 			try {
-				multi = new MultipartRequest(request, save, max, "UTF-8", new DefaultFileRenamePolicy());
 
 				MemberDTO memberDTO = new MemberDTO();
-				memberDTO.setId(multi.getParameter("id"));
-				memberDTO.setPassword(multi.getParameter("pw2"));
 				result = memberDAO.insert(memberDTO);
 
 			} catch (Exception e1) {
