@@ -25,5 +25,4 @@ public class Search {
 		}
 		this.search = search;
 	}
-
 }

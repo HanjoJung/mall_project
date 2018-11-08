@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nike.page.Row;
+import com.nike.page.RowNumber;
 import com.nike.util.DBconnector;
 
 public class MemberDAO {
@@ -88,7 +88,7 @@ public class MemberDAO {
 		return memberDTO;
 	}
 
-	public List<MemberDTO> seleteList(Row row) throws Exception {
+	public List<MemberDTO> seleteList(RowNumber rowNumber) throws Exception {
 		Connection con = DBconnector.getConnect();
 		String sql = "select * from " + 
 				"(select rownum R, m.* from " + 
@@ -98,8 +98,8 @@ public class MemberDAO {
 		List<MemberDTO> ar = new ArrayList<>();
 
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, row.getRowStart());
-		st.setInt(2, row.getRowLast());
+		st.setInt(1, rowNumber.getStartRow());
+		st.setInt(2, rowNumber.getLastRow());
 		ResultSet rs = st.executeQuery();
 
 		while(rs.next()) {

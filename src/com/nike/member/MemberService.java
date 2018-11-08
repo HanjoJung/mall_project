@@ -1,19 +1,16 @@
 package com.nike.member;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.swing.text.DefaultCaret;
 
 import com.nike.action.ActionFoward;
 import com.nike.page.MakePager;
 import com.nike.page.Pager;
-import com.nike.page.Row;
+import com.nike.page.RowNumber;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -36,10 +33,10 @@ public class MemberService {
 		String kind = request.getParameter("kind");
 		String search = request.getParameter("search");
 		MakePager makePager = new MakePager(curPage, kind, search);
-		Row row = makePager.row();
+		RowNumber rowNumber = makePager.makeRow();
 
 		try {
-			ar = memberDAO.seleteList(row);
+			ar = memberDAO.seleteList(rowNumber);
 			System.out.println(ar.size());
 			Pager pager = makePager.makePage(memberDAO.totalCount());
 			request.setAttribute("curPage", curPage);
