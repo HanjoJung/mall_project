@@ -8,6 +8,7 @@ public class OrderDTO {
 	private String deliveryname;
 	private String deliverystart;
 	private String deliverycurrent;
+	private String deliverylast;
 	public int getOrdernum() {
 		return ordernum;
 	}
@@ -49,6 +50,12 @@ public class OrderDTO {
 	}
 	public void setDeliverycurrent(String deliverycurrent) {
 		this.deliverycurrent = deliverycurrent;
+	}
+	public String getDeliverylast() {
+		return deliverylast;
+	}
+	public void setDeliverylast(String deliverylast) {
+		this.deliverylast = deliverylast;
 	}
 
 }
