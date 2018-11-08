@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import com.nike.action.ActionFoward;
 import com.nike.member.MemberService;
 
@@ -20,26 +19,28 @@ import com.nike.member.MemberService;
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService memberService;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MemberController() {
-        super();
-        // TODO Auto-generated constructor stub
-        memberService=new MemberService();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String command=request.getPathInfo();
-		ActionFoward actionFoward=null;
-		if(command.equals("/memberList.do")) {
-			actionFoward=memberService.selectList(request, response);
-//		if(command.equals("/memberjoin.do")) {
-//			actionFoward=memberService.join(request, response);
+	public MemberController() {
+		super();
+		// TODO Auto-generated constructor stub
+		memberService = new MemberService();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String command = request.getPathInfo();
+		ActionFoward actionFoward = null;
+		if (command.equals("/memberList.do")) {
+			actionFoward = memberService.selectList(request, response);
+		} else if (command.equals("/memberjoin.do")) {
+			actionFoward = memberService.join(request, response);
 //		}else if(command.equals("/memberCheckId.do")) {
 //			actionFoward=memberService.checkId(request, response);
 //		}else if(command.equals("/memberLogin.do")) {
@@ -52,7 +53,7 @@ public class MemberController extends HttpServlet {
 //			actionFoward=memberService.update(request, response);
 //		}else if(command.equals("/memberDelete.do")) {
 //			actionFoward=memberService.delete(request, response);
-		}else {
+		} else {
 			actionFoward = new ActionFoward();
 			actionFoward.setCheck(true);
 			actionFoward.setPath("../WEB-INF/view/member/memberList.jsp");
@@ -66,9 +67,11 @@ public class MemberController extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

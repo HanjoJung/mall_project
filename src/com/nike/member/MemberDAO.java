@@ -13,7 +13,7 @@ public class MemberDAO {
 
 	public int insert(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "insert into member values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into member values(?,?,?,?,?,?,?,?,sysdate,?,?)";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getId());
@@ -24,9 +24,8 @@ public class MemberDAO {
 		st.setString(6, memberDTO.getAddress());
 		st.setString(7, memberDTO.getSex());
 		st.setInt(8, memberDTO.getAge());
-		st.setDate(9, memberDTO.getJoin_date());
-		st.setString(10, memberDTO.getProfileFname());
-		st.setString(11, memberDTO.getProfileOname());
+		st.setString(9, memberDTO.getProfileFname());
+		st.setString(10, memberDTO.getProfileOname());
 		int result = st.executeUpdate();
 
 		DBconnector.disConnect(st, con);

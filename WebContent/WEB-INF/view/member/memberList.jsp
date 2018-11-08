@@ -44,22 +44,15 @@
 			</table>
 			<table>
 				<tr>
-					<td><input type="button" id="btn" class="btn btn-default"
-						value="등록"></td>
-					<td></td>
-					<td width="10%"><input type="text" class="form-control"
-						id="writer" name="writer"></td>
-					<td width="70%"><input type="text" class="form-control"
-						id="contents" name="contents"></td>
-					<td width="10%"></td>
-				</tr>
-				<tr>
 					<td>
-						<button class="btn btn-default" id="del">삭제</button>
+						<button class="btn btn-default"><a href="${pageContext.request.contextPath}/index.jsp">홈</a></button>
+						<button class="btn btn-default"><a href="./memberJoin.do">가입</a></button>
+						<button class="btn btn-default"><a href="./memberDelete.do">탈퇴</a></button>
+						<button class="btn btn-default"><a href="./memberLogin.do">로그인</a></button>
+						<button class="btn btn-default"><a href="./memberLogout.do">로그아웃</a></button>
 					</td>
 				</tr>
 			</table>
-			<button id="more" class="btn btn-default">더보기</button>
 
 			<div class="row" align="center">
 				<ul class="pagination">
