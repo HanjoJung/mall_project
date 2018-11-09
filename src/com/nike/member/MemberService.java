@@ -76,6 +76,7 @@ public class MemberService {
 				memberDTO.setPassword(multi.getParameter("pw2"));
 				memberDTO.setNickname(multi.getParameter("nickname"));
 				memberDTO.setEmail(multi.getParameter("email"));
+				memberDTO.setPhone(multi.getParameter("phone"));
 				memberDTO.setAddress(multi.getParameter("address"));
 				memberDTO.setSex(multi.getParameter("sex"));
 				memberDTO.setAge(Integer.parseInt(multi.getParameter("age")));
@@ -167,6 +168,57 @@ public class MemberService {
 
 		actionFoward.setCheck(true);
 		actionFoward.setPath("../WEB-INF/view/common/result.jsp");
+		return actionFoward;
+	}
+
+	public ActionFoward update(HttpServletRequest request, HttpServletResponse response) {
+		ActionFoward actionFoward = new ActionFoward();
+		HttpSession session = request.getSession();
+		String method = request.getMethod();
+
+		if (method.equals("POST")) {
+
+			request.setAttribute("message", "fail");
+			request.setAttribute("path", "./memberUpdate.do");
+			int max = 1024 * 1024 * 10;
+			String save = request.getServletContext().getRealPath("upload");
+			File file = new File(save);
+			if (!file.exists()) {
+				file.mkdirs();
+			}
+			try {
+				MultipartRequest multi;
+				multi = new MultipartRequest(request, save, max, "UTF-8", new DefaultFileRenamePolicy());
+
+				MemberDTO memberDTO = new MemberDTO();
+				memberDTO.setId(multi.getParameter("id"));
+				memberDTO.setPassword(multi.getParameter("pw2"));
+				memberDTO.setNickname(multi.getParameter("nickname"));
+				memberDTO.setEmail(multi.getParameter("email"));
+				memberDTO.setPhone(multi.getParameter("phone"));
+				memberDTO.setAddress(multi.getParameter("address"));
+				memberDTO.setSex(multi.getParameter("sex"));
+				memberDTO.setAge(Integer.parseInt(multi.getParameter("age")));
+				file = multi.getFile("f");
+				if (file != null) {
+					file = new File(save, memberDTO.getProfileFname());
+					file.delete();
+					memberDTO.setProfileFname(multi.getFilesystemName("f"));
+					memberDTO.setProfileOname(multi.getOriginalFileName("f"));
+				}
+				int result = memberDAO.update((MemberDTO) session.getAttribute("member"));
+				if (result > 0) {
+					session.invalidate();
+					request.setAttribute("message", "seccess");
+					request.setAttribute("path", "./memberSelectOne.do");
+				}
+			} catch (Exception e) {
+			}
+			actionFoward.setPath("../WEB-INF/view/common/result.jsp");
+		} else {
+			actionFoward.setPath("../WEB-INF/view/member/memberUpdate.jsp");
+		}
+		actionFoward.setCheck(true);
 		return actionFoward;
 	}
 }

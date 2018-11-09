@@ -11,7 +11,6 @@
 <body>
 	<c:import url="../../../temp/header.jsp" />
 
-
 	<div class="container-fluid">
 		<div class="row">
 			<form action="./memberJoin.do" method="post"
@@ -67,7 +66,6 @@
 						class="form-control" id="file" name="f">
 				</div>
 				<button class="btn btn-default">가입</button>
-				<input type="button" id="join" class="btn btn-default" value="가입">
 			</form>
 		</div>
 	</div>

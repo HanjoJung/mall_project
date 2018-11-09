@@ -49,8 +49,8 @@ public class MemberController extends HttpServlet {
 			actionFoward=memberService.logout(request, response);			
 		}else if(command.equals("/memberSelectOne.do")) {
 			actionFoward=memberService.selectOne(request, response);
-//		}else if(command.equals("/memberUpdate.do")) {
-//			actionFoward=memberService.update(request, response);
+		}else if(command.equals("/memberUpdate.do")) {
+			actionFoward=memberService.update(request, response);
 		}else if(command.equals("/memberDelete.do")) {
 			actionFoward=memberService.delete(request, response);
 		} else {
