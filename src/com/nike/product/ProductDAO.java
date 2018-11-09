@@ -15,17 +15,10 @@ public class ProductDAO {
 	public int getCount(Search search) throws Exception {
 
 		Connection con = DBconnector.getConnect();
-<<<<<<< HEAD
-		String sql = "select count(productcode) from product";
-//				+ "where "+search.getKind()+" like ?";
-		PreparedStatement st = con.prepareStatement(sql);
-//		st.setString(1, "%"+search.getSearch()+"%");
-=======
 		String sql = "select count(productcode) from product"; 
 //				+ "where " + search.getKind() + " like ?";
 		PreparedStatement st = con.prepareStatement(sql);
 //		st.setString(1, "%" + search.getSearch() + "%");
->>>>>>> 84e9a6df2d4df7ff352e782f82b566767959afef
 		ResultSet rs = st.executeQuery();
 		rs.next();
 		int result = rs.getInt(1);
@@ -34,20 +27,6 @@ public class ProductDAO {
 		return result;
 
 	}
-<<<<<<< HEAD
-	
-	public List<ProductDTO> selectList(RowNumber rowNumber) throws Exception{
-		System.out.println(6);
-	
-		Connection con = DBconnector.getConnect();
-		String sql = "select * from product";
-//				+ "(select rownum R, N.* from "
-//				+ "(select * from product "
-////				+ "where "+rowNumber.getSearch().getKind()+" like ? "
-//				+ "order by productcode desc) N) "
-//				+ "where R between ? and ?";
-		System.out.println(sql);
-=======
 
 	public List<ProductDTO> selectList(RowNumber rowNumber) throws Exception {
 
@@ -58,21 +37,14 @@ public class ProductDAO {
 ////					+ "where "+ rowNumber.getSearch().getKind() +" like ? "
 //					+ "order by desc) N) "
 //					+ "where R between ? and ?";
->>>>>>> 84e9a6df2d4df7ff352e782f82b566767959afef
+		
 		PreparedStatement st = con.prepareStatement(sql);
 //		st.setString(1, "%"+rowNumber.getSearch().getSearch()+"%");
 //		st.setInt(1, rowNumber.getStartRow());
 //		st.setInt(2, rowNumber.getLastRow());
-<<<<<<< HEAD
-		
 		ResultSet rs = st.executeQuery();
 
-		System.out.println(rs);
-=======
 
-		ResultSet rs = st.executeQuery();
-
->>>>>>> 84e9a6df2d4df7ff352e782f82b566767959afef
 		List<ProductDTO> ar = new ArrayList<>();
 		while (rs.next()) {
 			ProductDTO productDTO = new ProductDTO();
@@ -86,11 +58,7 @@ public class ProductDAO {
 			productDTO.setManufacturerCode(rs.getString("manufacturercode"));
 			ar.add(productDTO);
 		}
-<<<<<<< HEAD
 		System.out.println(ar);
-=======
-
->>>>>>> 84e9a6df2d4df7ff352e782f82b566767959afef
 		DBconnector.disConnect(rs, st, con);
 		return ar;
 
