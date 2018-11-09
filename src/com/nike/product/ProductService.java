@@ -31,7 +31,7 @@ public class ProductService {
 		
 		MakePager makePager = new MakePager(curPage, search, kind);
 		RowNumber rowNumber = makePager.makeRow();
-		
+
 		try {
 			List<ProductDTO> ar = productDAO.selectList(rowNumber);
 			int totalCount = productDAO.getCount(rowNumber.getSearch());
@@ -41,17 +41,17 @@ public class ProductService {
 			request.setAttribute("pager", pager);
 			request.setAttribute("board", "product");
 			actionFoward.setPath("../WEB-INF/view/board/boardList.jsp");
-			
+
 		} catch (Exception e) {
+
 			// TODO Auto-generated catch block
 			request.setAttribute("message", "Fail");
 			request.setAttribute("path", "../index.jsp");
 			actionFoward.setPath("../WEB-INF/common/result.jsp");
 			e.printStackTrace();
 		}
+		
 		actionFoward.setCheck(true);
-		
-		
 		return actionFoward;
 	}
 
