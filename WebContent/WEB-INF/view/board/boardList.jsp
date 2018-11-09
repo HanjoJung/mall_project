@@ -11,7 +11,77 @@
 </head>
 <body>
 <c:import url="../../../temp/header.jsp"></c:import>
-<h1>${board}</h1>
+<div class="container-fluid">
+	<div class="row">
+		<h1>${board}</h1>	
+	</div>
+	<div class="row">
+		<form class="form-inline" action="./${board}List.do">
+	    <div class="form-group">
+	    	<div class="form-group">
+			  <label for="sel1">Select list:</label>
+			  <select class="form-control" id="sel1" name="kind">
+			    <option>Code</option>
+			    <option>Name</option>
+			  </select>
+			</div>
+	      <input type="text" class="form-control" id="search" placeholder="Enter search" name="search">
+	    </div>
+	    <button type="submit" class="btn btn-default">Submit</button>
+	  </form>
+	    	<!-- 서치 폼 -->
+	</div>
+		<table class="table table-hover">
+			<thead>
+			<tr class="info">
+				<td>CODE</td>
+				<td>NAME</td>
+				<td>PRICE</td>
+				<td>KIND</td>
+				<td>HIT</td>
+				<td>SALE</td>
+				<td>GOOD</td>
+				<td>M_CODE</td>
+			</tr>
+			</thead>
+		<c:forEach items="${list}" var="productDTO">
+			<tr>
+				<td>${productDTO.productCode}</td>
+				<td>${productDTO.productName}</td>
+				<td>${productDTO.price}</td>
+				<td>${productDTO.kind}</td>
+				<td>${productDTO.hit}</td>
+				<td>${productDTO.sale}</td>
+				<td>${productDTO.good}</td>
+				<td>${productDTO.manufacturerCode}</td>
+			</tr>
+		</c:forEach>
+		</table>
+	
+	
+</div>
+
 <c:import url="../../../temp/footer.jsp"></c:import>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
