@@ -207,7 +207,6 @@ public class MemberService {
 					memberDTO.setProfileFname(multi.getFilesystemName("f"));
 					memberDTO.setProfileOname(multi.getOriginalFileName("f"));
 				}
-				System.out.println(1);
 				int result = memberDAO.update(memberDTO);
 				if (result > 0) {
 					session.setAttribute("member", memberDTO);
@@ -222,6 +221,22 @@ public class MemberService {
 			actionFoward.setPath("../WEB-INF/view/member/memberUpdate.jsp");
 		}
 		actionFoward.setCheck(true);
+		return actionFoward;
+	}
+	
+	public ActionFoward checkId(HttpServletRequest request, HttpServletResponse response) {
+		ActionFoward actionFoward = new ActionFoward();
+		String id = request.getParameter("id");
+		
+		try {
+			int result = memberDAO.checkId(id);
+			request.setAttribute("result", result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		actionFoward.setCheck(true);
+		actionFoward.setPath("../WEB-INF/view/member/memberCheckId.jsp");
 		return actionFoward;
 	}
 }

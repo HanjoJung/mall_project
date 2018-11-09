@@ -10,6 +10,22 @@ import com.nike.page.RowNumber;
 import com.nike.util.DBconnector;
 
 public class MemberDAO {
+	public int checkId(String id) throws Exception{
+		Connection con = DBconnector.getConnect();
+		String sql = "select * from member where id=?";
+		int result = 1;
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, id);
+		ResultSet rs = st.executeQuery();
+		
+		if(rs.next()) {
+			result = 2;
+		}
+		
+		DBconnector.disConnect(rs, st, con);
+		return result;
+	}
 
 	public int insert(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
