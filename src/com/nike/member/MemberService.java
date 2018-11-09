@@ -105,7 +105,7 @@ public class MemberService {
 
 		if (method.equals("POST")) {
 			request.setAttribute("message", "fail");
-			request.setAttribute("path", "./index.jsp");
+			actionFoward.setPath("./memberLogin.do");
 			HttpSession session = request.getSession();
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO.setId(request.getParameter("id"));
@@ -124,13 +124,14 @@ public class MemberService {
 		} else {
 			actionFoward.setPath("../WEB-INF/view/member/memberLogin.jsp");
 		}
-		
+
 		actionFoward.setCheck(true);
 		return actionFoward;
 	}
+
 	public ActionFoward selectOne(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
-		
+
 		actionFoward.setCheck(true);
 		actionFoward.setPath("../WEB-INF/view/member/memberSelectOne.jsp");
 		return actionFoward;
@@ -143,6 +144,27 @@ public class MemberService {
 
 		request.setAttribute("message", "logout");
 		request.setAttribute("path", "../index.jsp");
+		actionFoward.setCheck(true);
+		actionFoward.setPath("../WEB-INF/view/common/result.jsp");
+		return actionFoward;
+	}
+
+	public ActionFoward delete(HttpServletRequest request, HttpServletResponse response) {
+		ActionFoward actionFoward = new ActionFoward();
+		HttpSession session = request.getSession();
+		request.setAttribute("message", "fail");
+		request.setAttribute("path", "../index.jsp");
+
+		try {
+			int result = memberDAO.delete((MemberDTO) session.getAttribute("member"));
+			if (result > 0) {
+				session.invalidate();
+				request.setAttribute("message", "seccess");
+				request.setAttribute("path", "../index.jsp");
+			}
+		} catch (Exception e) {
+		}
+
 		actionFoward.setCheck(true);
 		actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 		return actionFoward;
