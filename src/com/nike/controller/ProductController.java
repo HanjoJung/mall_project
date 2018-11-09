@@ -34,8 +34,10 @@ public class ProductController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		String command = request.getPathInfo();
-		ActionFoward actionFoward = new ActionFoward();
+		ActionFoward actionFoward = null;
 		if(command.equals("/productList.do")) {
+			
+			System.out.println(command);
 			actionFoward = productService.selectList(request, response);
 		}
 		if(actionFoward.isCheck()) {
