@@ -45,11 +45,23 @@
 			<table>
 				<tr>
 					<td>
-						<button class="btn btn-default"><a href="${pageContext.request.contextPath}/index.jsp">홈</a></button>
-						<button class="btn btn-default"><a href="./memberJoin.do">가입</a></button>
-						<button class="btn btn-default"><a href="./memberDelete.do">탈퇴</a></button>
-						<button class="btn btn-default"><a href="./memberLogin.do">로그인</a></button>
-						<button class="btn btn-default"><a href="./memberLogout.do">로그아웃</a></button>
+						<a href="${pageContext.request.contextPath}/index.jsp">
+							<input type="button" class="btn btn-default" value="홈">
+						</a>
+						<c:choose>
+						<c:when test="${empty member}">
+							<a href="./memberJoin.do"> 
+								<input type="button" class="btn btn-default" value="가입"></a> 
+							<a href="./memberLogin.do"> 
+								<input type="button" class="btn btn-default" value="로그인"></a>
+						</c:when>
+						<c:otherwise> 
+							<a href="./memberSelectOne.do"> 
+								<input type="button" class="btn btn-default" value="개인정보"></a>
+							<a href="./memberLogout.do"> 
+								<input type="button" class="btn btn-default" value="로그아웃"></a>
+						</c:otherwise>
+						</c:choose>
 					</td>
 				</tr>
 			</table>

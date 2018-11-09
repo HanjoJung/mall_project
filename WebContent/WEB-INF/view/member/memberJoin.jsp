@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../../../temp/bootStrap.jsp" />
 </head>
 <body>
+	<c:import url="../../../temp/header.jsp" />
 
 
 	<div class="container-fluid">
@@ -51,24 +54,23 @@
 						name="address">
 				</div>
 				<div class="form-group">
-					남자<input type="radio" name="sex" value="M"> 여자<input
-						type="radio" name="sex" value="W">
+					남자<input type="radio" name="sex" value="남자"> 여자<input
+						type="radio" name="sex" value="여자">
 				</div>
 				<div class="form-group">
 					<label for="name">나이:</label> <input type="number"
 						class="form-control" id="age" placeholder="Enter age"
-						name="nickname">
+						name="age">
 				</div>
 				<div class="form-group">
 					<label for="file">프로필 사진:</label> <input type="file"
 						class="form-control" id="file" name="f">
 				</div>
-
+				<button class="btn btn-default">가입</button>
 				<input type="button" id="join" class="btn btn-default" value="가입">
 			</form>
 		</div>
 	</div>
-
-
+	<c:import url="../../../temp/footer.jsp" />
 </body>
 </html>
