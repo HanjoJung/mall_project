@@ -157,13 +157,14 @@ public class MemberService {
 		request.setAttribute("path", "../index.jsp");
 
 		try {
-			int result = memberDAO.delete((MemberDTO) session.getAttribute("member"));
+			int result = memberDAO.delete((MemberDTO)session.getAttribute("member"));
 			if (result > 0) {
 				session.invalidate();
 				request.setAttribute("message", "seccess");
 				request.setAttribute("path", "../index.jsp");
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		actionFoward.setCheck(true);
@@ -190,7 +191,7 @@ public class MemberService {
 				MultipartRequest multi;
 				multi = new MultipartRequest(request, save, max, "UTF-8", new DefaultFileRenamePolicy());
 
-				MemberDTO memberDTO = new MemberDTO();
+				MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 				memberDTO.setId(multi.getParameter("id"));
 				memberDTO.setPassword(multi.getParameter("pw2"));
 				memberDTO.setNickname(multi.getParameter("nickname"));
@@ -206,13 +207,15 @@ public class MemberService {
 					memberDTO.setProfileFname(multi.getFilesystemName("f"));
 					memberDTO.setProfileOname(multi.getOriginalFileName("f"));
 				}
-				int result = memberDAO.update((MemberDTO) session.getAttribute("member"));
+				System.out.println(1);
+				int result = memberDAO.update(memberDTO);
 				if (result > 0) {
-					session.invalidate();
+					session.setAttribute("member", memberDTO);
 					request.setAttribute("message", "seccess");
 					request.setAttribute("path", "./memberSelectOne.do");
 				}
 			} catch (Exception e) {
+				e.printStackTrace();
 			}
 			actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 		} else {
