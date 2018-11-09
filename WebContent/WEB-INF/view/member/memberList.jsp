@@ -45,7 +45,6 @@
 			<table>
 				<tr>
 					<td>
-<<<<<<< HEAD
 						<a href="${pageContext.request.contextPath}/index.jsp">
 							<input type="button" class="btn btn-default" value="홈">
 						</a>
@@ -63,23 +62,6 @@
 								<input type="button" class="btn btn-default" value="로그아웃"></a>
 						</c:otherwise>
 						</c:choose>
-=======
-						<button class="btn btn-default">
-							<a href="${pageContext.request.contextPath}/index.jsp">홈</a>
-						</button>
-						<button class="btn btn-default">
-							<a href="./memberJoin.do">가입</a>
-						</button>
-						<button class="btn btn-default">
-							<a href="./memberDelete.do">탈퇴</a>
-						</button>
-						<button class="btn btn-default">
-							<a href="./memberLogin.do">로그인</a>
-						</button>
-						<button class="btn btn-default">
-							<a href="./memberLogout.do">로그아웃</a>
-						</button>
->>>>>>> om
 					</td>
 				</tr>
 			</table>
