@@ -1,6 +1,8 @@
 package com.nike.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,11 +33,17 @@ public class ProductController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-//		String command = request.getPathInfo();
-//		ActionFoward actionFoward = null;
-//		if(command.equals("/productList.do")) {
-//			actionFoward = productService.selectList(request, response);
-//		}
+		String command = request.getPathInfo();
+		ActionFoward actionFoward = new ActionFoward();
+		if(command.equals("/productList.do")) {
+			actionFoward = productService.selectList(request, response);
+		}
+		if(actionFoward.isCheck()) {
+			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
+			view.forward(request, response);
+		}else {
+			response.sendRedirect(actionFoward.getPath());
+		}
 		
 	}
 
