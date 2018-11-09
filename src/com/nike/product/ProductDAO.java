@@ -27,6 +27,8 @@ public class ProductDAO {
 		return result;
 
 	}
+	
+
 
 	public List<ProductDTO> selectList(RowNumber rowNumber) throws Exception {
 
@@ -35,7 +37,7 @@ public class ProductDAO {
 //					+ "(select rownum R, N.* from "
 //					+ "(select * from product "
 ////					+ "where "+ rowNumber.getSearch().getKind() +" like ? "
-//					+ "order by desc) N) "
+//					+ "order by productcode desc) N) "
 //					+ "where R between ? and ?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
@@ -58,7 +60,7 @@ public class ProductDAO {
 			productDTO.setManufacturerCode(rs.getString("manufacturercode"));
 			ar.add(productDTO);
 		}
-		System.out.println(ar);
+		
 		DBconnector.disConnect(rs, st, con);
 		return ar;
 

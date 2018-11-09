@@ -14,5 +14,6 @@
 	<a href="${pageContext.request.contextPath}/member/memberList.do">회원</a>
 	<a href="${pageContext.request.contextPath}/product/productList.do">제품</a>
 	<jsp:include page="./temp/footer.jsp"></jsp:include>
+	
 </body>
 </html>

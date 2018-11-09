@@ -20,7 +20,7 @@ public class ProductService {
 	
 	public ActionFoward selectList(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
-		System.out.println(0);
+		
 		int curPage=1;
 		try {
 			curPage = Integer.parseInt(request.getParameter("curPage"));
@@ -34,7 +34,7 @@ public class ProductService {
 		RowNumber rowNumber = makePager.makeRow();
 
 		try {
-			System.out.println(1);
+			
 			List<ProductDTO> ar = productDAO.selectList(rowNumber);
 			int totalCount = productDAO.getCount(rowNumber.getSearch());
 			Pager pager = makePager.makePage(totalCount);
@@ -43,7 +43,7 @@ public class ProductService {
 			request.setAttribute("pager", pager);
 			request.setAttribute("board", "product");
 			actionFoward.setPath("../WEB-INF/view/board/boardList.jsp");
-			System.out.println(2);
+		
 			
 
 		} catch (Exception e) {
@@ -53,10 +53,31 @@ public class ProductService {
 			request.setAttribute("path", "../index.jsp");
 			actionFoward.setPath("../WEB-INF/common/result.jsp");
 			e.printStackTrace();
-			System.out.println(3);
+			
 		}
 		actionFoward.setCheck(true);
-		System.out.println(4);
+		
+		return actionFoward;
+	}
+	
+	
+	public ActionFoward selectOne(HttpServletRequest request, HttpServletResponse response) {
+	
+		ActionFoward actionFoward = new ActionFoward();
+		ProductDTO productDTO = null;
+		String code = request.getParameter("code");
+		try {
+			productDTO=productDAO.selectOne(code);
+			
+			request.setAttribute("pDTO", productDTO);
+			request.setAttribute("board", "product");
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/board/boardSelectOne.jsp");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		return actionFoward;
 	}
