@@ -10,6 +10,22 @@ import com.nike.page.RowNumber;
 import com.nike.util.DBconnector;
 
 public class MemberDAO {
+	public int checkId(String id) throws Exception{
+		Connection con = DBconnector.getConnect();
+		String sql = "select * from member where id=?";
+		int result = 1;
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, id);
+		ResultSet rs = st.executeQuery();
+		
+		if(rs.next()) {
+			result = 2;
+		}
+		
+		DBconnector.disConnect(rs, st, con);
+		return result;
+	}
 
 	public int insert(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
@@ -34,7 +50,8 @@ public class MemberDAO {
 
 	public int update(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "update member set password=?, nickname=?, email=?, phone=?, address=?, sex=?, age=? where id =?";
+		String sql = "update member set password=?, nickname=?, email=?, phone=?, "
+				+ "address=?, sex=?, age=?, ProfileFname=?, ProfileOname=?  where id =?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getPassword());
@@ -44,7 +61,9 @@ public class MemberDAO {
 		st.setString(5, memberDTO.getAddress());
 		st.setString(6, memberDTO.getSex());
 		st.setInt(7, memberDTO.getAge());
-		st.setString(8, memberDTO.getId());
+		st.setString(8, memberDTO.getProfileFname());
+		st.setString(9, memberDTO.getProfileOname());
+		st.setString(10, memberDTO.getId());
 		int result = st.executeUpdate();
 
 		DBconnector.disConnect(st, con);
@@ -65,7 +84,7 @@ public class MemberDAO {
 
 	public MemberDTO login(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "selete * from member where id=? and pw=?";
+		String sql = "select * from member where id=? and password=?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getId());

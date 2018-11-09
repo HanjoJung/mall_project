@@ -3,6 +3,16 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
+
+<servlet>
+<servlet-name>product</servlet-name>
+<servlet-class>com.nike.controller.ProductController</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>product</servlet-name>
+<url-pattern>/product/*</url-pattern>
+</servlet-mapping>	
+	
 <servlet>
 <servlet-name>member</servlet-name>
 <servlet-class>com.nike.controller.MemberController</servlet-class>
