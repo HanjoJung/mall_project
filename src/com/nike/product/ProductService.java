@@ -44,16 +44,12 @@ public class ProductService {
 			request.setAttribute("board", "product");
 			actionFoward.setPath("../WEB-INF/view/product/productList.jsp");
 		
-			
-
 		} catch (Exception e) {
 
-			// TODO Auto-generated catch block
 			request.setAttribute("message", "Fail");
 			request.setAttribute("path", "../index.jsp");
 			actionFoward.setPath("../WEB-INF/common/result.jsp");
 			e.printStackTrace();
-			
 		}
 		actionFoward.setCheck(true);
 		

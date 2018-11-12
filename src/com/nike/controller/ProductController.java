@@ -39,7 +39,6 @@ public class ProductController extends HttpServlet {
 		ActionFoward actionFoward = null;
 
 		if (command.equals("/productList.do")) {
-
 			actionFoward = productService.selectList(request, response);
 		}
 		if (actionFoward.isCheck()) {
