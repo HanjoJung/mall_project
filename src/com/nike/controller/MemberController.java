@@ -39,14 +39,12 @@ public class MemberController extends HttpServlet {
 		String command = request.getPathInfo();
 		ActionFoward actionFoward = null;
 
-		if (command.equals("/memberjoin.do")) {
+		if (command.equals("/memberJoin.do")) {
 			actionFoward = memberService.join(request, response);
 		} else if (command.equals("/memberCheckId.do")) {
 			actionFoward = memberService.checkId(request, response);
 		} else if (command.equals("/memberLogin.do")) {
 			actionFoward = memberService.login(request, response);
-		} else if (command.equals("/memberCheckId.do")) {
-			actionFoward = memberService.checkId(request, response);
 		} else if (command.equals("/memberLogout.do")) {
 			actionFoward = memberService.logout(request, response);
 		} else if (command.equals("/memberSelectOne.do")) {
