@@ -41,7 +41,7 @@ public class MemberController extends HttpServlet {
 
 		if (command.equals("/memberList.do")) {
 			actionFoward = memberService.selectList(request, response);
-		} else if (command.equals("/memberJoin.do")) {
+		}else if (command.equals("/memberJoin.do")) {
 			actionFoward = memberService.join(request, response);
 		} else if (command.equals("/memberCheckId.do")) {
 			actionFoward = memberService.checkId(request, response);
