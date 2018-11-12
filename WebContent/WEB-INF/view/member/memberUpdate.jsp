@@ -15,7 +15,7 @@
 			<form action="./memberUpdate.do" method="post"
 				enctype="multipart/form-data" name="frm">
 				<div class="form-group">
-					<label for="id">ID:</label> <input type="text" class="form-control"
+					<label for="id">ID:</label> <input type="email" class="form-control"
 						value="${member.id}" name="id" readonly="readonly">
 				</div>
 				<div class="form-group">
@@ -27,19 +27,15 @@
 						class="form-control" id="pw2" name="pw2">
 				</div>
 				<div class="form-group">
-					<label for="name">닉네임:</label> <input type="text"
-						class="form-control" value="${member.nickname}" name="nickname" >
+					<label for="name">이름:</label> <input type="text"
+						class="form-control" value="${member.name}" name="name" >
 				</div>
 				<div class="form-group">
-					<label for="email">E-mail:</label> <input type="email"
-						class="form-control" value="${member.email}" name="email">
-				</div>
-				<div class="form-group">
-					<label for="name">연락처:</label> <input type="text"
+					<label for="phone">연락처:</label> <input type="text"
 						class="form-control" value="${member.phone}" name="phone">
 				</div>
 				<div class="form-group">
-					<label for="name">주소:</label> <input type="text"
+					<label for="address">주소:</label> <input type="text"
 						class="form-control" value="${member.address}" name="address">
 				</div>
 				<div class="form-group">
@@ -53,8 +49,8 @@
 					</c:if>
 				</div>
 				<div class="form-group">
-					<label for="name">나이:</label> <input type="number"
-						class="form-control" value="${member.age}" name="age">
+					<label for="birthday">생년월일:</label> <input type="date"
+						class="form-control" value="${member.birthday}" name="birthday">
 				</div>
 				<div class="form-group">
 					<label for="file">프로필 사진:</label> <input type="file"

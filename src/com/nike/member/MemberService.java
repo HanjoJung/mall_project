@@ -157,7 +157,7 @@ public class MemberService {
 		request.setAttribute("path", "../index.jsp");
 
 		try {
-			int result = memberDAO.delete((MemberDTO)session.getAttribute("member"));
+			int result = memberDAO.delete((MemberDTO) session.getAttribute("member"));
 			if (result > 0) {
 				session.invalidate();
 				request.setAttribute("message", "seccess");
@@ -191,7 +191,7 @@ public class MemberService {
 				MultipartRequest multi;
 				multi = new MultipartRequest(request, save, max, "UTF-8", new DefaultFileRenamePolicy());
 
-				MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+				MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
 				memberDTO.setId(multi.getParameter("id"));
 				memberDTO.setPassword(multi.getParameter("pw2"));
 				memberDTO.setName(multi.getParameter("name"));
@@ -222,11 +222,11 @@ public class MemberService {
 		actionFoward.setCheck(true);
 		return actionFoward;
 	}
-	
+
 	public ActionFoward checkId(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
 		String id = request.getParameter("id");
-		
+
 		try {
 			int result = memberDAO.checkId(id);
 			request.setAttribute("result", result);

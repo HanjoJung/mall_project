@@ -50,7 +50,7 @@ public class MemberDAO {
 	public int update(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
 		String sql = "update member set password=?, name=?, phone=?, "
-				+ "address=?, sex=?, age=?, ProfileFname=?, ProfileOname=?  where id =?";
+				+ "address=?, sex=?, birthday=?, ProfileFname=?, ProfileOname=?  where id =?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getPassword());
