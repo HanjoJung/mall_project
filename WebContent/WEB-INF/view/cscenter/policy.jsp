@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../../../temp/bootStrap.jsp" />
 <style type="text/css">
-element.style {
-	
-}
-
 .customer-policy>* {
 	line-height: 1.6em;
 	margin-bottom: 15px;
@@ -48,7 +46,6 @@ p {
 .customer-policy {
 	line-height: 1.6em;
 	max-width: 1170px;
-	margin-left: -265px;
 }
 
 body, button, input {
@@ -161,7 +158,6 @@ tr {
 .customer-policy {
 	line-height: 1.6em;
 	max-width: 1170px;
-	margin-left: 28px;
 }
 
 .customer-contents>* {
@@ -210,11 +206,18 @@ tr {
 	padding: 0 15px;
 	margin: 0 auto;
 	box-sizing: border-box;
-    position: relative;
+	position: relative;
+}
+
+.label {
+	font-size: 23px;
+	color: #111111;
+	font-weight: bold;
 }
 </style>
 </head>
 <body>
+	<c:import url="../../../temp/header.jsp" />
 	<div class="contents width-xlarge margin-xsmall">
 		<div class="customer-policy">
 			<h2 class="title">
@@ -880,5 +883,6 @@ tr {
 			</p>
 		</div>
 	</div>
+	<c:import url="../../../temp/footer.jsp" />
 </body>
 </html>
