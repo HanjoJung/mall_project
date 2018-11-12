@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,9 @@ $(function() {
 	})
 })
 </script>
+<c:import url="../../../temp/bootStrap.jsp" />
 </head>
+<c:import url="../../../temp/header.jsp" />
 <body id="myPage" data-spy="scroll" data-target=".navbar"
 	data-offset="60">
 
@@ -55,7 +58,7 @@ $(function() {
 	</div>
 
 
-	<jsp:include page="../../../temp/footer.jsp"></jsp:include>
+	<c:import url="../../../temp/footer.jsp" />
 
 </body>
 </html>
