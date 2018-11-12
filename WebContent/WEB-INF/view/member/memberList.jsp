@@ -11,18 +11,17 @@
 <body>
 	<c:import url="../../../temp/header.jsp" />
 
-	<div class="container-fluid">
+	<div class="container-fluid" style="max-width: 1500px;">
 		<div class="row">
 			<table class="table table-hover">
 				<thead>
 					<tr>
 						<td width="5%"><input type="checkbox" id="check"></td>
 						<td width="10%">ID</td>
-						<td width="10%">닉네임</td>
-						<td width="20%">E-mail</td>
+						<td width="10%">이름</td>
 						<td width="15%">연락처</td>
 						<td width="10%">성별</td>
-						<td width="10%">나이</td>
+						<td width="10%">생년월일</td>
 						<td width="10%">가입날짜</td>
 					</tr>
 				</thead>
@@ -32,11 +31,10 @@
 							<td><input type="checkbox" class="del" value="${dto.id}"
 								id="${dto.id}" name="del"></td>
 							<td>${dto.id}</td>
-							<td>${dto.nickname}</td>
-							<td>${dto.email}</td>
+							<td>${dto.name}</td>
 							<td>${dto.phone}</td>
 							<td>${dto.sex}</td>
-							<td>${dto.age}</td>
+							<td>${dto.birthday}</td>
 							<td>${dto.join_date}</td>
 						</tr>
 					</c:forEach>

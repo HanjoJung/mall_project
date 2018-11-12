@@ -46,7 +46,6 @@ public class FileController extends HttpServlet {
 			response.sendRedirect(actionFoward.getPath());
 		}
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

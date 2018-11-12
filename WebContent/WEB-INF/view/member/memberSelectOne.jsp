@@ -17,21 +17,21 @@
 				style="max-width: 1500px">
 				<tr>
 					<td style="width: 5%">ID</td>
-					<td style="width: 10%">닉네임</td>
+					<td style="width: 10%">이름</td>
 					<td style="width: 10%">연락처</td>
 					<td style="width: 30%">주소</td>
 					<td style="width: 5%">성별</td>
-					<td style="width: 5%">나이</td>
-					<td style="width: 15%">가입날짜</td>
+					<td style="width: 10%">생년월일</td>
+					<td style="width: 10%">가입날짜</td>
 					<td style="width: 20%">프로필</td>
 				</tr>
 				<tr>
 					<td>${member.id}</td>
-					<td>${member.nickname}</td>
+					<td>${member.name}</td>
 					<td>${member.phone}</td>
 					<td>${member.address}</td>
 					<td>${member.sex}</td>
-					<td>${member.age}</td>
+					<td>${member.birthday}</td>
 					<td>${member.join_date}</td>
 					<td><a href="../upload/${member.profileFname}"> 
 					<img style="max-width: 50px; max-height: 50px;" alt=""
