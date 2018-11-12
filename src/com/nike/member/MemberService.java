@@ -1,6 +1,7 @@
 package com.nike.member;
 
 import java.io.File;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,12 +75,11 @@ public class MemberService {
 				MemberDTO memberDTO = new MemberDTO();
 				memberDTO.setId(multi.getParameter("id"));
 				memberDTO.setPassword(multi.getParameter("pw2"));
-				memberDTO.setNickname(multi.getParameter("nickname"));
-				memberDTO.setEmail(multi.getParameter("email"));
+				memberDTO.setName(multi.getParameter("name"));
 				memberDTO.setPhone(multi.getParameter("phone"));
 				memberDTO.setAddress(multi.getParameter("address"));
 				memberDTO.setSex(multi.getParameter("sex"));
-				memberDTO.setAge(Integer.parseInt(multi.getParameter("age")));
+				memberDTO.setBirthday(Date.valueOf(multi.getParameter("birthday")));
 				memberDTO.setProfileFname(multi.getFilesystemName("f"));
 				memberDTO.setProfileOname(multi.getOriginalFileName("f"));
 				result = memberDAO.insert(memberDTO);
@@ -194,12 +194,11 @@ public class MemberService {
 				MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 				memberDTO.setId(multi.getParameter("id"));
 				memberDTO.setPassword(multi.getParameter("pw2"));
-				memberDTO.setNickname(multi.getParameter("nickname"));
-				memberDTO.setEmail(multi.getParameter("email"));
+				memberDTO.setName(multi.getParameter("name"));
 				memberDTO.setPhone(multi.getParameter("phone"));
 				memberDTO.setAddress(multi.getParameter("address"));
 				memberDTO.setSex(multi.getParameter("sex"));
-				memberDTO.setAge(Integer.parseInt(multi.getParameter("age")));
+				memberDTO.setBirthday(Date.valueOf(multi.getParameter("birthday")));
 				file = multi.getFile("f");
 				if (file != null) {
 					file = new File(save, memberDTO.getProfileFname());
