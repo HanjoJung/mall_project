@@ -4,6 +4,14 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
 
+<error-page>
+<error-code>404</error-code>
+<location>/error/error_404.jsp</location>
+</error-page>
+<error-page>
+<exception-type>java.lang.Throwable</exception-type>
+<location>/error/error_500.jsp</location>
+</error-page>
 <servlet>
 <servlet-name>product</servlet-name>
 <servlet-class>com.nike.controller.ProductController</servlet-class>
@@ -11,8 +19,8 @@
 <servlet-mapping>
 <servlet-name>product</servlet-name>
 <url-pattern>/product/*</url-pattern>
-</servlet-mapping>	
-	
+</servlet-mapping>
+
 <servlet>
 <servlet-name>member</servlet-name>
 <servlet-class>com.nike.controller.MemberController</servlet-class>
