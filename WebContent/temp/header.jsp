@@ -52,10 +52,10 @@
 								</ul>
 							</ul>
 							<ul class="twodepth-submenu-t2">
-								<li class="twodepth-list"><a href="#" data-click-area="GNB"
+								<li class="twodepth-list"><a href="/mall_project/index.jsp" data-click-area="GNB"
 									data-click-name="MEN_신발">신발</a>
 									<ul class="header-menu_threedepth">
-										<li class="threedepth-list"><a href="#"
+										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_신발 전체">신발
 												전체</a></li>
 										<li class="threedepth-list"><a href="#"
