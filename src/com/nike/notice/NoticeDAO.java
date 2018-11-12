@@ -111,11 +111,11 @@ public class NoticeDAO implements BoardDAO{
 	}
 
 	@Override
-	public int delete(BoardDTO boardDTO) throws Exception {
+	public int delete(int num) throws Exception {
 		Connection con=DBconnector.getConnect();
 		String sql="delete notice where num=?";
 		PreparedStatement st=con.prepareStatement(sql);
-		st.setInt(1, boardDTO.getNum());
+		st.setInt(1, num);
 		
 		int result=st.executeUpdate();
 		DBconnector.disConnect(st, con);
@@ -139,6 +139,5 @@ public class NoticeDAO implements BoardDAO{
 		
 		return result;
 	}
-	
 
 }
