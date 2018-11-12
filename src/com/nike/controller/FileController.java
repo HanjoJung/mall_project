@@ -36,7 +36,7 @@ public class FileController extends HttpServlet {
 		String command=request.getPathInfo();
 		ActionFoward actionFoward=null;
 		
-		if(command.equals("/fileDelete.do")) {
+/*		if(command.equals("/fileDelete.do")) {
 			actionFoward=fileService.delete(request, response);
 		}
 		if(actionFoward.isCheck()) {
@@ -45,7 +45,7 @@ public class FileController extends HttpServlet {
 		}else {
 			response.sendRedirect(actionFoward.getPath());
 		}
-	}
+*/	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

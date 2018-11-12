@@ -37,7 +37,7 @@ public class MemberController extends HttpServlet {
 		String command=request.getPathInfo();
 		ActionFoward actionFoward=null;
 		
-		if(command.equals("/memberjoin.do")) {
+/*		if(command.equals("/memberjoin.do")) {
 			actionFoward=memberService.join(request, response);
 		}else if(command.equals("/memberCheckId.do")) {
 			actionFoward=memberService.checkId(request, response);
@@ -56,7 +56,7 @@ public class MemberController extends HttpServlet {
 			actionFoward.setCheck(true);
 			actionFoward.setPath("../WEB-INF/view/member/memberList.jsp");
 		}
-		if (actionFoward.isCheck()) {
+*/		if (actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
 			view.forward(request, response);
 		} else {

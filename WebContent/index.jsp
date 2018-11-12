@@ -11,6 +11,8 @@
 <body>
 <h1>index.jsp</h1>
 <h1>saewoom</h1>
+	<a href="${pageContext.request.contextPath}/notice/noticeList.do">게시판</a>
+
 <jsp:include page="./temp/footer.jsp"></jsp:include>
 </body>
 </html>
