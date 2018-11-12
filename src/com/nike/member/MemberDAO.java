@@ -49,7 +49,7 @@ public class MemberDAO {
 
 	public int update(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "update member set password=?, nickname=?, phone=?, "
+		String sql = "update member set password=?, name=?, phone=?, "
 				+ "address=?, sex=?, age=?, ProfileFname=?, ProfileOname=?  where id =?";
 
 		PreparedStatement st = con.prepareStatement(sql);
@@ -120,6 +120,7 @@ public class MemberDAO {
 
 		while(rs.next()) {
 			MemberDTO memberDTO = new MemberDTO();
+			memberDTO.setId(rs.getString("id"));
 			memberDTO.setName(rs.getString("name"));
 			memberDTO.setPhone(rs.getString("phone"));
 			memberDTO.setAddress(rs.getString("address"));
