@@ -109,13 +109,6 @@ public class NoticeService implements BoardService{
 		}else {
 			request.setAttribute("board", "notice");
 			actionFoward.setCheck(true);
-			if (session.getAttribute("member") == null) {
-				request.setAttribute("message", "선생님만 작성가능합니다");
-				request.setAttribute("path", "./noticeList.do");
-				actionFoward.setPath("../WEB-INF/view/common/result.jsp");
-			} else {
-				actionFoward.setPath("../WEB-INF/view/board/boardWrite.jsp");
-			}
 		}
 		return actionFoward;
 		
