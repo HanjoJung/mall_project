@@ -65,13 +65,6 @@
 			</c:forEach>
 			</table>
 	</div>
-	<div class="container-fluid">
-		<div class="row">
-			<ul class="pagination">
-				<li>123</li>
-			</ul>
-		</div>
-	</div>
 
 <c:import url="../../../temp/footer.jsp"></c:import>
 </body>
