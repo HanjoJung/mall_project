@@ -66,6 +66,7 @@ public class LoginCheck implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {
 		map.put("/memberSelectOne.do", "");
 		map.put("/memberUpdate.do", "");
+		map.put("/memberDelete.do", "");
 	}
 
 }
