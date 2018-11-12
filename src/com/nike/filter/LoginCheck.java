@@ -49,12 +49,11 @@ public class LoginCheck implements Filter {
 		String check = map.get(command);
 		HttpSession session = ((HttpServletRequest) request).getSession();
 		MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
-		System.out.println(check);
 		if (check != null) {
 			if (memberDTO != null) {
 				chain.doFilter(request, response);
 			} else {
-				((HttpServletResponse) response).sendRedirect("../WEB-INF/view/member/memberLogin.jsp");
+				((HttpServletResponse) response).sendRedirect("./memberLogin.do");
 			}
 		} else {
 			chain.doFilter(request, response);

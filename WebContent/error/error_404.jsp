@@ -34,7 +34,7 @@ div {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	background: url(../../../mall_project/error/bg-shutdown.jpg) no-repeat center center fixed;
+	background: url(../../../../../../mall_project/error/bg-shutdown.jpg) no-repeat center center fixed;
 	webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -55,7 +55,7 @@ div {
 	margin: 55px 0 50px 414px;
 	width: 89px;
 	height: 32px;
-	background: url(../../../mall_project/error/logo_shut.jpg) no-repeat 0 0;
+	background: url(../../../../../../mall_project/error/logo_shut.jpg) no-repeat 0 0;
 	text-indent: -9999em;
 }
 

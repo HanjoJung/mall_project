@@ -134,9 +134,7 @@
 					<label for="file">프로필 사진:</label> <input type="file"
 						class="form-control" id="file" name="f">
 				</div>
-				<button class="btn btn-default">가입</button>
-				<input type="button" class="btn btn-default" value="가입 script"
-					id="join">
+				<input type="button" class="btn btn-default" value="가입 " id="join">
 			</form>
 		</div>
 	</div>
