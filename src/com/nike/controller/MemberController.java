@@ -33,26 +33,28 @@ public class MemberController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String command = request.getPathInfo();
 		ActionFoward actionFoward = null;
-		if (command.equals("/memberList.do")) {
-			actionFoward = memberService.selectList(request, response);
-		} else if (command.equals("/memberJoin.do")) {
+
+		if (command.equals("/memberjoin.do")) {
 			actionFoward = memberService.join(request, response);
-		}else if(command.equals("/memberLogin.do")) {
-			actionFoward=memberService.login(request, response);
-		}else if(command.equals("/memberCheckId.do")) {
-			actionFoward=memberService.checkId(request, response);
-		}else if(command.equals("/memberLogout.do")) {
-			actionFoward=memberService.logout(request, response);			
-		}else if(command.equals("/memberSelectOne.do")) {
-			actionFoward=memberService.selectOne(request, response);
-		}else if(command.equals("/memberUpdate.do")) {
-			actionFoward=memberService.update(request, response);
-		}else if(command.equals("/memberDelete.do")) {
-			actionFoward=memberService.delete(request, response);
+		} else if (command.equals("/memberCheckId.do")) {
+			actionFoward = memberService.checkId(request, response);
+		} else if (command.equals("/memberLogin.do")) {
+			actionFoward = memberService.login(request, response);
+		} else if (command.equals("/memberCheckId.do")) {
+			actionFoward = memberService.checkId(request, response);
+		} else if (command.equals("/memberLogout.do")) {
+			actionFoward = memberService.logout(request, response);
+		} else if (command.equals("/memberSelectOne.do")) {
+			actionFoward = memberService.selectOne(request, response);
+		} else if (command.equals("/memberUpdate.do")) {
+			actionFoward = memberService.update(request, response);
+		} else if (command.equals("/memberDelete.do")) {
+			actionFoward = memberService.delete(request, response);
 		} else {
 			actionFoward = new ActionFoward();
 			actionFoward.setCheck(true);

@@ -42,7 +42,7 @@ public class ProductService {
 			request.setAttribute("list", ar);
 			request.setAttribute("pager", pager);
 			request.setAttribute("board", "product");
-			actionFoward.setPath("../WEB-INF/view/board/boardList.jsp");
+			actionFoward.setPath("../WEB-INF/view/product/productList.jsp");
 		
 			
 

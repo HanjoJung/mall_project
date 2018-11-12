@@ -15,8 +15,8 @@ public interface BoardDAO {
 	
 	public int update(BoardDTO boardDTO) throws Exception;
 	
-	public int delete(BoardDTO boardDTO) throws Exception;
+	public int delete(int num) throws Exception;
 	
 	public int getCount(Search search) throws Exception;
 
-}
+	}

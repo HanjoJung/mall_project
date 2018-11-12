@@ -9,9 +9,6 @@ public class Search {
 	}
 
 	public void setKind(String kind) {
-		if (kind == null) {
-			kind = "";
-		}
 		this.kind = kind;
 	}
 

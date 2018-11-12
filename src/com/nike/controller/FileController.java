@@ -28,7 +28,6 @@ public class FileController extends HttpServlet {
 		// TODO Auto-generated constructor stub
 		fileService = new FileService();
 	}
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
