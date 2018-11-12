@@ -1,0 +1,14 @@
+* {
+	margin:0 auto; ; 
+	padding:0; }
+ol,ul {
+	list-style:none; }
+a {
+	outline:0; 
+	text-decoration:none; 
+	color:black; }
+img {
+	border:0; }
+html, body {
+	height:100%;
+	}
