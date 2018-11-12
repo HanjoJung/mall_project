@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
-    pageEncoding="UTF-8"%>
-=======
 	pageEncoding="UTF-8"%>
 <footer>
 	<div class="footer-contents">
@@ -10,11 +7,11 @@
 			<div class="uk-grid">
 				<div class="company-info uk-width-medium-1-4">
 					<p class="mobile-only">
-						<a href="/kr/ko_kr/account/orders">주문배송</a>
+						<a href="#">주문배송</a>
 					</p>
 					<p>
 						<a data-click-area="Footer GNB" data-click-name="Store locator"
-							href="/kr/ko_kr/store">매장안내</a>
+							href="#">매장안내</a>
 					</p>
 					<p class="pc-only">
 						<a data-component-loginmodal="" data-click-area="Footer GNB"
@@ -25,7 +22,7 @@
 							data-click-area="Footer GNB" data-click-name="Join">회원가입</a>
 					</p>
 					<p class="mobile-only">
-						<a href="https://nike-breeze.zendesk.com/hc/ko">고객센터</a>
+						<a href="#">고객센터</a>
 					</p>
 				</div>
 				<dl class="company-legal uk-width-medium-1-4 pc-only">
@@ -34,55 +31,44 @@
 						<a href="tel:080-022-0182"><strong>080-022-0182</strong></a>
 					</dd>
 					<dd>
-						<a
-							href="https://nike-breeze.zendesk.com/hc/ko/categories/115000391073"
-							data-click-area="Footer GNB"
+						<a href="#" data-click-area="Footer GNB"
 							data-click-name="Help_Order/Payment Process">주문/결제</a>
 					</dd>
 					<dd>
-						<a
-							href="https://nike-breeze.zendesk.com/hc/ko/categories/115000391033-%EB%B0%B0%EC%86%A1"
-							data-click-area="Footer GNB" data-click-name="Help_Shipping FAQ"><strong>배송</strong></a>
+						<a href="#" data-click-area="Footer GNB"
+							data-click-name="Help_Shipping FAQ"><strong>배송</strong></a>
 					</dd>
 					<dd>
 						<a data-click-area="Footer GNB"
-							data-click-name="Help_Order/Shipping"
-							href="/kr/ko_kr/account/orders"><strong>주문배송조회</strong></a>
+							data-click-name="Help_Order/Shipping" href="#"><strong>주문배송조회</strong></a>
 					</dd>
 					<dd>
-						<a
-							href="https://nike-breeze.zendesk.com/hc/ko/categories/115000387934"
-							data-click-area="Footer GNB"
+						<a href="#" data-click-area="Footer GNB"
 							data-click-name="Help_Member benefit">멤버쉽 혜택/서비스</a>
 					</dd>
 					<dd>
-						<a
-							href="https://nike-breeze.zendesk.com/hc/ko/categories/115000485933"
-							data-click-area="Footer GNB" data-click-name="Help_Notice">공지사항</a>
+						<a href="#" data-click-area="Footer GNB"
+							data-click-name="Help_Notice">공지사항</a>
 					</dd>
 					<dd>
-						<a href="https://nike-breeze.zendesk.com/hc/ko/requests/new"
-							data-click-area="Footer GNB" data-click-name="Help_Email Inquiry">1:1
-							이메일문의</a>
-					</dd>
-					<dd>
-						<a data-click-area="Footer GNB"
-							data-click-name="Help_Privacy Policy"
-							href="/kr/ko_kr/cscenter/policy">이용약관</a>
+						<a href="#" data-click-area="Footer GNB"
+							data-click-name="Help_Email Inquiry">1:1 이메일문의</a>
 					</dd>
 					<dd>
 						<a data-click-area="Footer GNB"
-							data-click-name="Help_Terms of Use"
-							href="/kr/ko_kr/cscenter/privacyAndTerms"><strong
+							data-click-name="Help_Privacy Policy" href="#">이용약관</a>
+					</dd>
+					<dd>
+						<a data-click-area="Footer GNB"
+							data-click-name="Help_Terms of Use" href="#"><strong
 							class="font-size-s">개인정보처리방침</strong></a>
 					</dd>
 				</dl>
 				<dl class="company-agreement uk-width-medium-1-4 pc-only">
 					<dt>ABOUT NIKE</dt>
 					<dd>
-						<a href="https://about.nike.com/" target="_blank"
-							data-click-area="Footer GNB" data-click-name="About Nike">나이키에
-							대하여</a>
+						<a href="#/" target="_blank" data-click-area="Footer GNB"
+							data-click-name="About Nike">나이키에 대하여</a>
 					</dd>
 				</dl>
 				<dl class="company-follow uk-width-medium-1-4 pc-only">
@@ -110,25 +96,23 @@
 		<div class="footer-copy">
 			<div class="uk-clearfix">
 				<div class="uk-float-left">
-					<a href="http://www.nike.com/language_tunnel" title="대한민국"><span
-						class="flag-kr">대한민국</span></a> ⓒ 2018 Nike, Inc. All Rights Reserved
+					<a href="#" title="대한민국"><span class="flag-kr">대한민국</span></a> ⓒ
+					2018 Nike, Inc. All Rights Reserved
 				</div>
 				<div class="uk-float-right menu-term">
-					<a href="/kr/ko_kr/cscenter/policy">이용약관</a> <a
-						href="/kr/ko_kr/cscenter/privacyAndTerms">개인정보처리방침</a>
+					<a href="#">이용약관</a> <a href="#">개인정보처리방침</a>
 				</div>
 			</div>
 		</div>
 		<div class="footer-info">
 			<div class="uk-grid footer-maxwidth">
 				<address class="uk-width-medium-4-8">
-					<a class="company-logo" href="/kr/ko_kr/"></a> <span>(유)나이키코리아</span>
-					<span>대표 <i>데이빗욱환송</i></span> <span class="divider">서울시 강남구
-						테헤란로 152 (역삼동, 강남파이낸스센터 31층)</span><br class="pc-only"> <span>통신판매업신고번호
-						<i>2011-서울강남-03461</i>
+					<a class="company-logo" href="#"></a> <span>(유)나이키코리아</span> <span>대표
+						<i>데이빗욱환송</i>
+					</span> <span class="divider">서울시 강남구 테헤란로 152 (역삼동, 강남파이낸스센터 31층)</span><br
+						class="pc-only"> <span>통신판매업신고번호 <i>2011-서울강남-03461</i>
 					</span> <span class="divider">등록번호 <i>220-88-09068</i></span> <a
-						target="_blank" class="trade"
-						href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=220-88-09068">사업자정보확인</a><br
+						target="_blank" class="trade" href="#">사업자정보확인</a><br
 						class="pc-only"> <span>개인정보보호책임자 <i>서준우</i></span> <span
 						class="divider">정보보호최고책임자 <i>이희준</i></span> <span class="divider">고객센터
 						전화문의 <a href="tel:080-022-0182"><i>080-022-0182</i></a>
@@ -138,8 +122,8 @@
 				</address>
 				<div class="insurance uk-width-medium-3-8">
 					<span class="insurance_info"> 안전거래를 위해 현금 등으로 결제 시 저희 쇼핑몰에서
-						가입한 <br> KG 이니시스의 구매안전 서비스 (채무지급보증)를 이용하실 수 있습니다. <br>
-					<br> 온라인디지털콘텐츠사업발전법에 의한 <a href="javascript:;"
+						가입한 <br> KG 이니시스의 구매안전 서비스 (채무지급보증)를 이용하실 수 있습니다. <br> <br>
+						온라인디지털콘텐츠사업발전법에 의한 <a href="javascript:;"
 						data-uk-modal="{target:'#privacy-personal'}" class="underline">콘텐츠보호안내
 							자세히보기</a><br>
 					</span> <span class="escrow-icon-img"> <img
@@ -158,12 +142,10 @@
 				</div>
 			</div>
 			<div class="btn-menu-item mobile-only">
-				<a target="_blank"
-					href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=220-88-09068">사업자정보확인</a>
-				<a href="javascript:;" data-uk-modal="{target:'#privacy-personal'}"
-					class="ksnet">콘텐츠보호안내 자세히보기</a>
+				<a target="_blank" href="#">사업자정보확인</a> <a href="javascript:;"
+					data-uk-modal="{target:'#privacy-personal'}" class="ksnet">콘텐츠보호안내
+					자세히보기</a>
 			</div>
 		</div>
 	</div>
 </footer>
->>>>>>> origin/member3_index
