@@ -1,6 +1,7 @@
 package com.nike.member;
 
 import java.io.File;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,12 +73,11 @@ MultipartRequest multi = new MultipartRequest(request, save, max, "UTF-8", new D
 				MemberDTO memberDTO = new MemberDTO();
 				memberDTO.setId(multi.getParameter("id"));
 				memberDTO.setPassword(multi.getParameter("pw2"));
-				memberDTO.setNickname(multi.getParameter("nickname"));
-				memberDTO.setEmail(multi.getParameter("email"));
+				memberDTO.setName(multi.getParameter("name"));
 				memberDTO.setPhone(multi.getParameter("phone"));
 				memberDTO.setAddress(multi.getParameter("address"));
 				memberDTO.setSex(multi.getParameter("sex"));
-				memberDTO.setAge(Integer.parseInt(multi.getParameter("age")));
+				memberDTO.setBirthday(Date.valueOf(multi.getParameter("birthday")));
 				memberDTO.setProfileFname(multi.getFilesystemName("f"));
 				memberDTO.setProfileOname(multi.getOriginalFileName("f"));
 				result = memberDAO.insert(memberDTO);
@@ -155,7 +155,7 @@ MultipartRequest multi = new MultipartRequest(request, save, max, "UTF-8", new D
 		request.setAttribute("path", "../index.jsp");
 
 		try {
-			int result = memberDAO.delete((MemberDTO)session.getAttribute("member"));
+			int result = memberDAO.delete((MemberDTO) session.getAttribute("member"));
 			if (result > 0) {
 				session.invalidate();
 				request.setAttribute("message", "seccess");
@@ -189,15 +189,14 @@ MultipartRequest multi = new MultipartRequest(request, save, max, "UTF-8", new D
 				MultipartRequest multi;
 				multi = new MultipartRequest(request, save, max, "UTF-8", new DefaultFileRenamePolicy());
 
-				MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+				MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
 				memberDTO.setId(multi.getParameter("id"));
 				memberDTO.setPassword(multi.getParameter("pw2"));
-				memberDTO.setNickname(multi.getParameter("nickname"));
-				memberDTO.setEmail(multi.getParameter("email"));
+				memberDTO.setName(multi.getParameter("name"));
 				memberDTO.setPhone(multi.getParameter("phone"));
 				memberDTO.setAddress(multi.getParameter("address"));
 				memberDTO.setSex(multi.getParameter("sex"));
-				memberDTO.setAge(Integer.parseInt(multi.getParameter("age")));
+				memberDTO.setBirthday(Date.valueOf(multi.getParameter("birthday")));
 				file = multi.getFile("f");
 				if (file != null) {
 					file = new File(save, memberDTO.getProfileFname());
@@ -221,11 +220,11 @@ MultipartRequest multi = new MultipartRequest(request, save, max, "UTF-8", new D
 		actionFoward.setCheck(true);
 		return actionFoward;
 	}
-	
+
 	public ActionFoward checkId(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
 		String id = request.getParameter("id");
-		
+
 		try {
 			int result = memberDAO.checkId(id);
 			request.setAttribute("result", result);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,29 +10,6 @@
 <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
 <script type="text/javascript">
 $(function() {
-	var count = 1;
-	var index = 0;
-	$("#file_btn").click(function() {
-		var file = document.getElementById("file")
-		if(count<6){
-			var r = '<div class="form-group" id="f'+index+'">';
-			r = r+'<input type="file" class="form-control" id="file" name="f'+index+'">';
-			r = r+'<span class="remove"style="color:red;" title="'+index+'">X</span>'; 
-			r = r+'</div>';
-			$("#file").append(r);
-				//file.innerHTML += r;
-				count++;
-				index++;
-		} else {
-			alert("파일은 5개까지만 등록 가능합니다");
-		}
-	})
-		$("#file").on("click", ".remove", function() {
-			var t = $(this).attr("title");
-			$("#f"+t).remove();
-			count--;
-		});
-
 	$("#btn").click(function() {
 		var title = $("#title").val();
 		if (title != "") {
@@ -42,7 +20,9 @@ $(function() {
 	})
 })
 </script>
+<c:import url="../../../temp/bootStrap.jsp" />
 </head>
+<c:import url="../../../temp/header.jsp" />
 <body id="myPage" data-spy="scroll" data-target=".navbar"
 	data-offset="60">
 
@@ -71,18 +51,14 @@ $(function() {
 				<script>
 					CKEDITOR.replace('contents');
 				</script>
-				
-				<input id="file_btn" type="button" value="추가"
-					class="btn btn-default">
-				<div class="files" id="file"></div>
-
+		
 				<input type="button" id="btn" class="btn btn-default" value="등록">
 			</form>
 		</div>
 	</div>
 
 
-	<jsp:include page="../../../temp/footer.jsp"></jsp:include>
+	<c:import url="../../../temp/footer.jsp" />
 
 </body>
 </html>
