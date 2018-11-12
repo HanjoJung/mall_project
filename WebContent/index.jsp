@@ -155,6 +155,7 @@
 			</div>
 			<div class="col-lg-1"></div>
 		</div>
-		<jsp:include page="./temp/footer.jsp"></jsp:include>
+	</div>
+	<jsp:include page="./temp/footer.jsp"></jsp:include>
 </body>
 </html>

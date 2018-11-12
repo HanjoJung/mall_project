@@ -26,7 +26,7 @@
 			<a class="header-logo" href="#"> <span class="ns-swoosh"></span>
 			</a>
 			<ul class="header-menu_onedepth">
-				<li class="onedepth-list"><a href="#" class="">MEN</a>
+				<li class="onedepth-list"><a href="/mall_project/index.jsp" class="">MEN</a>
 					<div class="header-menu_twodepth">
 						<div class="twodepth-maxwidth">
 							<ul class="twodepth-submenu-t1">
@@ -52,10 +52,11 @@
 								</ul>
 							</ul>
 							<ul class="twodepth-submenu-t2">
-								<li class="twodepth-list"><a href="/mall_project/index.jsp" data-click-area="GNB"
-									data-click-name="MEN_신발">신발</a>
+								<li class="twodepth-list"><a href="/mall_project/index.jsp"
+									data-click-area="GNB" data-click-name="MEN_신발">신발</a>
 									<ul class="header-menu_threedepth">
-										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
+										<li class="threedepth-list"><a
+											href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_신발 전체">신발
 												전체</a></li>
 										<li class="threedepth-list"><a href="#"
@@ -711,4 +712,3 @@
 		</nav>
 	</article>
 </header>
-</body>
