@@ -93,6 +93,10 @@
 					window.open("./memberCheckId.do?id=" + id, "",
 							"width=300, height=200, top=300, left=500");
 				})
+
+		$(".brz-icon-checkbox").parent().click(function() {
+			alert($(this).parent().find("first-child"));
+		})
 	})
 </script>
 <style type="text/css">
@@ -103,6 +107,18 @@ body, button, input {
 		Helvetica;
 	color: #606060;
 	line-height: 1;
+}
+
+i {
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 h6 {
@@ -125,6 +141,24 @@ a {
 	background: #39f;
 	color: #fff;
 	text-shadow: none;
+}
+
+.icon-background, .brz-icon-instagram, .brz-icon-facebook,
+	.brz-icon-twitter, .brz-icon-cart, .brz-icon-search,
+	.brz-icon-registerdone, .brz-icon-star_small, .brz-icon-star_normal,
+	.brz-icon-star_large, .brz-icon-star_xlarge, .star-bullet,
+	.brz-icon-bambug, .brz-icon-bambug_small, .brz-icon-logo,
+	.brz-icon-info, .brz-icon-select_up, .brz-icon-select_down,
+	.brz-icon-opt-select_up, .brz-icon-opt-select_down, .brz-icon-slidebar,
+	.brz-icon-radio, .brz-icon-checkbox, .brz-icon-delete, .brz-icon-file,
+	.brz-icon-img-file, .brz-icon-arrow, .file-remove_btn, .popup-close_btn
+	{
+	display: inline-block;
+	overflow: hidden;
+	background-image: url(../../../../../../mall_project/img/icon.png);
+	background-repeat: no-repeat;
+	text-indent: -9999px;
+	background-size: 800px auto;
 }
 
 .wrapper {
@@ -300,6 +334,101 @@ input, textarea {
 	padding: 15px 8px;
 	border: 1px solid #d1d1d1;
 }
+
+.login-wrap .body .register-terms .agree-test {
+	padding-top: 7px;
+	font-size: 11px;
+	line-height: 1.5;
+}
+
+.input-checkbox>input {
+	-webkit-appearance: checkbox;
+	left: -1000px;
+	position: relative;
+}
+
+.input-checkbox>label>i {
+	display: table-cell;
+}
+
+.input-checkbox>label>i {
+	margin-right: 5px;
+}
+
+.brz-icon-checkbox {
+	float: left;
+	width: 18px;
+	height: 19px;
+	background-position: -22px -320px;
+	z-index: 10;
+}
+
+.dynamic-form-register input[type=checkbox]+label .label.font-normal {
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.dynamic-form-register input[type=checkbox]+label .label {
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.input-checkbox.checked i {
+	background-position: -89px -320px;
+}
+
+.input-checkbox>label .label {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+element.style {
+	
+}
+
+.dynamic-form-register input[type=checkbox]+label .label.font-normal {
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.dynamic-form-register input[type=checkbox]+label .label {
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.input-checkbox>label>.label {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.input-checkbox>label>.label {
+	font-size: 13px;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+	details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
+	output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.input-checkbox>label {
+	display: inline-block;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+.label {
+	color: #606060;
+	padding: 0 0 5px;
+}
 </style>
 </head>
 <body>
@@ -362,7 +491,18 @@ input, textarea {
 														class="uk-width-1-2 uk-text-right btn-agree-allview">전문보기</a>
 												</div>
 												<div class="uk-grid uk-margin-top-remove">
-													<div class="scroll-box agree-content uk-width-1-1" ></div>
+													<div class="uk-width-1-1">
+														<div class="scroll-box agree-content"></div>
+													</div>
+												</div>
+												<div class="uk-width-1-1 agree-test">
+													<span id="checkTerms" class="input-checkbox uk-width-1-1">
+														<input type="checkbox" id="checkGcAgree"
+														name="checkGcAgree"> <label for="checkGcAgree">
+															<i class="brz-icon-checkbox"> </i><span
+															class="label font-normal">[필수] 약관에 동의 합니다.</span>
+													</label>
+													</span>
 												</div>
 											</div>
 										</div>
