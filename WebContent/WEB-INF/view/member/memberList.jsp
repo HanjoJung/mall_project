@@ -11,11 +11,7 @@
 <body>
 	<c:import url="../../../temp/header.jsp" />
 
-<<<<<<< HEAD
 	<div class="container-fluid wrapper">
-=======
-	<div class="container-fluid" style="max-width: 1500px;">
->>>>>>> member_4
 		<div class="row">
 			<table class="table table-hover">
 				<thead>

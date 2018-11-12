@@ -10,7 +10,7 @@
 				<li><a href="#"><span class="ns-logo-converse"></span></a></li>
 			</ul>
 			<ul class="uk-float-right header-mymenu">
-				<li><span> <a title="회원가입" class="join" href="#">회원가입</a>
+				<li><span> <a title="회원가입" class="join" href="./member/memberJoin.do">회원가입</a>
 						<a style="padding: 0px;">/</a><a title="로그인" href="#"
 						class="login">로그인</a>
 				</span></li>
@@ -23,7 +23,7 @@
 	</div>
 	<article class="contents">
 		<nav class="header-lnb">
-			<a class="header-logo" href="#"> <span class="ns-swoosh"></span>
+			<a class="header-logo" href="${pageContext.request.contextPath}/index.jsp"> <span class="ns-swoosh"></span>
 			</a>
 			<ul class="header-menu_onedepth">
 				<li class="onedepth-list"><a href="/mall_project/index.jsp" class="">MEN</a>

@@ -39,7 +39,9 @@ public class MemberController extends HttpServlet {
 		String command = request.getPathInfo();
 		ActionFoward actionFoward = null;
 
-		if (command.equals("/memberJoin.do")) {
+		if (command.equals("/memberList.do")) {
+			actionFoward = memberService.selectList(request, response);
+		}else if (command.equals("/memberJoin.do")) {
 			actionFoward = memberService.join(request, response);
 		} else if (command.equals("/memberCheckId.do")) {
 			actionFoward = memberService.checkId(request, response);
