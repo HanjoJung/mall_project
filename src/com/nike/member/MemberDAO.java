@@ -10,22 +10,37 @@ import com.nike.page.RowNumber;
 import com.nike.util.DBconnector;
 
 public class MemberDAO {
+	public int checkId(String id) throws Exception{
+		Connection con = DBconnector.getConnect();
+		String sql = "select * from member where id=?";
+		int result = 1;
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, id);
+		ResultSet rs = st.executeQuery();
+		
+		if(rs.next()) {
+			result = 2;
+		}
+		
+		DBconnector.disConnect(rs, st, con);
+		return result;
+	}
 
 	public int insert(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "insert into member values(?,?,?,?,?,?,?,?,sysdate,?,?)";
+		String sql = "insert into member values(?,?,?,?,?,?,?,sysdate,?,?)";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getId());
 		st.setString(2, memberDTO.getPassword());
-		st.setString(3, memberDTO.getNickname());
-		st.setString(4, memberDTO.getEmail());
-		st.setString(5, memberDTO.getPhone());
-		st.setString(6, memberDTO.getAddress());
-		st.setString(7, memberDTO.getSex());
-		st.setInt(8, memberDTO.getAge());
-		st.setString(9, memberDTO.getProfileFname());
-		st.setString(10, memberDTO.getProfileOname());
+		st.setString(3, memberDTO.getName());
+		st.setString(4, memberDTO.getPhone());
+		st.setString(5, memberDTO.getAddress());
+		st.setString(6, memberDTO.getSex());
+		st.setDate(7, memberDTO.getBirthday());
+		st.setString(8, memberDTO.getProfileFname());
+		st.setString(9, memberDTO.getProfileOname());
 		int result = st.executeUpdate();
 
 		DBconnector.disConnect(st, con);
@@ -34,17 +49,19 @@ public class MemberDAO {
 
 	public int update(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "update member set password=?, nickname=?, email=?, phone=?, address=?, sex=?, age=? where id =?";
+		String sql = "update member set password=?, nickname=?, phone=?, "
+				+ "address=?, sex=?, age=?, ProfileFname=?, ProfileOname=?  where id =?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getPassword());
-		st.setString(2, memberDTO.getNickname());
-		st.setString(3, memberDTO.getEmail());
-		st.setString(4, memberDTO.getPhone());
-		st.setString(5, memberDTO.getAddress());
-		st.setString(6, memberDTO.getSex());
-		st.setInt(7, memberDTO.getAge());
-		st.setString(8, memberDTO.getId());
+		st.setString(2, memberDTO.getName());
+		st.setString(3, memberDTO.getPhone());
+		st.setString(4, memberDTO.getAddress());
+		st.setString(5, memberDTO.getSex());
+		st.setDate(6, memberDTO.getBirthday());
+		st.setString(7, memberDTO.getProfileFname());
+		st.setString(8, memberDTO.getProfileOname());
+		st.setString(9, memberDTO.getId());
 		int result = st.executeUpdate();
 
 		DBconnector.disConnect(st, con);
@@ -65,7 +82,7 @@ public class MemberDAO {
 
 	public MemberDTO login(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "selete * from member where id=? and pw=?";
+		String sql = "select * from member where id=? and password=?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getId());
@@ -73,12 +90,11 @@ public class MemberDAO {
 		ResultSet rs = st.executeQuery();
 
 		if (rs.next()) {
-			memberDTO.setNickname(rs.getString("nickname"));
-			memberDTO.setEmail(rs.getString("email"));
+			memberDTO.setName(rs.getString("name"));
 			memberDTO.setPhone(rs.getString("phone"));
 			memberDTO.setAddress(rs.getString("address"));
 			memberDTO.setSex(rs.getString("sex"));
-			memberDTO.setAge(rs.getInt("age"));
+			memberDTO.setBirthday(rs.getDate("birthday"));
 			memberDTO.setJoin_date(rs.getDate("join_date"));
 			memberDTO.setProfileFname(rs.getString("profileFname"));
 			memberDTO.setProfileOname(rs.getString("profileOname"));
@@ -104,12 +120,11 @@ public class MemberDAO {
 
 		while(rs.next()) {
 			MemberDTO memberDTO = new MemberDTO();
-			memberDTO.setNickname(rs.getString("nickname"));
-			memberDTO.setEmail(rs.getString("email"));
+			memberDTO.setName(rs.getString("name"));
 			memberDTO.setPhone(rs.getString("phone"));
 			memberDTO.setAddress(rs.getString("address"));
 			memberDTO.setSex(rs.getString("sex"));
-			memberDTO.setAge(rs.getInt("age"));
+			memberDTO.setBirthday(rs.getDate("birthday"));
 			memberDTO.setJoin_date(rs.getDate("join_date"));
 			memberDTO.setProfileFname(rs.getString("profileFname"));
 			memberDTO.setProfileOname(rs.getString("profileOname"));

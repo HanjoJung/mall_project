@@ -11,18 +11,21 @@
 <body>
 	<c:import url="../../../temp/header.jsp" />
 
+<<<<<<< HEAD
 	<div class="container-fluid wrapper">
+=======
+	<div class="container-fluid" style="max-width: 1500px;">
+>>>>>>> member_4
 		<div class="row">
 			<table class="table table-hover">
 				<thead>
 					<tr>
 						<td width="5%"><input type="checkbox" id="check"></td>
 						<td width="10%">ID</td>
-						<td width="10%">닉네임</td>
-						<td width="20%">E-mail</td>
+						<td width="10%">이름</td>
 						<td width="15%">연락처</td>
 						<td width="10%">성별</td>
-						<td width="10%">나이</td>
+						<td width="10%">생년월일</td>
 						<td width="10%">가입날짜</td>
 					</tr>
 				</thead>
@@ -32,11 +35,10 @@
 							<td><input type="checkbox" class="del" value="${dto.id}"
 								id="${dto.id}" name="del"></td>
 							<td>${dto.id}</td>
-							<td>${dto.nickname}</td>
-							<td>${dto.email}</td>
+							<td>${dto.name}</td>
 							<td>${dto.phone}</td>
 							<td>${dto.sex}</td>
-							<td>${dto.age}</td>
+							<td>${dto.birthday}</td>
 							<td>${dto.join_date}</td>
 						</tr>
 					</c:forEach>
@@ -45,11 +47,23 @@
 			<table>
 				<tr>
 					<td>
-						<button class="btn btn-default"><a href="${pageContext.request.contextPath}/index.jsp">홈</a></button>
-						<button class="btn btn-default"><a href="./memberJoin.do">가입</a></button>
-						<button class="btn btn-default"><a href="./memberDelete.do">탈퇴</a></button>
-						<button class="btn btn-default"><a href="./memberLogin.do">로그인</a></button>
-						<button class="btn btn-default"><a href="./memberLogout.do">로그아웃</a></button>
+						<a href="${pageContext.request.contextPath}/index.jsp">
+							<input type="button" class="btn btn-default" value="홈">
+						</a>
+						<c:choose>
+						<c:when test="${empty member}">
+							<a href="./memberJoin.do"> 
+								<input type="button" class="btn btn-default" value="가입"></a> 
+							<a href="./memberLogin.do"> 
+								<input type="button" class="btn btn-default" value="로그인"></a>
+						</c:when>
+						<c:otherwise> 
+							<a href="./memberSelectOne.do"> 
+								<input type="button" class="btn btn-default" value="개인정보"></a>
+							<a href="./memberLogout.do"> 
+								<input type="button" class="btn btn-default" value="로그아웃"></a>
+						</c:otherwise>
+						</c:choose>
 					</td>
 				</tr>
 			</table>
