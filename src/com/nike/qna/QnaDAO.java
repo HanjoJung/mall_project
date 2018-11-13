@@ -155,5 +155,17 @@ public class QnaDAO implements BoardDAO, BoardReply {
 		return result;
 	}
 	
+	public int getNum() throws Exception{
+		Connection con=DBconnector.getConnect();
+		String sql="select notice_seq.nextval from dual";
+		PreparedStatement st=con.prepareStatement(sql);
+		ResultSet rs=st.executeQuery();
+		rs.next();
+		int num=rs.getInt(1);
+		DBconnector.disConnect(rs, st, con);
+		return num;
+		
+	}
+	
 
 }
