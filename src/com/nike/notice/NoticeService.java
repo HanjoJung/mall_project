@@ -97,8 +97,8 @@ public class NoticeService implements BoardService{
 					actionFoward.setCheck(true);
 					actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 				} else {
-					actionFoward.setCheck(true);
-					actionFoward.setPath("../WEB-INF/view/common/result.jsp");
+					actionFoward.setCheck(false);
+					actionFoward.setPath("./noticeList.do");
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -110,7 +110,7 @@ public class NoticeService implements BoardService{
 			request.setAttribute("board", "notice");
 			actionFoward.setCheck(true);
 			if (session.getAttribute("member") == null) {
-				request.setAttribute("message", "선생님만 작성가능합니다");
+				request.setAttribute("message", "관리자만 작성가능합니다");
 				request.setAttribute("path", "./noticeList.do");
 				actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 			} else {
