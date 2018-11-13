@@ -1,12 +1,15 @@
 package com.nike.product;
 
 import java.io.File;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nike.action.ActionFoward;
+import com.nike.file.FileDAO;
+import com.nike.file.FileDTO;
 import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
@@ -111,12 +114,39 @@ public class ProductService {
 				productDTO.setManufacturerCode(multi.getParameter("manufacturerCode"));
 				int result = productDAO.insert(productDTO);
 				if(result>0) {
+					FileDAO fileDAO = new FileDAO();
+					Enumeration<Object> e = multi.getFileNames();
+					while(e.hasMoreElements()) {
+						String p =(String)e.nextElement();
+						FileDTO fileDTO = new FileDTO();
+						fileDTO.setPut("M");
+						fileDTO.setProductCode(productDTO.getProductCode());
+						fileDTO.setFname(multi.getFilesystemName(p));
+						fileDTO.setOname(multi.getOriginalFileName(p));
+						
+						fileDAO.insert(fileDTO);
+						
+					}
+					message = "Success";
+					actionFoward.setCheck(true);
+					actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 					
+				}else {
+					actionFoward.setCheck(true);
+					actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 				}
 				
 			} catch (Exception e) {
-				// TODO: handle exception
+				e.printStackTrace();
 			}
+			
+			request.setAttribute("message", message);
+			request.setAttribute("path", path);
+			
+		}else {
+			request.setAttribute("board", "product");
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/product/productWrite.jsp");
 		}
 		
 		
