@@ -141,11 +141,10 @@ public class QnaDAO implements BoardDAO, BoardReply {
 	@Override
 	public int getCount(Search search) throws Exception {
 		Connection con=DBconnector.getConnect();
-		String sql="select count(num) from qna where " + search.getKind() + " like ?";
+		String sql="select count(num) from qna";
 		
 		PreparedStatement st=con.prepareStatement(sql);
-		st.setString(1, "%"+search.getSearch()+"%");
-		
+				
 		ResultSet rs=st.executeQuery();
 		rs.next();
 		int result=rs.getInt(1);
