@@ -11221,7 +11221,7 @@ h1, h2, h3, h4, h5, h6 {
 .icon-background, .brz-icon-instagram, .brz-icon-facebook, .brz-icon-twitter, .brz-icon-cart, .brz-icon-search, .brz-icon-registerdone, .brz-icon-star_small, .brz-icon-star_normal, .brz-icon-star_large, .brz-icon-star_xlarge, .star-bullet, .brz-icon-bambug, .brz-icon-bambug_small, .brz-icon-logo, .brz-icon-info, .brz-icon-select_up, .brz-icon-select_down, .brz-icon-opt-select_up, .brz-icon-opt-select_down, .brz-icon-slidebar, .brz-icon-radio, .brz-icon-checkbox, .brz-icon-delete, .brz-icon-file, .brz-icon-img-file, .brz-icon-arrow, .file-remove_btn, .popup-close_btn {
   display: inline-block;
   overflow: hidden;
-  background-image: url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/images/icon.png");
+  background-image: url("/mall_project/images/icon.png");
   background-repeat: no-repeat;
   text-indent: -9999px;
   background-size: 800px auto;
@@ -15342,7 +15342,7 @@ header {
 
 .header_layout_1 .header-lnb .header-menu_onedepth .back-img {
   width: 320px;
-  background-image: url("https://static-breeze.nike.co.kr/kr/ko_kr/assets/images/menu_back.png");
+  background-image: url("/mall_project/images/menu_back.png");
   background-repeat: no-repeat;
   background-position: bottom right;
 }
@@ -17780,7 +17780,7 @@ body.mobile .product-item .action-hover.over .quick-btn {
   display: inline-block;
   height: 46px;
   width: 46px;
-  background: url("https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/theme/c-commerce/assets/images/btn_slider_type1.png") no-repeat left top;
+  background: url("/mall_project/images/btn_slider_type1.png") no-repeat left top;
   border-radius: 50%;
   font-size: 0;
   color: #c6c6c6;
@@ -17798,7 +17798,7 @@ body.mobile .product-item .action-hover.over .quick-btn {
   display: inline-block;
   height: 46px;
   width: 46px;
-  background: url("https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/theme/c-commerce/assets/images/btn_slider_type1.png") no-repeat left -46px;
+  background: url("/mall_project/images/btn_slider_type1.png") no-repeat left -46px;
   border-radius: 50%;
   font-size: 0;
   color: #c6c6c6;
@@ -17820,7 +17820,7 @@ body.mobile .product-item .action-hover.over .quick-btn {
   display: inline-block;
   height: 40px;
   width: 40px;
-  background: url("https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/theme/c-commerce/assets/images/btn_slider_type2.png") no-repeat left top;
+  background: url("/mall_project/images/btn_slider_type2.png") no-repeat left top;
   background-color: #eee;
   border-radius: 50%;
   font-size: 0;
@@ -17839,7 +17839,7 @@ body.mobile .product-item .action-hover.over .quick-btn {
   display: inline-block;
   height: 40px;
   width: 40px;
-  background: url("https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/theme/c-commerce/assets/images/btn_slider_type2.png") no-repeat left top;
+  background: url("/mall_project/images/btn_slider_type2.png") no-repeat left top;
   background-color: #eee;
   background-position: right;
   border-radius: 50%;
@@ -21774,7 +21774,7 @@ body.mobile .product-item .action-hover.over .quick-btn {
 
 .info-wrap_product_n .discription-wrap .pop-detail-content .style-color, .info-wrap_product_n .discription-wrap .pop-detail-content .style-code, .info-wrap_product_n .discription-wrap .pop-detail-content .detail-content-list li {
   padding-left: 10px;
-  background: url("https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/theme/c-commerce/assets/images/bl_dot.png") no-repeat left 7px;
+  background: url("/mall_project/images/bl_dot.png") no-repeat left 7px;
   color: #111;
   font-size: 13px;
 }
@@ -37351,7 +37351,7 @@ footer.launch-footer a {
   line-height: 19px;
   height: 19px;
   padding-left: 25px;
-  background: url("https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/theme/c-commerce/assets/images/icon_rsvp_enter.png") no-repeat;
+  background: url("/mall_project/images/icon_rsvp_enter.png") no-repeat;
   font-weight: bold;
 }
 
@@ -37365,7 +37365,7 @@ footer.launch-footer a {
   font-size: 13px;
   line-height: 20px;
   color: #555;
-  background: url("https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/theme/c-commerce/assets/images/icon_dot.png") left 9px no-repeat;
+  background: url("/mall_project/images/icon_dot.png") left 9px no-repeat;
 }
 
 .rsvp_info_cont .rsvp_faq {
