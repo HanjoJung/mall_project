@@ -63,20 +63,4 @@
     <servlet-name>file</servlet-name>
     <url-pattern>/file/*</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>notice</servlet-name>
-    <servlet-class>com.nike.controller.NoticeController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>notice</servlet-name>
-    <url-pattern>/notice/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>qna</servlet-name>
-    <servlet-class>com.nike.controller.QnaController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>qna</servlet-name>
-    <url-pattern>/qna/*</url-pattern>
-  </servlet-mapping>
 </web-app>
