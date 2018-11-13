@@ -17,7 +17,6 @@
 				<a href="${pageContext.request.contextPath}/member/memberList.do">회원</a>
 				<a href="${pageContext.request.contextPath}/product/productList.do">제품</a>
 				<a href="${pageContext.request.contextPath}/notice/noticeList.do">게시판</a>
-				<a href="${pageContext.request.contextPath}/qna/qnaList.do">QNA</a>
 			</div>
 			<div class="col-lg-10 pwhArea pc-only">
 				<div class="bgArea">
