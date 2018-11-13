@@ -80,5 +80,16 @@ public class ProductService {
 		
 		return actionFoward;
 	}
+	
+	
+	public ActionFoward insert(HttpServletRequest request, HttpServletResponse response) {
+		
+		ActionFoward actionFoward = new ActionFoward();
+		
+		
+		
+		return actionFoward;
+		
+	}
 
 }

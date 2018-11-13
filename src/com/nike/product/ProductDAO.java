@@ -92,7 +92,7 @@ public class ProductDAO {
 	public int insert(ProductDTO productDTO) throws Exception {
 
 		Connection con = DBconnector.getConnect();
-		String sql = "insert into product values(nike+product_seq.nextval,?,?,?,0,0,0,?)";
+		String sql = "insert into product values(nike || product_seq.nextval,?,?,?,0,0,0,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, productDTO.getProductName());
 		st.setInt(2, productDTO.getPrice());
