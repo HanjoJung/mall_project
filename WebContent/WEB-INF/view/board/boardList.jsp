@@ -60,12 +60,12 @@
 			<c:choose>
 				<c:when test="${board eq 'notice'}">
 					<c:if test="${not empty member and member.kind eq 'T'}">
-						<c:import url="../../temp/writeButton.jsp" />
+						<c:import url="../../../temp/writeButton.jsp" />
 					</c:if>
 				</c:when>
 				<c:otherwise>
 					<c:if test="${not empty member}">
-						<c:import url="../../temp/writeButton.jsp" />
+						<c:import url="../../../temp/writeButton.jsp" />
 					</c:if>
 				</c:otherwise>
 			</c:choose>
