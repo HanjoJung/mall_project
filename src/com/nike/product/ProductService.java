@@ -1,5 +1,6 @@
 package com.nike.product;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,8 @@ import com.nike.action.ActionFoward;
 import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class ProductService {
 	
@@ -85,7 +88,36 @@ public class ProductService {
 	public ActionFoward insert(HttpServletRequest request, HttpServletResponse response) {
 		
 		ActionFoward actionFoward = new ActionFoward();
-		
+		String method = request.getMethod();
+		System.out.println(method);
+		if(method.equals("POST")) {
+			String message="fail";
+			String path="./productList.do";
+			//파일의 크기
+			int maxSize=1024*1024*20;
+			//파일 저장공간
+			String save = request.getServletContext().getRealPath("upload");
+			System.out.println(save);
+			File file = new File(save);
+			if(!file.exists()) {
+				file.mkdirs();
+			}//파일이 없으면 파일을 만들기
+			try {
+				MultipartRequest multi = new MultipartRequest(request, save, maxSize, "utf-8", new DefaultFileRenamePolicy());
+				ProductDTO productDTO = new ProductDTO();
+				productDTO.setProductName(multi.getParameter("productName"));
+				productDTO.setPrice(Integer.parseInt(multi.getParameter("price")));
+				productDTO.setKind(multi.getParameter("kind"));
+				productDTO.setManufacturerCode(multi.getParameter("manufacturerCode"));
+				int result = productDAO.insert(productDTO);
+				if(result>0) {
+					
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
 		
 		
 		return actionFoward;
