@@ -15,10 +15,10 @@ public class ProductDAO {
 	public int getCount(Search search) throws Exception {
 
 		Connection con = DBconnector.getConnect();
-		String sql = "select count(productcode) from product"; 
-//				+ "where " + search.getKind() + " like ?";
+		String sql = "select count(productcode) from product "
+				+ "where " + search.getKind() + " like ?";
 		PreparedStatement st = con.prepareStatement(sql);
-//		st.setString(1, "%" + search.getSearch() + "%");
+		st.setString(1, "%" + search.getSearch() + "%");
 		ResultSet rs = st.executeQuery();
 		rs.next();
 		int result = rs.getInt(1);
@@ -28,22 +28,20 @@ public class ProductDAO {
 
 	}
 	
-
-
 	public List<ProductDTO> selectList(RowNumber rowNumber) throws Exception {
 
 		Connection con = DBconnector.getConnect();
-		String sql = "select * from product";
-//					+ "(select rownum R, N.* from "
-//					+ "(select * from product "
-////					+ "where "+ rowNumber.getSearch().getKind() +" like ? "
-//					+ "order by productcode desc) N) "
-//					+ "where R between ? and ?";
+		String sql = "select * from "
+					+ "(select rownum R, N.* from "
+					+ "(select * from product "
+					+ "where "+rowNumber.getSearch().getKind()+" like ? "
+					+ "order by productcode desc) N) "
+					+ "where R between ? and ?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
-//		st.setString(1, "%"+rowNumber.getSearch().getSearch()+"%");
-//		st.setInt(1, rowNumber.getStartRow());
-//		st.setInt(2, rowNumber.getLastRow());
+		st.setString(1, "%"+rowNumber.getSearch().getSearch()+"%");
+		st.setInt(2, rowNumber.getStartRow());
+		st.setInt(3, rowNumber.getLastRow());
 		ResultSet rs = st.executeQuery();
 
 

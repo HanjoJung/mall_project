@@ -28,6 +28,9 @@ public class ProductService {
 			// TODO: handle exception
 		}
 		String kind = request.getParameter("kind");
+		if(kind == null || kind.equals("")) {
+			kind = "productCode";
+		}
 		String search = request.getParameter("search");
 		
 		MakePager makePager = new MakePager(curPage, search, kind);
