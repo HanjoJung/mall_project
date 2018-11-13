@@ -15,10 +15,9 @@ $(function() {
 			})
 
 	$(".key").keyup(
-			function() {
+			 function ch() {
 				// 정규식 패턴
 				var pat = (RegExp)($(this).attr("data-parsley-pattern")); 
-				
 				// 입력 여부
 				if ($(this).val().length == 0) { // 입력하지 않은 경우
 					// 메세지 출력
@@ -41,6 +40,7 @@ $(function() {
 								.children(".uk-form-row .error-message").css({
 									display : "none"
 								});
+						return true;
 					} else {
 						// 검사 비승인
 						// 메세지 출력
@@ -54,6 +54,7 @@ $(function() {
 								});
 					}
 				}
+				return false;
 			})
 			
 			$("#pw2").keyup(
@@ -79,6 +80,5 @@ $(function() {
 						}
 					})
 			$("#submit").click(function() {
-				alert("click")
 			})
 })
