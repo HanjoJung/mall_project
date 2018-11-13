@@ -1,85 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	id="WebApp_ID" version="3.1">
-<filter>
-<filter-name>loginCheck</filter-name>
-<filter-class>com.nike.filter.LoginCheck</filter-class>
-</filter>
-<filter-mapping>
-<filter-name>loginCheck</filter-name>
-<url-pattern>/*</url-pattern>
-</filter-mapping>
-<filter>
-<filter-name>encoding</filter-name>
-<filter-class>com.nike.filter.CharacterFilter</filter-class>
-<init-param>
-<param-name>encode</param-name>
-<param-value>UTF-8</param-value>
-</init-param>
-</filter>
-<filter-mapping>
-<filter-name>encoding</filter-name>
-<url-pattern>/*</url-pattern>
-</filter-mapping>
-<error-page>
-<error-code>404</error-code>
-<location>/error/error_404.jsp</location>
-</error-page>
-<error-page>
-<exception-type>java.lang.Throwable</exception-type>
-<location>/error/error_500.jsp</location>
-</error-page>
-
-<servlet>
-<servlet-name>policy</servlet-name>
-<servlet-class>com.nike.controller.CSCenterController</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>policy</servlet-name>
-<url-pattern>/cscenter/*</url-pattern>
-</servlet-mapping>
-
-
-<servlet>
-<servlet-name>product</servlet-name>
-<servlet-class>com.nike.controller.ProductController</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>product</servlet-name>
-<url-pattern>/product/*</url-pattern>
-</servlet-mapping>
-<servlet>
-<servlet-name>member</servlet-name>
-<servlet-class>com.nike.controller.MemberController</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>member</servlet-name>
-<url-pattern>/member/*</url-pattern>
-</servlet-mapping>
-<servlet>
-<servlet-name>file</servlet-name>
-<servlet-class>com.nike.controller.FileController</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>file</servlet-name>
-<url-pattern>/file/*</url-pattern>
-</servlet-mapping>
-<servlet>
-<servlet-name>notice</servlet-name>
-<servlet-class>com.nike.controller.NoticeController</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>notice</servlet-name>
-<url-pattern>/notice/*</url-pattern>
-</servlet-mapping>
-<servlet>
-<servlet-name>qna</servlet-name>
-<servlet-class>com.nike.controller.QnaController</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>qna</servlet-name>
-<url-pattern>/qna/*</url-pattern>
-</servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <filter>
+    <filter-name>loginCheck</filter-name>
+    <filter-class>com.nike.filter.LoginCheck</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>loginCheck</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>encoding</filter-name>
+    <filter-class>com.nike.filter.CharacterFilter</filter-class>
+    <init-param>
+      <param-name>encode</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error/error_404.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/error/error_500.jsp</location>
+  </error-page>
+  
+  <servlet>
+  <servlet-name>policy</servlet-name>
+  <servlet-class>com.nike.controller.CSCenterController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>policy</servlet-name>
+  <url-pattern>/cscenter/*</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>product</servlet-name>
+    <servlet-class>com.nike.controller.ProductController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>product</servlet-name>
+    <url-pattern>/product/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>member</servlet-name>
+    <servlet-class>com.nike.controller.MemberController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>member</servlet-name>
+    <url-pattern>/member/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>file</servlet-name>
+    <servlet-class>com.nike.controller.FileController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>file</servlet-name>
+    <url-pattern>/file/*</url-pattern>
+  </servlet-mapping>
 </web-app>
