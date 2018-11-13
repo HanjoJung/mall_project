@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<jsp:include page="../../../temp/bootStrap.jsp"></jsp:include>
+
 <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
 <script type="text/javascript">
 $(function() {
@@ -22,13 +22,13 @@ $(function() {
 </script>
 <c:import url="../../../temp/bootStrap.jsp" />
 </head>
-<c:import url="../../../temp/header.jsp" />
 <body id="myPage" data-spy="scroll" data-target=".navbar"
 	data-offset="60">
+<c:import url="../../../temp/header.jsp" />
 
-	<jsp:include page="../../../temp/header.jsp"></jsp:include>
 
-	<div class="container-fluid">
+
+	<div class="container-fluid wrapper">
 		<div class="row">
 			<form id="frm" action="./${board}Write.do" method="post"
 				enctype="multipart/form-data">
@@ -39,8 +39,8 @@ $(function() {
 				</div>
 				<div class="form-group">
 					<label for="writer">Writer:</label> <input type="text"
-						class="form-control" id="writer" readonly="readonly"
-						value="${member.id}" name="writer">
+						class="form-control" id="writer" 
+						 name="writer">
 				</div>
 				
 				<div class="form-group">
