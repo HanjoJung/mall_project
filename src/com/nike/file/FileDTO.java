@@ -1,16 +1,22 @@
 package com.nike.file;
 
 public class FileDTO {
-	private int fnum;
+	private int imageNum;
+	private String productCode;
 	private String fname;
 	private String oname;
-	private int num;
-	private String kind;
-	public int getFnum() {
-		return fnum;
+	private String put;
+	public int getImageNum() {
+		return imageNum;
 	}
-	public void setFnum(int fnum) {
-		this.fnum = fnum;
+	public void setImageNum(int imageNum) {
+		this.imageNum = imageNum;
+	}
+	public String getProductCode() {
+		return productCode;
+	}
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 	public String getFname() {
 		return fname;
@@ -24,17 +30,12 @@ public class FileDTO {
 	public void setOname(String oname) {
 		this.oname = oname;
 	}
-	public int getNum() {
-		return num;
+	public String getPut() {
+		return put;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setPut(String put) {
+		this.put = put;
 	}
-	public String getKind() {
-		return kind;
-	}
-	public void setKind(String kind) {
-		this.kind = kind;
-	}
-
+	
+	
 }
