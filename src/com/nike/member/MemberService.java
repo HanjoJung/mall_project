@@ -69,7 +69,8 @@ public class MemberService {
 				file.mkdirs();
 			}
 			try {
-MultipartRequest multi = new MultipartRequest(request, save, max, "UTF-8", new DefaultFileRenamePolicy());
+				MultipartRequest multi = new MultipartRequest(request, save, max, "UTF-8",
+						new DefaultFileRenamePolicy());
 				MemberDTO memberDTO = new MemberDTO();
 				memberDTO.setId(multi.getParameter("id"));
 				memberDTO.setPassword(multi.getParameter("pw2"));

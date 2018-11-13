@@ -16,24 +16,18 @@
 				style="max-width: 1500px"></table>
 		</div>
 		<tr>
-			<td style="width: 5%">번호</td>
+			<td style="width: 10%">번호</td>
 			<td style="width: 50%">제목</td>
 			<td style="width: 15%">작성자</td>
-			<td style="width: 10%">작성날짜</td>
-			<td style="width: 5%">조회수</td>
-			<td style="width: 5%">조회수</td>
-			<td style="width: 5%">조회수</td>
-			<td style="width: 5%">조회수</td>
+			<td style="width: 15%">작성날짜</td>
+			<td style="width: 10%">조회수</td>
 		</tr>
 		<tr>
-			<td>${pDTO.productCode}</td>
-			<td>${pDTO.productName}</td>
-			<td>${pDTO.price}</td>
-			<td>${pDTO.kind}</td>
-			<td>${pDTO.hit}</td>
-			<td>${pDTO.sale}</td>
-			<td>${pDTO.good}</td>
-			<td>${pDTO.manufacturerCode}</td>
+			<td>${dto.num}</td>
+			<td>${dto.title}</td>
+			<td>${dto.writer}</td>
+			<td>${dto.reg_date}</td>
+			<td>${dto.hit}</td>
 		</tr>
 		<tr>
 			<td colspan="5" align="center">내용</td>
