@@ -14,8 +14,8 @@ $(function() {
 				}
 			})
 
-	$(".key").keyup(
-			 function ch() {
+	$(".data").keyup(
+			 function() {
 				// 정규식 패턴
 				var pat = (RegExp)($(this).attr("data-parsley-pattern")); 
 				// 입력 여부
