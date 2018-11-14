@@ -19,7 +19,6 @@
 					</p>
 					<p class="pc-only">
 						<a data-component-registermodal="" title="회원가입"
-							href="${pageContext.request.contextPath}/member/memberJoin.do"
 							data-click-area="Footer GNB" data-click-name="Join">회원가입</a>
 					</p>
 					<p class="mobile-only">
@@ -36,21 +35,20 @@
 							data-click-name="Help_Order/Payment Process">주문/결제</a>
 					</dd>
 					<dd>
-						<a data-toggle="modal" data-target="#myModal" href="/mall_project/tracking_api.jsp"><strong>주문배송조회</strong></a>
-						<div class="modal fade" id="myModal" role="dialog">
-							<div class="modal-dialog">
-								<div class="modal-content">
-								</div>
-							</div>
-						</div>
+						<a href="#" data-click-area="Footer GNB"
+							data-click-name="Help_Shipping FAQ"><strong>배송</strong></a>
+					</dd>
+					<dd>
+						<a data-click-area="Footer GNB"
+							data-click-name="Help_Order/Shipping" href="#"><strong>주문배송조회</strong></a>
 					</dd>
 					<dd>
 						<a href="#" data-click-area="Footer GNB"
 							data-click-name="Help_Member benefit">멤버쉽 혜택/서비스</a>
 					</dd>
 					<dd>
-						<a href="${pageContext.request.contextPath}/notice/noticeList.do"
-							data-click-area="Footer GNB" data-click-name="Help_Notice">공지사항</a>
+						<a href="#" data-click-area="Footer GNB"
+							data-click-name="Help_Notice">공지사항</a>
 					</dd>
 					<dd>
 						<a href="#" data-click-area="Footer GNB"

@@ -28,7 +28,7 @@ $(function() {
 
 	<jsp:include page="../../../temp/header.jsp"></jsp:include>
 
-	<div class="container-fluid wrapper">
+	<div class="container-fluid">
 		<div class="row">
 			<form id="frm" action="./${board}Write.do" method="post"
 				enctype="multipart/form-data">

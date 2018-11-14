@@ -13,7 +13,12 @@
 	<jsp:include page="./temp/header.jsp"></jsp:include>
 	<div class="container-fluid wrapper content-container">
 		<div class="row redactor-editor">
-			<div class="col-lg-1"></div>
+			<div class="col-lg-1">
+				<a href="${pageContext.request.contextPath}/member/memberList.do">회원</a>
+				<a href="${pageContext.request.contextPath}/product/productList.do">제품</a>
+				<a href="${pageContext.request.contextPath}/notice/noticeList.do">게시판</a>
+				<a href="${pageContext.request.contextPath}/qna/qnaList.do">QNA</a>
+			</div>
 			<div class="col-lg-10 pwhArea pc-only">
 				<div class="bgArea">
 					<img alt="bg"
@@ -61,6 +66,8 @@
 						</p></li>
 				</ul>
 			</div>
+			<%-- <a href="${pageContext.request.contextPath}/member/memberList.do">회원</a>
+				<a href="${pageContext.request.contextPath}/product/productList.do">제품</a> --%>
 			<div class="col-lg-1"></div>
 		</div>
 		<div class="row">
@@ -69,6 +76,19 @@
 				<div>
 					<h3>신상품</h3>
 				</div>
+				<!-- <div>
+					<div class="dropdown">
+						<button class="btn btn-primary dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							제품 정렬 <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">신상품순</a></li>
+							<li><a href="#">낮은 가격순</a></li>
+							<li><a href="#">높은 가격순</a></li>
+						</ul>
+					</div>
+				</div> -->
 			</div>
 			<div class="col-lg-1"></div>
 		</div>
@@ -78,7 +98,7 @@
 				<div class="wrap-pl product-item">
 					<div>
 						<div>
-							<a href="#"><img src="/mall_project/images/807480-004_807480-004_primary.jpg"></a>
+							<img src="/mall_project/images/807480-004_807480-004_primary.jpg">
 						</div>
 						<div class="item-info">
 							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
@@ -90,7 +110,7 @@
 					</div>
 					<div>
 						<div>
-							<a href="#"><img src="/mall_project/images/AH7365-400_AH7365-400_primary.jpg"></a>
+							<img src="/mall_project/images/AH7365-400_AH7365-400_primary.jpg">
 						</div>
 						<div class="item-info">
 							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
@@ -102,7 +122,7 @@
 					</div>
 					<div>
 						<div>
-							<a href="#"><img src="/mall_project/images/AO3262-004_AO3262-004_primary.jpg"></a>
+							<img src="/mall_project/images/AO3262-004_AO3262-004_primary.jpg">
 						</div>
 						<div class="item-info">
 							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
@@ -114,7 +134,7 @@
 					</div>
 					<div>
 						<div>
-							<a href="#"><img src="/mall_project/images/AO1531-700_AO1531-700_primary.jpg"></a>
+							<img src="/mall_project/images/AO1531-700_AO1531-700_primary.jpg">
 						</div>
 						<div class="item-info">
 							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
@@ -126,7 +146,7 @@
 					</div>
 					<div>
 						<div>
-							<a href="#"><img src="/mall_project/images/AJ7747-700_AJ7747-700_primary.jpg"></a>
+							<img src="/mall_project/images/AJ7747-700_AJ7747-700_primary.jpg">
 						</div>
 						<div class="item-info">
 							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>

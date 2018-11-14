@@ -67,34 +67,53 @@
 			</c:forEach>
 		</table>
 		<div class="container-fluid center">
-			<div class="row center">
-				<ul class="pagination">
-					<li><a href="./${board}List.do?curPage==1"><span
-							class="glyphicon glyphicon-backward"></span></a></li>
-
-					<c:if test="${pager.curBlock gt 1}">
-						<li><a href="./${board}List.do?curPage=${pager.startNum-1}"><span
-								class="glyphicon glyphicon-chevron-left"></span></a></li>
-					</c:if>
-
-					<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-						<li><a href="./${board}List.do?curPage=${i}">${i}</a></li>
-					</c:forEach>
-
-
-					<c:if test="${pager.curBlock lt pager.totalBlock}">
-						<li><a href="./${board}List.do?curPage=${pager.lastNum+1}"><span
-								class="glyphicon glyphicon-chevron-right"></span></a></li>
-					</c:if>
-					<li><a href="./${board}List.do?curPage=${pager.totalPage}"><span
-							class="glyphicon glyphicon-forward"></span></a></li>
-				</ul>
-			</div>
+		<div class="row center">
+			  <ul class="pagination">
+			  	<li><a href="./${board}List.do?curPage==1"><span class="glyphicon glyphicon-backward"></span></a></li>
+			  	
+			  	<c:if test="${pager.curBlock gt 1}">
+			  		<li><a href="./${board}List.do?curPage=${pager.startNum-1}"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+			  	</c:if>
+			  	
+			 	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+			    	<li><a href="./${board}List.do?curPage=${i}">${i}</a></li>
+			 	</c:forEach>
+			    
+			    
+			    <c:if test="${pager.curBlock lt pager.totalBlock}">
+			    	<li><a href="./${board}List.do?curPage=${pager.lastNum+1}"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+			    </c:if>
+			  	<li><a href="./${board}List.do?curPage=${pager.totalPage}"><span class="glyphicon glyphicon-forward"></span></a></li>
+			  </ul>
+   		</div>         
+		
+	</div>
+		<div>
+			<a href="./${board}Write.do" class="btn btn-primary">Write</a>
 		</div>
-	</div>
-	<div>
-		<a href="./${board}Write.do" class="btn btn-primary">Write</a>
-	</div>
+	
+
 	<c:import url="../../../temp/footer.jsp"></c:import>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
