@@ -19,6 +19,7 @@
 					</p>
 					<p class="pc-only">
 						<a data-component-registermodal="" title="회원가입"
+							href="${pageContext.request.contextPath}/member/memberJoin.do"
 							data-click-area="Footer GNB" data-click-name="Join">회원가입</a>
 					</p>
 					<p class="mobile-only">

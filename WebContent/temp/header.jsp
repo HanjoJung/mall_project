@@ -4,13 +4,13 @@
 	<div class="header-gnb">
 		<div class="uk-clearfix header-gnb_maxwidth">
 			<ul class="uk-float-left header-brand">
-				<li><a href="/mall_project/index.jsp"><span>Nike</span></a></li>
-				<li><a href="#"><span>Nike+</span></a></li>
-				<li><a href="#"><span class="ns-jordan"></span></a></li>
-				<li><a href="#"><span class="ns-logo-converse"></span></a></li>
+				<li><a href="${pageContext.request.contextPath}/member/memberList.do"><span>회원</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/product/productList.do"><span>제품</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/notice/noticeList.do"><span>게시판</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/qna/qnaList.do"><span>QNA</span></a></li>
 			</ul>
 			<ul class="uk-float-right header-mymenu">
-				<li><span> <a title="회원가입" class="join" href="./member/memberJoin.do">회원가입</a>
+				<li><span> <a title="회원가입" class="join" href="${pageContext.request.contextPath}/member/memberJoin.do">회원가입</a>
 						<a style="padding: 0px;">/</a><a title="로그인" href="#"
 						class="login">로그인</a>
 				</span></li>
@@ -26,7 +26,7 @@
 			<a class="header-logo" href="${pageContext.request.contextPath}/index.jsp"> <span class="ns-swoosh"></span>
 			</a>
 			<ul class="header-menu_onedepth">
-				<li class="onedepth-list"><a href="/mall_project/index.jsp" class="">MEN</a>
+				<li class="onedepth-list"><a href="${pageContext.request.contextPath}/index.jsp" class="">MEN</a>
 					<div class="header-menu_twodepth">
 						<div class="twodepth-maxwidth">
 							<ul class="twodepth-submenu-t1">
