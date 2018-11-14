@@ -44,6 +44,8 @@ public class ProductController extends HttpServlet {
 			actionFoward = productService.selectOne(request, response);
 		}else if(command.equals("/productWrite.do")) {
 			actionFoward = productService.insert(request, response);
+		}else if(command.equals("/productUpdate.do")) {
+			actionFoward = productService.delete(request, response);
 		}
 		if (actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());

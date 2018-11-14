@@ -91,13 +91,15 @@ public class ProductDAO {
 
 	public int insert(ProductDTO productDTO) throws Exception {
 
+	
 		Connection con = DBconnector.getConnect();
-		String sql = "insert into product values(nike || product_seq.nextval,?,?,?,0,0,0,?)";
+		String sql = "insert into product values('nike'||product_seq.nextval,?,?,?,0,0,0,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, productDTO.getProductName());
 		st.setInt(2, productDTO.getPrice());
 		st.setString(3, productDTO.getKind());
 		st.setString(4, productDTO.getManufacturerCode());
+		st.setString(5, productDTO.getWriter());
 
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
@@ -105,6 +107,24 @@ public class ProductDAO {
 
 	}
 
+	/*public static void main(String[] args) throws Exception{
+		
+		ProductDTO productDTO = new ProductDTO();
+		ProductDAO productDAO = new ProductDAO();
+		for(int i=0;i<50;i++) {
+			productDTO.setProductName("nike"+i);
+			productDTO.setPrice(2000);
+			productDTO.setKind("max");
+			productDTO.setManufacturerCode("usa");
+			productDTO.setWriter("master");
+			
+			int a =productDAO.insert(productDTO);
+			
+		}
+		System.out.println("end");
+		
+		
+	}*/
 	public int delete(String code) throws Exception {
 
 		Connection con = DBconnector.getConnect();
@@ -132,5 +152,6 @@ public class ProductDAO {
 		return result;
 
 	}
+	
 
 }

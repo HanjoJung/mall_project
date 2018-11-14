@@ -77,7 +77,7 @@ public class ProductService {
 			request.setAttribute("pDTO", productDTO);
 			request.setAttribute("board", "product");
 			actionFoward.setCheck(true);
-			actionFoward.setPath("../WEB-INF/view/board/boardSelectOne.jsp");
+			actionFoward.setPath("../WEB-INF/view/product/productSelectOne.jsp");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -153,5 +153,18 @@ public class ProductService {
 		return actionFoward;
 		
 	}
+	
+	
+	public ActionFoward delete(HttpServletRequest request, HttpServletResponse response) {
+		ActionFoward actionFoward = new ActionFoward();
+		
+		
+		
+		
+		return actionFoward;
+	}
+	
+	
+	
 
 }
