@@ -62,25 +62,16 @@ public class MemberService {
 		if (method.equals("POST")) {
 			request.setAttribute("message", "fail");
 			request.setAttribute("path", "./memberJoin.do");
-			int max = 1024 * 1024 * 10;
-			String save = request.getServletContext().getRealPath("upload");
-			File file = new File(save);
-			if (!file.exists()) {
-				file.mkdirs();
-			}
+
 			try {
-				MultipartRequest multi = new MultipartRequest(request, save, max, "UTF-8",
-						new DefaultFileRenamePolicy());
 				MemberDTO memberDTO = new MemberDTO();
-				memberDTO.setId(multi.getParameter("id"));
-				memberDTO.setPassword(multi.getParameter("pw2"));
-				memberDTO.setName(multi.getParameter("name"));
-				memberDTO.setPhone(multi.getParameter("phone"));
-				memberDTO.setAddress(multi.getParameter("address"));
-				memberDTO.setSex(multi.getParameter("sex"));
-				memberDTO.setBirthday(Date.valueOf(multi.getParameter("birthday")));
-				memberDTO.setProfileFname(multi.getFilesystemName("f"));
-				memberDTO.setProfileOname(multi.getOriginalFileName("f"));
+				memberDTO.setId(request.getParameter("id"));
+				memberDTO.setPassword(request.getParameter("pw2"));
+				memberDTO.setName(request.getParameter("name"));
+				memberDTO.setPhone(request.getParameter("phone"));
+//				memberDTO.setAddress(request.getParameter("address"));
+//				memberDTO.setSex(request.getParameter("sex"));
+//				memberDTO.setBirthday(Date.valueOf(request.getParameter("birthday")));
 				result = memberDAO.insert(memberDTO);
 
 				if (result > 0) {

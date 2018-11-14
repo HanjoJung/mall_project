@@ -9,6 +9,8 @@
 <c:import url="../../../temp/bootStrap.jsp" />
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/memberJoin.js"></script>
+	<style type="text/css">
+	</style>
 </head>
 <body>
 	<c:import url="../../../temp/header.jsp" />
@@ -28,7 +30,7 @@
 								<div class="dynamic-form" data-form="">
 
 									<form method="POST" class="uk-form-large"
-										action="/memberJoin.do">
+										action="./memberJoin.do">
 
 										<div class="uk-form-row">
 											<div class="input-textfield width-max">
@@ -43,8 +45,8 @@
 
 										<div class="uk-form-row">
 											<div class="input-textfield width-max">
-												<label for="pw1"></label> <input class="data" type="password"
-													autocomplete="new-password"
+												<label for="pw1"></label> <input class="data"
+													type="password" autocomplete="new-password"
 													data-parsley-message="영문/숫자/특수문자 조합 8~16자 조합으로 입력해주세요."
 													data-parsley-pattern="^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,16}$"
 													data-parsley-required-message="필수 입력 항목입니다." id="pw1"
@@ -55,8 +57,8 @@
 
 										<div class="uk-form-row">
 											<div class="input-textfield width-max">
-												<label for="pw2"></label> <input class="data" type="password"
-													autocomplete="new-password"
+												<label for="pw2"></label> <input class="data"
+													type="password" autocomplete="new-password"
 													data-parsley-equalto-message="입력값이 일치하지 않습니다."
 													data-parsley-message="영문/숫자/특수문자 조합 8~16자 조합으로 입력해주세요."
 													data-parsley-required-message="필수 입력 항목입니다."
@@ -844,11 +846,12 @@
 													</div>
 
 													<div class="uk-width-1-1 agree-test">
-														<span id="checkTerms" class="input-checkbox uk-width-1-1">
+														<span id="checkTerms" class="input-checkbox uk-width-1-1 ">
 															<input type="checkbox" id="checkGcAgree"
-															name="checkGcAgree" checked="checked" /> <label
-															for="checkGcAgree"> <i class="brz-icon-checkbox">rediobox</i>
-																<span class="label font-normal" style="color: #606060;">[필수]
+															name="checkGcAgree" data-parsley-message="약관에 동의해주세요"
+															class="essential" /> <label for="checkGcAgree"> <i
+																class="brz-icon-checkbox">rediobox</i> <span
+																class="label font-normal" style="color: #606060;">[필수]
 																	약관에 동의 합니다.</span>
 														</label>
 														</span>
@@ -902,9 +905,11 @@
 													</div>
 													<div class="uk-width-1-1 agree-test">
 														<span id="checkPrivacy"
-															class="input-checkbox uk-width-1-1"> <input
-															type="checkbox" id="isCheckAcAgree" name="isCheckAcAgree" />
-															<label for="isCheckAcAgree"> <i
+															class="input-checkbox uk-width-1-1 "> <input
+															type="checkbox" id="isCheckAcAgree" name="isCheckAcAgree"
+															class="essential"
+															data-parsley-message="개인정보 수집.이용 동의해주세요" /> <label
+															for="isCheckAcAgree"> <i
 																class="brz-icon-checkbox">rediobox</i> <span
 																class="label font-normal" style="color: #606060;">[필수]
 																	개인정보 수집.이용동의</span>
