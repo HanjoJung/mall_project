@@ -15,7 +15,8 @@
 			<ul class="uk-float-right header-mymenu">
 				<li><span> <a title="회원가입" class="join"
 						href="${pageContext.request.contextPath}/member/memberJoin.do">회원가입</a>
-						<a style="padding: 0px;">/</a><a title="로그인" href="#"
+						<a style="padding: 0px;">/</a><a title="로그인"
+						href="${pageContext.request.contextPath}/member/memberLogin.do"
 						class="login">로그인</a>
 				</span></li>
 				<li><a href="#">고객센터</a></li>
