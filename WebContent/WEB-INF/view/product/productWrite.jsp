@@ -26,8 +26,6 @@ $(function() {
 	data-offset="60">
 <c:import url="../../../temp/header.jsp" />
 
-
-
 	<div class="container-fluid wrapper">
 		<div class="row">
 			<form id="frm" action="./${board}Write.do" method="post"

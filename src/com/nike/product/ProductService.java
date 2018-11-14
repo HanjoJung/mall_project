@@ -77,7 +77,7 @@ public class ProductService {
 			request.setAttribute("pDTO", productDTO);
 			request.setAttribute("board", "product");
 			actionFoward.setCheck(true);
-			actionFoward.setPath("../WEB-INF/view/board/boardSelectOne.jsp");
+			actionFoward.setPath("../WEB-INF/view/product/productSelectOne.jsp");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -153,5 +153,61 @@ public class ProductService {
 		return actionFoward;
 		
 	}
+	
+	
+	public ActionFoward delete(HttpServletRequest request, HttpServletResponse response) {
+		ActionFoward actionFoward = new ActionFoward();
+		
+		try {
+			String code = request.getParameter("code");
+			int result=productDAO.delete(code);
+			if(result>0) {
+				request.setAttribute("message", "Success");
+				request.setAttribute("path", "./productList.do");
+				
+			}else {
+				request.setAttribute("message", "Fail");
+				request.setAttribute("path", "./productList.do");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		actionFoward.setCheck(true);
+		actionFoward.setPath("../WEB-INF/view/common/result.jsp");
+		
+		return actionFoward;
+	}
+	
+	public ActionFoward update(HttpServletRequest request, HttpServletResponse response) {
+		ActionFoward actionFoward = new ActionFoward();
+		
+		String method = request.getMethod();
+		if(method.equals("POST")) {
+			
+		}else {
+			try {
+				String code = request.getParameter("code");
+				ProductDTO productDTO=productDAO.selectOne(code);
+				FileDAO fileDAO = new FileDAO();
+				FileDTO fileDTO = new FileDTO();
+				fileDTO.setProductCode(code);
+				fileDTO.setPut("M");
+				List<FileDTO> ar = fileDAO.selectList(fileDTO);
+				request.setAttribute("pDTO", productDTO);
+				request.setAttribute("ar", ar);
+				request.setAttribute("board", "product");
+				actionFoward.setCheck(true);
+				actionFoward.setPath("../WEB-INF/view/product/productUpdate.jsp");
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		
+		return actionFoward;
+	}
+	
+	
+	
 
 }

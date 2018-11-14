@@ -13,46 +13,51 @@
 	<div class="containor-fluid wrapper">
 		<div class="row" align="center">
 			<table class="table table-boadered table-hover"
-				style="max-width: 1500px"></table>
+				style="max-width: 1500px">
+				<tr>
+					<td style="width: 5%">번호</td>
+					<td style="width: 50%">제목</td>
+					<td style="width: 15%">작성자</td>
+					<td style="width: 10%">작성날짜</td>
+					<td style="width: 5%">조회수</td>
+					<td style="width: 5%">sale</td>
+					<td style="width: 5%">추천수</td>
+					<td style="width: 5%">제조사</td>
+				</tr>
+				<tr>
+					<td>${pDTO.productCode}</td>
+					<td>${pDTO.productName}</td>
+					<td>${pDTO.price}</td>
+					<td>${pDTO.kind}</td>
+					<td>${pDTO.hit}</td>
+					<td>${pDTO.sale}</td>
+					<td>${pDTO.good}</td>
+					<td>${pDTO.manufacturerCode}</td>
+				</tr>
+				<tr>
+					<td colspan="5" align="center">내용</td>
+				</tr>
+				<tr>
+					<td colspan="5" align="center">${pDTO.productName}</td>
+				</tr>
+				<tr>
+					<td colspan="5"><c:forEach items="${files}" var="fileDTO">
+							<h3 style="display: inline-block;">
+								<a href="../upload/${fileDTO.fname}"><img
+									style="max-width: 50px; max-height: 50px;" alt=""
+									src="../upload/${fileDTO.fname}"></a>
+							</h3>
+						</c:forEach></td>
+				</tr>
+			</table>
+			<a href="productList.do" class="btn btn-primary">목록으로</a>
+			<%-- <c:if test="${not empty member and member.id eq dto.writer}"> --%>
+				<a href="./productUpdate.do?code=${pDTO.productCode}" class="btn btn-primary">수정</a>
+				<a href="./productDelete.do?code=${pDTO.productCode}" class="btn btn-primary">삭제</a>
+			<%-- </c:if> --%>
 		</div>
-		<tr>
-			<td style="width: 10%">번호</td>
-			<td style="width: 50%">제목</td>
-			<td style="width: 15%">작성자</td>
-			<td style="width: 15%">작성날짜</td>
-			<td style="width: 10%">조회수</td>
-		</tr>
-		<tr>
-			<td>${dto.num}</td>
-			<td>${dto.title}</td>
-			<td>${dto.writer}</td>
-			<td>${dto.reg_date}</td>
-			<td>${dto.hit}</td>
-		</tr>
-		<tr>
-			<td colspan="5" align="center">내용</td>
-		</tr>
-		<tr>
-			<td colspan="5" align="center">${dto.contents}</td>
-		</tr>
-		<tr>
-			<td colspan="5"><c:forEach items="${files}" var="fileDTO">
-					<h3 style="display: inline-block;">
-						<a href="../upload/${fileDTO.fname}"><img
-							style="max-width: 50px; max-height: 50px;" alt=""
-							src="../upload/${fileDTO.fname}"></a>
-					</h3>
-				</c:forEach></td>
-		</tr>
-		</table>
-		<a href="${board}List.do"><button>목록으로</button></a>
-		<c:if test="${not empty member and member.id eq dto.writer}">
-			<a href="./${board}Update.do?num=${dto.num}&writer=${dto.writer}"><button>수정</button></a>
-			<a href="./${board}Delete.do?num=${dto.num}&writer=${dto.writer}"><button>삭제</button></a>
-		</c:if>
 	</div>
-	</div>
-	</div>
+
 
 	<c:import url="../../../temp/footer.jsp" />
 </body>

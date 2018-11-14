@@ -86,7 +86,7 @@
 			  	<li><a href="./${board}List.do?curPage=${pager.totalPage}"><span class="glyphicon glyphicon-forward"></span></a></li>
 			  </ul>
    		</div>         
-		
+		</div>
 	</div>
 		<div>
 			<a href="./${board}Write.do" class="btn btn-primary">Write</a>
