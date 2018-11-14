@@ -36,7 +36,6 @@ public class ProductController extends HttpServlet {
 
 		String command = request.getPathInfo();
 		ActionFoward actionFoward = null;
-		System.out.println(1);
 		if (command.equals("/productList.do")) {
 
 			actionFoward = productService.selectList(request, response);
