@@ -17,11 +17,10 @@
 </head>
 <c:import url="../../../temp/header.jsp" />
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<div class="containor-fluid">
+<div class="containor-fluid wrapper">
 	<div class="row">
 		<h1>${board}Update</h1>
-	</div>
-	
+	</div>	
 	<div class="row">
 		<form action="./${board}Update.do" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="num" value="${dto.num}">
