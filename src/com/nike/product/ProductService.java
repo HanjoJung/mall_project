@@ -92,7 +92,6 @@ public class ProductService {
 		
 		ActionFoward actionFoward = new ActionFoward();
 		String method = request.getMethod();
-		System.out.println(method);
 		if(method.equals("POST")) {
 			String message="fail";
 			String path="./productList.do";

@@ -16,7 +16,7 @@
 	<section class="wrapper">
 		<div class="container-fluid">
 			<div class="row">
-				<article id="common-modal" class="uk-modal uk-open" aria-hidden="false" style="z-index: 1010; display: block; overflow-y: scroll;">
+				<article id="common-modal" class="uk-modal uk-open">
 					<div class="uk-modal-dialog">
 						<a class="uk-modal-close uk-close"></a>
 						<div class="contents">
