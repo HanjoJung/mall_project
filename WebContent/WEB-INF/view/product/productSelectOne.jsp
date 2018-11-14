@@ -38,7 +38,7 @@
 					<td colspan="5" align="center">내용</td>
 				</tr>
 				<tr>
-					<td colspan="5" align="center">${dto.contents}</td>
+					<td colspan="5" align="center">${pDTO.productName}</td>
 				</tr>
 				<tr>
 					<td colspan="5"><c:forEach items="${files}" var="fileDTO">
@@ -50,10 +50,10 @@
 						</c:forEach></td>
 				</tr>
 			</table>
-			<a href="${board}List.do"><button>목록으로</button></a>
+			<a href="productList.do" class="btn btn-primary">목록으로</a>
 			<%-- <c:if test="${not empty member and member.id eq dto.writer}"> --%>
-				<a href="./${board}Update.do?code=${pDTO.productCode}&writer=${dto.writer}"><button>수정</button></a>
-				<a href="./${board}Delete.do?code=${dto.num}&writer=${dto.writer}"><button>삭제</button></a>
+				<a href="./productUpdate.do?code=${pDTO.productCode}" class="btn btn-primary">수정</a>
+				<a href="./productDelete.do?code=${pDTO.productCode}" class="btn btn-primary">삭제</a>
 			<%-- </c:if> --%>
 		</div>
 	</div>
