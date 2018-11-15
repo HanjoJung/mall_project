@@ -36,13 +36,8 @@
 							data-click-name="Help_Order/Payment Process">주문/결제</a>
 					</dd>
 					<dd>
-						<a data-toggle="modal" data-target="#myModal" href="/mall_project/tracking_api.jsp"><strong>주문배송조회</strong></a>
-						<div class="modal fade" id="myModal" role="dialog">
-							<div class="modal-dialog">
-								<div class="modal-content">
-								</div>
-							</div>
-						</div>
+						<a data-toggle="modal" data-target="#myModal"
+							href="/mall_project/tracking_api.jsp"><strong>배송조회</strong></a>
 					</dd>
 					<dd>
 						<a href="#" data-click-area="Footer GNB"
@@ -151,3 +146,8 @@
 		</div>
 	</div>
 </footer>
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content"></div>
+	</div>
+</div>
