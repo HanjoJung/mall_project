@@ -15,22 +15,20 @@
 			<table class="table table-boadered table-hover"
 				style="max-width: 1500px">
 				<tr>
-					<td style="width: 5%">번호</td>
-					<td style="width: 50%">제목</td>
-					<td style="width: 15%">작성자</td>
-					<td style="width: 10%">작성날짜</td>
+					<td style="width: 10%">상품코드</td>
+					<td style="width: 50%">상품명</td>
+					<td style="width: 10%">종류</td>
+					<td style="width: 10%">가격</td>
 					<td style="width: 5%">조회수</td>
-					<td style="width: 5%">sale</td>
 					<td style="width: 5%">추천수</td>
-					<td style="width: 5%">제조사</td>
+					<td style="width: 10%">제조사</td>
 				</tr>
 				<tr>
 					<td>${pDTO.productCode}</td>
 					<td>${pDTO.productName}</td>
-					<td>${pDTO.price}</td>
 					<td>${pDTO.kind}</td>
+					<td>${pDTO.price}</td>
 					<td>${pDTO.hit}</td>
-					<td>${pDTO.sale}</td>
 					<td>${pDTO.good}</td>
 					<td>${pDTO.manufacturerCode}</td>
 				</tr>
@@ -38,7 +36,7 @@
 					<td colspan="5" align="center">내용</td>
 				</tr>
 				<tr>
-					<td colspan="5" align="center">${pDTO.productName}</td>
+					<td colspan="5" align="center">${pDTO.contents}</td>
 				</tr>
 				<tr>
 					<td colspan="5"><c:forEach items="${files}" var="fileDTO">

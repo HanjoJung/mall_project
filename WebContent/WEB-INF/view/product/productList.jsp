@@ -35,14 +35,13 @@
 		<table class="table table-hover">
 			<thead>
 				<tr class="info">
-					<td>CODE</td>
-					<td>NAME</td>
-					<td>PRICE</td>
-					<td>KIND</td>
-					<td>HIT</td>
-					<td>SALE</td>
-					<td>GOOD</td>
-					<td>M_CODE</td>
+					<td>상품코드</td>
+					<td>상품명</td>
+					<td>가격</td>
+					<td>종류</td>
+					<td>조회수</td>
+					<td>추천수</td>
+					
 				</tr>
 			</thead>
 			<c:forEach items="${list}" var="productDTO">
@@ -60,9 +59,8 @@
 					<td>${productDTO.price}</td>
 					<td>${productDTO.kind}</td>
 					<td>${productDTO.hit}</td>
-					<td>${productDTO.sale}</td>
 					<td>${productDTO.good}</td>
-					<td>${productDTO.manufacturerCode}</td>
+					
 				</tr>
 			</c:forEach>
 		</table>

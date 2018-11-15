@@ -48,6 +48,7 @@ public class ProductDAO {
 		List<ProductDTO> ar = new ArrayList<>();
 		while (rs.next()) {
 			ProductDTO productDTO = new ProductDTO();
+			productDTO.setProductCode(rs.getString("productcode"));
 			productDTO.setProductName(rs.getString("productname"));
 			productDTO.setPrice(rs.getInt("price"));
 			productDTO.setKind(rs.getString("kind"));
@@ -132,6 +133,7 @@ public class ProductDAO {
 		st.setString(1, code);
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
+		System.out.println(result);
 		return result;
 
 	}
