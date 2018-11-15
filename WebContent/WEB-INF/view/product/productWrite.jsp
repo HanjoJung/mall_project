@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<c:import url="../../../temp/bootStrap.jsp" />
 <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
 <script type="text/javascript">
 $(function() {
@@ -20,13 +21,10 @@ $(function() {
 	})
 })
 </script>
-<c:import url="../../../temp/bootStrap.jsp" />
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar"
 	data-offset="60">
 <c:import url="../../../temp/header.jsp" />
-
-
 
 	<div class="container-fluid wrapper">
 		<div class="row">

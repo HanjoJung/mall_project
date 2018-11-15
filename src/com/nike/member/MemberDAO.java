@@ -18,7 +18,7 @@ public class MemberDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, id);
 		ResultSet rs = st.executeQuery();
-		
+
 		if(rs.next()) {
 			result = 2;
 		}

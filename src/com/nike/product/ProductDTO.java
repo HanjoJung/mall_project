@@ -10,8 +10,16 @@ public class ProductDTO {
 	private int sale;
 	private int good;
 	private String manufacturerCode;
+	private String writer;
 	
 	
+	
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 	public String getProductCode() {
 		return productCode;
 	}

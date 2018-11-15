@@ -36,7 +36,6 @@ public class ProductController extends HttpServlet {
 
 		String command = request.getPathInfo();
 		ActionFoward actionFoward = null;
-		System.out.println(1);
 		if (command.equals("/productList.do")) {
 
 			actionFoward = productService.selectList(request, response);
@@ -44,6 +43,10 @@ public class ProductController extends HttpServlet {
 			actionFoward = productService.selectOne(request, response);
 		}else if(command.equals("/productWrite.do")) {
 			actionFoward = productService.insert(request, response);
+		}else if(command.equals("/productDelete.do")) {
+			actionFoward = productService.delete(request, response);
+		}else if(command.equals("/productUpdate.do")) {
+			actionFoward = productService.update(request, response);
 		}
 		if (actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
