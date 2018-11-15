@@ -1,4 +1,3 @@
-			Kakao.API.request({
 				
 // 사용할 앱의 JavaScript 키를 설정해 주세요.
 Kakao.init('a7faf288e5a8465c117a4a09197eca5a');
