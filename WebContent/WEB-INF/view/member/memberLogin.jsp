@@ -11,7 +11,7 @@
 		<div class="uk-grid">
 			<div class="uk-width-1-1">
 				<div class="dynamic-form">
-					<form method="POST" class="uk-form-large" action="./memberLogin.do">
+					<form method="POST" class="uk-form-large" action="${pageContext.request.contextPath}/member/memberLogin.do">
 						<div class="uk-form-row">
 							<div class="input-textfield width-max">
 								<input class="data" type="email"
