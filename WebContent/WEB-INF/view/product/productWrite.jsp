@@ -31,6 +31,11 @@ $(function() {
 			<form id="frm" action="./${board}Write.do" method="post"
 				enctype="multipart/form-data">
 				<div class="form-group">
+				<div class="form-group">
+					<label for="writer">멤버:</label> <input type="text"
+						class="form-control" id="writer" 
+						 name="writer" value="${member.id}" readonly="readonly">
+				</div>
 					<label for="productCode">상품코드:</label> <input type="text"
 						class="form-control" id="code" placeholder="Enter code"
 						name="code">
@@ -41,15 +46,26 @@ $(function() {
 						 name="name">
 				</div>
 				<div class="form-group">
-					<label for="writer">Writer:</label> <input type="text"
-						class="form-control" id="writer" 
-						 name="writer" value="${member.id}" readonly="readonly">
+					<label for="kind">종류:</label> <input type="text"
+						class="form-control" id="kind" 
+						 name="kind">
+				</div>
+				<div class="form-group">
+					<label for="price">가격:</label> <input type="text"
+						class="form-control" id="price" 
+						 name="price">
+				</div>
+				<div class="form-group">
+					<label for="manufacturerCode">제조사:</label> <input type="text"
+						class="form-control" id="mCode" 
+						 name="mCode">
 				</div>
 				
 				<div class="form-group">
-					<label for="contents">Contents:</label>
+					<label for="contents">내용:</label>
 					<textarea rows="15" cols="" class="form-control" name="contents"></textarea>
 				</div>
+				
 
 				<script>
 					CKEDITOR.replace('contents');

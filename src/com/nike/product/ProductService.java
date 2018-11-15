@@ -107,10 +107,12 @@ public class ProductService {
 			try {
 				MultipartRequest multi = new MultipartRequest(request, save, maxSize, "utf-8", new DefaultFileRenamePolicy());
 				ProductDTO productDTO = new ProductDTO();
-				productDTO.setProductName(multi.getParameter("productName"));
+				productDTO.setProductName(multi.getParameter("name"));
 				productDTO.setPrice(Integer.parseInt(multi.getParameter("price")));
 				productDTO.setKind(multi.getParameter("kind"));
-				productDTO.setManufacturerCode(multi.getParameter("manufacturerCode"));
+				productDTO.setManufacturerCode(multi.getParameter("mCode"));
+				productDTO.setWriter(multi.getParameter("writer"));
+				productDTO.setContents(multi.getParameter("contents"));
 				int result = productDAO.insert(productDTO);
 				if(result>0) {
 					FileDAO fileDAO = new FileDAO();
