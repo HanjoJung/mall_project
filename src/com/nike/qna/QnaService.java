@@ -171,7 +171,7 @@ public class QnaService implements BoardService{
 			}
 		}
 	
-		return null;
+		return actionFoward;
 	}
 
 	@Override
@@ -194,20 +194,20 @@ public class QnaService implements BoardService{
 					}
 				}else {
 					request.setAttribute("message", "작성자만 삭제할 수 있습니다");
-					request.setAttribute("path", "./noticeList.do");
+					request.setAttribute("path", "./qnaList.do");
 					actionFoward.setCheck(true);
 					actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 				}
 			} catch (Exception e) {
 				request.setAttribute("message", "삭제 실패");
-				request.setAttribute("path", "./noticeList.do");
+				request.setAttribute("path", "./qnaList.do");
 				e.printStackTrace();
 			}
 			actionFoward.setCheck(true);
 			actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 		} else {
 			request.setAttribute("message", "로그인 해주시길 바랍니다");
-			request.setAttribute("path", "./noticeList.do");
+			request.setAttribute("path", "./qnaList.do");
 			actionFoward.setCheck(true);
 			actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 		}

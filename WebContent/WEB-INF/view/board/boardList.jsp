@@ -104,6 +104,9 @@
 			</ul>
 		</div>
 	</div>
+	<div>
+		<a href="./${board}Write.do" class="btn btn-primary">Write</a>
+	</div>
 	<c:import url="../../../temp/footer.jsp" />
 </body>
 </html>
