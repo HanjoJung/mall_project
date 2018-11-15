@@ -15,6 +15,7 @@ import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
 import com.nike.qna.QnaDTO;
+import com.oreilly.servlet.MultipartRequest;
 
 public class ReviewService implements BoardService{
 	private ReviewDAO reviewDAO;
@@ -86,8 +87,13 @@ public class ReviewService implements BoardService{
 		if(method.equals("POST")) {
 			String message="작성실패";
 			String path="./reviewList.do";
-			ReviewDTO reviewDTO=new ReviewDTO();
+			String save = request.getServletContext().getRealPath("upload");
 			try {
+				MultipartRequest multi=new MultipartRequest(request, save, "UTF-8");
+				ReviewDTO reviewDTO=new ReviewDTO();
+				reviewDTO.setTitle(multi.getParameter("title"));
+				reviewDTO.setWriter(multi.getParameter("writer"));
+				reviewDTO.setContents(multi.getParameter("contents"));
 				reviewDTO.setNum(reviewDAO.getNum());
 				int result=reviewDAO.insert(reviewDTO);
 				if(result>0) {
