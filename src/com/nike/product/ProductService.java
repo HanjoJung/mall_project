@@ -107,26 +107,33 @@ public class ProductService {
 			try {
 				MultipartRequest multi = new MultipartRequest(request, save, maxSize, "utf-8", new DefaultFileRenamePolicy());
 				ProductDTO productDTO = new ProductDTO();
+				productDTO.setProductCode(multi.getParameter("code"));
 				productDTO.setProductName(multi.getParameter("name"));
 				productDTO.setPrice(Integer.parseInt(multi.getParameter("price")));
 				productDTO.setKind(multi.getParameter("kind"));
 				productDTO.setManufacturerCode(multi.getParameter("mCode"));
 				productDTO.setWriter(multi.getParameter("writer"));
 				productDTO.setContents(multi.getParameter("contents"));
+				System.out.println(1);
 				int result = productDAO.insert(productDTO);
 				if(result>0) {
+					System.out.println(2);
 					FileDAO fileDAO = new FileDAO();
 					Enumeration<Object> e = multi.getFileNames();
 					while(e.hasMoreElements()) {
+						System.out.println(e);
 						String p =(String)e.nextElement();
+						System.out.println(p);
 						FileDTO fileDTO = new FileDTO();
 						fileDTO.setPut("M");
 						fileDTO.setProductCode(productDTO.getProductCode());
 						fileDTO.setFname(multi.getFilesystemName(p));
 						fileDTO.setOname(multi.getOriginalFileName(p));
-						
+
+						System.out.println(3);
 						fileDAO.insert(fileDTO);
-						
+
+						System.out.println(4);
 					}
 					message = "Success";
 					actionFoward.setCheck(true);

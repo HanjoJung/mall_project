@@ -31,15 +31,15 @@ $(function() {
 			<form id="frm" action="./${board}Write.do" method="post"
 				enctype="multipart/form-data">
 				<div class="form-group">
-				<div class="form-group">
 					<label for="writer">멤버:</label> <input type="text"
 						class="form-control" id="writer" 
 						 name="writer" value="${member.id}" readonly="readonly">
 				</div>
+			<!-- 	<div class="form-group">
 					<label for="productCode">상품코드:</label> <input type="text"
 						class="form-control" id="code" placeholder="Enter code"
 						name="code">
-				</div>
+				</div> -->
 				<div class="form-group">
 					<label for="productName">삼품명:</label> <input type="text"
 						class="form-control" id="name" 
@@ -60,11 +60,11 @@ $(function() {
 						class="form-control" id="mCode" 
 						 name="mCode">
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label for="fname">사진:</label> <input type="file"
 						class="form-control" id="fname" 
 						 name="fname">
-				</div>
+				</div> -->
 				
 				<div class="form-group">
 					<label for="contents">내용:</label>
