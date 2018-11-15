@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../../../temp/bootStrap.jsp"></c:import>
+<link href="/mall_project/css/index.css" rel="stylesheet"
+	type="text/css">
 </head>
 <body>
 	<c:import url="../../../temp/header.jsp"></c:import>
@@ -32,25 +34,25 @@
 			</form>
 			<!-- 서치 폼 -->
 		</div>
-		<ul class="wrap-pl product-item">
+		<div class="wrap-pl product-item">
 			<c:forEach items="${list}" var="productDTO">
-			<li>
 				<div>
-					<a href="./${board}SelectOne.do?code=${productDTO.productCode}"><img
-						src="/mall_project/images/807480-004_807480-004_primary.jpg"></a>
-				</div>
-				<div class="item-info">
-					<a href="#"><span class="item-title">${productDTO.productName}</span></a>
-					<div class="item-location">
-						<span>${productDTO.kind}</span>
+					<div>
+						<a href="./productSelectOne.do?code=${productDTO.productCode}"><img
+							src="/mall_project/images/807480-004_807480-004_primary.jpg"></a>
 					</div>
-					<span class="item-price"><span>${productDTO.price}원</span></span>
+					<div class="item-info">
+						<span class="item-title">${productDTO.productName}</span>
+						<div class="item-location">
+							<span>${productDTO.kind}</span>
+						</div>
+						<span class="item-price"><span>${productDTO.price} 원</span></span>
+					</div>
 				</div>
-			</li>
 			</c:forEach>
 
-		</ul>
-	
+		</div>
+
 		<div class="container-fluid center">
 			<div class="row center">
 				<ul class="pagination">
