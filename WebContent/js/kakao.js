@@ -17,6 +17,9 @@ Kakao.Auth.createLoginButton({
 				console.log(userID);
 				console.log(userEmail);
 				console.log(userNickName);
+				request.setAttribute("userID", userID);
+				request.setAttribute("userEmail", userEmail);
+				request.setAttribute("userNickName", userNickName);
 			},
 			fail : function(error) {
 				alert(JSON.stringify(error));

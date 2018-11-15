@@ -3,6 +3,14 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/memberinit.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<html>
+<script type="text/javascript">
+	$(function() {
+		$.get("/mall_project/test.jsp", function(data) {
+			$("#kakao").html(data);
+		})
+	})
+</script>
 <div class="login-wrap width-small">
 	<div class="header uk-text-center">
 		<span class="ns-swoosh"></span>
@@ -55,13 +63,7 @@
 		<div class="uk-grid social_wrap" data-module-social-login>
 			<div class="uk-width-1-1 uk-width-medium-1-1"></div>
 			<div class="uk-width-1-1 uk-width-medium-1-1">
-				<a id="kakao-login-btn"></a> <a
-					href="http://developers.kakao.com/logout"></a>
-				<script type="text/javascript">
-				 	$.get("/test.jsp", function(data) {
-					alert(data);
-					$("#kakao-login-btn").html(data);
-				</script>
+				<a id="kakao-login-btn"></a>
 			</div>
 		</div>
 	</div>
@@ -75,3 +77,4 @@
 		</div>
 	</div>
 </div>
+</html>
