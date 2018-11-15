@@ -1,15 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%><!DOCTYPE html>
-<html>
-<head>
-<title>Login Demo - Kakao JavaScript SDK</title>
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
-</head>
-<body>
-	<a id="kakao-login-btn"></a>
-	<a href="http://developers.kakao.com/logout"></a>
-	<script type='text/javascript'>
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init('a7faf288e5a8465c117a4a09197eca5a');
     // 카카오 로그인 버튼을 생성합니다.
@@ -40,8 +29,3 @@
          alert(JSON.stringify(err));
       }
     });
-
-</script>
-
-</body>
-</html>
