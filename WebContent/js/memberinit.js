@@ -133,7 +133,9 @@ $(function() {
 					}
 				 })
 				}else{
-					$(".uk-form-large").submit();
+					if(check){
+						$(".uk-form-large").submit();
+					}
 				}
 		})
 })

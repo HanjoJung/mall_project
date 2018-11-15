@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <c:import url="../../../temp/bootStrap.jsp" />
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/memberJoin.js"></script>
+	src="${pageContext.request.contextPath}/js/memberinit.js"></script>
 <style type="text/css">
 </style>
 </head>
