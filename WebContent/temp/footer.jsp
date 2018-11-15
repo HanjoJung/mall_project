@@ -14,8 +14,9 @@
 							href="#">매장안내</a>
 					</p>
 					<p class="pc-only">
-						<a data-component-loginmodal="" data-click-area="Footer GNB"
-							data-click-name="Login">로그인</a>
+						<a data-toggle="modal" data-target="#myModal"
+							href="${pageContext.request.contextPath}/member/memberLogin.do"><strong>로그인</strong></a>
+
 					</p>
 					<p class="pc-only">
 						<a data-component-registermodal="" title="회원가입"
@@ -36,13 +37,8 @@
 							data-click-name="Help_Order/Payment Process">주문/결제</a>
 					</dd>
 					<dd>
-						<a data-toggle="modal" data-target="#myModal" href="/mall_project/tracking_api.jsp"><strong>주문배송조회</strong></a>
-						<div class="modal fade" id="myModal" role="dialog">
-							<div class="modal-dialog">
-								<div class="modal-content">
-								</div>
-							</div>
-						</div>
+						<a data-toggle="modal" data-target="#myModal"
+							href="/mall_project/tracking_api.jsp"><strong>주문배송조회</strong></a>
 					</dd>
 					<dd>
 						<a href="#" data-click-area="Footer GNB"
@@ -58,7 +54,8 @@
 					</dd>
 					<dd>
 						<a data-click-area="Footer GNB"
-							data-click-name="Help_Privacy Policy" href="#">이용약관</a>
+							data-click-name="Help_Privacy Policy"
+							href="${pageContext.request.contextPath}/cscenter/policy.jsp">이용약관</a>
 					</dd>
 					<dd>
 						<a data-click-area="Footer GNB"
@@ -147,6 +144,11 @@
 				<a target="_blank" href="#">사업자정보확인</a> <a href="javascript:;"
 					data-uk-modal="{target:'#privacy-personal'}" class="ksnet">콘텐츠보호안내
 					자세히보기</a>
+			</div>
+		</div>
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content"></div>
 			</div>
 		</div>
 	</div>
