@@ -14,8 +14,8 @@
 							href="#">매장안내</a>
 					</p>
 					<p class="pc-only">
-						<a data-component-loginmodal="" data-click-area="Footer GNB"
-							data-click-name="Login">로그인</a>
+						<a data-toggle="modal" data-target="#myModal" data-show="true"
+							href="${pageContext.request.contextPath}/member/memberLogin.do">로그인</a>
 					</p>
 					<p class="pc-only">
 						<a data-component-registermodal="" title="회원가입"

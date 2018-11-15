@@ -7,4 +7,3 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/mall_project/js/index.js"></script>
 <link href="/mall_project/css/common.css" rel="stylesheet" type="text/css">
-<link href="/mall_project/css/notosanskr.css" rel="stylesheet" type="text/css">

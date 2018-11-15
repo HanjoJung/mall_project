@@ -14,8 +14,8 @@ $(document).ready(function() {
 			}, 300);
 		}
 	});
-	
-	$('body').on('hidden.bs.modal', '.modal', function () {
-        $(this).removeData('bs.modal');
-      });
+
+	$('body').on('hidden.bs.modal', '.modal', function() {
+		$(this).removeData('bs.modal');
+	});
 });

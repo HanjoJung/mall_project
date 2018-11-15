@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <script type="text/javascript">
- $(document).ready(function(){
+$(document).ready(function(){
     var myKey = "Qryj6enpsUFG6KnoERTc2w"; // sweet tracker에서 발급받은 자신의 키 넣는다.
      
         // 택배사 목록 조회 company-api
@@ -116,8 +116,9 @@
 	top: 5%;
 }
 </style>
+<button type="button" class="uk-modal-close uk-close"
+	data-dismiss="modal"></button>
 <div class="tracking">
-	<button type="button" class="close" data-dismiss="modal">&times;</button>
 	<div>
 		<span id="tekbeCompnayName">택배회사명: </span> <select
 			id="tekbeCompnayList" name="tekbeCompnayList"></select>
