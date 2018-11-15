@@ -14,6 +14,8 @@ import com.nike.member.MemberDTO;
 import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class NoticeService implements BoardService{
 	private NoticeDAO noticeDAO;
@@ -91,8 +93,14 @@ public class NoticeService implements BoardService{
 		if(method.equals("POST")) {
 			String message="작성실패";
 			String path="./noticeList.do";
-			NoticeDTO noticeDTO = new NoticeDTO();
+			String save = request.getServletContext().getRealPath("upload");
+			
 			try {
+				MultipartRequest multi = new MultipartRequest(request, save, "UTF-8");
+				NoticeDTO noticeDTO = new NoticeDTO();
+				noticeDTO.setTitle(multi.getParameter("title"));
+				noticeDTO.setWriter(multi.getParameter("writer"));
+				noticeDTO.setContents(multi.getParameter("contents"));
 				noticeDTO.setNum(noticeDAO.getNum());
 				int result = noticeDAO.insert(noticeDTO);
 				if (result > 0) {

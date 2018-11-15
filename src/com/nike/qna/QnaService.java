@@ -10,9 +10,11 @@ import com.nike.action.ActionFoward;
 import com.nike.board.BoardDTO;
 import com.nike.board.BoardService;
 import com.nike.member.MemberDTO;
+import com.nike.notice.NoticeDTO;
 import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
+import com.oreilly.servlet.MultipartRequest;
 
 public class QnaService implements BoardService{
 	private QnaDAO qnaDao;
@@ -87,8 +89,13 @@ public class QnaService implements BoardService{
 		if(method.equals("POST")) {
 			String message="작성실패";
 			String path="./qnaList.do";
-			QnaDTO qnaDTO=new QnaDTO();
+			String save = request.getServletContext().getRealPath("upload");
 			try {
+				MultipartRequest multi=new MultipartRequest(request, save, "UTF-8");
+				QnaDTO qnaDTO=new QnaDTO();
+				qnaDTO.setTitle(multi.getParameter("title"));
+				qnaDTO.setWriter(multi.getParameter("writer"));
+				qnaDTO.setContents(multi.getParameter("contents"));
 				qnaDTO.setNum(qnaDao.getNum());
 				int result=qnaDao.insert(qnaDTO);
 				if(result>0) {
