@@ -11,7 +11,7 @@
 					</p>
 					<p>
 						<a data-click-area="Footer GNB" data-click-name="Store locator"
-							href="#">매장안내</a>
+							href="/mall_project/map.jsp">매장안내</a>
 					</p>
 					<p class="pc-only">
 						<a data-toggle="modal" data-target="#myModal" data-show="true"
