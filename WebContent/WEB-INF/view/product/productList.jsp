@@ -32,38 +32,25 @@
 			</form>
 			<!-- 서치 폼 -->
 		</div>
-		<table class="table table-hover">
-			<thead>
-				<tr class="info">
-					<td>상품코드</td>
-					<td>상품명</td>
-					<td>가격</td>
-					<td>종류</td>
-					<td>조회수</td>
-					<td>추천수</td>
-					
-				</tr>
-			</thead>
+		<ul class="wrap-pl product-item">
 			<c:forEach items="${list}" var="productDTO">
-				<tr>
-					<td>${productDTO.productCode}</td>
-					<td><a
-						href="./${board}SelectOne.do?code=${productDTO.productCode}">
-							<%-- 일단은 주석처리 
-						<c:catch>
-							<c:forEach begin="1" end="${boardDTO.depth}">
-								<span class="glyphicon glyphicon-hand-right"></span>
-							</c:forEach>
-						</c:catch> --%> ${productDTO.productName}
-					</a></td>
-					<td>${productDTO.price}</td>
-					<td>${productDTO.kind}</td>
-					<td>${productDTO.hit}</td>
-					<td>${productDTO.good}</td>
-					
-				</tr>
+			<li>
+				<div>
+					<a href="./${board}SelectOne.do?code=${productDTO.productCode}"><img
+						src="/mall_project/images/807480-004_807480-004_primary.jpg"></a>
+				</div>
+				<div class="item-info">
+					<a href="#"><span class="item-title">${productDTO.productName}</span></a>
+					<div class="item-location">
+						<span>${productDTO.kind}</span>
+					</div>
+					<span class="item-price"><span>${productDTO.price}원</span></span>
+				</div>
+			</li>
 			</c:forEach>
-		</table>
+
+		</ul>
+	
 		<div class="container-fluid center">
 			<div class="row center">
 				<ul class="pagination">
