@@ -73,7 +73,6 @@
 													data-parsley-pattern="^[가-힣|a-z|A-Z]*$"
 													data-parsley-required-message="필수 입력 항목입니다."
 													data-parsley-equalto-message="입력값이 일치하지 않습니다."
-													data-parsley-required="true"
 													data-parsley-message="한글과 영문만 입력 가능합니다."
 													placeholder="이름을 입력해 주세요." id="name" name="name" /> <span
 													class="error-message filled"></span>
@@ -929,7 +928,6 @@
 											<label class="uk-form-label"></label>
 											<div class="input-form-group">
 												<span class="input-checkbox"> <input type="checkbox"
-													data-parsley-required="false"
 													data-parsley-required-message="필수 입력 항목입니다."
 													id="receiveEmail" name="receiveEmail" /> <label
 													for="receiveEmail"> <i class="brz-icon-checkbox">rediobox</i>
@@ -943,7 +941,6 @@
 											<label class="uk-form-label"></label>
 											<div class="input-form-group">
 												<span class="input-checkbox"> <input type="checkbox"
-													data-parsley-required="false"
 													data-parsley-required-message="필수 입력 항목입니다."
 													name="ATTRIBUTE@smsAgree" /> <label> <i
 														class="brz-icon-checkbox">rediobox</i> <span class="label">(선택)
@@ -968,8 +965,9 @@
 
 						<div class="uk-grid">
 							<div class="uk-width-1-1">
-								<button class="button xlarge width-max" type="submit"
-									id="submit">회원가입하기 (만 14세 이상)</button>
+								<button class="button xlarge width-max"
+									data-parsley-required="t" type="submit" id="submit">회원가입하기
+									(만 14세 이상)</button>
 							</div>
 						</div>
 

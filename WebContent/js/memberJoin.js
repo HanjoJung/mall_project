@@ -111,27 +111,29 @@ $(function() {
 					}
 				})
 			}
-			
-			var id = $("#id").val();
-			 $.get("../member/memberCheckId.do?id="+id, function(data) {
-				if(data!=1){
-					check = false;
-					$("#id").parent().children(".error-message").html("이미 사용중인 아이디입니다");
-					$("#id").parent()
-							.children(".uk-form-row .error-message").css({
-								display : "block"
-							});
-					$("#id")
-					.css({
-						"border-color" : "red"
-					});
-					$("#id").focus();
-				};
-				
-				if(check){
+			if($(this).attr("data-parsley-required")!=null){
+				var id = $("#id").val();
+				 $.get("../member/memberCheckId.do?id="+id, function(data) {
+					if(data!=1){
+						check = false;
+						$("#id").parent().children(".error-message").html("이미 사용중인 아이디입니다");
+						$("#id").parent()
+								.children(".uk-form-row .error-message").css({
+									display : "block"
+								});
+						$("#id")
+						.css({
+							"border-color" : "red"
+						});
+						$("#id").focus();
+					};
+					
+					if(check){
+						$(".uk-form-large").submit();
+					}
+				 })
+				}else{
 					$(".uk-form-large").submit();
 				}
-			 })
-		
 		})
 })

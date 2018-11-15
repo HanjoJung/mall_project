@@ -7,58 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../../../temp/bootStrap.jsp" />
-<script type="text/javascript">
-	$(function() {
-		$("#btn").click(
-				function() {
-
-					if ($("#pw1").val() == "" || $("#pw2").val() == "") {
-						$("#pw2").parent().children("span").html(
-								'<h6 style="color: red;">필수 입력사항입니다</h6>')
-						$("#idCheck").val('f');
-					} else {
-						$("#pw2").parent().children("span").html("");
-					}
-
-					if ($("#name").val() == "") {
-						$("#name").parent().children("span").html(
-								'<h6 style="color: red;">필수 입력사항입니다</h6>')
-						$("#idCheck").val('f');
-					} else {
-						$("#name").parent().children("span").html("");
-					}
-
-					if ($("#phone").val() == "") {
-						$("#phone").parent().children("span").html(
-								'<h6 style="color: red;">필수 입력사항입니다</h6>')
-						$("#idCheck").val('f');
-					} else {
-						$("#phone").parent().children("span").html("");
-					}
-
-					if ($("#idCheck").val() != "f") {
-						$("#frm").submit();
-					}
-				})
-
-		$("#pw2")
-				.change(
-						function() {
-							if ($("#pw1").val() != $("#pw2").val()) {
-								$("#pw2").parent().children("span").children()
-										.html("비밀번호가 일치하지 않습니다");
-								$("#idCheck").val('f');
-							} else {
-								$("#pw2").parent().children("span").children()
-										.html("");
-							}
-						})
-	})
-</script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/memberJoin.js"></script>
 </head>
 <body>
 	<c:import url="../../../temp/header.jsp" />
-	<div class="container-fluid">
+	<div class="container-fluid wrapper">
 		<div class="row">
 			<form action="./memberUpdate.do" method="post"
 				enctype="multipart/form-data" name="frm">
