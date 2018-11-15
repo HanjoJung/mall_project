@@ -171,7 +171,7 @@ public class QnaService implements BoardService{
 			}
 		}
 	
-		return null;
+		return actionFoward;
 	}
 
 	@Override
