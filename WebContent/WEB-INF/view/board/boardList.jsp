@@ -71,19 +71,19 @@
 				</table>
 			</div>
 			<div class="col-lg-1"></div>
-			<c:choose>
-				<c:when test="${board eq 'notice'}">
-					<c:if test="${not empty member and member.kind eq 'T'}">
-						<c:import url="../../temp/writeButton.jsp" />
-					</c:if>
-				</c:when>
-				<c:otherwise>
-					<c:if test="${not empty member}">
-						<c:import url="../../temp/writeButton.jsp" />
-					</c:if>
-				</c:otherwise>
-			</c:choose>
 		</div>
+		<c:choose>
+			<c:when test="${board eq 'notice'}">
+				<c:if test="${not empty member and member.id eq 'manager'}">
+					<c:import url="../../../temp/writeButton.jsp" />
+				</c:if>
+			</c:when>
+			<c:otherwise>
+				<c:if test="${not empty member}">
+					<c:import url="../../../temp/writeButton.jsp" />
+				</c:if>
+			</c:otherwise>
+		</c:choose>
 		<div class="row" align="center">
 			<ul class="pagination">
 				<li><a href="./${board}List.do?curPage=1"><span

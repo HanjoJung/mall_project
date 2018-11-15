@@ -10,7 +10,6 @@
 </head>
 <body>
 	<c:import url="../../../temp/header.jsp" />
-
 	<div class="container-fluid wrapper">
 		<div class="row">
 			<table class="table table-hover">
@@ -42,28 +41,27 @@
 			</table>
 			<table>
 				<tr>
-					<td>
-						<a href="${pageContext.request.contextPath}/index.jsp">
+					<td><a href="${pageContext.request.contextPath}/index.jsp">
 							<input type="button" class="btn btn-default" value="홈">
-						</a>
-						<c:choose>
-						<c:when test="${empty member}">
-							<a href="./memberJoin.do"> 
-								<input type="button" class="btn btn-default" value="가입"></a> 
-							<a href="./memberLogin.do"> 
-								<input type="button" class="btn btn-default" value="로그인"></a>
-						</c:when>
-						<c:otherwise> 
-							<a href="./memberSelectOne.do"> 
-								<input type="button" class="btn btn-default" value="개인정보"></a>
-							<a href="./memberLogout.do"> 
-								<input type="button" class="btn btn-default" value="로그아웃"></a>
-						</c:otherwise>
-						</c:choose>
-					</td>
+					</a> <c:choose>
+							<c:when test="${empty member}">
+								<a href="./memberJoin.do"> <input type="button"
+									class="btn btn-default" value="가입"></a>
+								<!-- <a href="./memberLogin.do"> 
+								<input type="button" class="btn btn-default" value="로그인"></a> -->
+								<a data-toggle="modal" data-target="#myModal" data-show="true"
+									href="${pageContext.request.contextPath}/member/memberLogin.do"><input
+									type="button" class="btn btn-default" value="로그인"></a>
+							</c:when>
+							<c:otherwise>
+								<a href="./memberSelectOne.do"> <input type="button"
+									class="btn btn-default" value="개인정보"></a>
+								<a href="./memberLogout.do"> <input type="button"
+									class="btn btn-default" value="로그아웃"></a>
+							</c:otherwise>
+						</c:choose></td>
 				</tr>
 			</table>
-
 			<div class="row" align="center">
 				<ul class="pagination">
 					<li><a href="./memberList.do?curPage=1"><span
@@ -87,7 +85,6 @@
 			</div>
 		</div>
 	</div>
-
 	<c:import url="../../../temp/footer.jsp" />
 </body>
 </html>
