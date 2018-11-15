@@ -35,7 +35,7 @@
 				<h2 class="title">
 					<span class="labelt">이용약관</span>
 				</h2>
-				<c:import url="/WEB-INF/view/cscenter/text.jsp"></c:import>
+				<c:import url="./text.jsp"></c:import>
 			</div>
 		</div>
 	</div>
