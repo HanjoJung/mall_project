@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header class="header_layout_1">
 	<div class="header-gnb">
 		<div class="uk-clearfix header-gnb_maxwidth">
@@ -13,12 +14,26 @@
 				<li><a href="${pageContext.request.contextPath}/qna/qnaList.do"><span>QNA</span></a></li>
 			</ul>
 			<ul class="uk-float-right header-mymenu">
-				<li><span> <a title="회원가입" class="join"
-						href="${pageContext.request.contextPath}/member/memberJoin.do">회원가입</a>
-						<a style="padding: 0px;">/</a><a data-toggle="modal"
-						data-target="#myModal" title="로그인"
-						href="${pageContext.request.contextPath}/member/memberLogin.do"
-						class="login">로그인</a>
+				<li><span> <c:choose>
+							<c:when test="${empty member}">
+								<a class="join"
+									href="${pageContext.request.contextPath}/member/memberJoin.do">회원가입</a>
+								<a style="padding: 0px;">/</a>
+								<a data-toggle="modal" data-target="#myModal"
+									href="${pageContext.request.contextPath}/member/memberLogin.do"
+									class="login">로그인</a>
+							</c:when>
+							<c:otherwise>
+								<a class="join"
+									href="${pageContext.request.contextPath}/member/memberSelectOne.do">
+									내 정보</a>
+								<a style="padding: 0px;">/</a>
+								<a class="login"
+									href="${pageContext.request.contextPath}/member/memberLogout.do">
+									로그아웃</a>
+							</c:otherwise>
+						</c:choose>
+
 				</span></li>
 				<li><a href="#">고객센터</a></li>
 				<li><a href="#" class="cart-item empty"><i class="ns-cart"></i>

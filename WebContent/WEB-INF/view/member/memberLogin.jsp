@@ -11,7 +11,8 @@
 		<div class="uk-grid">
 			<div class="uk-width-1-1">
 				<div class="dynamic-form">
-					<form method="POST" class="uk-form-large" action="${pageContext.request.contextPath}/member/memberLogin.do">
+					<form method="POST" class="uk-form-large"
+						action="${pageContext.request.contextPath}/member/memberLogin.do">
 						<div class="uk-form-row">
 							<div class="input-textfield width-max">
 								<input class="data" type="email"
@@ -51,8 +52,12 @@
 	</div>
 	<div class="social-login-container">
 		<div class="uk-grid social_wrap" data-module-social-login>
-			<div class="uk-width-1-1 uk-width-medium-1-1"></div>
-			<div class="uk-width-1-1 uk-width-medium-1-1"></div>
+			<div class="uk-width-1-1 uk-width-medium-1-1">
+
+			</div>
+			<div class="uk-width-1-1 uk-width-medium-1-1">
+				<a id="kakao-login-btn"></a>
+			</div>
 		</div>
 	</div>
 	<div class="footer uk-clearfix">
