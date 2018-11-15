@@ -101,6 +101,7 @@ public class MemberService {
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO.setId(request.getParameter("id"));
 			memberDTO.setPassword(request.getParameter("pw"));
+		
 			try {
 				memberDTO = memberDAO.login(memberDTO);
 				if (memberDTO.getJoin_date() != null) {

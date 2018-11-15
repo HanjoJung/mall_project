@@ -11,9 +11,17 @@ public class ProductDTO {
 	private int good;
 	private String manufacturerCode;
 	private String writer;
+	private String contents;
 	
 	
 	
+	
+	public String getContents() {
+		return contents;
+	}
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
 	public String getWriter() {
 		return writer;
 	}

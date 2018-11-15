@@ -48,14 +48,12 @@ public class ProductDAO {
 		List<ProductDTO> ar = new ArrayList<>();
 		while (rs.next()) {
 			ProductDTO productDTO = new ProductDTO();
-			productDTO.setProductCode(rs.getString("productcode"));
 			productDTO.setProductName(rs.getString("productname"));
 			productDTO.setPrice(rs.getInt("price"));
 			productDTO.setKind(rs.getString("kind"));
 			productDTO.setHit(rs.getInt("hit"));
-			productDTO.setSale(rs.getInt("sale"));
 			productDTO.setGood(rs.getInt("good"));
-			productDTO.setManufacturerCode(rs.getString("manufacturercode"));
+			
 			ar.add(productDTO);
 		}
 		
@@ -79,9 +77,9 @@ public class ProductDAO {
 			productDTO.setPrice(rs.getInt("price"));
 			productDTO.setKind(rs.getString("kind"));
 			productDTO.setHit(rs.getInt("hit"));
-			productDTO.setSale(rs.getInt("sale"));
 			productDTO.setGood(rs.getInt("good"));
 			productDTO.setManufacturerCode(rs.getString("manufacturercode"));
+			productDTO.setContents(rs.getString("contents"));
 
 		}
 		DBconnector.disConnect(rs, st, con);
@@ -93,13 +91,14 @@ public class ProductDAO {
 
 	
 		Connection con = DBconnector.getConnect();
-		String sql = "insert into product values('nike'||product_seq.nextval,?,?,?,0,0,0,?,?)";
+		String sql = "insert into product values('nike'||product_seq.nextval,?,?,?,0,0,0,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, productDTO.getProductName());
 		st.setInt(2, productDTO.getPrice());
 		st.setString(3, productDTO.getKind());
 		st.setString(4, productDTO.getManufacturerCode());
 		st.setString(5, productDTO.getWriter());
+		st.setString(6, productDTO.getContents());
 
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
@@ -140,12 +139,12 @@ public class ProductDAO {
 	public int update(ProductDTO productDTO) throws Exception {
 
 		Connection con = DBconnector.getConnect();
-		String sql = "update product set productname=?, price=? where productcode=?";
+		String sql = "update product set productname=?, price=?, contents=? where productcode=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, productDTO.getProductName());
 		st.setInt(2, productDTO.getPrice());
-		st.setString(3, productDTO.getProductCode());
-
+		st.setString(3, productDTO.getContents());
+		st.setString(4, productDTO.getProductCode());
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
 

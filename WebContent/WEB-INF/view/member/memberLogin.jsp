@@ -95,7 +95,7 @@
 				<form action="./memberLogin.do" method="post">
 					<div class="form-group">
 						<label for="id">ID:</label> <input type="text"
-							class="form-control" id="id2" placeholder="Enter id" name="id2">
+							class="form-control" id="id" placeholder="Enter id" name="id">
 					</div>
 					<div class="form-group">
 						<label for="pw">PASSWORD:</label> <input type="password"

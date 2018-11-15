@@ -31,14 +31,19 @@ $(function() {
 			<form id="frm" action="./${board}Write.do" method="post"
 				enctype="multipart/form-data">
 				<div class="form-group">
-					<label for="title">Title:</label> <input type="text"
-						class="form-control" id="title" placeholder="Enter Title"
-						name="title">
+					<label for="productCode">상품코드:</label> <input type="text"
+						class="form-control" id="code" placeholder="Enter code"
+						name="code">
+				</div>
+				<div class="form-group">
+					<label for="productName">삼품명:</label> <input type="text"
+						class="form-control" id="name" 
+						 name="name">
 				</div>
 				<div class="form-group">
 					<label for="writer">Writer:</label> <input type="text"
 						class="form-control" id="writer" 
-						 name="writer">
+						 name="writer" value="${member.id}" readonly="readonly">
 				</div>
 				
 				<div class="form-group">
