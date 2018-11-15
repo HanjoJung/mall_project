@@ -65,7 +65,7 @@ public class QnaDAO implements BoardDAO, BoardReply {
 			qnaDTO.setWriter(rs.getString("writer"));
 			qnaDTO.setReg_date(rs.getDate("reg_date"));
 			qnaDTO.setHit(rs.getInt("hit"));
-			qnaDTO.setDepth(rs.getInt("depth"));
+			ar.add(qnaDTO);
 		}
 		
 		DBconnector.disConnect(rs, st, con);
@@ -98,14 +98,17 @@ public class QnaDAO implements BoardDAO, BoardReply {
 	@Override
 	public int insert(BoardDTO boardDTO) throws Exception {
 		Connection con=DBconnector.getConnect();
-		String sql="insert into qna values(qna_seq.nextval,?,?,?,sysdate,0,qna_seq.currval,0,0)";
+		String sql="insert into qna values(?,?,?,?,sysdate,0)";
 		PreparedStatement st=con.prepareStatement(sql);
 		
-		st.setString(1, boardDTO.getTitle());
-		st.setString(2, boardDTO.getContents());
-		st.setString(3, boardDTO.getWriter());
+		st.setInt(1, boardDTO.getNum());
+		st.setString(2, boardDTO.getTitle());
+		st.setString(3, boardDTO.getContents());
+		st.setString(4, boardDTO.getWriter());
+		
 		int result=st.executeUpdate();
 		DBconnector.disConnect(st, con);
+		
 		return result;
 	}
 

@@ -18,7 +18,7 @@ import com.nike.qna.QnaService;
 @WebServlet("/QnaController")
 public class QnaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private QnaService qnaService;
+	QnaService qnaService;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -44,6 +44,10 @@ public class QnaController extends HttpServlet {
 			actionFoward= qnaService.selectOne(request, response);
 		}else if(command.equals("/qnaWrite.do")) {
 			actionFoward= qnaService.insert(request, response);
+		} else if (command.equals("/qnaUpdate.do")) {
+			actionFoward = qnaService.update(request, response);
+		} else if (command.equals("/qnaDelete.do")) {
+			actionFoward = qnaService.delete(request, response);
 		}
 
 		if (actionFoward.isCheck()) {

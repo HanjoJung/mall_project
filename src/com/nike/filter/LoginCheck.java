@@ -67,6 +67,10 @@ public class LoginCheck implements Filter {
 		map.put("/memberSelectOne.do", "");
 		map.put("/memberUpdate.do", "");
 		map.put("/memberDelete.do", "");
+		map.put("/noticeSelectOne.do", "");
+		map.put("/noticeWrite.do", "");
+		map.put("/noticeUpdate.do", "");
+		map.put("/noticeDelete.do", "");
 	}
 
 }

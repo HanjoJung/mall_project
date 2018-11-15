@@ -31,6 +31,9 @@ public class QnaService implements BoardService{
 			// TODO: handle exception
 		}
 		String kind=request.getParameter("kind");
+		if(kind==null||kind=="") {
+			kind = "title";
+		}
 		String search=request.getParameter("search");
 		MakePager mk=new MakePager(curPage, search, kind);
 		RowNumber rowNumber=mk.makeRow();
