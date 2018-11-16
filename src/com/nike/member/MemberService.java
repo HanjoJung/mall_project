@@ -100,7 +100,6 @@ public class MemberService {
 			HttpSession session = request.getSession();
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO.setId(request.getParameter("id"));
-			System.out.println(request.getParameter("pw"));
 			memberDTO.setPassword(request.getParameter("pw"));
 			try {
 				memberDTO = memberDAO.login(memberDTO);

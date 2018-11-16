@@ -31,6 +31,7 @@
 
 									<form method="POST" class="uk-form-large"
 										action="./memberJoin.do">
+										<input type="hidden" name="snsid" value="${param.snsid}">
 
 										<div class="uk-form-row">
 											<div class="input-textfield width-max">
@@ -39,7 +40,7 @@
 													data-parsley-pattern="^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$"
 													data-parsley-required-message="필수 입력 항목입니다."
 													placeholder="사용하실 ID를 입력해주세요. (수신 가능 E-mail)" id="id"
-													name="id" /> <span class="error-message filled"></span>
+													name="id" value="${param.id}" /> <span class="error-message filled"></span>
 											</div>
 										</div>
 
@@ -74,7 +75,7 @@
 													data-parsley-required-message="필수 입력 항목입니다."
 													data-parsley-equalto-message="입력값이 일치하지 않습니다."
 													data-parsley-message="한글과 영문만 입력 가능합니다."
-													placeholder="이름을 입력해 주세요." id="name" name="name" /> <span
+													placeholder="이름을 입력해 주세요." id="name" name="name"  value="${name}"/> <span
 													class="error-message filled"></span>
 											</div>
 										</div>

@@ -30,7 +30,7 @@
 							url : "${pageContext.request.contextPath}/ajax/memberCheckId.do",
 							type : "POST",
 							data : {
-								id : userEmail+"("+userID+")"
+								id : userEmail
 							},
 							async: false,
 							success : function(data) {
@@ -38,21 +38,25 @@
 								if (data == '1') {
 									$.ajax({
 										url : "${pageContext.request.contextPath}/ajax/memberJoin.do",
-										type : "POST",
+										type : "GET",
 										data : {
-											id : userEmail+"("+userID+")",
-											pw2 : userID/2,
+											id : userEmail,
 											name : userNickName,
-											fname : thumbnail_image
+											fname : thumbnail_image,
+											snsid : userID
 										},
-										async: false
+										async: false, 
+										success : function() {
+											var url = "${pageContext.request.contextPath}/member/memberJoin.do?id="+userEmail+"&snsid="+userID
+											location.href = url;
+										}
 									})
 								}
 							},
 							error : function() {
 								alert("error 발생");
 							},
-							complete : function() {
+							/* complete : function() {
 								
 								$.ajax({
 									url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
@@ -68,7 +72,7 @@
 										location.reload();
 									}
 								})
-							}
+							} */
 						}); 
 						
 					},

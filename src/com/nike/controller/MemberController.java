@@ -58,7 +58,6 @@ public class MemberController extends HttpServlet {
 		}
 		if (actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
-			System.out.println(actionFoward.getPath());
 			view.forward(request, response);
 		} else {
 			response.sendRedirect(actionFoward.getPath());
