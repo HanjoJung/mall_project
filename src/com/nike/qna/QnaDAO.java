@@ -64,7 +64,7 @@ public class QnaDAO implements BoardDAO, BoardReply {
 	@Override
 	public List<BoardDTO> selectList(RowNumber rowNumber) throws Exception {
 		Connection con=DBconnector.getConnect();
-		String sql="select * from qna";
+		String sql="select * from qna order by num desc";
 		
 		PreparedStatement st=con.prepareStatement(sql);
 		
