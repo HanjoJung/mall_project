@@ -72,12 +72,11 @@ public class MemberService {
 //				memberDTO.setAddress(request.getParameter("address"));
 //				memberDTO.setSex(request.getParameter("sex"));
 //				memberDTO.setBirthday(Date.valueOf(request.getParameter("birthday")));
-				System.out.println(request.getParameter("fname"));
 //				memberDTO.setProfileFname(request.getParameter("fname"));
 				memberDTO.setSnsid(request.getParameter("snsid"));
-				
+
 				result = memberDAO.insert(memberDTO);
-				
+
 				if (result > 0) {
 					request.setAttribute("message", "success");
 					request.setAttribute("path", "../index.jsp");
@@ -105,7 +104,15 @@ public class MemberService {
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO.setId(request.getParameter("id"));
 			memberDTO.setPassword(request.getParameter("pw"));
-		
+			if (memberDTO.getPassword() == null) {
+				memberDTO.setPassword("");
+			}
+			memberDTO.setSnsid(request.getParameter("snsid"));
+			if (memberDTO.getSnsid() == null) {
+				memberDTO.setSnsid("");
+			}
+			
+
 			try {
 				memberDTO = memberDAO.login(memberDTO);
 				if (memberDTO.getJoin_date() != null) {

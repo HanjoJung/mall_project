@@ -83,11 +83,13 @@ public class MemberDAO {
 
 	public MemberDTO login(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "select * from member where id=? and password=?";
+		String sql = "select * from member where id=? and password=? or id=? and snsid=?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getId());
 		st.setString(2, memberDTO.getPassword());
+		st.setString(3, memberDTO.getId());
+		st.setString(4, memberDTO.getSnsid());
 		ResultSet rs = st.executeQuery();
 
 		if (rs.next()) {

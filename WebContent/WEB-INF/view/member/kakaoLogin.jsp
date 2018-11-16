@@ -55,23 +55,21 @@
 							error : function() {
 								alert("error 발생");
 							},
-							/* complete : function() {
+							complete : function() {
 								
 								$.ajax({
 									url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
 									type : "POST",
 									data : {
-										id : userEmail+"("+userID+")",
-										pw : userID/2,
-										name : userNickName,
-										fname : thumbnail_image
+										id : userEmail,
+										snsid : userID
 									},
 									async: false,
 									success : function(data) {
 										location.reload();
 									}
 								})
-							} */
+							} 
 						}); 
 						
 					},
