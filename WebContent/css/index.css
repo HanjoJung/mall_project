@@ -100,9 +100,10 @@
 
 .wrap-pl>div {
 	float: left;
-	width: 20%;
+	max-width: 20%;
 	box-sizing: border-box;
 	padding: 20px;
+	position: relative;
 }
 
 .product-item>.hover:before {
@@ -111,9 +112,16 @@
 	position: absolute;
 	height: 100%;
 	top: 0px;
-	bottom: 0px; 
-	left : 0px;
+	left: 0px;
 	right: 0px;
-	border: 1px solid #ccc;
+	bottom: 0px;
 	background-color: #ffffff;
+	border: 1px solid #ccc;
+}
+
+.action-hover {
+	height: 0;
+	overflow: hidden;
+	padding-bottom: 100%;
+	max-width: 270px;
 }

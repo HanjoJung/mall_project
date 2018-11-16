@@ -72,13 +72,14 @@
 			</div>
 			<div class="col-lg-1"></div>
 		</div>
-		<div class="row">
+		<div class="row border">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10">
-				<div class="wrap-pl product-item">
+				<div class="wrap-pl product-item" id="p1">
 					<div>
-						<div>
-							<a href="#"><img src="/mall_project/images/807480-004_807480-004_primary.jpg"></a>
+						<div class="action-hover">
+							<a href="#"><img
+								src="/mall_project/images/KakaoTalk_20181116_115549319.jpg"></a>
 						</div>
 						<div class="item-info">
 							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
@@ -89,8 +90,9 @@
 						</div>
 					</div>
 					<div>
-						<div>
-							<a href="#"><img src="/mall_project/images/AH7365-400_AH7365-400_primary.jpg"></a>
+						<div class="action-hover">
+							<a href="#"><img
+								src="/mall_project/images/AH7365-400_AH7365-400_primary.jpg"></a>
 						</div>
 						<div class="item-info">
 							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
@@ -101,8 +103,9 @@
 						</div>
 					</div>
 					<div>
-						<div>
-							<a href="#"><img src="/mall_project/images/AO3262-004_AO3262-004_primary.jpg"></a>
+						<div class="action-hover">
+							<a href="#"><img
+								src="/mall_project/images/AH7365-400_AH7365-400_primary.jpg"></a>
 						</div>
 						<div class="item-info">
 							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
@@ -113,8 +116,9 @@
 						</div>
 					</div>
 					<div>
-						<div>
-							<a href="#"><img src="/mall_project/images/AO1531-700_AO1531-700_primary.jpg"></a>
+						<div class="action-hover">
+							<a href="#"><img
+								src="/mall_project/images/AH7365-400_AH7365-400_primary.jpg"></a>
 						</div>
 						<div class="item-info">
 							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
@@ -125,8 +129,74 @@
 						</div>
 					</div>
 					<div>
-						<div>
-							<a href="#"><img src="/mall_project/images/AJ7747-700_AJ7747-700_primary.jpg"></a>
+						<div class="action-hover">
+							<a href="#"><img
+								src="/mall_project/images/AH7365-400_AH7365-400_primary.jpg"></a>
+						</div>
+						<div class="item-info">
+							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
+							<div class="item-location">
+								<span>MEN 신발 라이프스타일</span>
+							</div>
+							<span class="item-price"><span>119,000 원</span></span>
+						</div>
+					</div>
+					<div>
+						<div class="action-hover">
+							<a href="#"><img
+								src="/mall_project/images/AH7365-400_AH7365-400_primary.jpg"></a>
+						</div>
+						<div class="item-info">
+							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
+							<div class="item-location">
+								<span>MEN 신발 라이프스타일</span>
+							</div>
+							<span class="item-price"><span>119,000 원</span></span>
+						</div>
+					</div>
+					<div>
+						<div class="action-hover">
+							<a href="#"><img
+								src="/mall_project/images/AH7365-400_AH7365-400_primary.jpg"></a>
+						</div>
+						<div class="item-info">
+							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
+							<div class="item-location">
+								<span>MEN 신발 라이프스타일</span>
+							</div>
+							<span class="item-price"><span>119,000 원</span></span>
+						</div>
+					</div>
+					<div>
+						<div class="action-hover">
+							<a href="#"><img
+								src="/mall_project/images/AH7365-400_AH7365-400_primary.jpg"></a>
+						</div>
+						<div class="item-info">
+							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
+							<div class="item-location">
+								<span>MEN 신발 라이프스타일</span>
+							</div>
+							<span class="item-price"><span>119,000 원</span></span>
+						</div>
+					</div>
+					<div>
+						<div class="action-hover">
+							<a href="#"><img
+								src="/mall_project/images/AH7365-400_AH7365-400_primary.jpg"></a>
+						</div>
+						<div class="item-info">
+							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>
+							<div class="item-location">
+								<span>MEN 신발 라이프스타일</span>
+							</div>
+							<span class="item-price"><span>119,000 원</span></span>
+						</div>
+					</div>
+					<div>
+						<div class="action-hover">
+							<a href="#"><img
+								src="/mall_project/images/bg-shutdown.jpg" class="img-responsive"></a>
 						</div>
 						<div class="item-info">
 							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>

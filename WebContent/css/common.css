@@ -11194,11 +11194,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-style: normal;
 }*/
-@font-face {
+/* @font-face {
   font-family: "Helvetica LT W01 Roman";
   src: url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/05598d95-f297-4c7f-a825-ab617e7e045f.eot?#iefix");
   src: url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/05598d95-f297-4c7f-a825-ab617e7e045f.eot?#iefix") format("eot"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/89294146-207c-4803-91fe-338f0d0094bd.woff2") format("woff2"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/57055fe4-c2d3-4287-bac2-eece43fdcbd3.woff") format("woff"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/2922d55c-8df4-4066-b7b0-eec2d1524330.ttf") format("truetype"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/f8343ddf-e94d-471e-95b0-3b435acc2499.svg#f8343ddf-e94d-471e-95b0-3b435acc2499") format("svg");
-}
+} */
 
 @font-face {
   font-family: "Helvetica LT W01 Bold";
@@ -11212,11 +11212,11 @@ h1, h2, h3, h4, h5, h6 {
   src: url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/57d839de-c1a3-492d-837d-edcd2c1d620b.eot?#iefix") format("eot"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/4a10911a-c25d-4efa-b155-59d533f0e0c2.woff2") format("woff2"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/ac62393e-80e8-42f0-a6d7-fb566b94e567.woff") format("woff"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/97d9873e-7926-4480-96de-a1d47c4afa72.ttf") format("truetype"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/de820f99-99c3-48ab-a20d-f18a36c95b5e.svg#de820f99-99c3-48ab-a20d-f18a36c95b5e") format("svg");
 }
 
-@font-face {
+/* @font-face {
   font-family: "Trade Gothic LT W01 Bd CnNo-20";
   src: url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/f0708d82-47f5-4497-afac-8c5a771250e8.eot?#iefix");
   src: url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/f0708d82-47f5-4497-afac-8c5a771250e8.eot?#iefix") format("eot"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/520ed712-50ad-4591-aa63-b242b83a3694.woff2") format("woff2"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/c9083b7e-ba26-4e45-8f1b-34ad32e924e5.woff") format("woff"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/84c568ba-a16d-43bb-ad9f-783ab985108f.ttf") format("truetype"), url("/kr/ko_kr/cmsstatic/theme/c-commerce/assets/fonts/398af540-cbbe-49ac-8de9-7246da632d63.svg#398af540-cbbe-49ac-8de9-7246da632d63") format("svg");
-}
+} */
 
 .icon-background, .brz-icon-instagram, .brz-icon-facebook, .brz-icon-twitter, .brz-icon-cart, .brz-icon-search, .brz-icon-registerdone, .brz-icon-star_small, .brz-icon-star_normal, .brz-icon-star_large, .brz-icon-star_xlarge, .star-bullet, .brz-icon-bambug, .brz-icon-bambug_small, .brz-icon-logo, .brz-icon-info, .brz-icon-select_up, .brz-icon-select_down, .brz-icon-opt-select_up, .brz-icon-opt-select_down, .brz-icon-slidebar, .brz-icon-radio, .brz-icon-checkbox, .brz-icon-delete, .brz-icon-file, .brz-icon-img-file, .brz-icon-arrow, .file-remove_btn, .popup-close_btn {
   display: inline-block;
@@ -42149,7 +42149,6 @@ a.ui-button:active,
 }
 .brz_component-slider .slick-dots li.slick-active button {background-color: #2b2b2b;}
 
-
 /* default theme */
 /*
 .slick-loading .slick-list
@@ -42157,6 +42156,3 @@ a.ui-button:active,
     background: #fff url('//cdn.jsdelivr.net/jquery.slick/1.6.0/ajax-loader.gif') center center no-repeat;
 }
 */
-
-
->>>>>>> origin/member3_index
