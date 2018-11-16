@@ -26,7 +26,7 @@ public class ProductService {
 	
 	public ActionFoward selectList(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
-		
+		FileDAO fileDAO = new FileDAO();
 		int curPage=1;
 		try {
 			curPage = Integer.parseInt(request.getParameter("curPage"));
@@ -45,6 +45,7 @@ public class ProductService {
 		try {
 			
 			List<ProductDTO> ar = productDAO.selectList(rowNumber);
+			List<FileDTO> far = fileDAO.selectList(fileDTO);
 			int totalCount = productDAO.getCount(rowNumber.getSearch());
 			Pager pager = makePager.makePage(totalCount);
 			
@@ -132,9 +133,8 @@ public class ProductService {
 
 						
 						fileDAO.insert(fileDTO);
-						request.setAttribute("file", fileDTO);
-						System.out.println("${file.oname}");
-
+						
+						
 					
 					}
 					message = "Success";

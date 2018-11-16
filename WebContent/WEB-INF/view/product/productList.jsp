@@ -39,7 +39,7 @@
 				<div>
 					<div>
 						<a href="./productSelectOne.do?code=${productDTO.productCode}"><img
-							src="/mall_project/upload/${file.oname}"></a>
+							src="/mall_project/upload/"></a>
 					</div>
 					
 					<div class="item-info">
