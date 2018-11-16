@@ -13,6 +13,7 @@ public class MemberDTO {
 	private Date join_date;
 	private String profileFname;
 	private String profileOname;
+	private String snsid;
 
 	public String getId() {
 		return id;
@@ -92,6 +93,14 @@ public class MemberDTO {
 
 	public void setProfileOname(String profileOname) {
 		this.profileOname = profileOname;
+	}
+
+	public String getSnsid() {
+		return snsid;
+	}
+
+	public void setSnsid(String snsid) {
+		this.snsid = snsid;
 	}
 
 }

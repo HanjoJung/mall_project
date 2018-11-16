@@ -72,6 +72,10 @@ public class MemberService {
 //				memberDTO.setAddress(request.getParameter("address"));
 //				memberDTO.setSex(request.getParameter("sex"));
 //				memberDTO.setBirthday(Date.valueOf(request.getParameter("birthday")));
+				System.out.println(request.getParameter("fname"));
+//				memberDTO.setProfileFname(request.getParameter("fname"));
+				memberDTO.setSnsid(request.getParameter("snsid"));
+				
 				result = memberDAO.insert(memberDTO);
 				
 				if (result > 0) {

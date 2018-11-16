@@ -24,7 +24,6 @@
 						var userEmail = res.kaccount_email; //유저의 이메일
 						var userNickName = res.properties.nickname; //유저가 등록한 별명
 						var thumbnail_image = res.properties.thumbnail_image; //유저가 프로필 이미지 
-					
 						
 						$.ajax({
 							url : "${pageContext.request.contextPath}/ajax/memberCheckId.do",
@@ -42,12 +41,12 @@
 										data : {
 											id : userEmail,
 											name : userNickName,
-											fname : thumbnail_image,
 											snsid : userID
 										},
 										async: false, 
 										success : function() {
-											var url = "${pageContext.request.contextPath}/member/memberJoin.do?id="+userEmail+"&snsid="+userID
+
+											var url = "${pageContext.request.contextPath}/member/memberJoin.do?id="+userEmail+"&snsid="+userID+"&name="+userNickName;
 											location.href = url;
 										}
 									})
