@@ -8,7 +8,7 @@
 <html>
 <script type="text/javascript">
 	$(function() {
-		$.get("${pageContext.request.contextPath}/ajax/kakao.do", function(data) {
+		$.get("${pageContext.request.contextPath}/ajax/kakaoLogin.do", function(data) {
 			$("#kakao").html(data);
 		})
 	})

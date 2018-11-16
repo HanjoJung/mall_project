@@ -34,8 +34,14 @@ public class AjaxController extends HttpServlet {
 			throws ServletException, IOException {
 		String command = request.getPathInfo();
 		ActionFoward actionFoward = new ActionFoward();
-		if (command.equals("/kakao.do")) {
-			actionFoward.setPath("../WEB-INF/view/member/kakao.jsp");
+		if (command.equals("/kakaoLogin.do")) {
+			actionFoward.setPath("../WEB-INF/view/member/kakaoLogin.jsp");
+		} else if (command.equals("/memberCheckId.do")) {
+			actionFoward.setPath("../member/memberCheckId.do");
+		} else if (command.equals("/memberJoin.do")) {
+			actionFoward.setPath("../member/memberJoin.do");
+		} else if (command.equals("/memberLogin.do")) {
+			actionFoward.setPath("../member/memberLogin.do");
 		}
 
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());

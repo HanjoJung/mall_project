@@ -73,7 +73,7 @@ public class MemberService {
 //				memberDTO.setSex(request.getParameter("sex"));
 //				memberDTO.setBirthday(Date.valueOf(request.getParameter("birthday")));
 				result = memberDAO.insert(memberDTO);
-
+				
 				if (result > 0) {
 					request.setAttribute("message", "success");
 					request.setAttribute("path", "../index.jsp");
@@ -100,6 +100,7 @@ public class MemberService {
 			HttpSession session = request.getSession();
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO.setId(request.getParameter("id"));
+			System.out.println(request.getParameter("pw"));
 			memberDTO.setPassword(request.getParameter("pw"));
 			try {
 				memberDTO = memberDAO.login(memberDTO);
