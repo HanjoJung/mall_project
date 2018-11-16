@@ -39,8 +39,7 @@ $(function() {
 				</div>
 				<div class="form-group">
 					<label for="writer">Writer:</label> <input type="text"
-						class="form-control" id="writer" readonly="readonly"
-						value="${member.id}" name="writer">
+						class="form-control" id="writer" name="writer">
 				</div>
 				
 				<div class="form-group">
