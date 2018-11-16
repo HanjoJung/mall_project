@@ -39,7 +39,7 @@
 				<div>
 					<div>
 						<a href="./productSelectOne.do?code=${productDTO.productCode}"><img
-							src="/mall_project/images/807480-004_807480-004_primary.jpg"></a>
+							src="/mall_project/upload/KakaoTalk_20181115_152011864.jpg"></a>
 					</div>
 					<div class="item-info">
 						<span class="item-title">${productDTO.productName}</span>
@@ -53,8 +53,9 @@
 
 		</div>
 
-		<div class="container-fluid center">
-			<div class="row center">
+	</div>
+	<div class="container-fluid">
+			<div class="row">
 				<ul class="pagination">
 					<li><a href="./${board}List.do?curPage==1"><span
 							class="glyphicon glyphicon-backward"></span></a></li>
@@ -78,7 +79,6 @@
 				</ul>
 			</div>
 		</div>
-	</div>
 	<div>
 		<a href="./${board}Write.do" class="btn btn-primary">Write</a>
 	</div>

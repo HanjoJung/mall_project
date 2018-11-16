@@ -87,19 +87,32 @@ public class ProductDAO {
 		return productDTO;
 
 	}
+	
+	public String getCode() throws Exception{
+		Connection con = DBconnector.getConnect();
+		String sql = "select'nike'||product_seq.nextval from dual";
+		PreparedStatement st = con.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		rs.next();
+		String result= rs.getString(1);
+		DBconnector.disConnect(rs, st, con);
+		return result;
+		
+	}
 
 	public int insert(ProductDTO productDTO) throws Exception {
 
 	
 		Connection con = DBconnector.getConnect();
-		String sql = "insert into product values('nike'||product_seq.nextval,?,?,?,0,0,0,?,?,?)";
+		String sql = "insert into product values(?,?,?,?,0,0,0,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, productDTO.getProductName());
-		st.setInt(2, productDTO.getPrice());
-		st.setString(3, productDTO.getKind());
-		st.setString(4, productDTO.getManufacturerCode());
-		st.setString(5, productDTO.getWriter());
-		st.setString(6, productDTO.getContents());
+		st.setString(1, productDTO.getProductCode());
+		st.setString(2, productDTO.getProductName());
+		st.setInt(3, productDTO.getPrice());
+		st.setString(4, productDTO.getKind());
+		st.setString(5, productDTO.getManufacturerCode());
+		st.setString(6, productDTO.getWriter());
+		st.setString(7, productDTO.getContents());
 
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
@@ -153,6 +166,8 @@ public class ProductDAO {
 		return result;
 
 	}
+	
+	
 	
 
 }

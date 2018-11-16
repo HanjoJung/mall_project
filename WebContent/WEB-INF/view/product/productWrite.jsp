@@ -60,11 +60,11 @@ $(function() {
 						class="form-control" id="mCode" 
 						 name="mCode">
 				</div>
-				<!-- <div class="form-group">
+				<div class="form-group">
 					<label for="fname">사진:</label> <input type="file"
 						class="form-control" id="fname" 
 						 name="fname">
-				</div> -->
+				</div> 
 				
 				<div class="form-group">
 					<label for="contents">내용:</label>

@@ -105,11 +105,9 @@
 	padding: 10px;
 }
 
-.wrap-pl>div:hover {
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-}
 
-.wrap-pl>div>div {
+
+.wrap-pl>div>div:hover {
+	border: 1px solid #ccc;
 	box-sizing: border-box;
 }
