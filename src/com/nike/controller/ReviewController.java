@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nike.action.ActionFoward;
+import com.nike.review.ReviewService;
 
 /**
  * Servlet implementation class ReviewController
@@ -17,6 +18,7 @@ import com.nike.action.ActionFoward;
 @WebServlet("/ReviewController")
 public class ReviewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private ReviewService reviewService;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -33,7 +35,7 @@ public class ReviewController extends HttpServlet {
 		String command = request.getPathInfo();
 		ActionFoward actionFoward = null;
 		
-/*		if(command.equals("/reviewList.do")) {
+		if(command.equals("/reviewList.do")) {
 			actionFoward = reviewService.selectList(request, response);
 		}else if(command.equals("/reviewSelectOne.do")) {
 			actionFoward= reviewService.selectOne(request, response);
@@ -41,7 +43,7 @@ public class ReviewController extends HttpServlet {
 			actionFoward= reviewService.insert(request, response);
 			
 		}
-*/		
+		
 		
 		if(actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());

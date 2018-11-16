@@ -57,11 +57,11 @@
 						<tr class="success">
 							<td>${boardDTO.num}</td>
 							<td><a href="./${board}SelectOne.do?num=${boardDTO.num}">
-									<c:catch>
+									<%-- <c:catch>
 										<c:forEach begin="1" end="${boardDTO.depth}">
 						--
 					</c:forEach>
-									</c:catch> ${boardDTO.title}
+									</c:catch> --%> ${boardDTO.title}
 							</a></td>
 							<td>${boardDTO.writer}</td>
 							<td>${boardDTO.reg_date}</td>
@@ -73,13 +73,11 @@
 			<div class="col-lg-1"></div>
 			<c:choose>
 				<c:when test="${board eq 'notice'}">
-					<c:if test="${not empty member and member.kind eq 'T'}">
-						<c:import url="../../temp/writeButton.jsp" />
-					</c:if>
+					<c:import url="../../../temp/writeButton.jsp" />
 				</c:when>
 				<c:otherwise>
 					<c:if test="${not empty member}">
-						<c:import url="../../temp/writeButton.jsp" />
+						<c:import url="../../../temp/writeButton.jsp" />
 					</c:if>
 				</c:otherwise>
 			</c:choose>

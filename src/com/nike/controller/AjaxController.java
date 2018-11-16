@@ -9,17 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nike.action.ActionFoward;
+
 /**
- * Servlet implementation class CSCenter
+ * Servlet implementation class AjaxController
  */
-@WebServlet("/CSCenter")
-public class CSCenterController extends HttpServlet {
+@WebServlet("/AjaxController")
+public class AjaxController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public CSCenterController() {
+	public AjaxController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -30,9 +32,20 @@ public class CSCenterController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String command = request.getPathInfo();
+		ActionFoward actionFoward = new ActionFoward();
+		if (command.equals("/kakaoLogin.do")) {
+			actionFoward.setPath("../WEB-INF/view/member/kakaoLogin.jsp");
+		} else if (command.equals("/memberCheckId.do")) {
+			actionFoward.setPath("../member/memberCheckId.do");
+		} else if (command.equals("/memberJoin.do")) {
+			actionFoward.setPath("../member/memberJoin.do");
+		} else if (command.equals("/memberLogin.do")) {
+			actionFoward.setPath("../member/memberLogin.do");
+		}
 
-		RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/view/cscenter/policy.jsp");
-		view.forward(request, response);
+			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
+			view.forward(request, response);
 	}
 
 	/**
