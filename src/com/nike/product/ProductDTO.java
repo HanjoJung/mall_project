@@ -1,7 +1,5 @@
 package com.nike.product;
 
-import java.util.List;
-
 import com.nike.file.FileDTO;
 
 public class ProductDTO {
