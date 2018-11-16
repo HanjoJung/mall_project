@@ -19,4 +19,11 @@ $(document).ready(function() {
 	    console.log('modal close');
 	  $(this).find('form')[0].reset()
 	});
+	
+	$('#p1>div').mouseenter(function() {
+		$(this).addClass('hover');
+	});
+	$('#p1>div').mouseleave(function() {
+		$(this).removeClass('hover');
+	});
 });
