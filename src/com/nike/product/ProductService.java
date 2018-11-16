@@ -41,11 +41,12 @@ public class ProductService {
 		
 		MakePager makePager = new MakePager(curPage, search, kind);
 		RowNumber rowNumber = makePager.makeRow();
+		ProductDTO productDTO = new ProductDTO();
 
 		try {
 			
 			List<ProductDTO> ar = productDAO.selectList(rowNumber);
-			List<FileDTO> far = fileDAO.selectList(fileDTO);
+			List<FileDTO> far = fileDAO.selectList(productDTO.getFileDTO());
 			int totalCount = productDAO.getCount(rowNumber.getSearch());
 			Pager pager = makePager.makePage(totalCount);
 			

@@ -16,16 +16,16 @@ public class ProductDTO {
 	private String manufacturerCode;
 	private String writer;
 	private String contents;
-	private List<FileDTO> fileDTO;
+	private FileDTO fileDTO;
 	
 	
 	
 	
-	
-	public List<FileDTO> getFileDTO() {
+
+	public FileDTO getFileDTO() {
 		return fileDTO;
 	}
-	public void setFileDTO(List<FileDTO> fileDTO) {
+	public void setFileDTO(FileDTO fileDTO) {
 		this.fileDTO = fileDTO;
 	}
 	public String getContents() {
