@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/memberinit.js"></script>
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <html>
 <script type="text/javascript">
 	$(function() {
-		$.get("/mall_project/test.jsp", function(data) {
+		$.get("${pageContext.request.contextPath}/ajax/kakao.do", function(data) {
 			$("#kakao").html(data);
 		})
 	})
@@ -61,9 +63,10 @@
 	</div>
 	<div class="social-login-container">
 		<div class="uk-grid social_wrap" data-module-social-login>
-			<div class="uk-width-1-1 uk-width-medium-1-1"></div>
 			<div class="uk-width-1-1 uk-width-medium-1-1">
-				<a id="kakao-login-btn"></a>
+			
+			</div>
+			<div class="uk-width-1-1 uk-width-medium-1-1" id="kakao">
 			</div>
 		</div>
 	</div>
