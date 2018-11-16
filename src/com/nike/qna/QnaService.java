@@ -15,6 +15,7 @@ import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
 import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class QnaService implements BoardService{
 	private QnaDAO qnaDao;
@@ -131,17 +132,18 @@ public class QnaService implements BoardService{
 		ActionFoward actionFoward=new ActionFoward();
 		HttpSession session=request.getSession();
 		String method=request.getMethod();
-		
+		String path = request.getServletContext().getRealPath("upload");
 		if(method.equals("POST")) {
 			try {
 				QnaDTO qnaDTO=new QnaDTO();
-				int result=qnaDao.update(qnaDTO);
-				if(result>0) {
+				MultipartRequest multi = new MultipartRequest(request, path, "UTF-8");
+				qnaDTO.setNum(Integer.parseInt(multi.getParameter("num")));
+				qnaDTO.setTitle(multi.getParameter("title"));
+				qnaDTO.setContents(multi.getParameter("contents"));
+				int result = qnaDao.update(qnaDTO);
+				if (result > 0) {
 					request.setAttribute("message", "수정 성공");
-					request.setAttribute("path", "./qnaList.do");
-				}else {
-					request.setAttribute("message", "수정 실패");
-					request.setAttribute("path", "./qnaList.do");
+					request.setAttribute("path", "./noticeList.do");
 				}
 			} catch (Exception e) {
 				request.setAttribute("message", "수정 실패");
@@ -153,9 +155,9 @@ public class QnaService implements BoardService{
 		} else {
 			MemberDTO memberDTO=(MemberDTO) session.getAttribute("member");
 			if(memberDTO!=null) {
-				if(memberDTO.getId().equals(request.getParameter("writer"))) {
+				if(memberDTO.getName().equals(request.getParameter("writer"))) {
+					int num=Integer.parseInt(request.getParameter("num"));
 					try {
-						int num=Integer.parseInt(request.getParameter("num"));
 						BoardDTO boardDTO=qnaDao.selectOne(num);
 						request.setAttribute("dto", boardDTO);
 						request.setAttribute("board", "qna");

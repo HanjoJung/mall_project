@@ -15,6 +15,19 @@ import com.nike.page.Search;
 import com.nike.util.DBconnector;
 
 public class QnaDAO implements BoardDAO, BoardReply {
+	
+	public int replyNum() throws Exception {
+		Connection con = DBconnector.getConnect();
+		String sql = "select qna_seq.nextval from dual";
+
+		PreparedStatement st = con.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		rs.next();
+		int result = rs.getInt(1);
+
+		DBconnector.disConnect(rs, st, con);
+		return result;
+	}
 
 	@Override
 	public int reply(BoardReplyDTO boardReplyDTO) throws Exception {

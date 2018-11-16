@@ -50,8 +50,8 @@
 			</table>
 			<a href="productList.do" class="btn btn-primary">목록으로</a>
 			<%-- <c:if test="${not empty member and member.id eq dto.writer}"> --%>
-				<a href="./productUpdate.do?code=${pDTO.productCode}" class="btn btn-primary">수정</a>
-				<a href="./productDelete.do?code=${pDTO.productCode}" class="btn btn-primary">삭제</a>
+				<a href="./productUpdate.do?code=${pDTO.productCode}&writer=${dto.writer}" class="btn btn-primary">수정</a>
+				<a href="./productDelete.do?code=${pDTO.productCode}&writer=${dto.writer}" class="btn btn-primary">삭제</a>
 			<%-- </c:if> --%>
 		</div>
 	</div>
