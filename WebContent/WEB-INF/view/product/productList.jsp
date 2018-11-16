@@ -39,8 +39,9 @@
 				<div>
 					<div>
 						<a href="./productSelectOne.do?code=${productDTO.productCode}"><img
-							src="/mall_project/upload/KakaoTalk_20181115_152011864.jpg"></a>
+							src="/mall_project/upload/${file.oname}"></a>
 					</div>
+					
 					<div class="item-info">
 						<span class="item-title">${productDTO.productName}</span>
 						<div class="item-location">

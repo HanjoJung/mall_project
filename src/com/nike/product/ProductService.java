@@ -130,10 +130,12 @@ public class ProductService {
 						fileDTO.setFname(multi.getFilesystemName(p));
 						fileDTO.setOname(multi.getOriginalFileName(p));
 
-						System.out.println(3);
+						
 						fileDAO.insert(fileDTO);
+						request.setAttribute("file", fileDTO);
+						System.out.println("${file.oname}");
 
-						System.out.println(4);
+					
 					}
 					message = "Success";
 					actionFoward.setCheck(true);
@@ -147,7 +149,6 @@ public class ProductService {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 			request.setAttribute("message", message);
 			request.setAttribute("path", path);
 			
