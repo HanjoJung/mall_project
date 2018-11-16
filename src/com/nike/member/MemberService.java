@@ -73,7 +73,7 @@ public class MemberService {
 //				memberDTO.setSex(request.getParameter("sex"));
 //				memberDTO.setBirthday(Date.valueOf(request.getParameter("birthday")));
 				result = memberDAO.insert(memberDTO);
-
+				
 				if (result > 0) {
 					request.setAttribute("message", "success");
 					request.setAttribute("path", "../index.jsp");

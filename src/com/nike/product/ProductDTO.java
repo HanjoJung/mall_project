@@ -17,6 +17,7 @@ public class ProductDTO {
 	private String writer;
 	private String contents;
 	private FileDTO fileDTO;
+	private List<FileDTO> fileDTO;
 	
 	
 	

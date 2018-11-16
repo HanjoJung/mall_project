@@ -10,9 +10,11 @@ import com.nike.action.ActionFoward;
 import com.nike.board.BoardDTO;
 import com.nike.board.BoardService;
 import com.nike.member.MemberDTO;
+import com.nike.notice.NoticeDTO;
 import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
+import com.oreilly.servlet.MultipartRequest;
 
 public class QnaService implements BoardService{
 	private QnaDAO qnaDao;
@@ -31,6 +33,9 @@ public class QnaService implements BoardService{
 			// TODO: handle exception
 		}
 		String kind=request.getParameter("kind");
+		if(kind==null||kind=="") {
+			kind = "title";
+		}
 		String search=request.getParameter("search");
 		MakePager mk=new MakePager(curPage, search, kind);
 		RowNumber rowNumber=mk.makeRow();
@@ -84,8 +89,13 @@ public class QnaService implements BoardService{
 		if(method.equals("POST")) {
 			String message="작성실패";
 			String path="./qnaList.do";
-			QnaDTO qnaDTO=new QnaDTO();
+			String save = request.getServletContext().getRealPath("upload");
 			try {
+				MultipartRequest multi=new MultipartRequest(request, save, "UTF-8");
+				QnaDTO qnaDTO=new QnaDTO();
+				qnaDTO.setTitle(multi.getParameter("title"));
+				qnaDTO.setWriter(multi.getParameter("writer"));
+				qnaDTO.setContents(multi.getParameter("contents"));
 				qnaDTO.setNum(qnaDao.getNum());
 				int result=qnaDao.insert(qnaDTO);
 				if(result>0) {
@@ -171,7 +181,7 @@ public class QnaService implements BoardService{
 			}
 		}
 	
-		return null;
+		return actionFoward;
 	}
 
 	@Override
@@ -194,20 +204,20 @@ public class QnaService implements BoardService{
 					}
 				}else {
 					request.setAttribute("message", "작성자만 삭제할 수 있습니다");
-					request.setAttribute("path", "./noticeList.do");
+					request.setAttribute("path", "./qnaList.do");
 					actionFoward.setCheck(true);
 					actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 				}
 			} catch (Exception e) {
 				request.setAttribute("message", "삭제 실패");
-				request.setAttribute("path", "./noticeList.do");
+				request.setAttribute("path", "./qnaList.do");
 				e.printStackTrace();
 			}
 			actionFoward.setCheck(true);
 			actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 		} else {
 			request.setAttribute("message", "로그인 해주시길 바랍니다");
-			request.setAttribute("path", "./noticeList.do");
+			request.setAttribute("path", "./qnaList.do");
 			actionFoward.setCheck(true);
 			actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 		}

@@ -11,7 +11,7 @@
 <body>
 	<c:import url="../../../temp/header.jsp" />
 
-	<div class="container-fluid">
+	<div class="container-fluid wrapper">
 		<div class="row" align="center">
 			<table class="table table-bordered table-hover"
 				style="max-width: 1500px">
