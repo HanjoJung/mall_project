@@ -56,7 +56,7 @@ public class ProductDAO {
 			productDTO.setKind(rs.getString("kind"));
 			productDTO.setHit(rs.getInt("hit"));
 			productDTO.setGood(rs.getInt("good"));
-			productDTO.setFileDTO(fileDAO.selectList(productDTO.getProductCode()));
+		
 			
 			ar.add(productDTO);
 		}

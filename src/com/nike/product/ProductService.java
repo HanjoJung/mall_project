@@ -1,6 +1,7 @@
 package com.nike.product;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class ProductService {
 	public ActionFoward selectList(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
 		FileDAO fileDAO = new FileDAO();
-		FileDTO fileDTO = null;
+		
 		int curPage=1;
 		try {
 			curPage = Integer.parseInt(request.getParameter("curPage"));
@@ -46,12 +47,18 @@ public class ProductService {
 		try {
 			
 			List<ProductDTO> ar = productDAO.selectList(rowNumber);
-				
+			List<FileDTO> far = new ArrayList<>();
+			for(int i=0;i<ar.size();i++) {
+				FileDTO fileDTO = fileDAO.selectOne(ar.get(i).getProductCode());
+				far.add(fileDTO);
+			}
+			
+			
 			int totalCount = productDAO.getCount(rowNumber.getSearch());
 			Pager pager = makePager.makePage(totalCount);
 			
 			request.setAttribute("list", ar);
-			request.setAttribute("file", fileDTO);
+			request.setAttribute("file", far);
 			request.setAttribute("pager", pager);
 			request.setAttribute("board", "product");
 			actionFoward.setPath("../WEB-INF/view/product/productList.jsp");

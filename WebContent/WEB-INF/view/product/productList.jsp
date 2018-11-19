@@ -35,11 +35,14 @@
 			<!-- 서치 폼 -->
 		</div>
 		<div class="wrap-pl product-item" id="p1">
-			<c:forEach items="${list}" var="productDTO">
+			<c:forEach items="${list}" var="productDTO" varStatus="i">
 				<div>
 					<div class="action-hover" style="width: 150px;">
 						<a href="./productSelectOne.do?code=${productDTO.productCode}">
-						<img src="/mall_project/upload/${productDTO.fileDTO[0].fname}"></a>
+						
+						<img src="/mall_project/upload/${file[i.index].fname}"></a>
+					
+						
 					</div>
 					
 					<div class="item-info">
