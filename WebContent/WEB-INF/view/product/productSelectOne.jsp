@@ -62,7 +62,7 @@
 			
 			
 			
-			<span class="breadcrumb-divider">></span> <span class="current">나이키 에어 폼포짓 프로</span>
+			<span class="breadcrumb-divider">></span> <span class="current">${pDTO.productName}</span>
 		</div>
 	</div>
 
@@ -396,119 +396,46 @@
 			<div class="product-option-container">
 				<h1 class="title-wrap">
 					
-<span class="tit" data-name="나이키 에어 폼포짓 프로">나이키 에어 폼포짓 프로</span>
+<span class="tit" data-name="나이키 에어 폼포짓 프로">${pDTO.productName}</span>
 <button class="close-btn"><i class="icon-delete_bold"></i></button>
 
 				</h1>
 				<div class="price-wrap">
 					
-					
 	<div class="item-location">
-		<span>MEN 신발 라이프스타일</span>
+		<span>${pDTO.kind}</span>
 	</div>
-
-
-
-
-
-
-					
+	<span class="price"><strong data-price="269000">${pDTO.price} 원</strong></span>
 	
-	<span class="price"><strong data-price="269000">269,000 원</strong></span>
-	
-
-
-
-
-
-
-
 				</div>
-
 				<div class="pinfo-item-box">
 
 					<form method="POST" action="/kr/ko_kr/cart/add">
 						<div class="option-wrap">
-							
-								
-								
-	
-	 
-
-	
-
 	<!--*/ 상세화면 */-->
 	
-		
-		
-		
-		
 		<div class="product-option_radio" id="product-option_color" data-component-color="">
 			<div>
-				
-				
-				
 				
 						<a class="input-radio checked" href="/kr/ko_kr/t/men/fw/nike-sportswear/624041-009/owhk76/air-foamposite-pro">
 							<span class="label img-type">
 							    <img src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/624041-009_624041-009_primary.jpg?option" />
 						    </span>
-
-							
-							
-
-							
-							
-						    
-
-						    
 						    
 						</a>
 
-					
-				
 			</div>
 			<div>
-				
-				
-				
-				
 						<a class="input-radio" href="/kr/ko_kr/t/men/fw/nike-sportswear/624041-304/eedw51/air-foamposite-pro">
 							<span class="label img-type">
 							    <img src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/624041-304_624041-304_primary.jpg?option" />
 						    </span>
 
-							
-							
-
-							
-							
-						    
-
-						    
 						    
 						</a>
-
-					
 				
 			</div>
 		</div>
-	
-
-		
-		
-
-
-							
-
-							
-								
-								
-	
-
-
-
-								
 								
 									
 										<div class="size-grid-type">
