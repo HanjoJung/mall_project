@@ -27,6 +27,7 @@ public class ProductService {
 	public ActionFoward selectList(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
 		FileDAO fileDAO = new FileDAO();
+		FileDTO fileDTO = null;
 		int curPage=1;
 		try {
 			curPage = Integer.parseInt(request.getParameter("curPage"));
@@ -45,11 +46,12 @@ public class ProductService {
 		try {
 			
 			List<ProductDTO> ar = productDAO.selectList(rowNumber);
-	
+				
 			int totalCount = productDAO.getCount(rowNumber.getSearch());
 			Pager pager = makePager.makePage(totalCount);
 			
 			request.setAttribute("list", ar);
+			request.setAttribute("file", fileDTO);
 			request.setAttribute("pager", pager);
 			request.setAttribute("board", "product");
 			actionFoward.setPath("../WEB-INF/view/product/productList.jsp");

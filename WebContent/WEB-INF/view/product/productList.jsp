@@ -37,9 +37,9 @@
 		<div class="wrap-pl product-item" id="p1">
 			<c:forEach items="${list}" var="productDTO">
 				<div>
-					<div class="action-hover">
+					<div class="action-hover" style="width: 150px;">
 						<a href="./productSelectOne.do?code=${productDTO.productCode}">
-						<img src="/mall_project/upload/"></a>
+						<img src="/mall_project/upload/${productDTO.fileDTO[0].fname}"></a>
 					</div>
 					
 					<div class="item-info">

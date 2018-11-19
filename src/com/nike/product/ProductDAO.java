@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nike.file.FileDAO;
 import com.nike.page.RowNumber;
 import com.nike.page.Search;
 import com.nike.util.DBconnector;
@@ -30,6 +31,7 @@ public class ProductDAO {
 	
 	public List<ProductDTO> selectList(RowNumber rowNumber) throws Exception {
 
+		FileDAO fileDAO = new FileDAO();
 		Connection con = DBconnector.getConnect();
 		String sql = "select * from "
 					+ "(select rownum R, N.* from "
@@ -54,6 +56,7 @@ public class ProductDAO {
 			productDTO.setKind(rs.getString("kind"));
 			productDTO.setHit(rs.getInt("hit"));
 			productDTO.setGood(rs.getInt("good"));
+			productDTO.setFileDTO(fileDAO.selectList(productDTO.getProductCode()));
 			
 			ar.add(productDTO);
 		}
