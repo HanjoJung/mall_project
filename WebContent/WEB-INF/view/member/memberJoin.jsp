@@ -9,6 +9,13 @@
 <c:import url="../../../temp/bootStrap.jsp" />
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/memberinit.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		if(${param.snsid} != null){
+			$("#id").attr("readonly","readonly")
+		}
+	})
+	</script>
 <style type="text/css">
 </style>
 </head>
@@ -31,8 +38,9 @@
 
 									<form method="POST" class="uk-form-large"
 										action="./memberJoin.do">
+										<input type="hidden" name="sns" value="${param.sns}">
 										<input type="hidden" name="snsid" value="${param.snsid}">
-										<input type="hidden" name="snsid" value="${param.fname}">
+										<input type="hidden" name="fname" value="${param.fname}">
 
 										<div class="uk-form-row">
 											<div class="input-textfield width-max">
@@ -41,7 +49,7 @@
 													data-parsley-pattern="^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$"
 													data-parsley-required-message="필수 입력 항목입니다."
 													placeholder="사용하실 ID를 입력해주세요. (수신 가능 E-mail)" id="id"
-													name="id" value="${param.id}" /> <span class="error-message filled"></span>
+													name="id" value="${param.id}"/> <span class="error-message filled"></span>
 											</div>
 										</div>
 

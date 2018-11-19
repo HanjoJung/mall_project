@@ -6,6 +6,8 @@
 	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/memberinit.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/facebook.js"></script>
 <html>
 <script type="text/javascript">
 	$(function() {

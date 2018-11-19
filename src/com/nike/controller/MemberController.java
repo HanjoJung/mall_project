@@ -47,6 +47,10 @@ public class MemberController extends HttpServlet {
 			actionFoward = memberService.checkId(request, response);
 		} else if (command.equals("/memberLogin.do")) {
 			actionFoward = memberService.login(request, response);
+		} else if (command.equals("/memberLogin2.do")) {
+			actionFoward= new ActionFoward();
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/member/memberLogin2.jsp");
 		} else if (command.equals("/memberLogout.do")) {
 			actionFoward = memberService.logout(request, response);
 		} else if (command.equals("/memberSelectOne.do")) {

@@ -8,10 +8,48 @@
 	<span class="txt">카카오계정 로그인</span>
 </a>
 <script>
+function login() {
+
+	$.ajax({
+		url : "${pageContext.request.contextPath}/ajax/memberCheckId.do",
+		type : "POST",
+		data : {
+			id : userEmail
+				},
+		async : false,
+		success : function(data) {
+			data = data.trim();
+			if (data == '1') {
+			var url = "${pageContext.request.contextPath}/ajax/snsLogin.do?id="
+				+ userEmail
+				+ "&snsid="
+				+ userID
+				+ "&name="
+				+ userName + "&sns=" + sns;
+				location.href = url;
+			} else {
+				$.ajax({
+					url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
+					type : "POST",
+					data : {
+						id : userEmail,
+						snsid : userID
+					},
+					async : false,
+					success : function(data) {
+						location.reload();
+					}
+				})
+			}
+		},
+		error : function() {
+			alert("error 발생");
+		}
+	});
+}
 	// 사용할 앱의 JavaScript 키를 설정해 주세요.
 	Kakao.init('a7faf288e5a8465c117a4a09197eca5a');
 	// 카카오 로그인 버튼을 생성합니다.
-
 	function loginWithKakao() {
 		// 로그인 창을 띄웁니다.
 		Kakao.Auth.login({
@@ -20,56 +58,13 @@
 					url : '/v1/user/me',
 					success : function(res) {
 
+						var sns = "kakao";
 						var userID = res.id; //유저의 카카오톡 고유 id
 						var userEmail = res.kaccount_email; //유저의 이메일
-						var userNickName = res.properties.nickname; //유저가 등록한 별명
-						var thumbnail_image = res.properties.thumbnail_image; //유저가 프로필 이미지 
+						var userName = res.properties.nickname; //유저가 등록한 별명
+						var thumbnail_image = res.properties.thumbnail_image; //유저가 프로필 이미지
 						
-						$.ajax({
-							url : "${pageContext.request.contextPath}/ajax/memberCheckId.do",
-							type : "POST",
-							data : {
-								id : userEmail
-							},
-							async: false,
-							success : function(data) {
-								data = data.trim();
-								if (data == '1') {
-									$.ajax({
-										url : "${pageContext.request.contextPath}/ajax/memberJoin.do",
-										type : "GET",
-										data : {
-											id : userEmail,
-											name : userNickName,
-											snsid : userID
-										},
-										async: false, 
-										success : function() {
-
-											var url = "${pageContext.request.contextPath}/member/memberJoin.do?id="+userEmail+"&snsid="+userID+"&name="+userNickName;
-											location.href = url;
-										}
-									})
-								}else{
-									$.ajax({
-										url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
-										type : "POST",
-										data : {
-											id : userEmail,
-											snsid : userID
-										},
-										async: false,
-										success : function() {
-											location.reload();
-										}
-									})
-								}
-							},
-							error : function() {
-								alert("error 발생");
-							} 
-						}); 
-						
+						login();
 					},
 					fail : function(error) {
 						alert("사용자 정보를 불러들이는데 실패하였습니다");

@@ -42,8 +42,9 @@ public class AjaxController extends HttpServlet {
 			actionFoward.setPath("../member/memberJoin.do");
 		} else if (command.equals("/memberLogin.do")) {
 			actionFoward.setPath("../member/memberLogin.do");
+		} else if (command.equals("/snsLogin.do")) {
+			actionFoward.setPath("../WEB-INF/view/member/snsLogin.jsp");
 		}
-
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
 			view.forward(request, response);
 	}

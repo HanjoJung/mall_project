@@ -62,7 +62,6 @@ public class MemberService {
 		if (method.equals("POST")) {
 			request.setAttribute("message", "fail");
 			request.setAttribute("path", "./memberJoin.do");
-
 			try {
 				MemberDTO memberDTO = new MemberDTO();
 				memberDTO.setId(request.getParameter("id"));
@@ -109,12 +108,12 @@ public class MemberService {
 			if (memberDTO.getSnsid() == null) {
 				memberDTO.setSnsid("");
 			}
-			
+
 			try {
 				memberDTO = memberDAO.login(memberDTO);
 				if (memberDTO.getJoin_date() != null) {
 					session.setAttribute("member", memberDTO);
-				}else {
+				} else {
 					request.setAttribute("result", 1);
 				}
 			} catch (Exception e) {

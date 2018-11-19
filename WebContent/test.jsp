@@ -5,10 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 	window.fbAsyncInit = function() {
 		FB.init({
-			appId : '485976488558704',
+			appId : '258476371506098',
 			xfbml : true,
 			version : 'v3.2'
 		});
@@ -22,29 +24,31 @@
 		}
 		js = d.createElement(s);
 		js.id = id;
-		js.src = "https://connect.facebook.net/en_US/sdk.js";
+		js.src = "https://connect.facebook.net/ko_KR/sdk.js";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 </script>
+<script type="text/javascript">
+	$(function() {
+		$("#btn").click(function() {
+			FB.login(function(response) {
+			}, {scope: 'email',
+				auth_type: 'rerequest'});
+			
+			FB.getLoginStatus(function(response) {
+				FB.api("/me?fields=id,name,email", function(response) {
+					if (response && !response.error) {
+						console.log(response.id);
+						console.log(response.name);
+						console.log(response.email);
+					}
+				});
+			});
+		})
+	})
+</script>
 </head>
 <body>
-	<script>
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id))
-				return;
-			js = d.createElement(s);
-			js.id = id;
-			js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=485976488558704&autoLogAppEvents=1';
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
-
-	<h1>1</h1>
-	<div class="fb-login-button"></div><br>
-	<h1>2</h1>
-	<fb:login-button scope="public_profile,email"
-		onlogin="checkLoginState();">
-	</fb:login-button>
+	<button id="btn">btn</button>
 </body>
 </html>
