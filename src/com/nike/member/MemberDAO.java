@@ -41,7 +41,6 @@ public class MemberDAO {
 		st.setDate(7, memberDTO.getBirthday());
 		st.setString(8, memberDTO.getProfileFname());
 		st.setString(9, memberDTO.getProfileOname());
-		st.setString(10, memberDTO.getSnsid());
 		int result = st.executeUpdate();
 
 		DBconnector.disConnect(st, con);

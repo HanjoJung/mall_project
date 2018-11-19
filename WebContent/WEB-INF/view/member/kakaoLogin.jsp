@@ -50,25 +50,23 @@
 											location.href = url;
 										}
 									})
+								}else{
+									$.ajax({
+										url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
+										type : "POST",
+										data : {
+											id : userEmail,
+											snsid : userID
+										},
+										async: false,
+										success : function() {
+											location.reload();
+										}
+									})
 								}
 							},
 							error : function() {
 								alert("error 발생");
-							},
-							complete : function() {
-								
-								$.ajax({
-									url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
-									type : "POST",
-									data : {
-										id : userEmail,
-										snsid : userID
-									},
-									async: false,
-									success : function(data) {
-										location.reload();
-									}
-								})
 							} 
 						}); 
 						

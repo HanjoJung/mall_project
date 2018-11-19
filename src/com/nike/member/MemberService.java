@@ -98,8 +98,6 @@ public class MemberService {
 		String method = request.getMethod();
 
 		if (method.equals("POST")) {
-			request.setAttribute("message", "fail");
-			actionFoward.setPath("./memberLogin.do");
 			HttpSession session = request.getSession();
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO.setId(request.getParameter("id"));
@@ -112,18 +110,17 @@ public class MemberService {
 				memberDTO.setSnsid("");
 			}
 			
-
 			try {
 				memberDTO = memberDAO.login(memberDTO);
 				if (memberDTO.getJoin_date() != null) {
 					session.setAttribute("member", memberDTO);
-					request.setAttribute("message", "login");
-					request.setAttribute("path", "../index.jsp");
+				}else {
+					request.setAttribute("result", 1);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			actionFoward.setPath("../WEB-INF/view/common/result.jsp");
+			actionFoward.setPath("../WEB-INF/view/member/memberCheckId.jsp");
 		} else {
 			actionFoward.setPath("../WEB-INF/view/member/memberLogin.jsp");
 		}

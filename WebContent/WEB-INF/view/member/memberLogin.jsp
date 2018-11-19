@@ -1,15 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/memberinit.js"></script>
 <html>
 <script type="text/javascript">
 	$(function() {
-		$.get("${pageContext.request.contextPath}/ajax/kakaoLogin.do", function(data) {
-			$("#kakao").html(data);
+		$.get("${pageContext.request.contextPath}/ajax/kakaoLogin.do",
+				function(data) {
+					$("#kakao").html(data);
+				})
+		$("#btn").click(function() {
+			$.ajax({
+				url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
+				type : "POST",
+				data : {
+					id : $("#id").val(),
+					pw : $("#pw1").val()
+				},
+				success : function(data) {
+					data.trim();
+					if (data == 1) {
+						$("#jq_uk-alert-danger").css({
+							display : "block"
+						})
+					} else {
+						location.reload();
+					}
+				}
+			})
 		})
 	})
 </script>
@@ -22,8 +44,9 @@
 		<div class="uk-grid">
 			<div class="uk-width-1-1">
 				<div class="dynamic-form">
-					<form method="POST" class="uk-form-large"
-						action="${pageContext.request.contextPath}/member/memberLogin.do">
+					<div class="uk-alert uk-alert-danger" id="jq_uk-alert-danger"
+						style="display: none;">이메일 혹은 비밀번호가 잘못 입력되었습니다.</div>
+					<form method="POST" class="uk-form-large" action="">
 						<div class="uk-form-row">
 							<div class="input-textfield width-max">
 								<input class="data" type="email"
@@ -57,16 +80,14 @@
 
 		<div class="uk-grid login_btn_line">
 			<div class="uk-width-1-1">
-				<button class="button large width-max" type="submit" id="submit">로그인</button>
+				<button class="button large width-max" id="btn" value="로그인">로그인</button>
 			</div>
 		</div>
 	</div>
 	<div class="social-login-container">
 		<div class="uk-grid social_wrap" data-module-social-login>
-			<div class="uk-width-1-1 uk-width-medium-1-1">
-			</div>
-			<div class="uk-width-1-1 uk-width-medium-1-1" id="kakao">
-			</div>
+			<div class="uk-width-1-1 uk-width-medium-1-1"></div>
+			<div class="uk-width-1-1 uk-width-medium-1-1" id="kakao"></div>
 		</div>
 	</div>
 	<div class="footer uk-clearfix">
