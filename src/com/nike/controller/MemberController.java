@@ -37,6 +37,7 @@ public class MemberController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String command = request.getPathInfo();
+		
 		ActionFoward actionFoward = null;
 
 		if (command.equals("/memberList.do")) {
@@ -45,12 +46,14 @@ public class MemberController extends HttpServlet {
 			actionFoward = memberService.join(request, response);
 		} else if (command.equals("/memberCheckId.do")) {
 			actionFoward = memberService.checkId(request, response);
+		} else if (command.equals("/memberCheckSns.do")) {
+			actionFoward = memberService.checkSns(request, response);
 		} else if (command.equals("/memberLogin.do")) {
 			actionFoward = memberService.login(request, response);
-		} else if (command.equals("/memberLogin2.do")) {
+		} else if (command.equals("/memberSnsLogin.do")) {
 			actionFoward= new ActionFoward();
 			actionFoward.setCheck(true);
-			actionFoward.setPath("../WEB-INF/view/member/memberLogin2.jsp");
+			actionFoward.setPath("../WEB-INF/view/member/memberSnsLogin.jsp");
 		} else if (command.equals("/memberLogout.do")) {
 			actionFoward = memberService.logout(request, response);
 		} else if (command.equals("/memberSelectOne.do")) {

@@ -36,8 +36,12 @@ public class AjaxController extends HttpServlet {
 		ActionFoward actionFoward = new ActionFoward();
 		if (command.equals("/kakaoLogin.do")) {
 			actionFoward.setPath("../WEB-INF/view/member/kakaoLogin.jsp");
+		} else if (command.equals("/facebookLogin.do")) {
+			actionFoward.setPath("../WEB-INF/view/member/facebookLogin.jsp");
 		} else if (command.equals("/memberCheckId.do")) {
 			actionFoward.setPath("../member/memberCheckId.do");
+		} else if (command.equals("/memberCheckSns.do")) {
+			actionFoward.setPath("../member/memberCheckSns.do");
 		} else if (command.equals("/memberJoin.do")) {
 			actionFoward.setPath("../member/memberJoin.do");
 		} else if (command.equals("/memberLogin.do")) {
@@ -45,8 +49,8 @@ public class AjaxController extends HttpServlet {
 		} else if (command.equals("/snsLogin.do")) {
 			actionFoward.setPath("../WEB-INF/view/member/snsLogin.jsp");
 		}
-			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
-			view.forward(request, response);
+		RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
+		view.forward(request, response);
 	}
 
 	/**

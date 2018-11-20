@@ -13,7 +13,8 @@ public class MemberDTO {
 	private Date join_date;
 	private String profileFname;
 	private String profileOname;
-	private String snsid;
+	private String kakaoID;
+	private String facebookID;
 
 	public String getId() {
 		return id;
@@ -29,6 +30,9 @@ public class MemberDTO {
 
 	public void setPassword(String password) {
 		this.password = password;
+		if (this.password == null) {
+			this.password = "";
+		}
 	}
 
 	public String getName() {
@@ -95,12 +99,25 @@ public class MemberDTO {
 		this.profileOname = profileOname;
 	}
 
-	public String getSnsid() {
-		return snsid;
+	public String getKakaoID() {
+		return kakaoID;
 	}
 
-	public void setSnsid(String snsid) {
-		this.snsid = snsid;
+	public void setKakaoID(String kakaoID) {
+		this.kakaoID = kakaoID;
+		if (this.kakaoID == null) {
+			this.kakaoID = "";
+		}
 	}
 
+	public String getFacebookID() {
+		return facebookID;
+	}
+
+	public void setFacebookID(String facebookID) {
+		this.facebookID = facebookID;
+		if (this.facebookID == null) {
+			this.facebookID = "";
+		}
+	}
 }

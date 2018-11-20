@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<jsp:include page="./temp/bootStrap.jsp"></jsp:include>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -30,7 +26,7 @@
 </script>
 <script type="text/javascript">
 	$(function() {
-		$("#btn").click(function() {
+		$("#facebook").click(function() {
 			FB.login(function(response) {
 			}, {scope: 'email',
 				auth_type: 'rerequest'});
@@ -41,14 +37,56 @@
 						console.log(response.id);
 						console.log(response.name);
 						console.log(response.email);
+						sns = "facebook"
+							userID = response.id;
+							userName = response.name;
+							userEmail = response.email;
+						$.ajax({
+							url : "${pageContext.request.contextPath}/ajax/memberCheckId.do",
+							type : "POST",
+							data : {
+								id : userEmail
+									},
+							async : false,
+							success : function(data) {
+								data = data.trim();
+								console.log(data);
+								 if (data == '1') {
+								var url = "${pageContext.request.contextPath}/ajax/snsLogin.do?id="
+									+ userEmail
+									+ "&snsid=" + userID
+									+ "&name=" + userName 
+									+ "&sns=" + sns;
+									location.href = url;
+								} else {
+									$.ajax({
+										url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
+										type : "POST",
+										data : {
+											id : userEmail,
+											snsid : userID,
+											name : userName,
+											sns : sns
+										},
+										async : false,
+										success : function(data) {
+											//location.reload();
+										}
+									})
+								} 
+							},
+							error : function() {
+								console.log("error 발생");
+							}
+						});
 					}
 				});
 			});
 		})
 	})
 </script>
-</head>
 <body>
-	<button id="btn">btn</button>
+		<a class="btn-link line large btn-facebook"> <i
+			class="icon-facebook"></i><span class="txt">페이스북으로 로그인</span>
+		</a>
 </body>
-</html>

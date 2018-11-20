@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<% String snsid = request.getParameter("snsid"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 	src="${pageContext.request.contextPath}/js/memberinit.js"></script>
 	<script type="text/javascript">
 	$(function() {
-		if(${param.snsid} != null){
+		if(<%=snsid%> != null){
 			$("#id").attr("readonly","readonly")
 		}
 	})
@@ -40,7 +41,6 @@
 										action="./memberJoin.do">
 										<input type="hidden" name="sns" value="${param.sns}">
 										<input type="hidden" name="snsid" value="${param.snsid}">
-										<input type="hidden" name="fname" value="${param.fname}">
 
 										<div class="uk-form-row">
 											<div class="input-textfield width-max">

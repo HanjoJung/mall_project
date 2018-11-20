@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 <jsp:include page="../../../temp/bootStrap.jsp"></jsp:include>
 <script type="text/javascript">
-$(function() {
-	$(".btn-link").click(function() {
-		$("#frm").attr("action",$(this).val())
-		$("#frm").submit();
+	$(function() {
+		$(".btn-link").click(function() {
+			$("#frm").attr("action", $(this).val())
+			$("#frm").submit();
+		})
 	})
-})
 </script>
 </head>
 <body>
@@ -42,15 +42,15 @@ $(function() {
 								<div class="btn-wrap"
 									style="width: 100%; margin-top: 25px; text-align: center;">
 									<form action="" id="frm">
-										<input type="hidden" name="id" value="${param.id}"> <input
-											type="hidden" name="snsid" value="${param.snsid}"> <input
-											type="hidden" name="name" value="${param.name}"> <input
-											type="hidden" name="sns" value="${param.sns}">
+										<input type="hidden" name="snsid" value="${param.snsid}">
+										<input type="hidden" name="name" value="${param.name}">
+										<input type="hidden" name="sns" value="${param.sns}">
+										<input type="hidden" name="id" value="${param.id}">
 									</form>
 									<button class="btn-link width-max" style="width: 30%;"
 										value="../member/memberJoin.do">회원가입</button>
 									<button class="btn-link width-max" style="width: 30%;"
-										value="../member/memberLogin2.do">로그인</button>
+										value="../member/memberSnsLogin.do">로그인</button>
 								</div>
 							</div>
 						</div>

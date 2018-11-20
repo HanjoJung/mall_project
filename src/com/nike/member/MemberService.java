@@ -62,6 +62,7 @@ public class MemberService {
 		if (method.equals("POST")) {
 			request.setAttribute("message", "fail");
 			request.setAttribute("path", "./memberJoin.do");
+			String sns = request.getParameter("sns");
 			try {
 				MemberDTO memberDTO = new MemberDTO();
 				memberDTO.setId(request.getParameter("id"));
@@ -72,7 +73,14 @@ public class MemberService {
 //				memberDTO.setSex(request.getParameter("sex"));
 //				memberDTO.setBirthday(Date.valueOf(request.getParameter("birthday")));
 //				memberDTO.setProfileFname(request.getParameter("fname"));
-				memberDTO.setSnsid(request.getParameter("snsid"));
+				if (sns != null) {
+					if (sns.equals("kakao")) {
+						memberDTO.setKakaoID(request.getParameter("snsid"));
+					} else if (sns.equals("facebook")) {
+						memberDTO.setFacebookID(request.getParameter("snsid"));
+					}
+				}
+				System.out.println("service " + memberDTO.getFacebookID());
 
 				result = memberDAO.insert(memberDTO);
 
@@ -98,20 +106,28 @@ public class MemberService {
 
 		if (method.equals("POST")) {
 			HttpSession session = request.getSession();
+			String sns = request.getParameter("sns");
+			String snsid = request.getParameter("snsid");
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO.setId(request.getParameter("id"));
 			memberDTO.setPassword(request.getParameter("pw"));
-			if (memberDTO.getPassword() == null) {
-				memberDTO.setPassword("");
-			}
-			memberDTO.setSnsid(request.getParameter("snsid"));
-			if (memberDTO.getSnsid() == null) {
-				memberDTO.setSnsid("");
+			if (sns != null) {
+				if (sns.equals("kakao")) {
+					memberDTO.setKakaoID(request.getParameter("snsid"));
+				} else if (sns.equals("facebook")) {
+					memberDTO.setFacebookID(request.getParameter("snsid"));
+				}
 			}
 
 			try {
 				memberDTO = memberDAO.login(memberDTO);
+				System.out.println(memberDTO.getJoin_date());
 				if (memberDTO.getJoin_date() != null) {
+					System.out.println("sns : " + sns);
+					System.out.println("snsid : " + snsid);
+					if (sns != null) {
+						memberDAO.snsLogin(memberDTO, sns);
+					}
 					session.setAttribute("member", memberDTO);
 				} else {
 					request.setAttribute("result", 1);
@@ -119,7 +135,7 @@ public class MemberService {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			actionFoward.setPath("../WEB-INF/view/member/memberCheckId.jsp");
+			actionFoward.setPath("../WEB-INF/view/member/memberCheckResult.jsp");
 		} else {
 			actionFoward.setPath("../WEB-INF/view/member/memberLogin.jsp");
 		}
@@ -233,7 +249,24 @@ public class MemberService {
 		}
 
 		actionFoward.setCheck(true);
-		actionFoward.setPath("../WEB-INF/view/member/memberCheckId.jsp");
+		actionFoward.setPath("../WEB-INF/view/member/memberCheckResult.jsp");
+		return actionFoward;
+	}
+
+	public ActionFoward checkSns(HttpServletRequest request, HttpServletResponse response) {
+		ActionFoward actionFoward = new ActionFoward();
+		String snsid = request.getParameter("snsid");
+		String sns = request.getParameter("sns");
+
+		try {
+			int result = memberDAO.checkSns(snsid, sns);
+			request.setAttribute("result", result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		actionFoward.setCheck(true);
+		actionFoward.setPath("../WEB-INF/view/member/memberCheckResult.jsp");
 		return actionFoward;
 	}
 }

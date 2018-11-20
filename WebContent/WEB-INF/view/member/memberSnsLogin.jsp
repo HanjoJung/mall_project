@@ -15,30 +15,35 @@
 	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/memberinit.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/facebook.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$.get("${pageContext.request.contextPath}/ajax/kakaoLogin.do",
 				function(data) {
 					$("#kakao").html(data);
 				})
-		$("#btn").click(function() {
+		$.get("${pageContext.request.contextPath}/ajax/facebookLogin.do",
+				function(data) {
+					$("#facebook").html(data); 
+				})
+		$("#login").click(function() {
 			$.ajax({
 				url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
 				type : "POST",
 				data : {
 					id : $("#id").val(),
-					pw : $("#pw1").val()
+					pw : $("#pw1").val(),
+					sns : '${param.sns}',
+					snsid : ${param.snsid},
 				},
+				async : false,
 				success : function(data) {
 					data.trim();
-					if (data == 1) {
+					if (data == '1') {
 						$("#jq_uk-alert-danger").css({
 							display : "block"
 						})
 					} else {
-						location.reload();
+						location.href = "${pageContext.request.contextPath}/index.jsp";
 					}
 				}
 			})
@@ -62,6 +67,10 @@
 								<div class="uk-alert uk-alert-danger" id="jq_uk-alert-danger"
 									style="display: none;">이메일 혹은 비밀번호가 잘못 입력되었습니다.</div>
 								<form method="POST" class="uk-form-large" action="">
+									<input type="hidden" name="id" value="${param.id}"> <input
+										type="hidden" name="snsid" value="${param.snsid}"> <input
+										type="hidden" name="name" value="${param.name}"> <input
+										type="hidden" name="sns" value="${param.sns}">
 									<div class="uk-form-row">
 										<div class="input-textfield width-max">
 											<input class="data" type="email"
@@ -97,13 +106,13 @@
 
 					<div class="uk-grid login_btn_line">
 						<div class="uk-width-1-1">
-							<button class="button large width-max" id="btn" value="로그인">로그인</button>
+							<button class="button large width-max" id="login" value="로그인">로그인</button>
 						</div>
 					</div>
 				</div>
 				<div class="social-login-container">
 					<div class="uk-grid social_wrap" data-module-social-login>
-						<div class="uk-width-1-1 uk-width-medium-1-1"></div>
+						<div class="uk-width-1-1 uk-width-medium-1-1" id="facebook"></div>
 						<div class="uk-width-1-1 uk-width-medium-1-1" id="kakao"></div>
 					</div>
 				</div>

@@ -6,14 +6,16 @@
 	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/memberinit.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/facebook.js"></script>
 <html>
 <script type="text/javascript">
 	$(function() {
 		$.get("${pageContext.request.contextPath}/ajax/kakaoLogin.do",
 				function(data) {
 					$("#kakao").html(data);
+				})
+		$.get("${pageContext.request.contextPath}/ajax/facebookLogin.do",
+				function(data) {
+					$("#facebook").html(data);
 				})
 		$("#btn").click(function() {
 			$.ajax({
@@ -88,7 +90,7 @@
 	</div>
 	<div class="social-login-container">
 		<div class="uk-grid social_wrap" data-module-social-login>
-			<div class="uk-width-1-1 uk-width-medium-1-1"></div>
+			<div class="uk-width-1-1 uk-width-medium-1-1" id="facebook"></div>
 			<div class="uk-width-1-1 uk-width-medium-1-1" id="kakao"></div>
 		</div>
 	</div>

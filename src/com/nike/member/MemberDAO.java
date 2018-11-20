@@ -10,26 +10,43 @@ import com.nike.page.RowNumber;
 import com.nike.util.DBconnector;
 
 public class MemberDAO {
-	public int checkId(String id) throws Exception{
+	public int checkSns(String snsid, String sns) throws Exception {
+		Connection con = DBconnector.getConnect();
+		String sql = "select * from member where " + sns + "id=?";
+		int result = 1;
+
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, snsid);
+		ResultSet rs = st.executeQuery();
+
+		if (rs.next()) {
+			result = 2;
+		}
+
+		DBconnector.disConnect(rs, st, con);
+		return result;
+	}
+
+	public int checkId(String id) throws Exception {
 		Connection con = DBconnector.getConnect();
 		String sql = "select * from member where id=?";
 		int result = 1;
-		
+
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, id);
 		ResultSet rs = st.executeQuery();
 
-		if(rs.next()) {
+		if (rs.next()) {
 			result = 2;
 		}
-		
+
 		DBconnector.disConnect(rs, st, con);
 		return result;
 	}
 
 	public int insert(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "insert into member values(?,?,?,?,?,?,?,sysdate,?,?,?)";
+		String sql = "insert into member values(?,?,?,?,?,?,?,sysdate,?,?,?,?)";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getId());
@@ -41,6 +58,9 @@ public class MemberDAO {
 		st.setDate(7, memberDTO.getBirthday());
 		st.setString(8, memberDTO.getProfileFname());
 		st.setString(9, memberDTO.getProfileOname());
+		st.setString(10, memberDTO.getKakaoID());
+		st.setString(11, memberDTO.getFacebookID());
+		System.out.println("dao " +memberDTO.getFacebookID());
 		int result = st.executeUpdate();
 
 		DBconnector.disConnect(st, con);
@@ -82,13 +102,16 @@ public class MemberDAO {
 
 	public MemberDTO login(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "select * from member where id=? and password=? or id=? and snsid=?";
+		String sql = "select * from member where id=? and password=? " + "or id=? and kakaoid=? "
+				+ "or id=? and facebookid=?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getId());
 		st.setString(2, memberDTO.getPassword());
 		st.setString(3, memberDTO.getId());
-		st.setString(4, memberDTO.getSnsid());
+		st.setString(4, memberDTO.getKakaoID());
+		st.setString(5, memberDTO.getId());
+		st.setString(6, memberDTO.getFacebookID());
 		ResultSet rs = st.executeQuery();
 
 		if (rs.next()) {
@@ -106,13 +129,29 @@ public class MemberDAO {
 		return memberDTO;
 	}
 
+	public int snsLogin(MemberDTO memberDTO, String sns) throws Exception {
+		Connection con = DBconnector.getConnect();
+		String sql = "update member set " + sns + "id=? where id=?";
+
+		PreparedStatement st = con.prepareStatement(sql);
+		if (sns.equals("kakao")) {
+			st.setString(1, memberDTO.getKakaoID());
+		} else if (sns.equals("facebook")) {
+			st.setString(1, memberDTO.getFacebookID());
+		}
+		st.setString(2, memberDTO.getId());
+
+		int result = st.executeUpdate();
+
+		DBconnector.disConnect(st, con);
+		return result;
+	}
+
 	public List<MemberDTO> seleteList(RowNumber rowNumber) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "select * from " + 
-				"(select rownum R, m.* from " + 
-				"(select * from member order by join_date desc, id desc) m) " + 
-				"where R between ? and ?";
-		
+		String sql = "select * from " + "(select rownum R, m.* from "
+				+ "(select * from member order by join_date desc, id desc) m) " + "where R between ? and ?";
+
 		List<MemberDTO> ar = new ArrayList<>();
 
 		PreparedStatement st = con.prepareStatement(sql);
@@ -120,7 +159,7 @@ public class MemberDAO {
 		st.setInt(2, rowNumber.getLastRow());
 		ResultSet rs = st.executeQuery();
 
-		while(rs.next()) {
+		while (rs.next()) {
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO.setId(rs.getString("id"));
 			memberDTO.setName(rs.getString("name"));
@@ -137,16 +176,16 @@ public class MemberDAO {
 		DBconnector.disConnect(rs, st, con);
 		return ar;
 	}
-	
-	public int totalCount() throws Exception{
+
+	public int totalCount() throws Exception {
 		Connection con = DBconnector.getConnect();
 		String sql = "select count(id) from member";
-		
+
 		PreparedStatement st = con.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 		rs.next();
 		int result = rs.getInt(1);
-		
+
 		DBconnector.disConnect(rs, st, con);
 		return result;
 	}

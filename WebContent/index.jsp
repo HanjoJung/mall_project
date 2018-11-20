@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>쇼핑몰 프로젝트</title>
 <jsp:include page="./temp/bootStrap.jsp"></jsp:include>
+<script src="/mall_project/js/index.js"></script>
 <link href="/mall_project/css/index.css" rel="stylesheet"
 	type="text/css">
 </head>
