@@ -14,17 +14,32 @@ $(document).ready(function() {
 			}, 300);
 		}
 	});
+	
+	var $divhover = $('#p1>div');
+	$divhover.on({
+		'mouseenter#p1' : function() {
+			clearInterval(timeoutId);
+			$(this).find('>').addClass('hover');
+			$(this).siblings().find('>').removeClass('active');
+		},
+		'mouseleave.lnb' : function() {
+			var $this = $(this);
+			timeoutId = setTimeout(function() {
+				$this.find('>').removeClass('active');
+			}, 300);
+		}
+	});
 
 	$('body').on('hidden.bs.modal', '.modal', function() {
 		$(this).removeData('bs.modal');
 	});
 
-	$("#p1>div").mouseenter(function() {
-		$(this).addClass('hover');
+	/*$("#p1>div").mouseenter(function() {
+		$(this).delay(500).addClass('hover');
 	});
 	$("#p1>div").mouseleave(function() {
-		$(this).removeClass('hover');
-	});
+		$(this).delay(500).removeClass('hover');
+	});*/
 
 	$("body").on("click", "[data-click-name]", function(e) {
 		// e.preventDefault();
@@ -46,10 +61,10 @@ $(document).ready(function() {
 		// alert("잠시 멈춤");
 	});
 	
-	$('#p1>div').mouseenter(function() {
-		$(this).addClass('hover');
+	/*$('#p1>div').mouseenter(function() {
+		$(this).delay(500).addClass('hover');
 	});
 	$('#p1>div').mouseleave(function() {
-		$(this).removeClass('hover');
-	});
+		$(this).delay(500).removeClass('hover');
+	});*/
 });
