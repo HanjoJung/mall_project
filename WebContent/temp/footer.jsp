@@ -55,7 +55,7 @@
 					<dd>
 						<a data-click-area="Footer GNB"
 							data-click-name="Help_Privacy Policy"
-							href="${pageContext.request.contextPath}/cscenter/policy.jsp">이용약관</a>
+							href="${pageContext.request.contextPath}/cscenter/policy.do">이용약관</a>
 					</dd>
 					<dd>
 						<a data-click-area="Footer GNB"

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nike.action.ActionFoward;
+
 /**
  * Servlet implementation class CSCenter
  */
@@ -30,9 +32,18 @@ public class CSCenterController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String command = request.getPathInfo();
+		ActionFoward actionFoward = new ActionFoward();
 
-		RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/view/cscenter/policy.jsp");
+		if (command.equals("/policy.do")) {
+			actionFoward.setPath("../WEB-INF/view/cscenter/policy.jsp");
+		} else if (command.equals("/cscenter.do")) {
+			actionFoward.setPath("../WEB-INF/view/cscenter/cscenter.jsp");
+		}
+
+		RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
 		view.forward(request, response);
+
 	}
 
 	/**
