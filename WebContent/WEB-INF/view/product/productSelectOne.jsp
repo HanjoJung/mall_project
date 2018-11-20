@@ -365,10 +365,10 @@
 																<a
 																	class="btn-link width-max xlarge btn-cart addcart-btn"
 																	data-cartbtn="" action-type="add"
-																	href="/kr/ko_kr/cart/add">장바구니</a><a
+																	href="#">장바구니</a><a
 																	class="btn-link xlarge btn-order width-max"
 																	data-cartbtn="" action-type="redirect" id="btn-buy"
-																	href="/kr/ko_kr/cart/add?directOrder=true"> <span>바로구매</span></a>
+																	href="#"> <span>바로구매</span></a>
 
 															</div>
 
@@ -490,7 +490,7 @@
 										<h2 class="pop-detail-title uk-accordion-title">
 											배송<span class="sub-title-wrap">무료배송 / 5일 이내 배송</span>
 										</h2>
-										<div class="pop-detail-content uk-accordion-content">
+										<!-- <div class="pop-detail-content uk-accordion-content">
 											<p>상품의 구매금액에 상관없이 모든 상품이 무료배송 됩니다.</p>
 
 
@@ -502,13 +502,13 @@
 											</ul>
 
 
-										</div>
+										</div> -->
 
 
 										<h2 class="pop-detail-title uk-accordion-title">
 											반품/AS<span class="sub-title-wrap">무료반품</span>
 										</h2>
-										<div class="pop-detail-content uk-accordion-content">
+										<!-- <div class="pop-detail-content uk-accordion-content">
 											<p>상품의 구매금액에 상관없이 모든 상품이 무료반품 됩니다.</p>
 
 
@@ -535,7 +535,7 @@
 												<li>미성년 고객께서 상품을 주문(계약) 하시는 경우, 법정대리인(부모님 등)의 동의가 없으면
 													미성년자 본인 또는 법정대리인(부모님 등)이 그 주문(계약)을 취소하실 수 있습니다.</li>
 											</ul>
-										</div>
+										</div> -->
 
 									</div>
 
@@ -543,8 +543,17 @@
 
 								</div>
 							</div>
+							<div class="btn-group-box line type2">
 
-
+								<div class="status-wrap btn-wrap">
+									<div class="order-wrap">
+										<a class="btn-link width-max xlarge btn-cart addcart-btn"
+											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a
+											class="btn-link xlarge btn-order width-max"
+											href="./${board}Delete.do?code=${pDTO.productCode}"> <span>삭제</span></a>
+									</div>
+								</div>
+							</div>
 
 							<div class="exp-pdp-section-divider"></div>
 							<div class="exp-pdp-benefits-container">

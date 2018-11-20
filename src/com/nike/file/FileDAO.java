@@ -78,6 +78,7 @@ public class FileDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, code);
 		int result = st.executeUpdate();
+		System.out.println("file"+result);
 		DBconnector.disConnect(st, con);
 		
 		return result;

@@ -149,7 +149,7 @@ public class ProductDAO {
 		st.setString(1, code);
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
-		System.out.println(result);
+		System.out.println("product"+result);
 		return result;
 
 	}

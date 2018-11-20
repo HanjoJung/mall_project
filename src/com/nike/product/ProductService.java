@@ -135,16 +135,17 @@ public class ProductService {
 					
 					FileDAO fileDAO = new FileDAO();
 					Enumeration<Object> e = multi.getFileNames();
+					int i = 1;
 					while(e.hasMoreElements()) {
 						System.out.println(e);
 						String p =(String)e.nextElement();
 						System.out.println(p);
 						FileDTO fileDTO = new FileDTO();
-						fileDTO.setPut(productDTO.getKind());
+						fileDTO.setPut(i+"");
 						fileDTO.setProductCode(productDTO.getProductCode());
 						fileDTO.setFname(multi.getFilesystemName(p));
 						fileDTO.setOname(multi.getOriginalFileName(p));
-
+						i++;
 						
 						fileDAO.insert(fileDTO);
 						
@@ -184,8 +185,19 @@ public class ProductService {
 		
 		try {
 			String code = request.getParameter("code");
+			List<FileDTO> ar =fileDAO.selectList(code);
+			int result2 = fileDAO.delete(code);
 			int result=productDAO.delete(code);
 			if(result>0) {
+				String path =request.getServletContext().getRealPath("upload");
+				System.out.println(path);
+				File file = null;
+				for(int i=0;i<ar.size();i++) {
+					
+					file = new File(path,ar.get(i).getFname());
+				}
+				
+				file.delete();
 				request.setAttribute("message", "Success");
 				request.setAttribute("path", "./productList.do");
 				
@@ -202,6 +214,11 @@ public class ProductService {
 		
 		return actionFoward;
 	}
+	
+	
+	
+	
+	
 	
 	public ActionFoward update(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
