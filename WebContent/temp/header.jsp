@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript">
+	$(function() {
+		$(".log_user").click(function() {
+			console.log("click");
+			if ($("#account-box").attr("class") == "account-box uk-hidden") {
+				$("#account-box").attr("class", "account-box");
+				$(this).attr("class", "log_user on")
+			} else {
+				$("#account-box").attr("class", "account-box uk-hidden");
+				$(this).attr("class", "log_user")
+			}
+		})
+	})
+</script>
 <header class="header_layout_1">
 	<div class="header-gnb">
 		<div class="uk-clearfix header-gnb_maxwidth">
@@ -14,30 +28,35 @@
 				<li><a href="${pageContext.request.contextPath}/qna/qnaList.do"><span>QNA</span></a></li>
 			</ul>
 			<ul class="uk-float-right header-mymenu">
-				<li><span> <c:choose>
-							<c:when test="${empty member}">
-								<a class="join"
-									href="${pageContext.request.contextPath}/member/memberJoin.do">회원가입</a>
-								<a style="padding: 0px;">/</a>
-								<a data-toggle="modal" data-target="#myModal"
-									href="${pageContext.request.contextPath}/member/memberLogin.do"
-									class="login">로그인</a>
-							</c:when>
-							<c:otherwise>
-								<a class="join"
-									href="${pageContext.request.contextPath}/member/memberSelectOne.do">
-									내 정보</a>
-								<a style="padding: 0px;">/</a>
-								<a class="login"
-									href="${pageContext.request.contextPath}/member/memberLogout.do">
-									로그아웃</a>
-							</c:otherwise>
-						</c:choose>
-
-				</span></li>
-				<li><a href="${pageContext.request.contextPath}/cscenter/cscenter.do">고객센터</a></li>
+				<c:choose>
+					<c:when test="${empty member}">
+						<li><span> <a class="join"
+								href="${pageContext.request.contextPath}/member/memberJoin.do">회원가입</a>
+								<a style="padding: 0px;">/</a> <a data-toggle="modal"
+								data-target="#myModal"
+								href="${pageContext.request.contextPath}/member/memberLogin.do"
+								class="login">로그인</a></span></li>
+					</c:when>
+					<c:otherwise>
+						<li><span class="log_user"><i class="ns-profile"></i><a
+								class="user_name">${member.name}</a> </span>
+							<div class="account-box uk-hidden" id="account-box"
+								aria-hidden="true">
+								<a title="마이페이지"
+									href="${pageContext.request.contextPath}/member/memberSelectOne.do">마이페이지</a>
+								<a title="회원정보관리"
+									href="${pageContext.request.contextPath}/member/memberUpdate.do">회원정보관리</a>
+								<a title="위시리스트"
+									href="${pageContext.request.contextPath}/member/memberSelectOne.do">위시리스트</a>
+								<a title="로그아웃"
+									href="${pageContext.request.contextPath}/member/memberLogout.do">로그아웃</a>
+							</div></li>
+					</c:otherwise>
+				</c:choose>
+				<li><a
+					href="${pageContext.request.contextPath}/cscenter/cscenter.do">고객센터</a></li>
 				<li><a href="#" class="cart-item empty"><i class="ns-cart"></i>
-						장바구니</a></li>
+						</a></li>
 				<li><a href="#"><span class="flag-kr" title="대한민국"></span></a></li>
 			</ul>
 		</div>

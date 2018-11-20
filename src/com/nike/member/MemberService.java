@@ -80,7 +80,6 @@ public class MemberService {
 						memberDTO.setFacebookID(request.getParameter("snsid"));
 					}
 				}
-				System.out.println("service " + memberDTO.getFacebookID());
 
 				result = memberDAO.insert(memberDTO);
 
@@ -121,10 +120,7 @@ public class MemberService {
 
 			try {
 				memberDTO = memberDAO.login(memberDTO);
-				System.out.println(memberDTO.getJoin_date());
 				if (memberDTO.getJoin_date() != null) {
-					System.out.println("sns : " + sns);
-					System.out.println("snsid : " + snsid);
 					if (sns != null) {
 						memberDAO.snsLogin(memberDTO, sns);
 					}

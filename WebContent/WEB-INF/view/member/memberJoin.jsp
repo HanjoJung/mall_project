@@ -111,7 +111,7 @@
 													<div class="uk-grid uk-margin-top-remove">
 														<div class="uk-width-1-1">
 															<div class="scroll-box agree-content">
-																<c:import url="../cscenter/text.jsp"></c:import>
+																<c:import url="../cscenter/policyContents.jsp"></c:import>
 															</div>
 														</div>
 													</div>
