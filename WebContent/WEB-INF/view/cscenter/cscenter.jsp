@@ -116,25 +116,25 @@
 									변경 및 탈퇴 안내</a></li>
 						</ul>
 					</div>
-					<div class="customer-center__col">
+					<div class="customer-center col">
 						<ul>
-							<li class="customer-center__list-title"><a href="#"
+							<li class="customer-center list-title"><a href="#"
 								data-click-area="help" data-click-name="store info">매장안내</a></li>
-							<li class="customer-center__list-title"><a href="#"
+							<li class="customer-center list-title"><a href="#"
 								data-click-area="help" data-click-name="company info">회사소개</a></li>
-							<li class="customer-center__list-title"><a
+							<li class="customer-center list-title"><a
 								href="${pageContext.request.contextPath}/notice/noticeList.do"
 								data-click-area="help" data-click-name="notice">공지사항</a></li>
 						</ul>
 					</div>
-					<div class="customer-center__box">
-						<h2 class="customer-center__box-title">CONTACT US</h2>
-						<hr class="customer-center__hr">
+					<div class="customer-center box">
+						<h2 class="customer-center box-title">CONTACT US</h2>
+						<hr class="customer-center hr">
 					</div>
-					<div class="customer-center__box-contents">
-						<div class="customer-center__row customer-center__row--center">
+					<div class="customer-center box-contents">
+						<div class="customer-center row customer-center	row--center">
 							<div
-								class="customer-center__col customer-center__contact customer-center__contact--call">
+								class="customer-center col customer-center contact customer-center contact--call">
 								<strong>전화문의</strong>
 								<p>
 									<span>080-022-0182</span> <a href="tel:080-022-0182"
@@ -144,14 +144,14 @@
 								<p>월-일 오전 9시~오후 8시</p>
 							</div>
 							<div
-								class="customer-center__col customer-center__contact customer-center__contact--email">
+								class="customer-center col customer-center contact customer-center contact--email">
 								<strong>1:1 Email 문의</strong> <a href="#" data-click-area="help"
 									data-click-name="email">Email 문의하기</a> <a href="#"
 									data-click-area="help" data-click-name="1on1 chat">문의내역
 									확인하기</a>
 							</div>
 							<div
-								class="customer-center__col customer-center__contact customer-center__contact--store">
+								class="customer-center col customer-center contact customer-center contact--store">
 								<strong>매장안내</strong> <a href="#" data-click-area="help"
 									data-click-name="find stores">가까운 나이키 매장찾기</a>
 							</div>
