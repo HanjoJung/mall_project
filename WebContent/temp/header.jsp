@@ -35,7 +35,7 @@
 						</c:choose>
 
 				</span></li>
-				<li><a href="#">고객센터</a></li>
+				<li><a href="${pageContext.request.contextPath}/cscenter/cscenter.do">고객센터</a></li>
 				<li><a href="#" class="cart-item empty"><i class="ns-cart"></i>
 						장바구니</a></li>
 				<li><a href="#"><span class="flag-kr" title="대한민국"></span></a></li>

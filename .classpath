@@ -13,9 +13,9 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/mapthesoul/Documents/카카오톡 받은 파일/cos-05Nov2002.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mapthesoul/Documents/카카오톡 받은 파일/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mapthesoul/Documents/카카오톡 받은 파일/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mapthesoul/Documents/카카오톡 받은 파일/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/502-06/Documents/카카오톡 받은 파일/cos-05Nov2002.jar"/>
+	<classpathentry kind="lib" path="C:/Users/502-06/Documents/카카오톡 받은 파일/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/502-06/Documents/카카오톡 받은 파일/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/502-06/Documents/카카오톡 받은 파일/ojdbc6.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
