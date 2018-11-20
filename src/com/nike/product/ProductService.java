@@ -20,14 +20,16 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 public class ProductService {
 	
 	private ProductDAO productDAO;
+	private FileDAO fileDAO;
 	
 	public ProductService() {
 		productDAO = new ProductDAO();
+		fileDAO = new FileDAO();
 	}
 	
 	public ActionFoward selectList(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
-		FileDAO fileDAO = new FileDAO();
+	
 		
 		int curPage=1;
 		try {
@@ -80,10 +82,13 @@ public class ProductService {
 	
 		ActionFoward actionFoward = new ActionFoward();
 		ProductDTO productDTO = null;
+		FileDTO fileDTO = null;
 		String code = request.getParameter("code");
 		try {
 			productDTO=productDAO.selectOne(code);
+			fileDTO = fileDAO.selectOne(code);
 			
+			request.setAttribute("fileOne", fileDTO);
 			request.setAttribute("pDTO", productDTO);
 			request.setAttribute("board", "product");
 			actionFoward.setCheck(true);
