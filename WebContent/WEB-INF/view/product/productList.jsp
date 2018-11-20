@@ -35,11 +35,14 @@
 			<!-- 서치 폼 -->
 		</div>
 		<div class="wrap-pl product-item" id="p1">
-			<c:forEach items="${list}" var="productDTO">
+			<c:forEach items="${list}" var="productDTO" varStatus="i">
 				<div>
 					<div class="action-hover">
 						<a href="./productSelectOne.do?code=${productDTO.productCode}">
-						<img src="/mall_project/upload/"></a>
+						
+						<img src="/mall_project/upload/${file[i.index].fname}"></a>
+						
+						
 					</div>
 					
 					<div class="item-info">
@@ -47,7 +50,7 @@
 						<div class="item-location">
 							<span>${productDTO.kind}</span>
 						</div>
-						<span class="item-price"><span>${productDTO.price} 원</span></span>
+						<span class="item-price"><span>${produc-tDTO.price} 원</span></span>
 					</div>
 				</div>
 			</c:forEach>

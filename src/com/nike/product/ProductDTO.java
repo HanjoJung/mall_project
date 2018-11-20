@@ -1,5 +1,7 @@
 package com.nike.product;
 
+import java.util.List;
+
 import com.nike.file.FileDTO;
 
 public class ProductDTO {
@@ -14,13 +16,13 @@ public class ProductDTO {
 	private String manufacturerCode;
 	private String writer;
 	private String contents;
-	private FileDTO fileDTO;
+	private List<FileDTO> fileDTO;
+	
 
-	public FileDTO getFileDTO() {
+	public List<FileDTO> getFileDTO() {
 		return fileDTO;
 	}
-
-	public void setFileDTO(FileDTO fileDTO) {
+	public void setFileDTO(List<FileDTO> fileDTO) {
 		this.fileDTO = fileDTO;
 	}
 
