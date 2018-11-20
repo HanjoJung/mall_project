@@ -17,8 +17,8 @@
 					<h1 class="customer-center title">고객센터</h1>
 					<div class="customer-center search-area">
 						<div class="customer-center search">
-							<form role="search" class="search" data-search
-								action="" accept-charset="UTF-8" method="get">
+							<form role="search" class="search" data-search action=""
+								accept-charset="UTF-8" method="get">
 								<input name="utf8" type="hidden" value="✓"> <input
 									type="search" name="query" id="query" placeholder="무엇을 도와드릴까요"
 									aria-label="무엇을 도와드릴까요" autocomplete="off">
@@ -126,6 +126,36 @@
 								href="${pageContext.request.contextPath}/notice/noticeList.do"
 								data-click-area="help" data-click-name="notice">공지사항</a></li>
 						</ul>
+					</div>
+					<div class="customer-center__box">
+						<h2 class="customer-center__box-title">CONTACT US</h2>
+						<hr class="customer-center__hr">
+					</div>
+					<div class="customer-center__box-contents">
+						<div class="customer-center__row customer-center__row--center">
+							<div
+								class="customer-center__col customer-center__contact customer-center__contact--call">
+								<strong>전화문의</strong>
+								<p>
+									<span>080-022-0182</span> <a href="tel:080-022-0182"
+										data-click-area="help" data-click-name="call">
+										080-022-0182</a>
+								</p>
+								<p>월-일 오전 9시~오후 8시</p>
+							</div>
+							<div
+								class="customer-center__col customer-center__contact customer-center__contact--email">
+								<strong>1:1 Email 문의</strong> <a href="#" data-click-area="help"
+									data-click-name="email">Email 문의하기</a> <a href="#"
+									data-click-area="help" data-click-name="1on1 chat">문의내역
+									확인하기</a>
+							</div>
+							<div
+								class="customer-center__col customer-center__contact customer-center__contact--store">
+								<strong>매장안내</strong> <a href="#" data-click-area="help"
+									data-click-name="find stores">가까운 나이키 매장찾기</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
