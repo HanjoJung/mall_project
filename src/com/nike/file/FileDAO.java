@@ -12,7 +12,7 @@ public class FileDAO {
 	
 	public FileDTO selectOne(String code) throws Exception{
 		Connection con = DBconnector.getConnect();
-		String sql = "select * from image where productcode=?";
+		String sql = "select * from image where productcode=? order by put desc";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, code);
 		ResultSet rs = st.executeQuery();
@@ -30,7 +30,7 @@ public class FileDAO {
 
 	public List<FileDTO> selectList(String code) throws Exception{
 		Connection con = DBconnector.getConnect();
-		String sql = "select * from image where productcode=?";
+		String sql = "select * from image where productcode=? order by put desc";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, code);
 		ResultSet rs = st.executeQuery();

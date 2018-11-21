@@ -83,9 +83,9 @@ public class ProductService {
 		String code = request.getParameter("code");
 		try {
 			productDTO = productDAO.selectOne(code);
-			fileDTO = fileDAO.selectOne(code);
-
-			request.setAttribute("fileOne", fileDTO);
+			List<FileDTO> ar = new ArrayList<>();
+			ar = fileDAO.selectList(code);
+			request.setAttribute("file", ar);
 			request.setAttribute("pDTO", productDTO);
 			request.setAttribute("board", "product");
 			actionFoward.setCheck(true);
@@ -130,14 +130,13 @@ public class ProductService {
 				if (result > 0) {
 
 					FileDAO fileDAO = new FileDAO();
-					Enumeration<Object> e = multi.getFileNames();
-					int i = 1;
+					Enumeration<Object> e = multi.getFileNames(); //write 에 input file name을 가져옴 (e)
+					int i = 0;
 					while (e.hasMoreElements()) {
-						System.out.println(e);
 						String p = (String) e.nextElement();
 						System.out.println(p);
 						FileDTO fileDTO = new FileDTO();
-						fileDTO.setPut(i + "");
+						fileDTO.setPut("fname" + i);
 						fileDTO.setProductCode(productDTO.getProductCode());
 						fileDTO.setFname(multi.getFilesystemName(p));
 						fileDTO.setOname(multi.getOriginalFileName(p));
