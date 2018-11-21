@@ -319,7 +319,7 @@
 																	data-cartbtn="" action-type="add" href="#">장바구니</a><a
 																	class="btn-link xlarge btn-order width-max"
 																	data-cartbtn="" action-type="redirect" id="btn-buy"
-																	href="#"> <span>바로구매</span></a>
+																	href="./checkout.do"> <span>바로구매</span></a>
 															</div>
 														</div>
 														<button

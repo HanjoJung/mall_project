@@ -146,16 +146,10 @@
 					자세히보기</a>
 			</div>
 		</div>
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-				</div>
-			</div>
-		</div>
 	</div>
 </footer>
 <div class="modal fade" id="myModal" role="dialog">
-	<div class="modal-dialog">
+	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content"></div>
 	</div>
 </div>
