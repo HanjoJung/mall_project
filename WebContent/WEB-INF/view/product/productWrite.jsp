@@ -8,17 +8,44 @@
 <title>Insert title here</title>
 
 <c:import url="../../../temp/bootStrap.jsp" />
+<link href="/mall_project/css/common.css" rel="stylesheet"
+	type="text/css">
 <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
 <script type="text/javascript">
 $(function() {
 	$("#btn").click(function() {
-		var title = $("#title").val();
+		var title = $("#name").val();
 		if (title != "") {
 			$("#frm").submit();
 		} else {
-			alert("제목을 입력하세요");
+			alert("상품명을 입력하세요");
 		}
-	})
+	});
+	
+	var count=1;
+	var index=0;
+	
+ 	$("#add").click(function() {
+		if(count<9){
+		var r ='<div class="form-group" id="fname'+index+'">';
+		var r = r+'<label for="file">사진:</label>';
+		var r = r+'<input type="file" class="form-control" id="file" name="fname'+index+'">';
+		var r = r+'<span class="remove" title="'+index+'">X</span>';
+		var r = r+'</div>';
+		$("#file").append(r);
+		count++;
+		index++;
+		}else{
+			alert("파일은 8개가지 가능");
+		}
+	});
+ 	
+ 	$("#file").on("click", ".remove", function () {
+		var t = $(this).attr("title");
+		$("#fname"+t).remove();
+		count--;
+	});
+	
 })
 </script>
 </head>
@@ -60,10 +87,10 @@ $(function() {
 						class="form-control" id="mCode" 
 						 name="mCode">
 				</div>
-				<div class="form-group">
-					<label for="fname">사진:</label> <input type="file"
-						class="form-control" id="fname" 
-						 name="fname">
+				
+				<input class="btn btn-primary" id="add" type="button" value="File Add">
+				<div class="form-group files" id="file">
+					
 				</div> 
 				
 				<div class="form-group">
@@ -75,8 +102,8 @@ $(function() {
 				<script>
 					CKEDITOR.replace('contents');
 				</script>
-		
-				<input type="button" id="btn" class="btn btn-default" value="등록">
+												
+				<input type="button" id="btn" class="btn-link width-max xlarge btn-cart addcart-btn" value="등록">
 			</form>
 		</div>
 	</div>
