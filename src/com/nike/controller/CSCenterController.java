@@ -36,7 +36,9 @@ public class CSCenterController extends HttpServlet {
 		ActionFoward actionFoward = new ActionFoward();
 
 		if (command.equals("/policy.do")) {
-			actionFoward.setPath("../WEB-INF/view/cscenter/policy.jsp");
+			actionFoward.setPath("../WEB-INF/view/cscenter/policy.jsp?kind=policy");
+		} else if (command.equals("/guestPolicy.do")) {
+			actionFoward.setPath("../WEB-INF/view/cscenter/policy.jsp?kind=guestPolicy");
 		} else if (command.equals("/cscenter.do")) {
 			actionFoward.setPath("../WEB-INF/view/cscenter/cscenter.jsp");
 		}

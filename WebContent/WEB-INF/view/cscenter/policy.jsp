@@ -32,10 +32,21 @@
 	<div class="content-area wrapper">
 		<div class="contents width-xlarge margin-xsmall">
 			<div class="customer-policy">
-				<h2 class="title">
-					<span class="labelt">이용약관</span>
-				</h2>
-				<c:import url="./policyContents.jsp"></c:import>
+				<c:choose>
+					<c:when test="${param.kind=='policy'}">
+						<h2 class="title">
+							<span class="labelt">이용약관</span>
+						</h2>
+						<c:import url="./policyContents.jsp"></c:import>
+					</c:when>
+					<c:when test="${param.kind=='guestPolicy'}">
+						<h2 class="title">
+							<span class="labelt">비회원
+								개인정보수집 이용동의</span>
+						</h2>
+						<c:import url="./guestPolicy.jsp"></c:import>
+					</c:when>
+				</c:choose>
 			</div>
 		</div>
 	</div>

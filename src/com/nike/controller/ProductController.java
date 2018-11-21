@@ -32,21 +32,26 @@ public class ProductController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		String command = request.getPathInfo();
 		ActionFoward actionFoward = null;
 		if (command.equals("/productList.do")) {
 
 			actionFoward = productService.selectList(request, response);
-		}else if(command.equals("/productSelectOne.do")) {
+		} else if (command.equals("/productSelectOne.do")) {
 			actionFoward = productService.selectOne(request, response);
-		}else if(command.equals("/productWrite.do")) {
+		} else if (command.equals("/productWrite.do")) {
 			actionFoward = productService.insert(request, response);
-		}else if(command.equals("/productDelete.do")) {
+		} else if (command.equals("/productDelete.do")) {
 			actionFoward = productService.delete(request, response);
-		}else if(command.equals("/productUpdate.do")) {
+		} else if (command.equals("/productUpdate.do")) {
 			actionFoward = productService.update(request, response);
+		} else if (command.equals("/checkout.do")) {
+			actionFoward = new ActionFoward();
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/product/checkout.jsp");
 		}
 		if (actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());

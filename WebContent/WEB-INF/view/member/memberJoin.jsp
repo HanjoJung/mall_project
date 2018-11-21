@@ -60,7 +60,7 @@
 													data-parsley-message="영문/숫자/특수문자 조합 8~16자 조합으로 입력해주세요."
 													data-parsley-pattern="^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,16}$"
 													data-parsley-required-message="필수 입력 항목입니다." id="pw1"
-													placeholder="영문+숫자+특수문자 조합 8~16자리 이내" id="pw1" name="pw1" />
+													placeholder="영문+숫자+특수문자 조합 8~16자리 이내" id="pw1" name="pw1"/>
 												<span class="error-message filled"></span>
 											</div>
 										</div>

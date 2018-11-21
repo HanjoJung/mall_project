@@ -39,9 +39,9 @@
 				<div>
 					<div class="action-hover">
 						<a href="./productSelectOne.do?code=${productDTO.productCode}">
-						
+						<%-- <c:if test="${fileOne.put eq 'max'}" > --%>
 						<img src="/mall_project/upload/${file[i.index].fname}"></a>
-						
+						<%-- </c:if> --%>
 						
 					</div>
 					
@@ -50,7 +50,7 @@
 						<div class="item-location">
 							<span>${productDTO.kind}</span>
 						</div>
-						<span class="item-price"><span>${produc-tDTO.price} 원</span></span>
+						<span class="item-price"><span>${productDTO.price} 원</span></span>
 					</div>
 				</div>
 			</c:forEach>

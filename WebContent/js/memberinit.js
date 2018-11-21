@@ -1,21 +1,20 @@
 $(function() {
 	$(".brz-icon-checkbox").parent().click(
 			function() {
-				var checked = $(this).parent().attr("class");
-				var c = checked.lastIndexOf("checked");
+				var checked = $(this).parent();
+				var c = checked.attr("class").lastIndexOf("checked");
 				if (c > 0) {
-					$(this).parent().attr("class",
-							"input-checkbox uk-width-1-1")
-					$(this).parent().children("input").attr("checked", false)
+					checked.attr("class","input-checkbox uk-width-1-1")
+					checked.children("input").attr("checked", false)
 				} else {
-					$(this).parent().attr("class",
-							"input-checkbox uk-width-1-1 checked")
-					$(this).parent().children("input").attr("checked", true)
+					checked.attr("class","input-checkbox uk-width-1-1 checked")
+					checked.children("input").attr("checked", true)
 				}
 			})
+			
 			function formCheck(data){
 				// 정규식 패턴
-				var pat = (RegExp)(data.attr("data-parsley-pattern")); 
+				var pat = (RegExp)(data.attr("data-parsley-pattern"));
 				// 입력 여부
 				if (data.val().length == 0) { // 입력하지 않은 경우
 					// 메세지 출력

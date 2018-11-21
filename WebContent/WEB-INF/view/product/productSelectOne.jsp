@@ -23,7 +23,12 @@
 				$(this).next(".accordion-wrapper").children().attr("class","pop-detail-content uk-accordion-content");
 			}
 		})
-	})
+		
+			
+
+	
+
+	});
 </script>
 </head>
 <c:import url="../../../temp/header.jsp" />
@@ -57,50 +62,15 @@
 								class="img-detail_product_n uk-width-medium-1-1 uk-width-large-3-5">
 								<div class="product-gallery-wrap bottom">
 									<ul id="product-gallery" class="uk-grid img-detail-list">
+										<c:forEach items="${file}" var="fileDTO">
 										<li class="uk-width-1-1 image-list uk-width-large-1-2">
 											<div class="prd-gutter">
-												<%-- <c:if test="${fileOne.put eq 'max'}" > --%>
-												<img src="/mall_project/upload/${fileOne.fname}" />
-												<%-- </c:if> --%>
+												<img src="/mall_project/upload/${fileDTO.fname}" />
 											</div>
 										</li>
-
-										<li class="uk-width-1-1 image-list uk-width-large-1-2">
-											<div class="prd-gutter">
-												<img
-													src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/624041-009_624041-009_2.jpg?gallery" />
-											</div>
-										</li>
-
-										<li class="uk-width-1-1 image-list uk-width-large-1-2">
-											<div class="prd-gutter">
-												<img
-													src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/624041-009_624041-009_3.jpg?gallery" />
-											</div>
-										</li>
-
-										<li class="uk-width-1-1 image-list uk-width-large-1-2">
-											<div class="prd-gutter">
-												<img
-													src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/10000008722/624041-009_624041-009_4.jpg?gallery" />
-											</div>
-										</li>
-
-										<li class="uk-width-1-1 image-list uk-width-large-1-2">
-											<div class="prd-gutter">
-												<img
-													src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/624041-009_624041-009_5.jpg?gallery" />
-											</div>
-										</li>
-
-										<li class="uk-width-1-1 image-list uk-width-large-1-2">
-											<div class="prd-gutter">
-												<img
-													src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/624041-009_624041-009_6.jpg?gallery" />
-											</div>
-										</li>
+										</c:forEach>
 									</ul>
-
+									
 									<ul id="color-swipe"></ul>
 									<div class="pdp-gallery-fullview">
 										<div class="pdp-gallery-fullview-wrapper">
@@ -176,10 +146,10 @@
 														<div class="opt-list">
 															<span class="input-radio" typeName="240"
 																disabled="disabled" value="35"> <label
-																class="sd-out">240</label> <input type="radio"
+																class>240</label> <input type="radio"
 																name="SIZE" disabled="disabled" value="35" />
 															</span>
-															<!--  <span class="input-radio" typeName="245"
+															<span class="input-radio" typeName="245"
 																disabled="disabled" value="36"> <label
 																class="sd-out">245</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
@@ -275,7 +245,7 @@
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="330" data-value="330" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="69" />
-															</span> -->
+															</span>
 														</div>
 													</div>
 												</div>
@@ -319,7 +289,7 @@
 																	data-cartbtn="" action-type="add" href="#">장바구니</a><a
 																	class="btn-link xlarge btn-order width-max"
 																	data-cartbtn="" action-type="redirect" id="btn-buy"
-																	href="#"> <span>바로구매</span></a>
+																	href="./checkout.do"> <span>바로구매</span></a>
 															</div>
 														</div>
 														<button
@@ -339,7 +309,7 @@
 									<div class="discription-wrap uk-accordion">
 
 										<div class="pop-detail-content">
-											<div class="description conTab" id="pdp-description-summary"></div>
+											<div class="description conTab" id="pdp-description-summary">${pDTO.contents}</div>
 
 											<span class="style-color">현재 컬러 : 블랙/메탈릭 골드<br /></span> <span
 												class="style-code" data-model="624041-009">스타일 :
@@ -428,7 +398,7 @@
 								<div class="status-wrap btn-wrap">
 									<div class="order-wrap">
 										<a class="btn-link width-max xlarge btn-cart addcart-btn"
-											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a
+											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a 
 											class="btn-link xlarge btn-order width-max"
 											href="./${board}Delete.do?code=${pDTO.productCode}"> <span>삭제</span></a>
 									</div>
