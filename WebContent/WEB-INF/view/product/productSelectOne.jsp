@@ -23,7 +23,12 @@
 				$(this).next(".accordion-wrapper").children().attr("class","pop-detail-content uk-accordion-content");
 			}
 		})
-	})
+		
+			
+
+	
+
+	});
 </script>
 </head>
 <c:import url="../../../temp/header.jsp" />
@@ -141,10 +146,10 @@
 														<div class="opt-list">
 															<span class="input-radio" typeName="240"
 																disabled="disabled" value="35"> <label
-																class="sd-out">240</label> <input type="radio"
+																class>240</label> <input type="radio"
 																name="SIZE" disabled="disabled" value="35" />
 															</span>
-															<!--  <span class="input-radio" typeName="245"
+															<span class="input-radio" typeName="245"
 																disabled="disabled" value="36"> <label
 																class="sd-out">245</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
@@ -240,7 +245,7 @@
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="330" data-value="330" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="69" />
-															</span> -->
+															</span>
 														</div>
 													</div>
 												</div>
@@ -393,7 +398,7 @@
 								<div class="status-wrap btn-wrap">
 									<div class="order-wrap">
 										<a class="btn-link width-max xlarge btn-cart addcart-btn"
-											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a
+											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a 
 											class="btn-link xlarge btn-order width-max"
 											href="./${board}Delete.do?code=${pDTO.productCode}"> <span>삭제</span></a>
 									</div>
