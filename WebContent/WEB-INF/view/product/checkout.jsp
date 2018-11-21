@@ -204,8 +204,8 @@
 													<li
 														class="order-field-list uk-width-small-1-1 uk-width-medium-1-2">
 														<h6 class="tit">이메일</h6> <span
-														class="input-textfield width-max"
-														data-component-textfield=""><input type="text"
+														class="input-textfield width-max"><input
+															type="text"
 															data-parsley-pattern="^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$"
 															data-parsley-minlength="5" data-parsley-maxlength="50"
 															data-parsley-minlength-message="입력값이 너무 짧습니다."
@@ -219,9 +219,9 @@
 													<li
 														class="order-field-list uk-width-small-1-1 uk-width-medium-1-2">
 														<h6 class="tit">연락처</h6> <span
-														class="input-textfield width-max"
-														data-component-textfield=""> <input type="text"
-															data-parsley-minlength="8" data-parsley-maxlength="12"
+														class="input-textfield width-max"> <input
+															type="text" data-parsley-minlength="8"
+															data-parsley-maxlength="12"
 															data-parsley-pattern="^01([0|1|6|7|8|9]?)+([0-9]{3,4})+([0-9]{4})$"
 															data-parsley-minlength-message="입력값이 너무 짧습니다."
 															data-parsley-type-message="올바른 휴대폰 번호를 입력해주세요."

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<c:import url="../../../temp/bootStrap.jsp"></c:import>
+<c:import url="./temp/bootStrap.jsp"></c:import>
 <style type="text/css">
 .labeli {
 	display: inline-block;
@@ -72,6 +72,14 @@
 			}
 		})
 	})
+</script>
+
+<script type="text/javascript">
+$(function() {
+	$(".select-head").click(function() {
+		$(this).parent().attr("class","select-box width-max pc checked");
+	})
+})
 </script>
 </head>
 <body data-device="pc">
@@ -189,11 +197,13 @@
 							<div class="order-tab reservations-customer" data-order-tab="">
 								<div class="header anonymous">
 									<h5 class="tit">주문고객</h5>
-									<a data-component-loginmodal="" title="로그인"
+									<a data-toggle="modal" data-target="#myModal"
+										data-component-loginmodal="" title="로그인"
+										href="${pageContext.request.contextPath}/member/memberLogin.do"
 										class="btn-link line mini login">로그인</a> <span
 										class="preview uk-hidden">gkffndnl123@naver.com</span> <i
-										class="icon-toggle-order icon-plus uk-hidden"></i> <i
-										class="icon-toggle-order icon-minus"></i>
+										class="icon-toggle-order icon-plus"></i> <i
+										class="icon-toggle-order icon-minus uk-hidden"></i>
 								</div>
 								<div id="orderinfo-review" class="body view"
 									data-module-order-customer="{name: ,phoneNum:01012344567,emailAddress:gkffndnl123@naver.com}">
@@ -201,18 +211,13 @@
 										<div class="uk-grid uk-margin-bottom">
 											<div class="uk-width-7-10">
 												<dl>
-													<!-- <dt>주문하시는 분</dt> -->
-													<!-- <dd th:utext="${ orderInfoForm?.firstName == null}">브리즈</dd> -->
 													<dd class="uk-margin-small-bottom" data-name=" "></dd>
 												</dl>
 												<dl>
-													<!-- <dd th:utext="${ phoneNumber }">01012345678</dd> -->
-													<!-- <dt>연락처</dt> -->
 													<dd class="uk-margin-small-bottom"
 														data-component-phone="{phonenum:01012344567}">010-1234-4567</dd>
 												</dl>
 												<dl>
-													<!-- <dt>이메일</dt> -->
 													<dd data-email="gkffndnl123@naver.com">gkffndnl123@naver.com</dd>
 												</dl>
 											</div>
@@ -246,15 +251,13 @@
 															<div
 																class="order-field-list uk-width-small-1-1 uk-width-medium-1-2">
 																<h6 class="tit">받으시는 분</h6>
-																<div class="input-textfield width-max"
-																	data-component-textfield="{'type':'name', comment':'잘못된 아이디 입니다.'}">
-																	<label for="address.fullName" data-name="">이름</label> <input
-																		type="text" data-parsley-required=""
-																		data-parsley-minlength="2"
-																		data-parsley-trigger="keyup"
+																<div class="input-textfield width-max">
+																	<input type="text" data-parsley-minlength="2"
 																		data-parsley-minlength-message="입력값이 너무 짧습니다."
 																		data-parsley-required-message="필수 입력 항목입니다."
-																		id="address.fullName" name="address.fullName" value="">
+																		id="address.fullName" name="address.fullName"
+																		placeholder="이름" value="${member.name}"> <span
+																		class="error-message filled"></span>
 																</div>
 															</div>
 
@@ -262,59 +265,48 @@
 																class="order-field-list uk-width-small-1-1 uk-width-medium-1-2"
 																style="padding-left: 10px">
 																<h6 class="tit">연락처</h6>
-																<div class="input-textfield width-max"
-																	data-component-textfield="{'type':'phone', comment':'잘못된 아이디 입니다.'}">
-																	<label for="address.phonePrimary.phoneNumber">-없이
-																		입력</label> <input type="text" data-parsley-required=""
-																		data-parsley-minlength="8" data-parsley-maxlength="12"
-																		data-parsley-type="digits"
-																		data-parsley-trigger="keyup"
+																<div class="input-textfield width-max">
+																	<label for="address.phonePrimary.phoneNumber"></label>
+																	<input type="text" data-parsley-minlength="8"
+																		data-parsley-maxlength="12"
+																		data-parsley-pattern="^01([0|1|6|7|8|9]?)+([0-9]{3,4})+([0-9]{4})$"
 																		data-parsley-minlength-message="입력값이 너무 짧습니다."
-																		data-parsley-type-message="숫자만 입력 가능합니다."
+																		data-parsley-type-message="올바른 휴대폰 번호를 입력해주세요."
 																		data-parsley-required-message="필수 입력 항목입니다."
 																		data-parsley-maxlength-message="입력값이 너무 깁니다."
-																		id="address.phonePrimary.phoneNumber"
-																		name="address.phonePrimary.phoneNumber" value="">
+																		id="phoneNumber" name="phoneNumber"
+																		placeholder="-없이 입력" value="${member.phone}">
+																	<span class="error-message filled"></span>
 																</div>
 															</div>
-															
+
 															<div
 																class="order-field-list uk-width-small-1-1 uk-width-medium-1-1 uk-margin-small-bottom">
 																<h6 class="tit">배송 주소</h6>
 
-																<div class="input-textfield width-max uk-hidden"
-																	data-component-textfield="'">
-																	<label for="address.postalCode">zip code</label> <input
-																		type="text" name="address.postalCode"
-																		id="address.postalCode" value="">
-																</div>
-
 																<div class="search-field shipping-address"
 																	data-component-searchfield="{api://api.poesis.kr/post/search.php, errMsg:주소를 입력해주세요, required:true}">
-																	<span class="input-textfield width-max"> <label
-																		for="address.addressLine1">예) 문래동 강서타워, 선유로 82</label>
-																		<input type="text" autocomplete="off"
+																	<span class="input-textfield width-max"> <input
+																		type="text" autocomplete="off"
 																		data-parsley-required="" data-parsley-minlength="2"
 																		data-parsley-trigger="keyup"
 																		data-parsley-minlength-message="입력값이 너무 짧습니다."
 																		data-parsley-required-message="필수 입력 항목입니다."
 																		id="address.addressLine1" name="address.addressLine1"
-																		value="">
+																		placeholder="예) 문래동 강서타워, 선유로 82" value="">
 																	</span>
 																	<button href="#"
 																		class="btn_search button line xlarge width-fix">검색</button>
 																	<ul class="result-wrap"></ul>
 																</div>
 																<span
-																	class="input-textfield width-max uk-margin-mini-top"
-																	data-component-textfield="'"> <label
-																	for="address.addressLine2">나머지 주소 입력</label> <input
-																	type="text" data-parsley-required=""
-																	data-parsley-minlength="2" data-parsley-trigger="keyup"
+																	class="input-textfield width-max uk-margin-mini-top">
+																	<input type="text" data-parsley-minlength="2"
 																	data-parsley-minlength-message="입력값이 너무 짧습니다."
 																	data-parsley-required-message="필수 입력 항목입니다."
 																	id="address.addressLine2" name="address.addressLine2"
-																	value="">
+																	placeholder="나머지 주소 입력" value=""> <span
+																	class="error-message filled"></span>
 																</span>
 															</div>
 														</div>
@@ -328,13 +320,13 @@
 																	메모를 선택해주세요.</span></a>
 															<ul class="select-body">
 																<li class="list checked "><a href="" data-value=""><span
-																		class="label">배송 메모를 선택해주세요.</span></a></li>
+																		class="labeli">배송 메모를 선택해주세요.</span></a></li>
 																<li class="list  "><a href="dt_3" data-value="dt_3"><span
-																		class="label">배송 시 연락 부탁드립니다.</span></a></li>
+																		class="labeli">배송 시 연락 부탁드립니다.</span></a></li>
 																<li class="list  "><a href="dt_2" data-value="dt_2"><span
-																		class="label">빠른 배송 부탁드립니다.</span></a></li>
+																		class="labeli">빠른 배송 부탁드립니다.</span></a></li>
 																<li class="list  "><a href="dt_1" data-value="dt_1"><span
-																		class="label">직접입력</span></a></li>
+																		class="labeli">직접입력</span></a></li>
 															</ul>
 															<select name="selectPersonalMessage">
 																<option value="">배송 메모를 선택해주세요.</option>
@@ -344,10 +336,9 @@
 															</select>
 														</div> <span
 														class="input-textfield width-max uk-margin-mini-top uk-hidden"
-														data-component-textfield=""> <label
-															for="personalMessageText">배송메모를 입력하여 주십시오.</label> <input
-															type="text" id="personalMessageText"
-															name="personalMessageText" value="">
+														data-component-textfield=""> <input type="text"
+															id="personalMessageText" name="personalMessageText"
+															placeholder="배송메모를 입력하여 주십시오." value="">
 													</span>
 													</li>
 													<li
@@ -363,13 +354,13 @@
 													</li>
 													<li
 														class="order-field-list uk-width-small-1-1 uk-width-medium-1-1 uk-margin-bottom-remove">
-														<span class="info"> 
+														<span class="info">
 															<p>
 																주문한 상품은 영업일 5~7일(공휴일/주말제외) 이내에 받아보실수 있습니다.<br>
 															</p>
 															<p>상품준비에 에러사항이 있거나, 발송지연이 불가피할 경우 고객께 안내연락을 드립니다.</p>
 															<ul>
-															</ul> 
+															</ul>
 													</span>
 													</li>
 												</ul>
@@ -407,121 +398,6 @@
 			</section>
 		</section>
 	</section>
-
-	<div class="uk-offcanvas" id="minicart">
-		<div class="section-minicart uk-offcanvas-bar uk-offcanvas-bar-flip"
-			data-module-minicart="{miniCartCnt:.cart-num}">
-
-			<input type="hidden" name="itemSize" value="1"> <input
-				type="hidden" name="cartId" value="16312042">
-			<div class="cart-order_list uk-grid">
-				<div class="uk-width-1-1">
-					<h5 class="minicart-title">미니 장바구니</h5>
-				</div>
-				<div class="uk-width-1-1">
-					<dl class="order-list" data-product-item="">
-						<form action="#">
-							<input type="hidden" name="productId" data-id="10000009565"
-								value="10000009565"> <input type="hidden" name="model"
-								data-model="807480-004" value="807480-004"> <input
-								type="hidden" name="skuId" value="10000047761"> <input
-								type="hidden" name="quantity" data-quantity="1" value="1">
-							<input type="hidden" name="orderItemId" value="20587195">
-						</form>
-						<dt class="image-wrap">
-
-							<img
-								src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/807480-004_807480-004_primary.jpg?thumbnail"
-								alt="나이키 클래식 코르테즈 프리미엄">
-
-
-						</dt>
-
-						<dd class="order-info">
-
-							<a class="tit" data-name="나이키 클래식 코르테즈 프리미엄"
-								data-eng-name="나이키 클래식 코르테즈 프리미엄"
-								href="/kr/ko_kr/t/men/fw/nike-sportswear/807480-004/qdzn76/classic-cortez-prem"
-								title="나이키 클래식 코르테즈 프리미엄">나이키 클래식 코르테즈 프리미엄</a>
-
-							<div class="style-code" data-model="807480-004">스타일 :
-								807480-004</div>
-
-							<span class="uk-hidden" data-upc="191887852100"
-								data-model="807480-004"></span>
-
-							<!-- skuOptionDisplayProcess -->
-
-							<div class="current-option-wrap">
-
-								<input type="hidden" name="FW_SIZE" value="300">
-								<!-- bundle product -->
-
-
-								<!-- product -->
-
-								<span class="opt" data-opt="{FW_SIZE:300}"
-									data-attribute-name="FW_SIZE">사이즈 : 300</span>
-							</div>
-
-							<!-- itemAttribute -->
-
-							<span class="opt quantity">수량: 1</span> <span class="price-wrap">
-								<div class="total-price">
-									<strong class="retail-price" data-retail-price="119000">119,000
-										원</strong>
-
-								</div>
-							</span> <a class="btn-delete" data-remove-item=""
-								href="/kr/ko_kr/cart/remove?orderItemId=20587195&amp;productId=10000009565">
-								<i class="icon-delete_bold"></i>
-							</a>
-
-						</dd>
-
-					</dl>
-				</div>
-			</div>
-
-			<div class="cart-order_price uk-grid">
-				<span class="order-price uk-width-1-1"> <span>총 상품금액</span> <strong>119,000
-						원</strong>
-				</span>
-			</div>
-			<div class="cart-order_deliveryinfo uk-grid">
-				<div class="uk-width-1-1">배송비는 주문서에서 확인이 가능합니다.</div>
-			</div>
-			<div class="cart-order_buy uk-grid">
-				<div class="uk-width-1-1">
-					<a class="btn-link width-max large line" href="/kr/ko_kr/cart">장바구니
-						가기</a>
-				</div>
-				<div class="uk-width-1-1 uk-margin-mini-top">
-					<a class="btn-link width-max large indian-red" data-checkout-btn=""
-						href="/kr/ko_kr/checkout">바로구매</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="scrollup" style="display: none;">
-		<i class="icon-arrow_top"></i>
-	</div>
-
-	<article id="common-modal" class="uk-modal" aria-hidden="false">
-		<div class="uk-modal-dialog">
-			<a class="uk-modal-close uk-close"></a>
-			<div class="contents"></div>
-		</div>
-	</article>
-
-	<div id="common-modal-large" class="uk-modal detail-info-modal">
-		<div class="uk-modal-dialog-large">
-			<a class="uk-modal-close uk-close"></a>
-			<div class="contents"></div>
-		</div>
-	</div>
-
-	<c:import url="../../../temp/footer.jsp"></c:import>
+	<c:import url="./temp/footer.jsp"></c:import>
 </body>
 </html>
