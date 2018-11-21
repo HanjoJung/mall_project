@@ -707,7 +707,7 @@
 						<div class="search-field"
 							data-component-searchfield="{submit:#search-form}">
 							<span class="input-textfield width-max"> <input
-								type="search" id="search"
+								type="search" id="main_search"
 								class="jq_search ui-autocomplete-input" name="q"
 								placeholder="검색" autocomplete="off" value=""> <span
 								class="search_icon mobile-only"><i class="ns-search"></i></span>
