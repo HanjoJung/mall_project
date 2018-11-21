@@ -27,4 +27,18 @@ $(document).ready(function() {
 		$(this).removeClass('hover');
 	});
 	
+	$(".addcart-btn").click(function() {
+		$('.cart').addClass('cartadd');
+		$('body').addClass('stop-scrolling');
+	});
+
+	$(".cart").click(function() {
+		$(this).removeClass('cartadd');
+		$('body').removeClass('stop-scrolling');
+	});
+
+	$(".cart-main").click(function(e) {
+		e.stopPropagation();
+	});
+	
 });

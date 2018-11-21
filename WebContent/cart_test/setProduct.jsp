@@ -32,7 +32,7 @@
 				<td><input type="submit" value="추가" /></td>
 			</tr>
 			<tr>
-				<td align="center"><a href="checkOut.jsp" />계산</td>
+				<td align="center"><a href="checkOut.jsp">계산</a></td>
 			</tr>
 		</table>
 	</form>

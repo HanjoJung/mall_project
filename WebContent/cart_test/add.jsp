@@ -22,10 +22,10 @@
 		list.add(productName); //리스트에 내용 
 		session.setAttribute("productlist", list); //ArrayList를 session에 저장
 	%>
-	<script>
+	<!-- <script>
 		alert("상품이 추가되었습니다");
 		history.back();
-	</script>
+	</script> -->
 
 </body>
 </html>

@@ -125,3 +125,38 @@
 	padding-bottom: 100%;
 	max-width: 270px;
 }
+
+.cart {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	touch-action: none;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.cartadd {
+	display: block;
+}
+
+.cart-main {
+	position: fixed;
+	top: 0;
+	right: 0px;
+	bottom: 0;
+	width: 100%;
+	max-width: 330px;
+	font-size: 12px;
+	background: #ffffff;
+	z-index: 100000;
+	transform: translateX(0%);
+	left: auto;
+	overflow-y: auto;
+}
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}

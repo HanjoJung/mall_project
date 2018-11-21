@@ -15,6 +15,9 @@
 		})
 	})
 </script>
+<script src="/mall_project/js/index.js"></script>
+<link href="/mall_project/css/index.css" rel="stylesheet"
+	type="text/css">
 <header class="header_layout_1">
 	<div class="header-gnb">
 		<div class="uk-clearfix header-gnb_maxwidth">
@@ -56,7 +59,7 @@
 				<li><a
 					href="${pageContext.request.contextPath}/cscenter/cscenter.do">고객센터</a></li>
 				<li><a href="#" class="cart-item empty"><i class="ns-cart"></i>
-						</a></li>
+				</a></li>
 				<li><a href="#"><span class="flag-kr" title="대한민국"></span></a></li>
 			</ul>
 		</div>
@@ -756,3 +759,39 @@
 		</nav>
 	</article>
 </header>
+<div class="cart">
+	<div class="cart-main uk-grid">
+		<input type="hidden" name="cartpc" value="${pDTO.productCode}">
+		<div class="cart-list cart-order_list">
+			<h5 class="minicart-title">미니 장바구니</h5>
+			<div class="cart-product">
+				<div class="uk-width-1-1">
+					<dl>
+						<dt class="image-wrap">
+							<img src="" alt="">이미지
+						</dt>
+						<dd class="order-info">
+							<a href="" title="">제품명</a>
+							<div class="style-code">제품코드</div>
+							<span class="uk-hidden"></span>
+							<div class="current-option-wrap">
+								<input type="hidden" name="" value=""> <span class="opt">사이즈</span>
+							</div>
+							<span class="opt quantity">수량</span> <span class="price-wrap"><strong
+								class="retail-price">가격</strong></span>
+						</dd>
+					</dl>
+				</div>
+				<!-- <div class="uk-width-1-1 uk-text-center">
+					<p class="less-items">
+						<i class="icon-shoppingbag color-less x2large"></i><br> 장바구니에
+						담긴 상품이 없습니다.
+					</p>
+				</div>
+				<div class="uk-width-1-1 uk-text-center">
+					<a class="btn-link" data-keep-shopping="">계속 쇼핑하기</a>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>

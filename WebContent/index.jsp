@@ -22,7 +22,7 @@
 				</div>
 				<div class="txtArea">
 					<img alt="당신을 위한 완벽한 신발. 원하는 운동과 목적에 최적화된 맞춤형 신발을 찾아보세요"
-						src="/mall_project/images/p1_shoes_pwh_title_161013.png">
+						src="${pageContext.request.contextPath}/images/p1_shoes_pwh_title_161013.png">
 				</div>
 				<ul class="linkArea">
 					<li class="on"><a data-click-area="pwh"

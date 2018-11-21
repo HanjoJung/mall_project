@@ -50,7 +50,7 @@
 						<div class="item-location">
 							<span>${productDTO.kind}</span>
 						</div>
-						<span class="item-price"><span>${produc-tDTO.price} 원</span></span>
+						<span class="item-price"><span>${productDTO.price} 원</span></span>
 					</div>
 				</div>
 			</c:forEach>
