@@ -13266,6 +13266,16 @@ _:-ms-fullscreen, :root .uk-modal {
   color: #fb7634;
 }
 
+.btn-link.black, .button.sky-blue {
+  color: #fff;
+  background-color: #000000;
+}
+
+.btn-link.black:hover, .button.sky-blue:hover {
+  background: #000000;
+  color: #fff;
+}
+
 .btn-link.indian-red, .button.indian-red {
   color: #fff;
   background-color: #fa5400;

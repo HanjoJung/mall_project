@@ -78,7 +78,9 @@
 	<header class="header_layout_1" data-module-header="{isSignIn:false}">
 		<article class="contents header-line">
 			<nav class="header-lnb">
-				<a class="header-logo" href="/kr/ko_kr/"><span class="ns-swoosh"></span></a>
+				<a class="header-logo"
+					href="${pageContext.request.contextPath}/index.jsp"><span
+					class="ns-swoosh"></span></a>
 			</nav>
 		</article>
 	</header>
@@ -275,8 +277,7 @@
 												<div class="uk-grid">
 													<span class="uk-width-small-1-1 uk-width-medium-1-1">
 														<input type="button"
-														class="button indian-red xlarge width-max"
-														data-order-info-submit-btn="" id="btn-next"
+														class="button indian-red xlarge width-max" id="btn-next"
 														value="동의하고 다음 단계 진행">
 													</span>
 												</div>
