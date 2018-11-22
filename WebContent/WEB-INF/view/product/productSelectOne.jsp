@@ -24,12 +24,29 @@
 			}
 		})
 		
-			
+		$(".input-radio").click(function() {
+			$(this).addClass("checked");
+			$(this).siblings().removeClass('checked');
+			$(this).children("label").addClass("selected");
+			$(this).siblings().children('label').removeClass('selected');
+		});
+		
+		$(".order-wrap").click(function() {
+			var s = $(".opt-list");
+			alert(s.find(".selected").text());
+		});
+		
 
 	
 
 	});
 </script>
+<style type="text/css">
+label.selected {
+    background-color: #111;
+    color: #fff;
+}
+</style>
 </head>
 <c:import url="../../../temp/header.jsp" />
 <body>
@@ -144,104 +161,104 @@
 
 													<div class="product-option_radio square">
 														<div class="opt-list">
-															<span class="input-radio" typeName="240"
+															<span  class="input-radio" typeName="240"
 																disabled="disabled" value="35"> <label
-																class>240</label> <input type="radio"
+																class>240</label> <input id="radio2" type="radio"
 																name="SIZE" disabled="disabled" value="35" />
 															</span>
 															<span class="input-radio" typeName="245"
 																disabled="disabled" value="36"> <label
-																class="sd-out">245</label> <input type="radio"
+																class="">245</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="245" data-value="245" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="36" />
 															</span> <span class="input-radio" typeName="250"
 																disabled="disabled" value="38"> <label
-																class="sd-out">250</label> <input type="radio"
+																class="">250</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="250" data-value="250" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="38" />
 															</span> <span class="input-radio" typeName="255"
 																disabled="disabled" value="39"> <label
-																class="sd-out">255</label> <input type="radio"
+																class="">255</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="255" data-value="255" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="39" />
 															</span> <span class="input-radio" typeName="260"
 																disabled="disabled" value="42"> <label
-																class="sd-out">260</label> <input type="radio"
+																class="">260</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="260" data-value="260" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="42" />
 															</span> <span class="input-radio" typeName="265"
 																disabled="disabled" value="43"> <label
-																class="sd-out">265</label> <input type="radio"
+																class="">265</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="265" data-value="265" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="43" />
 															</span> <span class="input-radio" typeName="270"
 																disabled="disabled" value="46"> <label
-																class="sd-out">270</label> <input type="radio"
+																class="">270</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="270" data-value="270" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="46" />
 															</span> <span class="input-radio" typeName="275"
 																disabled="disabled" value="47"> <label
-																class="sd-out">275</label> <input type="radio"
+																class="">275</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="275" data-value="275" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="47" />
 															</span> <span class="input-radio" typeName="280"
 																disabled="disabled" value="50"> <label
-																class="sd-out">280</label> <input type="radio"
+																class="">280</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="280" data-value="280" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="50" />
 															</span> <span class="input-radio" typeName="285"
 																disabled="disabled" value="51"> <label
-																class="sd-out">285</label> <input type="radio"
+																class="">285</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="285" data-value="285" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="51" />
 															</span> <span class="input-radio" typeName="290"
 																disabled="disabled" value="54"> <label
-																class="sd-out">290</label> <input type="radio"
+																class="">290</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="290" data-value="290" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="54" />
 															</span> <span class="input-radio" typeName="295"
 																disabled="disabled" value="55"> <label
-																class="sd-out">295</label> <input type="radio"
+																class="">295</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="295" data-value="295" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="55" />
 															</span> <span class="input-radio" typeName="300"
 																disabled="disabled" value="58"> <label
-																class="sd-out">300</label> <input type="radio"
+																class="">300</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="300" data-value="300" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="58" />
 															</span> <span class="input-radio" typeName="305"
 																disabled="disabled" value="59"> <label
-																class="sd-out">305</label> <input type="radio"
+																class="">305</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="305" data-value="305" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="59" />
 															</span> <span class="input-radio" typeName="310"
 																disabled="disabled" value="62"> <label
-																class="sd-out">310</label> <input type="radio"
+																class="">310</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="310" data-value="310" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="62" />
 															</span> <span class="input-radio" typeName="320"
 																disabled="disabled" value="66"> <label
-																class="sd-out">320</label> <input type="radio"
+																class="">320</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="320" data-value="320" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="66" />
 															</span> <span class="input-radio" typeName="330"
 																disabled="disabled" value="69"> <label
-																class="sd-out">330</label> <input type="radio"
+																class="">330</label> <input type="radio"
 																data-attributename="FW_SIZE" data-id="0"
 																data-friendly-name="330" data-value="330" id="FW_SIZE1"
 																name="SIZE" disabled="disabled" value="69" />
@@ -396,7 +413,7 @@
 							</div>
 							<div class="btn-group-box line type2">
 								<div class="status-wrap btn-wrap">
-									<div class="order-wrap">
+									<div class="order-wrap1">
 										<a class="btn-link width-max xlarge btn-cart addcart-btn"
 											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a 
 											class="btn-link xlarge btn-order width-max"

@@ -17,7 +17,7 @@
 </head>
 <c:import url="../../../temp/header.jsp" />
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<div class="containor-fluid wrapper">
+<div class="container-fluid wrapper">
 	<div class="row">
 		<h1>${board}Update</h1>
 	</div>
