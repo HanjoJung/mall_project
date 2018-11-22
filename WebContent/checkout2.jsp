@@ -155,7 +155,7 @@
 
 										<dt class="image-wrap">
 											<img
-												src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/AJ7748-002_AJ7748-002_primary.jpg?browse""
+												src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/921826-013_921826-013_primary.jpg?thumbnail"
 												alt="나이키 클래식 코르테즈">
 										</dt>
 
