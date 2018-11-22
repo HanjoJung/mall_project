@@ -32,8 +32,8 @@
 		});
 		
 		$(".order-wrap").click(function() {
-			var s = document.getElementById("radio").value;
-			alert(s);
+			var s = $(".opt-list");
+			alert(s.find(".selected").text());
 		});
 		
 
@@ -161,9 +161,9 @@ label.selected {
 
 													<div class="product-option_radio square">
 														<div class="opt-list">
-															<span id="radio" class="input-radio" typeName="240"
+															<span  class="input-radio" typeName="240"
 																disabled="disabled" value="35"> <label
-																class>240</label> <input  type="radio"
+																class>240</label> <input id="radio2" type="radio"
 																name="SIZE" disabled="disabled" value="35" />
 															</span>
 															<span class="input-radio" typeName="245"
@@ -413,7 +413,7 @@ label.selected {
 							</div>
 							<div class="btn-group-box line type2">
 								<div class="status-wrap btn-wrap">
-									<div class="order-wrap">
+									<div class="order-wrap1">
 										<a class="btn-link width-max xlarge btn-cart addcart-btn"
 											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a 
 											class="btn-link xlarge btn-order width-max"
