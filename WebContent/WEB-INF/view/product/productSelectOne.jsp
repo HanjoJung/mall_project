@@ -1,29 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="java.util.ArrayList"%>
+<%-- <%
+	ArrayList<String> list;
+	String basket = request.getParameter("basket");
+	//조건
+	if (session.getAttribute("basketlist") == null) {
+		//아무런 데이터가 없으면 : Arraylist 할당
+		list = new ArrayList<String>();
+	} else { //저장된 데이터가 있으면
+		list = (ArrayList<String>) session.getAttribute("basketlist");
+	}
+
+	list.add(basket); //리스트에 내용 
+	session.setAttribute("basketlist", list); //ArrayList를 session에 저장
+%> --%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../../../temp/bootStrap.jsp" />
-<link href="/mall_project/css/common.css" rel="stylesheet"
-	type="text/css">
+<script type="text/javascript">
+$(document).ready(function() {	
+	$(".addcart-btn").on("click", function(event) {
+		if ('${member}' == '' ) {
+			alert("회원만 구입 가능합니다");
+			event.preventDefault();
+		} else {
+			$('.cart').addClass('cartadd');
+			$('body').addClass('stop-scrolling');
+			$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}');
+		}
+		event.preventDefault();
+	});	
+	$('.cart-item').click(function() {
+		$('.cart').addClass('cartadd');
+		$('body').addClass('stop-scrolling');
+	});
+});
+</script>
 </head>
 <c:import url="../../../temp/header.jsp" />
 <body>
-
 	<section class="wrapper">
 		<section class="content-area">
 			<section>
 				<article>
 					<article class="contents width-max">
 						<span class="uk-hidden" data-breadcrumbs="">Home||MEN||신발||라이프스타일</span>
-
 						<div class="bread-crumb">
 							<div class="crumb left">
-
-
 								<a class="btn-link sky-blue normal" href="/kr/ko_kr/"> Home
 								</a> <span class="breadcrumb-divider">></span> <a
 									class="btn-link sky-blue normal" href="/kr/ko_kr/l/men">
@@ -352,7 +380,7 @@
 
 																<a
 																	class="btn-link width-max xlarge btn-cart addcart-btn"
-																	data-cartbtn="" action-type="add" href="#">장바구니</a><a
+																	data-cartbtn="" href="#">장바구니</a><a
 																	class="btn-link xlarge btn-order width-max"
 																	data-cartbtn="" action-type="redirect" id="btn-buy"
 																	href="#"> <span>바로구매</span></a>

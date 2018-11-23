@@ -22,14 +22,9 @@ $(document).ready(function() {
 	$("#p1>div").mouseenter(function() {
 		$(this).addClass('hover');
 	});
-	
+
 	$("#p1>div").mouseleave(function() {
 		$(this).removeClass('hover');
-	});
-	
-	$(".addcart-btn").click(function() {
-		$('.cart').addClass('cartadd');
-		$('body').addClass('stop-scrolling');
 	});
 
 	$(".cart").click(function() {
@@ -40,5 +35,12 @@ $(document).ready(function() {
 	$(".cart-main").click(function(e) {
 		e.stopPropagation();
 	});
-	
+
+	$('li.on>a').mouseenter(function() {
+		$(this).children('span.btn_buy').css('display', 'block');
+	})
+	$('li.on>a').mouseleave(function() {
+		$(this).children('span.btn_buy').css('display', 'none');
+	})
+
 });

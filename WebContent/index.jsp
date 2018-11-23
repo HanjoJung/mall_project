@@ -6,9 +6,29 @@
 <meta charset="UTF-8">
 <title>쇼핑몰 프로젝트</title>
 <jsp:include page="./temp/bootStrap.jsp"></jsp:include>
-<script src="/mall_project/js/index.js"></script>
-<link href="/mall_project/css/index.css" rel="stylesheet"
-	type="text/css">
+<style type="text/css">
+.pwhArea .linkArea li>a span {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -18px;
+	margin-left: -40px;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	padding: 0 20px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 1em;
+	font-weight: 500;
+	background: #fff;
+	vertical-align: middle;
+	text-align: center;
+	border-radius: 3px;
+	color: #000;
+	text-decoration: none;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="./temp/header.jsp"></jsp:include>
@@ -30,35 +50,37 @@
 							class="btn_buy" style="opacity: 1; display: none;">구매하기</span> </a>
 						<p class="txt_btn">
 							<a data-click-area="pwh" data-click-name="pwh_1_180319_running"
-								href="#"><span>러닝</span></a>
+								href="${pageContext.request.contextPath}/product/productList.do?kind=러닝"><span>러닝</span></a>
 						</p></li>
 					<li class="on"><a data-click-area="pwh"
 						data-click-name="pwh_2_180319_training &amp; gym" href="#"><span
 							class="btn_buy" style="opacity: 1; display: none;">구매하기</span> </a>
 						<p class="txt_btn">
 							<a data-click-area="pwh"
-								data-click-name="pwh_2_180319_training &amp; gym" href="#"><span>트레이닝</span></a>
+								data-click-name="pwh_2_180319_training &amp; gym"
+								href="${pageContext.request.contextPath}/product/productList.do?kind=트레이닝"><span>트레이닝</span></a>
 						</p></li>
 					<li class="on"><a data-click-area="pwh"
 						data-click-name="pwh_3_180319_lifestyle" href="#"><span
 							class="btn_buy" style="opacity: 1; display: none;">구매하기</span> </a>
 						<p class="txt_btn">
 							<a data-click-area="pwh" data-click-name="pwh_3_180319_lifestyle"
-								href="#"><span>라이프스타일</span></a>
+								href="${pageContext.request.contextPath}/product/productList.do?kind=라이프스타일"><span>라이프스타일</span></a>
 						</p></li>
 					<li class="on"><a data-click-area="pwh"
 						data-click-name="pwh_4_180319_basketball" href="#"><span
 							class="btn_buy" style="opacity: 1; display: none;">구매하기</span> </a>
 						<p class="txt_btn">
 							<a data-click-area="pwh"
-								data-click-name="pwh_4_180319_basketball" href="#"><span>농구</span></a>
+								data-click-name="pwh_4_180319_basketball"
+								href="${pageContext.request.contextPath}/product/productList.do?kind=농구"><span>농구</span></a>
 						</p></li>
 					<li class="on"><a data-click-area="pwh"
 						data-click-name="pwh_5_180319_football" href="#"><span
 							class="btn_buy" style="opacity: 1; display: none;">구매하기</span> </a>
 						<p class="txt_btn">
 							<a data-click-area="pwh" data-click-name="pwh_5_180319_football"
-								href="#"><span>축구</span></a>
+								href="${pageContext.request.contextPath}/product/productList.do?kind=축구"><span>축구</span></a>
 						</p></li>
 				</ul>
 			</div>
@@ -196,8 +218,8 @@
 					</div>
 					<div>
 						<div class="action-hover">
-							<a href="#"><img
-								src="/mall_project/images/bg-shutdown.jpg" class="img-responsive"></a>
+							<a href="#"><img src="/mall_project/images/bg-shutdown.jpg"
+								class="img-responsive"></a>
 						</div>
 						<div class="item-info">
 							<a href="#"><span class="item-title">나이키 클래식 코르테즈 프리미엄</span></a>

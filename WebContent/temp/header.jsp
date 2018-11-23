@@ -15,7 +15,7 @@
 		})
 	})
 </script>
-<script src="/mall_project/js/index.js"></script>
+<script src="/mall_project/js/index.js?=aasfsad"></script>
 <link href="/mall_project/css/index.css" rel="stylesheet"
 	type="text/css">
 <header class="header_layout_1">
@@ -58,8 +58,8 @@
 				</c:choose>
 				<li><a
 					href="${pageContext.request.contextPath}/cscenter/cscenter.do">고객센터</a></li>
-				<li><a href="#" class="cart-item empty"><i class="ns-cart"></i>
-				</a></li>
+				<li><a href="#" class="cart-item"><i
+						class="ns-cart"></i> <span class="cart-num"></span> </a></li>
 				<li><a href="#"><span class="flag-kr" title="대한민국"></span></a></li>
 			</ul>
 		</div>
@@ -759,38 +759,51 @@
 		</nav>
 	</article>
 </header>
-<div class="cart">
-	<div class="cart-main uk-grid">
-		<input type="hidden" name="cartpc" value="${pDTO.productCode}">
-		<div class="cart-list cart-order_list">
-			<h5 class="minicart-title">미니 장바구니</h5>
-			<div class="cart-product">
-				<div class="uk-width-1-1">
-					<dl>
-						<dt class="image-wrap">
-							<img src="" alt="">이미지
-						</dt>
-						<dd class="order-info">
-							<a href="" title="">제품명</a>
-							<div class="style-code">제품코드</div>
-							<span class="uk-hidden"></span>
-							<div class="current-option-wrap">
-								<input type="hidden" name="" value=""> <span class="opt">사이즈</span>
+<div class="cart uk-offcanvas" id="minicart">
+	<div
+		class="cart-main section-minicart uk-offcanvas-bar uk-offcanvas-bar-flip">
+		<input type="hidden" name="itemSize" value="1"> <input
+			type="hidden" name="cartId" value="${pDTO.productCode}">
+		<div class="cart-order_list uk-grid">
+			<div class="uk-width-1-1">
+				<h5 class="minicart-title">미니 장바구니</h5>
+			</div>
+			<div class="uk-width-1-1">
+				<%-- <c:forEach items="${list}" var="basketDTO" varStatus="i"> --%>
+				<dl class="order-list" data-product-item="">
+					<dt class="image-wrap">
+						<img src="/mall_project/upload/${fileOne.fname}"
+							alt="${pDTO.productName}">
+					</dt>
+					<dd class="order-info">
+						<a class="tit"
+							href="./productSelectOne.do?code=${productDTO.productCode}"
+							title="${pDTO.productName}">${pDTO.productName}</a>
+						<div class="style-code" data-model="AR1689-001">스타일 :
+							${pDTO.productCode}</div>
+						<span class="uk-hidden" data-upc="091204574916"
+							data-model="AR1689-001"></span> <span class="opt quantity">수량:
+							1</span> <span class="price-wrap">
+							<div class="total-price">
+								<strong class="retail-price">${pDTO.price} 원</strong>
 							</div>
-							<span class="opt quantity">수량</span> <span class="price-wrap"><strong
-								class="retail-price">가격</strong></span>
-						</dd>
-					</dl>
-				</div>
-				<!-- <div class="uk-width-1-1 uk-text-center">
-					<p class="less-items">
-						<i class="icon-shoppingbag color-less x2large"></i><br> 장바구니에
-						담긴 상품이 없습니다.
-					</p>
-				</div>
-				<div class="uk-width-1-1 uk-text-center">
-					<a class="btn-link" data-keep-shopping="">계속 쇼핑하기</a>
-				</div> -->
+						</span>
+					</dd>
+				</dl>
+				<%-- </c:forEach> --%>
+			</div>
+		</div>
+		<div class="cart-order_price uk-grid">
+			<span class="order-price uk-width-1-1"> <span>총 상품금액</span> <strong>
+					원</strong>
+			</span>
+		</div>
+		<div class="cart-order_deliveryinfo uk-grid">
+			<div class="uk-width-1-1">배송비는 주문서에서 확인이 가능합니다.</div>
+		</div>
+		<div class="cart-order_buy uk-grid">
+			<div class="uk-width-1-1">
+				<a class="btn-link width-max large line" href="#">장바구니 가기</a>
 			</div>
 		</div>
 	</div>
