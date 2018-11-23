@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nike.action.ActionFoward;
 import com.nike.member.MemberService;
@@ -37,21 +38,28 @@ public class MemberController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String command = request.getPathInfo();
-		
+		HttpSession session = request.getSession();
 		ActionFoward actionFoward = null;
 
 		if (command.equals("/memberList.do")) {
 			actionFoward = memberService.selectList(request, response);
-		}else if (command.equals("/memberJoin.do")) {
+		} else if (command.equals("/memberJoin.do")) {
 			actionFoward = memberService.join(request, response);
 		} else if (command.equals("/memberCheckId.do")) {
 			actionFoward = memberService.checkId(request, response);
 		} else if (command.equals("/memberCheckSns.do")) {
 			actionFoward = memberService.checkSns(request, response);
 		} else if (command.equals("/memberLogin.do")) {
-			actionFoward = memberService.login(request, response);
+			if (session.getAttribute("member") == null) {
+				actionFoward = memberService.login(request, response);
+			} else {
+				request.setAttribute("result", "이미 로그인되어 있습니다");
+				actionFoward = new ActionFoward();
+				actionFoward.setCheck(true);
+				actionFoward.setPath("../WEB-INF/view/member/memberCheckResult.jsp");
+			}
 		} else if (command.equals("/memberSnsLogin.do")) {
-			actionFoward= new ActionFoward();
+			actionFoward = new ActionFoward();
 			actionFoward.setCheck(true);
 			actionFoward.setPath("../WEB-INF/view/member/memberSnsLogin.jsp");
 		} else if (command.equals("/memberLogout.do")) {

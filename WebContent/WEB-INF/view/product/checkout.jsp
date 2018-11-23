@@ -19,12 +19,10 @@
 </style>
 <script type="text/javascript">
 	$(function() {
-		
+		//폼 내용 체크
 		function checkForm(data) {
 			var error = data.parent().children(".error-message");
 			var pat = (RegExp)(data.attr("data-parsley-pattern"));
-			console.log(data.val());
-			console.log(!pat.test(data.val()));
 			
 			if (data.val().length == 0) {
 				data.parent().attr("class","input-textfield width-max error");
@@ -53,11 +51,13 @@
 			}
 		}
 		
+		//폼체크 함수를 폼에 데이터를 입력할 때마다 실행
 		$(".input-textfield").children("input").keyup(function() {
 			checkForm($(this));
 		})
 		
-		$("#btn-next").click(function() {
+		//다음페이지로 이동하는 버튼을 눌렀을 때 전체 폼체크 함수 호출
+		function checkFormAll() {
 			var check = true;
 			$(".input-textfield").children("input").each(function() {
 				if(!checkForm($(this))){
@@ -66,15 +66,33 @@
 					return check;
 				};
 			})
-			if(check){
-				alert("clear");
-				//$("#order_info").submit();
+			return check;
+		}
+		
+		$("#btn-next").click(function() {
+			if(checkFormAll()){
+				$.ajax({
+					url : "./checkout2.do",
+					type : "POST",
+					data : {
+						email : $("#emailAddress").val(),
+						phone : $("#phoneNumber").val(),
+					},
+					success: function(data) {
+						$("#order-tab").html(data);
+					}
+				})
 			}
 		})
 	})
 </script>
 </head>
 <body data-device="pc">
+
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript"
+		src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 	<header class="header_layout_1" data-module-header="{isSignIn:false}">
 		<article class="contents header-line">
 			<nav class="header-lnb">
@@ -121,11 +139,11 @@
 											</dt>
 
 											<dd class="order-info">
-												<a class="tit" data-name="나이키 클래식 코르테즈 프리미엄"
+												<a class="tit" id="productName" data-name="나이키 클래식 코르테즈 프리미엄"
 													data-eng-name="나이키 클래식 코르테즈 프리미엄"
 													href="/kr/ko_kr/t/men/fw/nike-sportswear/807480-004/qdzn76/classic-cortez-prem"
 													title="나이키 클래식 코르테즈 프리미엄">나이키 클래식 코르테즈 프리미엄</a>
-												<div class="style-code" data-model="807480-004">스타일 :
+												<div class="style-code" id="styleCode" data-model="807480-004">스타일 :
 													807480-004</div>
 												<span class="uk-hidden" data-upc="191887852100"
 													data-model="807480-004"></span>
@@ -166,7 +184,7 @@
 
 										<div class="total-price">
 											<span class="labeli">총 결제 예정 금액</span> <span
-												class="price sale total"><strong data-amount="119000">119,000
+												class="price sale total" id="totalPrice"><strong data-amount="100">119,000
 													원</strong></span>
 										</div>
 
@@ -187,7 +205,7 @@
 							</div>
 						</div>
 
-						<div class="order-tab-wrap">
+						<div class="order-tab-wrap" id="order-tab">
 							<div class="order-tab reservations-customer" data-order-tab="">
 								<div class="header anonymous">
 									<h5 class="tit">주문고객</h5>
@@ -295,18 +313,6 @@
 								</div>
 							</div>
 
-							<div class="order-tab" data-order-tab="">
-								<div class="header inactive">
-									<h5 class="tit">할인/혜택사용</h5>
-								</div>
-							</div>
-
-							<div class="order-tab reservations-order" data-order-tab=""
-								data-checkout-step="payment">
-								<div class="header inactive">
-									<h5 class="tit">결제수단 선택</h5>
-								</div>
-							</div>
 						</div>
 					</div>
 				</article>
@@ -315,4 +321,5 @@
 	</section>
 	<c:import url="../../../temp/footer.jsp"></c:import>
 </body>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </html>

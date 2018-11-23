@@ -150,6 +150,6 @@
 </footer>
 <div class="modal fade" id="myModal" role="dialog">
 	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content"></div>
+		<div class="modal-content" style="padding: 10px;"></div>
 	</div>
 </div>

@@ -52,6 +52,10 @@ public class ProductController extends HttpServlet {
 			actionFoward = new ActionFoward();
 			actionFoward.setCheck(true);
 			actionFoward.setPath("../WEB-INF/view/product/checkout.jsp");
+		} else if (command.equals("/checkout2.do")) {
+			actionFoward = new ActionFoward();
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/product/checkout2.jsp");
 		}
 		if (actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());

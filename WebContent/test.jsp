@@ -1,17 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:import url="./temp/bootStrap.jsp"></c:import>
-<input type="text" id="sample3_postcode" placeholder="우편번호">
-<input type="button" onclick="sample3_execDaumPostcode()"value="우편번호 찾기"><br>
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript"
+		src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
-<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-<img src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
-</div>
-
-														<select name="selectPersonalMessage">
-															<option value="dt_0">배송 메모를 선택해주세요.</option>
-															<option value="dt_3" contenteditable="true">배송 시 연락 부탁드립니다.</option>
-															<option value="dt_2" role="">빠른 배송 부탁드립니다.</option>
-															<option value="dt_1" selected="selected">직접입력</option>
-														</select>
+	<script type="text/javascript">
+	$(function() {
+		
+		IMP.init('imp27429041'); //iamport 대신 자신의 "가맹점 식별코드"를 사용하시면 됩니다
+		IMP.request_pay({
+			merchant_uid : 'merchant_' + new Date().getTime(),
+			name : '${param.title}',
+			amount : '${param.amount}',
+			buyer_email : '${param.email}',
+			buyer_name : '${param.name}',
+			buyer_tel : '${param.tel}',
+			buyer_addr : '${param.addr}',
+			buyer_postcode : '${param.postcode}'
+		}, function(rsp) {
+			if (rsp.success) {
+				var msg = '결제가 완료되었습니다.';
+				msg += '고유ID : ' + rsp.imp_uid;
+				msg += '상점 거래ID : ' + rsp.merchant_uid;
+				msg += '결제 금액 : ' + rsp.paid_amount;
+				msg += '카드 승인번호 : ' + rsp.apply_num;
+				console.log(rsp);
+			} else {
+				var msg = '결제에 실패하였습니다.';
+				msg += '에러내용 : ' + rsp.error_msg;
+				console.log(msg);
+			}
+		});
+	})
+	</script>
+</head>
+</html>
