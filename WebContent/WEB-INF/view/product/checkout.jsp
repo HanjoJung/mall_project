@@ -146,8 +146,7 @@
 													<input type="hidden" name="FW_SIZE" value="${item.productSize}">
 													<!-- bundle product -->
 													<!-- product -->
-													<span class="opt" data-opt="{FW_SIZE:300}"
-														data-attribute-name="FW_SIZE">사이즈 : ${item.productSize}</span>
+													<span class="opt">사이즈 : ${aaa}</span>
 												</div>
 
 												<!-- itemAttribute -->

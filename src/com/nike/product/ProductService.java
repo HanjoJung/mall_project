@@ -87,15 +87,17 @@ public class ProductService {
 			productDTO.setProductCode(request.getParameter("code"));
 			productDTO.setProductName(request.getParameter("name"));
 			productDTO.setPrice(Integer.parseInt(request.getParameter("price")));
-			productDTO.setProductSize(Integer.parseInt(request.getParameter("size")));
 			
 			try {
 				productDTO = productDAO.selectOne(productDTO.getProductCode());
+				productDTO.setProductSize(Integer.parseInt(request.getParameter("size")));
 				//List<FileDTO> ar = new ArrayList<>();
 				FileDTO fileDTO = fileDAO.selectOne(productDTO.getProductCode());
 				
 				request.setAttribute("file", fileDTO);
 				request.setAttribute("item", productDTO);
+				request.setAttribute("aaa", productDTO.getProductSize());
+				
 				actionFoward.setCheck(true);
 				actionFoward.setPath("../WEB-INF/view/product/checkout.jsp");
 			} catch (Exception e) {
@@ -140,6 +142,7 @@ public class ProductService {
 			int maxSize = 1024 * 1024 * 20;
 			// 파일 저장공간
 			String save = request.getServletContext().getRealPath("upload");
+			System.out.println(save);
 			File file = new File(save);
 			if (!file.exists()) {
 				file.mkdirs();
