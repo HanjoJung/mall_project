@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nike.file.FileDAO;
 import com.nike.page.RowNumber;
 import com.nike.page.Search;
 import com.nike.util.DBconnector;
@@ -31,19 +30,19 @@ public class ProductDAO {
 	
 	public List<ProductDTO> selectList(RowNumber rowNumber) throws Exception {
 
-		FileDAO fileDAO = new FileDAO();
 		Connection con = DBconnector.getConnect();
 		String sql = "select * from "
 					+ "(select rownum R, N.* from "
 					+ "(select * from product "
-					+ "where "+rowNumber.getSearch().getKind()+" like ? "
+					+ "where PRODUCTCODE like ? or PRODUCTNAME like ? "
 					+ "order by productcode desc) N) "
 					+ "where R between ? and ?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+rowNumber.getSearch().getSearch()+"%");
-		st.setInt(2, rowNumber.getStartRow());
-		st.setInt(3, rowNumber.getLastRow());
+		st.setString(2, "%"+rowNumber.getSearch().getSearch()+"%");
+		st.setInt(3, rowNumber.getStartRow());
+		st.setInt(4, rowNumber.getLastRow());
 		ResultSet rs = st.executeQuery();
 
 
@@ -107,7 +106,7 @@ public class ProductDAO {
 
 	
 		Connection con = DBconnector.getConnect();
-		String sql = "insert into product values(?,?,?,?,0,0,0,?,?,?)";
+		String sql = "insert into product values(?,?,?,?,0,0,0,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, productDTO.getProductCode());
 		st.setString(2, productDTO.getProductName());
@@ -116,6 +115,7 @@ public class ProductDAO {
 		st.setString(5, productDTO.getManufacturerCode());
 		st.setString(6, productDTO.getWriter());
 		st.setString(7, productDTO.getContents());
+		st.setInt(8, productDTO.getProductSize());
 
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
@@ -137,7 +137,6 @@ public class ProductDAO {
 			int a =productDAO.insert(productDTO);
 			
 		}
-		System.out.println("end");
 		
 		
 	}*/
@@ -149,7 +148,6 @@ public class ProductDAO {
 		st.setString(1, code);
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
-		System.out.println("product"+result);
 		return result;
 
 	}

@@ -7,8 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../../../temp/bootStrap.jsp" />
-<link href="/mall_project/css/common.css" rel="stylesheet"
-	type="text/css">
 <script type="text/javascript">
 	$(function() {
 		$(".pop-detail-title").click(function() {
@@ -46,6 +44,15 @@ label.selected {
     background-color: #111;
     color: #fff;
 }
+.labeli{
+    width: 50px;
+    height: 40px;
+    padding: 6px 5px;
+    margin-right: 8px;
+    text-align: center;
+    outline: none;
+    box-sizing: border-box;
+}
 </style>
 </head>
 <c:import url="../../../temp/header.jsp" />
@@ -56,8 +63,6 @@ label.selected {
 			<section>
 				<article>
 					<article class="contents width-max">
-						<span class="uk-hidden" data-breadcrumbs="">Home||MEN||신발||라이프스타일</span>
-
 						<div class="bread-crumb">
 							<div class="crumb left">
 								<a class="btn-link sky-blue normal" href="/kr/ko_kr/"> Home
@@ -108,7 +113,7 @@ label.selected {
 								class="info-wrap_product_n uk-width-medium-1-1 uk-width-large-2-5">
 								<div class="product-option-container">
 									<h1 class="title-wrap">
-										<span class="tit" data-name="나이키 에어 폼포짓 프로">${pDTO.productName}</span>
+										<span class="tit">${pDTO.productName}</span>
 										<button class="close-btn">
 											<i class="icon-delete_bold"></i>
 										</button>
@@ -118,36 +123,13 @@ label.selected {
 										<div class="item-location">
 											<span>${pDTO.kind}</span>
 										</div>
-										<span class="price"><strong data-price="269000">${pDTO.price}
+										<span class="price"><strong data-price="${pDTO.price}">${pDTO.price}
 												원</strong></span>
 									</div>
 									<div class="pinfo-item-box">
 										<form method="POST" action="/kr/ko_kr/cart/add">
 											<div class="option-wrap">
 												<!--*/ 상세화면 */-->
-
-												<div class="product-option_radio" id="product-option_color"
-													data-component-color="">
-													<div>
-
-														<a class="input-radio checked"
-															href="/kr/ko_kr/t/men/fw/nike-sportswear/624041-009/owhk76/air-foamposite-pro">
-															<span class="label img-type"> <img
-																src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/624041-009_624041-009_primary.jpg?option" />
-														</span> <!-- 컬러사진 주소이동/이미지 -->
-
-														</a>
-													</div>
-													<div>
-														<a class="input-radio"
-															href="/kr/ko_kr/t/men/fw/nike-sportswear/624041-304/eedw51/air-foamposite-pro">
-															<span class="label img-type"> <img
-																src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/624041-304_624041-304_primary.jpg?option" />
-														</span>
-														</a>
-													</div>
-												</div>
-
 												<!-- 사이즈 선택  -->
 												<div class="size-grid-type">
 													<a class="btn-option"> <strong class="tit">사이즈
@@ -266,13 +248,12 @@ label.selected {
 														</div>
 													</div>
 												</div>
-												<div class="quantity"
-													data-component-quantity="{maxQuantity:1,msg:개 까지 구매가능 합니다.,quantityStateMsg:상품의 수량이 없습니다.}">
+												<div class="quantity">
 													<h2 class="tit">
 														<span>수량</span> <span class="msg"></span>
 													</h2>
 													<span class="btn-qty"> <input name="quantity"
-														class="label" type="text" value="1" />
+														class="labeli" type="text" value="1" >
 														<button class="btn minus">
 															<i class="icon-minus"></i>
 														</button>
@@ -326,12 +307,55 @@ label.selected {
 									<div class="discription-wrap uk-accordion">
 
 										<div class="pop-detail-content">
-											<div class="description conTab" id="pdp-description-summary">${pDTO.contents}</div>
+											<div class="description conTab" id="pdp-description-summary">
+												<div class="merit">
+													<div class="content">
+														<style type="text/css">
+.conTab .merit .content .sectionL .imgArea {
+	width: 250px;
+	height: 250px;
+	padding: 25px
+}
 
-											<span class="style-color">현재 컬러 : 블랙/메탈릭 골드<br /></span> <span
-												class="style-code" data-model="624041-009">스타일 :
-												624041-009<br />
-											</span> <a href="#" class="sky-blue btn-more-pop">더 보기</a>
+.conTab .merit .content .sectionL .imgArea img {
+	max-width: 100%;
+	height: auto !important
+}
+
+.conTab .merit .content sectionL>p {
+	display: none !important
+}
+
+.description .merit .content .sectionR h2 {
+	margin-top: 27px !important;
+	font-size: 15px !important;
+	line-height: 14px !important;
+}
+
+.product-option-container .sectionR>h3:nth-of-type(2)+ul li {
+	height: 24px !important;
+}
+
+.sectionR .imgArea {
+	position: relative;
+}
+
+.sectionR .link {
+	position: absolute;
+	bottom: 9%;
+	left: 47%;
+	width: 39%;
+	height: 25px;
+	margin-left: -60px;
+}
+</style>
+														<div class="sectionR">
+															${pDTO.contents}
+														</div>
+													</div>
+												</div>
+												
+											</div>
 										</div>
 
 										<h2 class="pop-detail-title uk-accordion-title">

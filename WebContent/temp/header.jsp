@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="/mall_project/js/index.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$(".log_user").click(function() {
@@ -101,27 +102,26 @@
 									<ul class="header-menu_threedepth">
 										<li class="threedepth-list"><a
 											href="${pageContext.request.contextPath}/product/productList.do"
-											data-click-area="GNB" data-click-name="MEN_신발_신발 전체">신발
-												전체</a></li>
-										<li class="threedepth-list"><a href="#"
+											data-click-area="GNB" data-click-name="MEN_신발_신발 전체">신발 전체</a></li>
+										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_라이프스타일">라이프스타일</a></li>
-										<li class="threedepth-list"><a href="#"
+										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_러닝">러닝</a></li>
-										<li class="threedepth-list"><a href="#"
+										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_트레이닝 &amp; 짐">트레이닝
 												&amp; 짐</a></li>
-										<li class="threedepth-list"><a href="#"
+										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_농구">농구</a></li>
-										<li class="threedepth-list"><a href="#"
+										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_조던">조던</a></li>
-										<li class="threedepth-list"><a href="#"
+										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_축구">축구</a></li>
-										<li class="threedepth-list"><a href="#"
+										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_스케이트보딩">스케이트보딩</a>
 										</li>
-										<li class="threedepth-list"><a href="#"
+										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_골프">골프</a></li>
-										<li class="threedepth-list"><a href="#"
+										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_테니스">테니스</a></li>
 									</ul></li>
 							</ul>
@@ -701,14 +701,14 @@
 			</div>
 			<div class="gnb-search-field"
 				data-module-search="{keywordMaxLen:10, isLatestKeyword:false}">
-				<form method="GET" id="search-form" action="#">
+				<form method="GET" id="search-form" action="./productList.do">
 					<fieldset>
 						<legend>gift search</legend>
 						<div class="search-field"
 							data-component-searchfield="{submit:#search-form}">
 							<span class="input-textfield width-max"> <input
 								type="search" id="main_search"
-								class="jq_search ui-autocomplete-input" name="q"
+								class="jq_search ui-autocomplete-input" name="search"
 								placeholder="검색" autocomplete="off" value=""> <span
 								class="search_icon mobile-only"><i class="ns-search"></i></span>
 								<span class="btn-wrap">
@@ -720,30 +720,6 @@
 							<button class="btn_search width-fix btn-search-mobile">
 								<span class="text">검색</span><i class="ns-search"></i>
 							</button>
-							<div class="btn-search-close mobile-only">취소</div>
-							<div class="etc-search-wrap">
-								<div id="keyword-count" style="display: none;">
-									<h4 class="tit">최근 검색어</h4>
-									<div id="keyword-container" class="uk-switcher">
-										<ul id="latest-keyword" class="search-wrap latest-search">
-											<li class="list"><a href="/kr/ko_kr/search?q="></a></li>
-										</ul>
-										<div class="search-btn-box">
-											<div id="delete-all-latest" class="btn-all-delete">
-												<a href="#">비우기</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<h4 class="tit">추천 검색어</h4>
-								<ul id="favorite-keyword" class="search-wrap favorite-search">
-									<li class="list"><a href="#">맥스</a></li>
-									<li class="list"><a href="#">에어맥스</a></li>
-									<li class="list"><a href="#">베이퍼맥스</a></li>
-									<li class="list"><a href="#">에어맥스 97</a></li>
-								</ul>
-							</div>
-							<div class="search-mask"></div>
 						</div>
 					</fieldset>
 				</form>

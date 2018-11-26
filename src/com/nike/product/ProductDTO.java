@@ -16,7 +16,9 @@ public class ProductDTO {
 	private String manufacturerCode;
 	private String writer;
 	private String contents;
+	private int productSize;
 	private List<FileDTO> fileDTO;
+	
 	
 
 	public List<FileDTO> getFileDTO() {
@@ -98,6 +100,12 @@ public class ProductDTO {
 		this.good = good;
 	}
 
+	public int getProductSize() {
+		return productSize;
+	}
+	public void setProductSize(int productSize) {
+		this.productSize = productSize;
+	}
 	public String getManufacturerCode() {
 		return manufacturerCode;
 	}

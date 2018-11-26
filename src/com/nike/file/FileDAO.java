@@ -56,10 +56,6 @@ public class FileDAO {
 		Connection con = DBconnector.getConnect();
 		String sql = "insert into image values(image_seq.nextval,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
-		System.out.println(fileDTO.getProductCode());
-		System.out.println(fileDTO.getFname());
-		System.out.println(fileDTO.getOname());
-		System.out.println(fileDTO.getPut());
 		st.setString(1, fileDTO.getProductCode());
 		st.setString(2, fileDTO.getFname());
 		st.setString(3, fileDTO.getOname());
@@ -78,7 +74,6 @@ public class FileDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, code);
 		int result = st.executeUpdate();
-		System.out.println("file"+result);
 		DBconnector.disConnect(st, con);
 		
 		return result;

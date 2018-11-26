@@ -79,7 +79,7 @@
 			})
 			if(check){
 				$.ajax({
-					url : "${pageContext.request.contextPath}/test.jsp",
+					url : "./buy.do",
 					tpye : "POST",
 					data : {
 						title : $("#styleCode").attr("data-model"),

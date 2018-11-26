@@ -34,17 +34,7 @@ $(document).ready(function() {
 		$(this).removeData('bs.modal');
 	});
 
-	/*$("#p1>div").mouseenter(function() {
-		$(this).delay(500).addClass('hover');
-	});
-	$("#p1>div").mouseleave(function() {
-		$(this).delay(500).removeClass('hover');
-	});*/
-
 	$("body").on("click", "[data-click-name]", function(e) {
-		// e.preventDefault();
-		// var target = $(this).attr("target") || '_self';
-		// var href = $(this).attr("href");
 		var name = $(this).data("click-name");
 		var area = $(this).data("click-area");
 		var enable = $(this).data("click-enable");
@@ -58,13 +48,5 @@ $(document).ready(function() {
 				name : name
 			});
 		}
-		// alert("잠시 멈춤");
 	});
-	
-	/*$('#p1>div').mouseenter(function() {
-		$(this).delay(500).addClass('hover');
-	});
-	$('#p1>div').mouseleave(function() {
-		$(this).delay(500).removeClass('hover');
-	});*/
 });

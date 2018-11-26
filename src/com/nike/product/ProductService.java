@@ -61,6 +61,7 @@ public class ProductService {
 			request.setAttribute("file", far);
 			request.setAttribute("pager", pager);
 			request.setAttribute("board", "product");
+			request.setAttribute("totalCount", totalCount);
 			actionFoward.setPath("../WEB-INF/view/product/productList.jsp");
 
 		} catch (Exception e) {
@@ -105,11 +106,12 @@ public class ProductService {
 		if (method.equals("POST")) {
 			String message = "fail";
 			String path = "./productList.do";
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 			// 파일의 크기
 			int maxSize = 1024 * 1024 * 20;
 			// 파일 저장공간
 			String save = request.getServletContext().getRealPath("upload");
-			System.out.println(save);
 			File file = new File(save);
 			if (!file.exists()) {
 				file.mkdirs();
@@ -125,6 +127,8 @@ public class ProductService {
 				productDTO.setManufacturerCode(multi.getParameter("mCode"));
 				productDTO.setWriter(multi.getParameter("writer"));
 				productDTO.setContents(multi.getParameter("contents"));
+				int productSize = Integer.parseInt(multi.getParameter("sizemin")+multi.getParameter("sizemax"));
+				productDTO.setProductSize(productSize);
 
 				int result = productDAO.insert(productDTO);
 				if (result > 0) {
@@ -134,7 +138,6 @@ public class ProductService {
 					int i = 0;
 					while (e.hasMoreElements()) {
 						String p = (String) e.nextElement();
-						System.out.println(p);
 						FileDTO fileDTO = new FileDTO();
 						fileDTO.setPut("fname" + i);
 						fileDTO.setProductCode(productDTO.getProductCode());
@@ -142,18 +145,14 @@ public class ProductService {
 						fileDTO.setOname(multi.getOriginalFileName(p));
 						i++;
 
-						fileDAO.insert(fileDTO);
-
+						if(fileDTO.getFname()!= null) {
+						result = fileDAO.insert(fileDTO);
+						}
 					}
+					if(result > 0) {
 					message = "Success";
-					actionFoward.setCheck(true);
-					actionFoward.setPath("../WEB-INF/view/common/result.jsp");
-
-				} else {
-					actionFoward.setCheck(true);
-					actionFoward.setPath("../WEB-INF/view/common/result.jsp");
+					}
 				}
-
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -180,7 +179,6 @@ public class ProductService {
 			int result = productDAO.delete(code);
 			if (result > 0) {
 				String path = request.getServletContext().getRealPath("upload");
-				System.out.println(path);
 				File file = null;
 				for (int i = 0; i < ar.size(); i++) {
 					file = new File(path, ar.get(i).getFname());
