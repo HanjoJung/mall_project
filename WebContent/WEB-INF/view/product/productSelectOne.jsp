@@ -40,12 +40,8 @@
 				alert("사이즈를 선택하세요!");
 			}
 			
-			
 		});
 		
-
-	
-
 	});
 </script>
 <style type="text/css">
@@ -305,7 +301,12 @@ label.selected {
 												<div>
 													<div>
 														<div data-add-item="" class="status-wrap btn-wrap">
-															<div class="order-wrap" >
+															<div class="order-wrap">
+																<input type="button"
+																	class="btn-link xlarge btn-order width-max"
+																	id="btn-add" value="장바구니"> <input type="button"
+																	class="btn-link xlarge btn-order width-max"
+																	id="btn-buy" value="바로구매">
 															</div>
 														</div>
 														<button
