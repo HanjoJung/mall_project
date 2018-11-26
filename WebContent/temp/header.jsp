@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script type="text/javascript">
-	$(function() {
+	$(document).ready(function() {
+		
 		$(".log_user").click(function() {
 			console.log("click");
 			if ($("#account-box").attr("class") == "account-box uk-hidden") {
@@ -12,10 +13,45 @@
 				$("#account-box").attr("class", "account-box uk-hidden");
 				$(this).attr("class", "log_user")
 			}
-		})
+		});
+		
+		$(".addcart-btn").on("click", function(event) {
+			
+			if ('${member}' == '' ) {
+				alert("회원만 구입 가능합니다");
+			} else {
+				$('.cart').addClass('cartadd');
+				$('body').addClass('stop-scrolling');
+				$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}');
+				
+				$("#cart-order_list").load('${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}');
+			}
+		});		
+		
+		$('.cart-item').on("click", function(event) {
+			
+			if ('${member}' == '' ) {
+				alert("로그인 하십시요");
+			} else {
+				$('.cart').addClass('cartadd');
+				$('body').addClass('stop-scrolling');
+				/* $.post('${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}'); */
+				$("#cart-order_list").load('${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}');
+			}
+		});		
+
+		$(".cart").click(function() {
+			$(this).removeClass('cartadd');
+			$('body').removeClass('stop-scrolling');
+		});
+
+		$(".cart-main").click(function(e) {
+			e.stopPropagation();
+		});
+		
 	})
 </script>
-<script src="/mall_project/js/index.js?=aasfsad"></script>
+<script src="/mall_project/js/index.js?=fgrt"></script>
 <link href="/mall_project/css/index.css" rel="stylesheet"
 	type="text/css">
 <header class="header_layout_1">
@@ -58,8 +94,8 @@
 				</c:choose>
 				<li><a
 					href="${pageContext.request.contextPath}/cscenter/cscenter.do">고객센터</a></li>
-				<li><a href="#" class="cart-item"><i
-						class="ns-cart"></i> <span class="cart-num"></span> </a></li>
+				<li><a class="cart-item"><i class="ns-cart"></i> <span
+						class="cart-num"></span> </a></li>
 				<li><a href="#"><span class="flag-kr" title="대한민국"></span></a></li>
 			</ul>
 		</div>
@@ -763,34 +799,33 @@
 	<div
 		class="cart-main section-minicart uk-offcanvas-bar uk-offcanvas-bar-flip">
 		<input type="hidden" name="itemSize" value="1"> <input
-			type="hidden" name="cartId" value="${pDTO.productCode}">
-		<div class="cart-order_list uk-grid">
+			type="hidden" name="cartId" value="${bDTO.productCode}">
+		<div class="cart-order_list uk-grid" id="cart-order_list">
 			<div class="uk-width-1-1">
 				<h5 class="minicart-title">미니 장바구니</h5>
 			</div>
 			<div class="uk-width-1-1">
-				<%-- <c:forEach items="${list}" var="basketDTO" varStatus="i"> --%>
-				<dl class="order-list" data-product-item="">
-					<dt class="image-wrap">
-						<img src="/mall_project/upload/${fileOne.fname}"
-							alt="${pDTO.productName}">
-					</dt>
-					<dd class="order-info">
-						<a class="tit"
-							href="./productSelectOne.do?code=${productDTO.productCode}"
-							title="${pDTO.productName}">${pDTO.productName}</a>
-						<div class="style-code" data-model="AR1689-001">스타일 :
-							${pDTO.productCode}</div>
-						<span class="uk-hidden" data-upc="091204574916"
-							data-model="AR1689-001"></span> <span class="opt quantity">수량:
-							1</span> <span class="price-wrap">
-							<div class="total-price">
-								<strong class="retail-price">${pDTO.price} 원</strong>
-							</div>
-						</span>
-					</dd>
-				</dl>
-				<%-- </c:forEach> --%>
+				<c:forEach items="${blist}" var="bDTO" varStatus="i">
+					<dl class="order-list" data-product-item="">
+						<dt class="image-wrap">
+							<img src="/mall_project/upload/${bDTO.fname}" alt="">
+						</dt>
+						<dd class="order-info">
+							<a class="tit"
+								href="./productSelectOne.do?code=${productDTO.productCode}"
+								title="${bDTO.productName}">${bDTO.productName}</a>
+							<div class="style-code" data-model="AR1689-001">스타일 :
+								${bDTO.productCode}</div>
+							<span class="uk-hidden" data-upc="091204574916"
+								data-model="AR1689-001"></span> <span class="opt quantity">수량:
+								${blist.size()}</span> <span class="price-wrap">
+								<div class="total-price">
+									<strong class="retail-price">${bDTO.price} 원</strong>
+								</div>
+							</span>
+						</dd>
+					</dl>
+				</c:forEach>
 			</div>
 		</div>
 		<div class="cart-order_price uk-grid">

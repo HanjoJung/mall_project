@@ -39,6 +39,8 @@ public class BasketController extends HttpServlet {
 		ActionFoward actionFoward = null;
 		if (command.equals("/basketAdd.do")) {
 			actionFoward = basketService.insert(request, response);
+		}else if (command.equals("/basketList.do")){
+			actionFoward = basketService.selectList(request, response);
 		}
 		if (actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());

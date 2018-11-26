@@ -1,9 +1,20 @@
 package com.nike.basket;
 
-public class BasketDTO {
+import com.nike.product.ProductDTO;
+
+public class BasketDTO extends ProductDTO {
+
 	private int num;
 	private String id;
-	private String productCode;
+	private String fname;
+
+	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
 
 	public int getNum() {
 		return num;
@@ -19,14 +30,6 @@ public class BasketDTO {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getproductCode() {
-		return productCode;
-	}
-
-	public void setproductCode(String productCode) {
-		this.productCode = productCode;
 	}
 
 }

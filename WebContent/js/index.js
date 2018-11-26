@@ -25,7 +25,41 @@ $(document).ready(function() {
 
 	$("#p1>div").mouseleave(function() {
 		$(this).removeClass('hover');
-	});
+	});	
+
+	$('li.on>a').mouseenter(function() {
+		$(this).children('span.btn_buy').css('display', 'block');
+	})
+	$('li.on>a').mouseleave(function() {
+		$(this).children('span.btn_buy').css('display', 'none');
+	})
+	
+	/*$('.cart-item').click(function(e) {
+		if ('${member}' == '' ) {
+			alert("로그인 하십시요");
+			event.preventDefault();
+		} else {
+			$('.cart').addClass('cartadd');
+			$('body').addClass('stop-scrolling');
+			$.post('${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}');
+			$("#cart-order_list").load("/mall_project/WEB-INF/view/basket/basketList.jsp");
+			e.preventDefault();
+		}
+	});*/
+	
+	/*$('.cart-item').on("click", function(event) {
+		
+		if ('${member}' == '' ) {
+			alert("로그인 하십시요");
+			event.preventDefault();
+		} else {
+			$('.cart').addClass('cartadd');
+			$('body').addClass('stop-scrolling');
+			$.post('${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}');
+			$("#cart-order_list").load("/mall_project/WEB-INF/view/basket/basketList.jsp");
+			e.preventDefault();
+		}
+	});		
 
 	$(".cart").click(function() {
 		$(this).removeClass('cartadd');
@@ -34,13 +68,6 @@ $(document).ready(function() {
 
 	$(".cart-main").click(function(e) {
 		e.stopPropagation();
-	});
-
-	$('li.on>a').mouseenter(function() {
-		$(this).children('span.btn_buy').css('display', 'block');
-	})
-	$('li.on>a').mouseleave(function() {
-		$(this).children('span.btn_buy').css('display', 'none');
-	})
+	});*/
 
 });
