@@ -128,39 +128,32 @@
 								<div id="order-summary" class="body view">
 									<div class="cart-order_list" data-order="">
 										<dl class="order-list">
-											<input type="hidden" name="productCode" value="10000009565">
-											<input type="hidden" name="model" data-model="807480-004"
-												value="807480-004">
-
 											<dt class="image-wrap">
 												<img
-													src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/807480-004_807480-004_primary.jpg?thumbnail"
-													alt="나이키 클래식 코르테즈">
+													src="/mall_project/upload/${file.fname}"
+													alt="${item.productName}">
 											</dt>
 
 											<dd class="order-info">
-												<a class="tit" id="productName" data-name="나이키 클래식 코르테즈 프리미엄"
-													data-eng-name="나이키 클래식 코르테즈 프리미엄"
-													href="/kr/ko_kr/t/men/fw/nike-sportswear/807480-004/qdzn76/classic-cortez-prem"
-													title="나이키 클래식 코르테즈 프리미엄">나이키 클래식 코르테즈 프리미엄</a>
-												<div class="style-code" id="styleCode" data-model="807480-004">스타일 :
-													807480-004</div>
-												<span class="uk-hidden" data-upc="191887852100"
-													data-model="807480-004"></span>
+												<a class="tit" id="productName"
+													href="./productSelectOne.do?code=${item.productCode}"
+													title="${item.productName}">${item.productName}</a>
+												<div class="style-code" data-model="${item.productCode}">스타일 :
+													${item.productCode}</div>
 
 												<!-- skuOptionDisplayProcess -->
 												<div class="current-option-wrap">
-													<input type="hidden" name="FW_SIZE" value="300">
+													<input type="hidden" name="FW_SIZE" value="${item.productSize}">
 													<!-- bundle product -->
 													<!-- product -->
 													<span class="opt" data-opt="{FW_SIZE:300}"
-														data-attribute-name="FW_SIZE">사이즈 : 300</span>
+														data-attribute-name="FW_SIZE">사이즈 : ${item.productSize}</span>
 												</div>
 
 												<!-- itemAttribute -->
 												<span class="qty" data-quantity="1">수량 : 1개</span> <span
 													class="price-wrap"> <strong class="retail-price"
-													data-retail-price="119000">119,000 원</strong>
+													data-retail-price="119000">${item.price}</strong>
 
 												</span>
 											</dd>
@@ -169,7 +162,7 @@
 
 									<div class="uk-width-1-1 info-price">
 										<span class="item-price"> <span class="labeli">상품
-												금액</span> <span class="price"> <strong>119,000 원</strong>
+												금액</span> <span class="price"> <strong>${item.price}</strong>
 										</span>
 										</span> <span class="delivery-price"> <span class="labeli">배송비</span>
 											<span class="price"><strong>0 원</strong></span>
@@ -184,7 +177,7 @@
 
 										<div class="total-price">
 											<span class="labeli">총 결제 예정 금액</span> <span
-												class="price sale total" id="totalPrice"><strong data-amount="100">119,000
+												class="price sale total"><strong data-amount="${item.price}">${item.price}
 													원</strong></span>
 										</div>
 

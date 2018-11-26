@@ -79,21 +79,49 @@ public class ProductService {
 	public ActionFoward selectOne(HttpServletRequest request, HttpServletResponse response) {
 
 		ActionFoward actionFoward = new ActionFoward();
-		ProductDTO productDTO = null;
-		FileDTO fileDTO = null;
-		String code = request.getParameter("code");
-		try {
-			productDTO = productDAO.selectOne(code);
-			List<FileDTO> ar = new ArrayList<>();
-			ar = fileDAO.selectList(code);
-			request.setAttribute("file", ar);
-			request.setAttribute("pDTO", productDTO);
-			request.setAttribute("board", "product");
-			actionFoward.setCheck(true);
-			actionFoward.setPath("../WEB-INF/view/product/productSelectOne.jsp");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String method = request.getMethod();
+		if(method.equals("POST")) {
+			
+			String path ="./checkout.do";
+			ProductDTO productDTO = new ProductDTO();
+			productDTO.setProductCode(request.getParameter("code"));
+			productDTO.setProductName(request.getParameter("name"));
+			productDTO.setPrice(Integer.parseInt(request.getParameter("price")));
+			productDTO.setProductSize(Integer.parseInt(request.getParameter("size")));
+			
+			try {
+				productDTO = productDAO.selectOne(productDTO.getProductCode());
+				//List<FileDTO> ar = new ArrayList<>();
+				FileDTO fileDTO = fileDAO.selectOne(productDTO.getProductCode());
+				
+				request.setAttribute("file", fileDTO);
+				request.setAttribute("item", productDTO);
+				actionFoward.setCheck(true);
+				actionFoward.setPath("../WEB-INF/view/product/checkout.jsp");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}else {
+			
+			ProductDTO productDTO = null;
+			FileDTO fileDTO = null;
+			String code = request.getParameter("code");
+			try {
+				productDTO = productDAO.selectOne(code);
+				List<FileDTO> ar = new ArrayList<>();
+				ar = fileDAO.selectList(code);
+				request.setAttribute("file", ar);
+				request.setAttribute("pDTO", productDTO);
+				request.setAttribute("board", "product");
+				actionFoward.setCheck(true);
+				actionFoward.setPath("../WEB-INF/view/product/productSelectOne.jsp");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		return actionFoward;

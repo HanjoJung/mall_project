@@ -21,17 +21,26 @@
 				$(this).next(".accordion-wrapper").children().attr("class","pop-detail-content uk-accordion-content");
 			}
 		})
+			var s = $(".opt-list");
 		
 		$(".input-radio").click(function() {
 			$(this).addClass("checked");
 			$(this).siblings().removeClass('checked');
 			$(this).children("label").addClass("selected");
 			$(this).siblings().children('label').removeClass('selected');
+			$("#size").attr('value',s.find(".selected").text());
 		});
 		
-		$(".order-wrap").click(function() {
-			var s = $(".opt-list");
-			alert(s.find(".selected").text());
+		$("#btn-buy").click(function() {
+			var size = $("#size").val();
+			/* alert(size !=""); */
+			if(size !=""){
+				$("#frm").submit();
+			}else{
+				alert("사이즈를 선택하세요!");
+			}
+			
+			
 		});
 		
 
@@ -53,6 +62,13 @@ label.selected {
     outline: none;
     box-sizing: border-box;
 }
+
+.info-wrap_product_n .status-wrap .order-wrap .btn-link {
+    width: 49%;
+    width: 152px;
+    text-align: center;
+}
+
 </style>
 </head>
 <c:import url="../../../temp/header.jsp" />
@@ -127,9 +143,17 @@ label.selected {
 												원</strong></span>
 									</div>
 									<div class="pinfo-item-box">
-										<form method="POST" action="/kr/ko_kr/cart/add">
+										<form id="frm" method="POST" action="./productSelectOne.do">
 											<div class="option-wrap">
 												<!--*/ 상세화면 */-->
+												
+																	
+													<input type="hidden" id="code" name="code" value="${pDTO.productCode}">
+													<input type="hidden" id="name" name="name" value="${pDTO.productName}">
+													<input type="hidden" id="price" name="price" value="${pDTO.price}">
+													<input type="hidden" id="size" name="size" value="">
+												
+												
 												<!-- 사이즈 선택  -->
 												<div class="size-grid-type">
 													<a class="btn-option"> <strong class="tit">사이즈
@@ -140,6 +164,7 @@ label.selected {
 														<span class="txt">FW_SIZE</span> <span class="over-txt"></span>
 														<span class="msg"></span>
 													</h2>
+													
 
 													<div class="product-option_radio square">
 														<div class="opt-list">
@@ -281,13 +306,16 @@ label.selected {
 												<div>
 													<div>
 														<div data-add-item="" class="status-wrap btn-wrap">
-															<div class="order-wrap">
-																<a
+															<div class="order-wrap" >
+																<!-- <a
 																	class="btn-link width-max xlarge btn-cart addcart-btn"
-																	data-cartbtn="" action-type="add" href="#">장바구니</a><a
+																	data-cartbtn="" action-type="add" href="#">장바구니</a> -->
+																		<input type="button" class="btn-link xlarge btn-order width-max" id="btn-add" value="장바구니">
+																		<input type="button" class="btn-link xlarge btn-order width-max" id="btn-buy" value="바로구매">
+																	<!-- <a
 																	class="btn-link xlarge btn-order width-max"
 																	data-cartbtn="" action-type="redirect" id="btn-buy"
-																	href="./checkout.do"> <span>바로구매</span></a>
+																	href="./checkout.do"> <span>바로구매</span></a> -->
 															</div>
 														</div>
 														<button
@@ -437,7 +465,7 @@ label.selected {
 							</div>
 							<div class="btn-group-box line type2">
 								<div class="status-wrap btn-wrap">
-									<div class="order-wrap1">
+									<div class="order-wrap">
 										<a class="btn-link width-max xlarge btn-cart addcart-btn"
 											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a 
 											class="btn-link xlarge btn-order width-max"
