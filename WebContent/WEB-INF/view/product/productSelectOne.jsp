@@ -55,6 +55,13 @@ label.selected {
     background-color: #111;
     color: #fff;
 }
+
+.info-wrap_product_n .status-wrap .order-wrap .btn-link {
+    width: 49%;
+    width: 152px;
+    text-align: center;
+}
+
 </style>
 </head>
 <c:import url="../../../temp/header.jsp" />
@@ -131,7 +138,7 @@ label.selected {
 												원</strong></span>
 									</div>
 									<div class="pinfo-item-box">
-										<form id="frm" method="POST" action="./checkout.do">
+										<form id="frm" method="POST" action="./productSelectOne.do">
 											<div class="option-wrap">
 												<!--*/ 상세화면 */-->
 
@@ -317,11 +324,11 @@ label.selected {
 												<div>
 													<div>
 														<div data-add-item="" class="status-wrap btn-wrap">
-															<div class="order-wrap">
+															<div class="order-wrap" >
 																<!-- <a
 																	class="btn-link width-max xlarge btn-cart addcart-btn"
 																	data-cartbtn="" action-type="add" href="#">장바구니</a> -->
-																
+																		<input type="button" class="btn-link xlarge btn-order width-max" id="btn-add" value="장바구니">
 																		<input type="button" class="btn-link xlarge btn-order width-max" id="btn-buy" value="바로구매">
 																	<!-- <a
 																	class="btn-link xlarge btn-order width-max"
@@ -433,7 +440,7 @@ label.selected {
 							</div>
 							<div class="btn-group-box line type2">
 								<div class="status-wrap btn-wrap">
-									<div class="order-wrap1">
+									<div class="order-wrap">
 										<a class="btn-link width-max xlarge btn-cart addcart-btn"
 											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a 
 											class="btn-link xlarge btn-order width-max"

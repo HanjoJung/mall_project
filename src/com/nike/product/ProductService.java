@@ -81,6 +81,16 @@ public class ProductService {
 		String method = request.getMethod();
 		if(method.equals("POST")) {
 			
+			String path ="./checkout.do";
+			ProductDTO productDTO = new ProductDTO();
+			productDTO.setProductCode(request.getParameter("code"));
+			productDTO.setProductName(request.getParameter("name"));
+			productDTO.setPrice(Integer.parseInt(request.getParameter("price")));
+			productDTO.setProductSize(Integer.parseInt(request.getParameter("size")));
+			
+			request.setAttribute("item", productDTO);
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/product/checkout.jsp");
 			
 			
 		}else {
