@@ -88,9 +88,19 @@ public class ProductService {
 			productDTO.setPrice(Integer.parseInt(request.getParameter("price")));
 			productDTO.setProductSize(Integer.parseInt(request.getParameter("size")));
 			
-			request.setAttribute("item", productDTO);
-			actionFoward.setCheck(true);
-			actionFoward.setPath("../WEB-INF/view/product/checkout.jsp");
+			try {
+				productDTO = productDAO.selectOne(productDTO.getProductCode());
+				//List<FileDTO> ar = new ArrayList<>();
+				FileDTO fileDTO = fileDAO.selectOne(productDTO.getProductCode());
+				
+				request.setAttribute("file", fileDTO);
+				request.setAttribute("item", productDTO);
+				actionFoward.setCheck(true);
+				actionFoward.setPath("../WEB-INF/view/product/checkout.jsp");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			
 		}else {

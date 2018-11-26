@@ -116,14 +116,14 @@
 
 											<dt class="image-wrap">
 												<img
-													src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/807480-004_807480-004_primary.jpg?thumbnail"
+													src="/mall_project/upload/${file.fname}"
 													alt="나이키 클래식 코르테즈">
 											</dt>
 
 											<dd class="order-info">
 												<a class="tit" data-name="나이키 클래식 코르테즈 프리미엄"
 													data-eng-name="나이키 클래식 코르테즈 프리미엄"
-													href="/kr/ko_kr/t/men/fw/nike-sportswear/807480-004/qdzn76/classic-cortez-prem"
+													href="./productSelectOne.do?code=${item.productCode}"
 													title="나이키 클래식 코르테즈 프리미엄">${item.productName}</a>
 												<div class="style-code" data-model="807480-004">스타일 :
 													${item.productCode}</div>

@@ -35,7 +35,7 @@
 		
 		$("#btn-buy").click(function() {
 			var size = $("#size").val();
-			alert(size !="");
+			/* alert(size !=""); */
 			if(size !=""){
 				$("#frm").submit();
 			}else{
