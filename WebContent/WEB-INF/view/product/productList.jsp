@@ -244,6 +244,7 @@ body {
 	<c:import url="../../../temp/header.jsp"></c:import>
 
 	<div class="container-fluid wrapper">
+<!-- <<<<<<< HEAD -->
 		<section class="contents filter-category-wrap content-area">
 			<section class="pt_category">
 				<article class="contents filter-category-wrap">
@@ -423,6 +424,49 @@ body {
 									<option value="price asc">낮은 가격순</option>
 								</select>
 							</div>
+<!-- ======= -->
+		<div class="row">
+			<h1>${board}</h1>
+		</div>
+		<div class="row">
+			<form class="form-inline" action="./${board}List.do">
+				<div class="form-group">
+					<div class="form-group">
+						<label for="sel1">Select list:</label> <select
+							class="form-control" id="sel1" name="kind">
+							<option value="productCode">제품번호</option>
+							<option value="productName">제품이름</option>
+						</select>
+					</div>
+					<input type="text" class="form-control" id="search"
+						placeholder="Enter search" name="search">
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+			<!-- 서치 폼 -->
+		</div>
+		<div class="wrap-pl product-item" id="p1">
+			<c:forEach items="${list}" var="productDTO" varStatus="i">
+				<div>
+					<div class="action-hover">
+						<a href="./productSelectOne.do?code=${productDTO.productCode}">
+
+							<img src="/mall_project/upload/${file[i.index].fname}">
+						</a>
+
+
+					</div>
+
+					<div class="item-info">
+						<span class="item-title">${productDTO.productName}</span>
+						<div class="item-location">
+							<span>${productDTO.kind}</span>
+						</div>
+						<span class="item-price"><span>${productDTO.price} 원</span></span>
+					</div>
+				</div>
+			</c:forEach>
+<!-- >>>>>>> origin/backup_1120_justice -->
 
 
 						</div>

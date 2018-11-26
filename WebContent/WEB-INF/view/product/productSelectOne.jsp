@@ -73,7 +73,6 @@ label.selected {
 </head>
 <c:import url="../../../temp/header.jsp" />
 <body>
-
 	<section class="wrapper">
 		<section class="content-area">
 			<section>
@@ -307,15 +306,6 @@ label.selected {
 													<div>
 														<div data-add-item="" class="status-wrap btn-wrap">
 															<div class="order-wrap" >
-																<!-- <a
-																	class="btn-link width-max xlarge btn-cart addcart-btn"
-																	data-cartbtn="" action-type="add" href="#">장바구니</a> -->
-																		<input type="button" class="btn-link xlarge btn-order width-max" id="btn-add" value="장바구니">
-																		<input type="button" class="btn-link xlarge btn-order width-max" id="btn-buy" value="바로구매">
-																	<!-- <a
-																	class="btn-link xlarge btn-order width-max"
-																	data-cartbtn="" action-type="redirect" id="btn-buy"
-																	href="./checkout.do"> <span>바로구매</span></a> -->
 															</div>
 														</div>
 														<button
