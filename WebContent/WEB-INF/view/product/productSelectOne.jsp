@@ -23,17 +23,26 @@
 				$(this).next(".accordion-wrapper").children().attr("class","pop-detail-content uk-accordion-content");
 			}
 		})
+			var s = $(".opt-list");
 		
 		$(".input-radio").click(function() {
 			$(this).addClass("checked");
 			$(this).siblings().removeClass('checked');
 			$(this).children("label").addClass("selected");
 			$(this).siblings().children('label').removeClass('selected');
+			$("#size").attr('value',s.find(".selected").text());
 		});
 		
 		$(".order-wrap").click(function() {
-			var s = $(".opt-list");
-			alert(s.find(".selected").text());
+			var size = $("#size").val();
+			alert(size !="");
+			if(size !=""){
+				$("#frm").submit();
+			}else{
+				alret("사이즈를 선택하세요!")
+			}
+			
+			
 		});
 		
 
@@ -147,7 +156,14 @@ label.selected {
 														</a>
 													</div>
 												</div>
-
+												
+												<form id="frm" method="post" action="./${board}SelectOne.do">
+													<input type="hidden" id="code" name="code" value="${pDTO.productCode}">
+													<input type="hidden" id="name" name="name" value="${pDTO.productName}">
+													<input type="hidden" id="price" name="price" value="${pDTO.price}">
+													<input type="hidden" id="size" name="size" value="">
+												</form>
+												
 												<!-- 사이즈 선택  -->
 												<div class="size-grid-type">
 													<a class="btn-option"> <strong class="tit">사이즈
@@ -158,6 +174,7 @@ label.selected {
 														<span class="txt">FW_SIZE</span> <span class="over-txt"></span>
 														<span class="msg"></span>
 													</h2>
+													
 
 													<div class="product-option_radio square">
 														<div class="opt-list">
