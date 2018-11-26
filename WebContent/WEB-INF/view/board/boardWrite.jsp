@@ -30,8 +30,7 @@ $(function() {
 
 	<div class="container-fluid wrapper">
 		<div class="row">
-			<form id="frm" action="./${board}Write.do" method="post"
-				enctype="multipart/form-data">
+			<form id="frm" action="./${board}Write.do" method="post">
 				<div class="form-group">
 					<label for="title">Title:</label> <input type="text"
 						class="form-control" id="title" placeholder="Enter Title"
@@ -40,7 +39,7 @@ $(function() {
 				<div class="form-group">
 					<label for="writer">Writer:</label> <input type="text"
 						class="form-control" id="writer" name="writer"
-						value="${member.name}">
+						value="${member.name}" readonly="readonly">
 				</div>
 				
 				<div class="form-group">

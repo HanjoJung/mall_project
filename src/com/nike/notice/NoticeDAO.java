@@ -18,18 +18,18 @@ public class NoticeDAO implements BoardDAO{
 	@Override
 	public List<BoardDTO> selectList(RowNumber rowNumber) throws Exception{
 		Connection con=DBconnector.getConnect();
-		String sql="select * from notice";
-//				+ "(select rownum R, N.* from"
-//				+ "(select num, title, writer, reg_date, hit from notice"
-//				+ "where"+rowNumber.getSearch().getKind()+" like ?"
-//				+ "order by num desc) N)"
-//				+ "where R between ? and ?";
+		String sql="select * from "
+				+ "(select rownum R, N.* from "
+				+ "(select num, title, writer, reg_date, hit from notice "
+				+ "where "+rowNumber.getSearch().getKind()+" like ? "
+				+ "order by num desc) N) "
+				+ "where R between ? and ?";
 		
 		PreparedStatement st=con.prepareStatement(sql);
 		
-//		st.setString(1, "%"+rowNumber.getSearch().getSearch()+"%");
-//		st.setInt(2, rowNumber.getStartRow());
-//		st.setInt(3, rowNumber.getLastRow());
+		st.setString(1, "%"+rowNumber.getSearch().getSearch()+"%");
+		st.setInt(2, rowNumber.getStartRow());
+		st.setInt(3, rowNumber.getLastRow());
 		
 		ResultSet rs=st.executeQuery();
 		List<BoardDTO> ar=new ArrayList<>();

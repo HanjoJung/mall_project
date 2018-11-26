@@ -106,7 +106,6 @@ public class MemberService {
 		if (method.equals("POST")) {
 			HttpSession session = request.getSession();
 			String sns = request.getParameter("sns");
-			String snsid = request.getParameter("snsid");
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO.setId(request.getParameter("id"));
 			memberDTO.setPassword(request.getParameter("pw"));

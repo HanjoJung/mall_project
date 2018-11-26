@@ -60,7 +60,6 @@ public class MemberDAO {
 		st.setString(9, memberDTO.getProfileOname());
 		st.setString(10, memberDTO.getKakaoID());
 		st.setString(11, memberDTO.getFacebookID());
-		System.out.println("dao " +memberDTO.getFacebookID());
 		int result = st.executeUpdate();
 
 		DBconnector.disConnect(st, con);
@@ -124,7 +123,6 @@ public class MemberDAO {
 			memberDTO.setProfileFname(rs.getString("profileFname"));
 			memberDTO.setProfileOname(rs.getString("profileOname"));
 		}
-
 		DBconnector.disConnect(rs, st, con);
 		return memberDTO;
 	}

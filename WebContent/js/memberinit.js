@@ -37,28 +37,23 @@ $(function() {
 						data.parent().children(".error-message").html("");
 
 						// 에러 메세지 숨김
-						data.parent()
-								.children(".uk-form-row .error-message").css({
+						data.parent().children(".uk-form-row .error-message").css({
 									display : "none"
 								});
-						data
-						.css({
+						data.css({
 							"border-color" : "#e5e5e5"
 						});
 						return true;
 					} else {
 						// 검사 비승인
 						// 메세지 출력
-						data.parent().children(".error-message").html(
-								data.attr("data-parsley-message"));
+						data.parent().children(".error-message").html(data.attr("data-parsley-message"));
 
 						// 메세지 블럭 노출
-						data.parent()
-								.children(".uk-form-row .error-message").css({
+						data.parent().children(".uk-form-row .error-message").css({
 									display : "block"
 								});
-						data
-						.css({
+						data.css({
 							"border-color" : "red"
 						});
 					}

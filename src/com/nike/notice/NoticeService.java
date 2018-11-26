@@ -15,38 +15,37 @@ import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
 import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class NoticeService implements BoardService{
+public class NoticeService implements BoardService {
 	private NoticeDAO noticeDAO;
-	
+
 	public NoticeService() {
 		noticeDAO = new NoticeDAO();
 	}
 
 	@Override
 	public ActionFoward selectList(HttpServletRequest request, HttpServletResponse response) {
-		ActionFoward actionFoward=new ActionFoward();
-		int curPage=1;
+		ActionFoward actionFoward = new ActionFoward();
+		int curPage = 1;
 		try {
-			curPage=Integer.parseInt(request.getParameter("curPage"));
+			curPage = Integer.parseInt(request.getParameter("curPage"));
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
-		String kind=request.getParameter("kind");
-		if(kind==null||kind=="") {
+		String kind = request.getParameter("kind");
+		if (kind == null || kind == "") {
 			kind = "title";
 		}
-		String search=request.getParameter("search");
-		MakePager mk=new MakePager(curPage, search, kind);
-		RowNumber rowNumber=mk.makeRow();
-		
+		String search = request.getParameter("search");
+		MakePager mk = new MakePager(curPage, search, kind);
+		RowNumber rowNumber = mk.makeRow();
+
 		try {
-			List<BoardDTO> ar=noticeDAO.selectList(rowNumber);
-			int totalCount=noticeDAO.getCount(rowNumber.getSearch());
-			Pager pager=mk.makePage(totalCount);
+			List<BoardDTO> ar = noticeDAO.selectList(rowNumber);
+			int totalCount = noticeDAO.getCount(rowNumber.getSearch());
+			Pager pager = mk.makePage(totalCount);
 			request.setAttribute("list", ar);
 			request.setAttribute("pager", pager);
+			request.setAttribute("curPage", curPage);
 			request.setAttribute("board", "notice");
 			actionFoward.setPath("../WEB-INF/view/board/boardList.jsp");
 		} catch (Exception e) {
@@ -55,52 +54,52 @@ public class NoticeService implements BoardService{
 			actionFoward.setPath("../WEB-INF/common/result.jsp");
 			e.printStackTrace();
 		}
-		
+
 		actionFoward.setCheck(true);
-		
+
 		return actionFoward;
 	}
 
 	@Override
 	public ActionFoward selectOne(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
-		BoardDTO boardDTO=null;
+		BoardDTO boardDTO = null;
 		try {
-			int num=Integer.parseInt(request.getParameter("num"));
-			boardDTO=noticeDAO.selectOne(num);
+			int num = Integer.parseInt(request.getParameter("num"));
+			boardDTO = noticeDAO.selectOne(num);
 			request.setAttribute("dto", boardDTO);
 			request.setAttribute("board", "notice");
 			actionFoward.setCheck(true);
-			actionFoward.setPath("../WEB-INF/view/board/boardSelectOne.jsp");			
+			actionFoward.setPath("../WEB-INF/view/board/boardSelectOne.jsp");
 		} catch (Exception e) {
 			actionFoward.setCheck(false);
 			actionFoward.setPath("./noticeList.do");
 		}
-		if(boardDTO==null) {
+		if (boardDTO == null) {
 			actionFoward.setCheck(false);
 			actionFoward.setPath("./noticeList.do");
 		}
-		
+
 		return actionFoward;
 	}
 
 	@Override
 	public ActionFoward insert(HttpServletRequest request, HttpServletResponse response) {
-		ActionFoward actionFoward=new ActionFoward();
-		HttpSession session=request.getSession();
-		
-		String method=request.getMethod();
-		if(method.equals("POST")) {
-			String message="작성실패";
-			String path="./noticeList.do";
-			String save = request.getServletContext().getRealPath("upload");
-			
+		ActionFoward actionFoward = new ActionFoward();
+		HttpSession session = request.getSession();
+
+		String method = request.getMethod();
+		if (method.equals("POST")) {
+			String message = "작성실패";
+			String path = "./noticeList.do";
+			actionFoward.setCheck(false);
+			actionFoward.setPath("./noticeList.do");
+
 			try {
-				MultipartRequest multi = new MultipartRequest(request, save, "UTF-8");
 				NoticeDTO noticeDTO = new NoticeDTO();
-				noticeDTO.setTitle(multi.getParameter("title"));
-				noticeDTO.setWriter(multi.getParameter("writer"));
-				noticeDTO.setContents(multi.getParameter("contents"));
+				noticeDTO.setTitle(request.getParameter("title"));
+				noticeDTO.setWriter(request.getParameter("writer"));
+				noticeDTO.setContents(request.getParameter("contents"));
 				noticeDTO.setNum(noticeDAO.getNum());
 				int result = noticeDAO.insert(noticeDTO);
 				if (result > 0) {
@@ -108,16 +107,13 @@ public class NoticeService implements BoardService{
 					actionFoward.setCheck(true);
 					actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 				} else {
-					actionFoward.setCheck(false);
-					actionFoward.setPath("./noticeList.do");
 				}
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			request.setAttribute("message", message);
 			request.setAttribute("path", path);
-		}else {
+		} else {
 			request.setAttribute("board", "notice");
 			actionFoward.setCheck(true);
 			if (session.getAttribute("member") == null) {
@@ -129,8 +125,7 @@ public class NoticeService implements BoardService{
 			}
 		}
 		return actionFoward;
-		
-		
+
 	}
 
 	@Override
@@ -232,6 +227,5 @@ public class NoticeService implements BoardService{
 		}
 		return actionFoward;
 	}
-	
-	
+
 }
