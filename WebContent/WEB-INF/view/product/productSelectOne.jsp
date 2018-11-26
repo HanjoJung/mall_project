@@ -33,13 +33,13 @@
 			$("#size").attr('value',s.find(".selected").text());
 		});
 		
-		$(".order-wrap").click(function() {
+		$("#btn-buy").click(function() {
 			var size = $("#size").val();
 			alert(size !="");
 			if(size !=""){
 				$("#frm").submit();
 			}else{
-				alret("사이즈를 선택하세요!")
+				alert("사이즈를 선택하세요!");
 			}
 			
 			
@@ -131,7 +131,7 @@ label.selected {
 												원</strong></span>
 									</div>
 									<div class="pinfo-item-box">
-										<form method="POST" action="/kr/ko_kr/cart/add">
+										<form id="frm" method="POST" action="./checkout.do">
 											<div class="option-wrap">
 												<!--*/ 상세화면 */-->
 
@@ -156,13 +156,13 @@ label.selected {
 														</a>
 													</div>
 												</div>
-												
-												<form id="frm" method="post" action="./${board}SelectOne.do">
+													
+																	
 													<input type="hidden" id="code" name="code" value="${pDTO.productCode}">
 													<input type="hidden" id="name" name="name" value="${pDTO.productName}">
 													<input type="hidden" id="price" name="price" value="${pDTO.price}">
 													<input type="hidden" id="size" name="size" value="">
-												</form>
+												
 												
 												<!-- 사이즈 선택  -->
 												<div class="size-grid-type">
@@ -318,12 +318,15 @@ label.selected {
 													<div>
 														<div data-add-item="" class="status-wrap btn-wrap">
 															<div class="order-wrap">
-																<a
+																<!-- <a
 																	class="btn-link width-max xlarge btn-cart addcart-btn"
-																	data-cartbtn="" action-type="add" href="#">장바구니</a><a
+																	data-cartbtn="" action-type="add" href="#">장바구니</a> -->
+																
+																		<input type="button" class="btn-link xlarge btn-order width-max" id="btn-buy" value="바로구매">
+																	<!-- <a
 																	class="btn-link xlarge btn-order width-max"
 																	data-cartbtn="" action-type="redirect" id="btn-buy"
-																	href="./checkout.do"> <span>바로구매</span></a>
+																	href="./checkout.do"> <span>바로구매</span></a> -->
 															</div>
 														</div>
 														<button

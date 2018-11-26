@@ -78,21 +78,29 @@ public class ProductService {
 	public ActionFoward selectOne(HttpServletRequest request, HttpServletResponse response) {
 
 		ActionFoward actionFoward = new ActionFoward();
-		ProductDTO productDTO = null;
-		FileDTO fileDTO = null;
-		String code = request.getParameter("code");
-		try {
-			productDTO = productDAO.selectOne(code);
-			List<FileDTO> ar = new ArrayList<>();
-			ar = fileDAO.selectList(code);
-			request.setAttribute("file", ar);
-			request.setAttribute("pDTO", productDTO);
-			request.setAttribute("board", "product");
-			actionFoward.setCheck(true);
-			actionFoward.setPath("../WEB-INF/view/product/productSelectOne.jsp");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String method = request.getMethod();
+		if(method.equals("POST")) {
+			
+			
+			
+		}else {
+			
+			ProductDTO productDTO = null;
+			FileDTO fileDTO = null;
+			String code = request.getParameter("code");
+			try {
+				productDTO = productDAO.selectOne(code);
+				List<FileDTO> ar = new ArrayList<>();
+				ar = fileDAO.selectList(code);
+				request.setAttribute("file", ar);
+				request.setAttribute("pDTO", productDTO);
+				request.setAttribute("board", "product");
+				actionFoward.setCheck(true);
+				actionFoward.setPath("../WEB-INF/view/product/productSelectOne.jsp");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		return actionFoward;
