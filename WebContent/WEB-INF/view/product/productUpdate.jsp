@@ -74,10 +74,12 @@ $(function() {
 				</div>
 
 				<div class="form-group">
+				<c:forEach items="${ar}" var="upload" varStatus="i">
 					<label for="file">File:</label> 
 					
 					<input type="file"
-						class="form-control" id="file" name="fname">
+						class="form-control" id="file" name="fname${i.index}">
+				</c:forEach>
 					
 				</div>
 

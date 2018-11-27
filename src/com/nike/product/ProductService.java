@@ -262,15 +262,18 @@ public class ProductService {
 				List<FileDTO>ar = fileDAO.selectList(multi.getParameter("code"));
 				for(int i=0;i<ar.size();i++) {
 					
-					file = multi.getFile("f1");
+					file = multi.getFile("fname"+i);
 					if(file !=null) {
 						file = new File(path, ar.get(i).getFname());
 						file.delete();
-						ar.get(i).setFname(multi.getFilesystemName("fname"));
-						ar.get(i).setOname(multi.getOriginalFileName("fname"));
+						ar.get(i).setFname(multi.getFilesystemName("fname"+i));
+						ar.get(i).setOname(multi.getOriginalFileName("fname"+i));
+						fileDAO.update(ar.get(i));
+						System.out.println(ar.get(i).getFname());
+						System.out.println(ar.get(i).getOname());
+						
 					}
 					int result = productDAO.update(productDTO);
-					fileDAO.update(ar.get(i));
 					if(result>0) {
 						request.setAttribute("product", productDTO);
 						request.setAttribute("file", ar);
