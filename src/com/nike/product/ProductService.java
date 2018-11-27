@@ -1,6 +1,7 @@
 package com.nike.product;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -213,9 +214,9 @@ public class ProductService {
 				File file = null;
 				for (int i = 0; i < ar.size(); i++) {
 					file = new File(path, ar.get(i).getFname());
+					file.delete();
 				}
 
-				file.delete();
 				request.setAttribute("message", "Success");
 				request.setAttribute("path", "./productList.do");
 
@@ -239,6 +240,30 @@ public class ProductService {
 
 		String method = request.getMethod();
 		if (method.equals("POST")) {
+			
+			int max = 1024*1024*10;
+			String path = request.getServletContext().getRealPath("upload");
+			File file = new File(path);
+			if(!file.exists()) {
+				file.mkdirs();
+			}
+			String message = "upload Fail";
+			
+			try {
+				MultipartRequest multi = new MultipartRequest(request, path, max, "utf-8", new DefaultFileRenamePolicy());
+				ProductDTO productDTO = new ProductDTO();
+				productDTO.setProductCode(multi.getParameter("code"));
+				productDTO.setProductName(multi.getParameter("name"));
+				productDTO.setKind(multi.getParameter("kind"));
+				productDTO.setPrice(Integer.parseInt(multi.getParameter("price")));
+				productDTO.setContents(multi.getParameter("contents"));
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 
 		} else {
 			try {
