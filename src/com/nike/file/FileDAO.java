@@ -79,5 +79,20 @@ public class FileDAO {
 		return result;
 	}
 	
+	public int update(FileDTO fileDTO) throws Exception{
+		
+		Connection con = DBconnector.getConnect();
+		String sql = "update image set fname=?, oname=? where productcode=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, fileDTO.getFname());
+		st.setString(2, fileDTO.getOname());
+		st.setString(3, fileDTO.getProductCode());
+		int result = st.executeUpdate();
+		DBconnector.disConnect(st, con);
+		
+		return result;
+		
+	}
+	
 	
 }

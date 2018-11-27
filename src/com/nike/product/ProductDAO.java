@@ -156,12 +156,13 @@ public class ProductDAO {
 	public int update(ProductDTO productDTO) throws Exception {
 
 		Connection con = DBconnector.getConnect();
-		String sql = "update product set productname=?, price=?, contents=? where productcode=?";
+		String sql = "update product set productname=?, price=?, kind=?, contents=? where productcode=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, productDTO.getProductName());
 		st.setInt(2, productDTO.getPrice());
-		st.setString(3, productDTO.getContents());
-		st.setString(4, productDTO.getProductCode());
+		st.setString(3, productDTO.getKind());
+		st.setString(4, productDTO.getContents());
+		st.setString(5, productDTO.getProductCode());
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
 

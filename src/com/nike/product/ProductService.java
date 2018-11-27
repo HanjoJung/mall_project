@@ -270,8 +270,10 @@ public class ProductService {
 						ar.get(i).setOname(multi.getOriginalFileName("fname"));
 					}
 					int result = productDAO.update(productDTO);
+					fileDAO.update(ar.get(i));
 					if(result>0) {
 						request.setAttribute("product", productDTO);
+						request.setAttribute("file", ar);
 						message = "Update Success";
 					}
 				}
