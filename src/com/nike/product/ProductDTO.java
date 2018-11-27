@@ -18,18 +18,13 @@ public class ProductDTO {
 	private String contents;
 	private int productSize;
 	private List<FileDTO> fileDTO;
-	private int productSize;
+	
 	
 			
 	
 	
 
-	public int getProductSize() {
-		return productSize;
-	}
-	public void setProductSize(int productSize) {
-		this.productSize = productSize;
-	}
+	
 	public List<FileDTO> getFileDTO() {
 		return fileDTO;
 	}

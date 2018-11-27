@@ -83,6 +83,7 @@ public class ProductDAO {
 			productDTO.setGood(rs.getInt("good"));
 			productDTO.setManufacturerCode(rs.getString("manufacturercode"));
 			productDTO.setContents(rs.getString("contents"));
+			productDTO.setProductSize(rs.getInt("productsize"));
 
 		}
 		DBconnector.disConnect(rs, st, con);

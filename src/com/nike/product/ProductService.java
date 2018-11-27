@@ -88,7 +88,7 @@ public class ProductService {
 			productDTO.setProductName(request.getParameter("name"));
 			productDTO.setPrice(Integer.parseInt(request.getParameter("price")));
 			productDTO.setProductSize(Integer.parseInt(request.getParameter("size")));
-			
+			System.out.println(productDTO.getProductSize());
 			try {
 				productDTO = productDAO.selectOne(productDTO.getProductCode());
 				//List<FileDTO> ar = new ArrayList<>();
