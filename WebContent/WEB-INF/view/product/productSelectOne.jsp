@@ -303,7 +303,7 @@ label.selected {
 														<div data-add-item="" class="status-wrap btn-wrap">
 															<div class="order-wrap">
 																<input type="button"
-																	class="btn-link xlarge btn-order width-max"
+																	class="btn-link xlarge btn-order width-max addcart-btn"
 																	id="btn-add" value="장바구니"> <input type="button"
 																	class="btn-link xlarge btn-order width-max"
 																	id="btn-buy" value="바로구매">
