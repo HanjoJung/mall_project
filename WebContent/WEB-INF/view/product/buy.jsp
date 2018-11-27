@@ -11,6 +11,13 @@
 
 	<script type="text/javascript">
 	$(function() {
+			console.log("${param.title}");
+			console.log("${param.amount}");
+			console.log("${param.email}");
+			console.log("${param.name}");
+			console.log("${param.tel}");
+			console.log("${param.addr}");
+			console.log("${param.postcode}");
 		
 		IMP.init('imp27429041'); //iamport 대신 자신의 "가맹점 식별코드"를 사용하시면 됩니다
 		IMP.request_pay({

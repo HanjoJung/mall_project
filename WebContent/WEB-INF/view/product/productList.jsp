@@ -461,8 +461,7 @@ body {
 												<span>${productDTO.kind}</span>
 											</div>
 
-											<span class="item-price"> <span>${productDTO.price}
-													원</span>
+											<span class="item-price price"> <span class="priceText" data-price="${productDTO.price}"></span>
 											</span>
 										</div>
 									</div> <!-- 검색 -->

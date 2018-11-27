@@ -18,7 +18,7 @@
 }
 </style>
 <script type="text/javascript">
-	$(function() {
+$(function() {
 		//폼 내용 체크
 		function checkForm(data) {
 			var error = data.parent().children(".error-message");
@@ -110,9 +110,6 @@
 					<div class="order-wrap order-summary-toggle">
 						<h2 class="contents-title">
 							<span class="title">주문결제</span>
-							<div class="order__simply__tit">
-								<strong>119,000 원</strong>
-							</div>
 						</h2>
 
 						<div
@@ -146,13 +143,13 @@
 													<input type="hidden" name="FW_SIZE" value="${item.productSize}">
 													<!-- bundle product -->
 													<!-- product -->
-													<span class="opt">사이즈 : ${aaa}</span>
+													<span class="opt">사이즈 : ${item.productSize}</span>
 												</div>
 
 												<!-- itemAttribute -->
-												<span class="qty" data-quantity="1">수량 : 1개</span> <span
-													class="price-wrap"> <strong class="retail-price"
-													data-retail-price="119000">${item.price}</strong>
+												<span class="qty">수량 : ${quantity}개</span> <span
+													class="price-wrap"> <strong class="retail-price priceText" data-price="${item.price * quantity}"
+													></strong>
 
 												</span>
 											</dd>
@@ -160,24 +157,39 @@
 									</div>
 
 									<div class="uk-width-1-1 info-price">
-										<span class="item-price"> <span class="labeli">상품
-												금액</span> <span class="price"> <strong>${item.price}</strong>
-										</span>
-										</span> <span class="delivery-price"> <span class="labeli">배송비</span>
-											<span class="price"><strong>0 원</strong></span>
-										</span> <span class="item-price"> <span class="labeli">상품
-												할인 금액</span> <span class="price sale"> <strong>0 원</strong>
-										</span>
-										</span> <span class="item-price"> <span class="labeli">주문
-												할인 금액</span> <span class="price sale"> <strong> 0 원
-											</strong>
-										</span>
+										<span class="item-price"> 
+											<span class="labeli">상품 금액</span> 
+											<span class="price">
+												<strong class="priceText" data-price="${item.price * quantity}"></strong>
+											</span>
+										</span> 
+										
+										<span class="delivery-price"> 
+											<span class="labeli">배송비</span>
+											<span class="price">
+												<strong class="priceText" data-price="0"></strong>
+											</span>
+										</span> 
+										
+										<span class="item-price"> 
+											<span class="labeli">상품 할인 금액</span>
+											<span class="price sale"> 
+												<strong class="priceText" data-price="0"></strong>
+											</span>
+										</span> 
+										
+										<span class="item-price"> 
+											<span class="labeli">주문 할인 금액</span> 
+											<span class="price sale">
+											<strong class="priceText" data-price="0"></strong>
+											</span>
 										</span>
 
 										<div class="total-price">
-											<span class="labeli">총 결제 예정 금액</span> <span
-												class="price sale total"><strong data-amount="${item.price}">${item.price}
-													원</strong></span>
+											<span class="labeli">총 결제 예정 금액</span> 
+											<span class="price sale total">
+												<strong class="priceText" data-price="0" data-amount="0"></strong>
+											</span>
 										</div>
 
 										<div class="info">

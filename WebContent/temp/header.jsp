@@ -6,7 +6,6 @@
 	$(document).ready(function() {
 		
 		$(".log_user").click(function() {
-			console.log("click");
 			if ($("#account-box").attr("class") == "account-box uk-hidden") {
 				$("#account-box").attr("class", "account-box");
 				$(this).attr("class", "log_user on")
@@ -18,7 +17,7 @@
 		
 		$(".addcart-btn").on("click", function(event) {
 			
-			if ('${member}' == '' ) {
+			if ('${member}' == null ) {
 				alert("회원만 구입 가능합니다");
 			} else {
 				$('.cart').addClass('cartadd');
@@ -30,8 +29,7 @@
 		});		
 		
 		$('.cart-item').on("click", function(event) {
-			
-			if ('${member}' == '' ) {
+			if ('${member}' == null ) {
 				alert("로그인 하십시요");
 			} else {
 				$('.cart').addClass('cartadd');

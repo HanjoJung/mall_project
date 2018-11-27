@@ -82,11 +82,11 @@ public class ProductService {
 		String method = request.getMethod();
 		if(method.equals("POST")) {
 			
-			String path ="./checkout.do";
 			ProductDTO productDTO = new ProductDTO();
 			productDTO.setProductCode(request.getParameter("code"));
 			productDTO.setProductName(request.getParameter("name"));
 			productDTO.setPrice(Integer.parseInt(request.getParameter("price")));
+			int quantity = Integer.parseInt((request.getParameter("quantity")));
 			
 			try {
 				productDTO = productDAO.selectOne(productDTO.getProductCode());
@@ -96,7 +96,7 @@ public class ProductService {
 				
 				request.setAttribute("file", fileDTO);
 				request.setAttribute("item", productDTO);
-				request.setAttribute("aaa", productDTO.getProductSize());
+				request.setAttribute("quantity", quantity);
 				
 				actionFoward.setCheck(true);
 				actionFoward.setPath("../WEB-INF/view/product/checkout.jsp");
@@ -105,11 +105,8 @@ public class ProductService {
 				e.printStackTrace();
 			}
 			
-			
 		}else {
-			
 			ProductDTO productDTO = null;
-			FileDTO fileDTO = null;
 			String code = request.getParameter("code");
 			try {
 				productDTO = productDAO.selectOne(code);
@@ -125,7 +122,6 @@ public class ProductService {
 				e.printStackTrace();
 			}
 		}
-
 		return actionFoward;
 	}
 
