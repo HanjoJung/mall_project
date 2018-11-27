@@ -244,6 +244,7 @@ public class ProductService {
 			int max = 1024*1024*10;
 			String path = request.getServletContext().getRealPath("upload");
 			File file = new File(path);
+			
 			if(!file.exists()) {
 				file.mkdirs();
 			}
@@ -252,16 +253,40 @@ public class ProductService {
 			try {
 				MultipartRequest multi = new MultipartRequest(request, path, max, "utf-8", new DefaultFileRenamePolicy());
 				ProductDTO productDTO = new ProductDTO();
-				productDTO.setProductCode(multi.getParameter("code"));
+				
+				productDTO=productDAO.selectOne(multi.getParameter("code"));
 				productDTO.setProductName(multi.getParameter("name"));
 				productDTO.setKind(multi.getParameter("kind"));
 				productDTO.setPrice(Integer.parseInt(multi.getParameter("price")));
 				productDTO.setContents(multi.getParameter("contents"));
+				List<FileDTO>ar = fileDAO.selectList(multi.getParameter("code"));
+				for(int i=0;i<ar.size();i++) {
+					
+					file = multi.getFile("f1");
+					if(file !=null) {
+						file = new File(path, ar.get(i).getFname());
+						file.delete();
+						ar.get(i).setFname(multi.getFilesystemName("fname"));
+						ar.get(i).setOname(multi.getOriginalFileName("fname"));
+					}
+					int result = productDAO.update(productDTO);
+					if(result>0) {
+						request.setAttribute("product", productDTO);
+						message = "Update Success";
+					}
+				}
 				
-			} catch (IOException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			request.setAttribute("message", message);
+			request.setAttribute("path", "./productList.do");
+			
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/common/result.jsp");
+			
 			
 			
 

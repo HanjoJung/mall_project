@@ -74,12 +74,12 @@ $(function() {
 				</div>
 
 				<div class="form-group">
-					<label for="file">File:</label> <input type="file"
-						class="form-control" id="file" name="f1">
+					<label for="file">File:</label> 
+					
+					<input type="file"
+						class="form-control" id="file" name="fname">
+					
 				</div>
-
-
-				z
 
 				<div class="form-group">
 					<label for="contents">내용:</label>
