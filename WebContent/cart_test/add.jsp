@@ -26,6 +26,10 @@
 		alert("상품이 추가되었습니다");
 		history.back();
 	</script>
+	<!-- <script>
+		alert("상품이 추가되었습니다");
+		history.back();
+	</script> -->
 
 </body>
 </html>

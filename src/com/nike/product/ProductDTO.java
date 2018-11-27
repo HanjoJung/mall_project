@@ -19,12 +19,6 @@ public class ProductDTO {
 	private int productSize;
 	private List<FileDTO> fileDTO;
 	
-	
-			
-	
-	
-
-	
 	public List<FileDTO> getFileDTO() {
 		return fileDTO;
 	}
