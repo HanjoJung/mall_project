@@ -7,6 +7,15 @@ public class BasketDTO extends ProductDTO {
 	private int num;
 	private String id;
 	private String fname;
+	private int productSize;
+	
+	public int getProductSize() {
+		return productSize;
+	}
+
+	public void setProductSize(int productSize) {
+		this.productSize = productSize;
+	}
 
 	public String getFname() {
 		return fname;

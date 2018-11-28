@@ -13,10 +13,11 @@ public class BasketDAO {
 
 	public int insert(BasketDTO basketDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "insert into basket values(basket_seq.nextval,?,?)";
+		String sql = "insert into basket values(basket_seq.nextval,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, basketDTO.getId());
 		st.setString(2, basketDTO.getProductCode());
+		st.setInt(3, basketDTO.getProductSize());
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
 		return result;
@@ -25,7 +26,7 @@ public class BasketDAO {
 	public List<BasketDTO> selectList(String id) throws Exception {
 
 		Connection con = DBconnector.getConnect();
-		String sql = "select i.fname, p.productname, p.productcode, p.price "
+		String sql = "select i.fname, p.productname, p.productcode, p.price, b.productsize "
 				+ "from basket b,product p,image i where b.productcode=p.productcode "
 				+ "and b.productcode=i.productcode and b.productcode=i.productcode and "
 				+ "b.id=? order by b.num asc";
@@ -41,6 +42,7 @@ public class BasketDAO {
 			basketDTO.setProductName(rs.getString("productname"));
 			basketDTO.setProductCode(rs.getString("productcode"));
 			basketDTO.setPrice(rs.getInt("price"));
+			basketDTO.setProductSize(rs.getInt("productsize"));
 			ar.add(basketDTO);
 			/*System.out.println(basketDTO.getFname());
 			System.out.println(basketDTO.getProductName());
