@@ -1,6 +1,7 @@
 package com.nike.product;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -80,38 +81,45 @@ public class ProductService {
 
 		ActionFoward actionFoward = new ActionFoward();
 		String method = request.getMethod();
-		if(method.equals("POST")) {
-			
+		if (method.equals("POST")) {
+
 			ProductDTO productDTO = new ProductDTO();
 			productDTO.setProductCode(request.getParameter("code"));
 			productDTO.setProductName(request.getParameter("name"));
 			productDTO.setPrice(Integer.parseInt(request.getParameter("price")));
 			int quantity = Integer.parseInt((request.getParameter("quantity")));
-			
+
 			try {
 				productDTO = productDAO.selectOne(productDTO.getProductCode());
 				productDTO.setProductSize(request.getParameter("size"));
-				//List<FileDTO> ar = new ArrayList<>();
+				// List<FileDTO> ar = new ArrayList<>();
 				FileDTO fileDTO = fileDAO.selectOne(productDTO.getProductCode());
-				
+
 				request.setAttribute("file", fileDTO);
 				request.setAttribute("item", productDTO);
 				request.setAttribute("quantity", quantity);
-				
+
 				actionFoward.setCheck(true);
 				actionFoward.setPath("../WEB-INF/view/product/checkout.jsp");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-		}else {
+
+		} else {
 			ProductDTO productDTO = null;
 			String code = request.getParameter("code");
 			try {
 				productDTO = productDAO.selectOne(code);
+				String s = String.valueOf(productDTO.getProductSize());
+				String[] ss = s.split("-");
+				String smin = ss[0];
+				String smax = ss[1];
+				System.out.println(smin);
+				System.out.println(smax);
 				List<FileDTO> ar = new ArrayList<>();
 				ar = fileDAO.selectList(code);
+				request.setAttribute("size", ss);
 				request.setAttribute("file", ar);
 				request.setAttribute("pDTO", productDTO);
 				request.setAttribute("board", "product");
@@ -154,13 +162,15 @@ public class ProductService {
 				productDTO.setManufacturerCode(multi.getParameter("mCode"));
 				productDTO.setWriter(multi.getParameter("writer"));
 				productDTO.setContents(multi.getParameter("contents"));
-				productDTO.setProductSize(multi.getParameter("sizemin")+multi.getParameter("sizemax"));
+				String s = "-";
+				String productSize = (multi.getParameter("sizemin") + s + multi.getParameter("sizemax"));
+				productDTO.setProductSize(productSize);
 
 				int result = productDAO.insert(productDTO);
 				if (result > 0) {
 
 					FileDAO fileDAO = new FileDAO();
-					Enumeration<Object> e = multi.getFileNames(); //write 에 input file name을 가져옴 (e)
+					Enumeration<Object> e = multi.getFileNames(); // write 에 input file name을 가져옴 (e)
 					int i = 0;
 					while (e.hasMoreElements()) {
 						String p = (String) e.nextElement();
@@ -171,12 +181,12 @@ public class ProductService {
 						fileDTO.setOname(multi.getOriginalFileName(p));
 						i++;
 
-						if(fileDTO.getFname()!= null) {
-						result = fileDAO.insert(fileDTO);
+						if (fileDTO.getFname() != null) {
+							result = fileDAO.insert(fileDTO);
 						}
 					}
-					if(result > 0) {
-					message = "Success";
+					if (result > 0) {
+						message = "Success";
 					}
 				}
 			} catch (Exception e) {
@@ -208,9 +218,9 @@ public class ProductService {
 				File file = null;
 				for (int i = 0; i < ar.size(); i++) {
 					file = new File(path, ar.get(i).getFname());
+					file.delete();
 				}
 
-				file.delete();
 				request.setAttribute("message", "Success");
 				request.setAttribute("path", "./productList.do");
 
@@ -231,9 +241,68 @@ public class ProductService {
 
 	public ActionFoward update(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
-
 		String method = request.getMethod();
 		if (method.equals("POST")) {
+			int max = 1024 * 1024 * 10;
+			String path = request.getServletContext().getRealPath("upload");
+			File file = new File(path);
+
+			if (!file.exists()) {
+				file.mkdirs();
+			}
+			String message = "upload Fail";
+			try {
+				MultipartRequest multi = new MultipartRequest(request, path, max, "utf-8",
+						new DefaultFileRenamePolicy());
+				ProductDTO productDTO = new ProductDTO();
+				productDTO = productDAO.selectOne(multi.getParameter("code"));
+				productDTO.setProductName(multi.getParameter("name"));
+				productDTO.setKind(multi.getParameter("kind"));
+				productDTO.setPrice(Integer.parseInt(multi.getParameter("price")));
+				productDTO.setContents(multi.getParameter("contents"));
+
+				List<FileDTO> ar = fileDAO.selectList(multi.getParameter("code"));
+
+				for (int i = 0; i < ar.size(); i++) {
+
+					FileDTO fileDTO = null;
+					fileDTO = new FileDTO();
+
+					file = multi.getFile("f" + i);
+
+					if (file != null) {
+						file = new File(path, ar.get(i).getFname());
+						file.delete();
+						ar.get(i).setFname(multi.getFilesystemName("f" + i));
+						ar.get(i).setOname(multi.getOriginalFileName("f" + i));
+						System.out.println(ar.get(i).getFname());
+						System.out.println(ar.get(i).getOname());
+						System.out.println("----------------------");
+
+						ar.add(fileDTO);
+
+					}
+
+					fileDAO.update(ar.get(i));
+
+				}
+				int result = productDAO.update(productDTO);
+				if (result > 0) {
+					request.setAttribute("product", productDTO);
+					request.setAttribute("file", ar);
+					message = "Update Success";
+				}
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			request.setAttribute("message", message);
+			request.setAttribute("path", "./productList.do");
+
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 
 		} else {
 			try {

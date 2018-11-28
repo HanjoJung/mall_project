@@ -68,7 +68,7 @@ $(function() {
 						name="code">
 				</div> -->
 				<div class="form-group">
-					<label for="productName">삼품명:</label> <input type="text"
+					<label for="productName">상품명:</label> <input type="text"
 						class="form-control" id="name" name="name">
 				</div>
 				<div class="form-group">

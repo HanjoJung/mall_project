@@ -244,6 +244,7 @@ label.selected {
 
 													<div class="product-option_radio square">
 														<div class="opt-list">
+														<c:if test="${size}" ></c:if>
 															<c:forEach begin="235" end="330" step="5" var="i">
 																<span class="input-radio"> <label>${i}</label> <input
 																	type="radio" name="SIZE"
