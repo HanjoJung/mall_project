@@ -40,7 +40,6 @@ public class BasketService {
 					session.setAttribute("basket", cookie.getValue());
 		}
 		basketDTO.setProductCode(request.getParameter("productCode"));
-		basketDTO.setProductSize(Integer.parseInt(request.getParameter("productSize")));
 		try {
 			basketDAO.insert(basketDTO);
 		} catch (Exception e) {
@@ -63,7 +62,8 @@ public class BasketService {
 			basketDTO = new BasketDTO();
 			request.setAttribute("bDTO", basketDTO);
 			request.setAttribute("blist", ar);
-			actionFoward.setPath("../WEB-INF/view/basket/cartlistall.jsp");
+			/*System.out.println(basketDTO);
+			System.out.println(ar);*/
 		} catch (Exception e) {
 			request.setAttribute("message", "Basket Empty");
 			actionFoward.setPath("../WEB-INF/common/result.jsp");

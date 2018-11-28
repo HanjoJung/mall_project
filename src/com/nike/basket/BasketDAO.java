@@ -43,7 +43,6 @@ public class BasketDAO {
 			basketDTO.setProductName(rs.getString("productname"));
 			basketDTO.setProductCode(rs.getString("productcode"));
 			basketDTO.setPrice(rs.getInt("price"));
-			basketDTO.setProductSize(rs.getInt("productsize"));
 			ar.add(basketDTO);
 		}
 

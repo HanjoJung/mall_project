@@ -17,28 +17,27 @@
 		
 		$(".addcart-btn").on("click", function(event) {
 			
-			var size = $("#size").val();
-			
 			if ('${member}' == null ) {
 				alert("회원만 구입 가능합니다");
-			} else if(size =="") {
-				alert("사이즈를 선택하세요!");
 			} else {
 				$('.cart').addClass('cartadd');
 				$('body').addClass('stop-scrolling');
-				$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);
-				$.post('${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}');
-				$("#cart-order_list").load('../WEB-INF/view/basket/basketList.jsp');
+				$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}');
+				
+				$("#cart-order_list").load('${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}');
 			}
 		});		
 		
-		/* $('.cart-item').on("click", function(event) {
-			
-			if ('${member}' == '' ) {
+		$('.cart-item').on("click", function(event) {
+			if ('${member}' == null ) {
 				alert("로그인 하십시요");
-				event.preventDefault();
-			} 
-		});		 */
+			} else {
+				$('.cart').addClass('cartadd');
+				$('body').addClass('stop-scrolling');
+				/* $.post('${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}'); */
+				$("#cart-order_list").load('${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}');
+			}
+		});		
 
 		$(".cart").click(function() {
 			$(this).removeClass('cartadd');
@@ -94,8 +93,8 @@
 				</c:choose>
 				<li><a
 					href="${pageContext.request.contextPath}/cscenter/cscenter.do">고객센터</a></li>
-				<li><a class="cart-item" href="${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}"><i class="ns-cart"></i> <span
-						class="">${blist.size()}</span> </a></li>
+				<li><a class="cart-item"><i class="ns-cart"></i> <span
+						class="cart-num"></span> </a></li>
 				<li><a href="#"><span class="flag-kr" title="대한민국"></span></a></li>
 			</ul>
 		</div>
@@ -776,7 +775,7 @@
 		<input type="hidden" name="itemSize" value="1"> <input
 			type="hidden" name="cartId" value="${bDTO.productCode}">
 		<div class="cart-order_list uk-grid" id="cart-order_list">
-			<%-- <div class="uk-width-1-1">
+			<div class="uk-width-1-1">
 				<h5 class="minicart-title">미니 장바구니</h5>
 			</div>
 			<div class="uk-width-1-1">
@@ -801,7 +800,7 @@
 						</dd>
 					</dl>
 				</c:forEach>
-			</div> --%>
+			</div>
 		</div>
 		<div class="cart-order_price uk-grid">
 			<span class="order-price uk-width-1-1"> <span>총 상품금액</span> <strong>
@@ -813,7 +812,7 @@
 		</div>
 		<div class="cart-order_buy uk-grid">
 			<div class="uk-width-1-1">
-				<a class="btn-link width-max large line" href="${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}">장바구니 가기</a>
+				<a class="btn-link width-max large line" href="#">장바구니 가기</a>
 			</div>
 		</div>
 	</div>
