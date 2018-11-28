@@ -83,7 +83,7 @@ public class ProductDAO {
 			productDTO.setGood(rs.getInt("good"));
 			productDTO.setManufacturerCode(rs.getString("manufacturercode"));
 			productDTO.setContents(rs.getString("contents"));
-			productDTO.setProductSize(rs.getInt("productsize"));
+			productDTO.setProductSize(rs.getString("productsize"));
 
 		}
 		DBconnector.disConnect(rs, st, con);
@@ -116,7 +116,7 @@ public class ProductDAO {
 		st.setString(5, productDTO.getManufacturerCode());
 		st.setString(6, productDTO.getWriter());
 		st.setString(7, productDTO.getContents());
-		st.setInt(8, productDTO.getProductSize());
+		st.setString(8, productDTO.getProductSize());
 
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);

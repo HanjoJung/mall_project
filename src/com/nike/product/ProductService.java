@@ -91,7 +91,7 @@ public class ProductService {
 			
 			try {
 				productDTO = productDAO.selectOne(productDTO.getProductCode());
-				productDTO.setProductSize(Integer.parseInt(request.getParameter("size")));
+				productDTO.setProductSize(request.getParameter("size"));
 				//List<FileDTO> ar = new ArrayList<>();
 				FileDTO fileDTO = fileDAO.selectOne(productDTO.getProductCode());
 				
@@ -111,11 +111,15 @@ public class ProductService {
 			String code = request.getParameter("code");
 			try {
 				productDTO = productDAO.selectOne(code);
-				String dd =String.valueOf(productDTO.getProductSize());
-				System.out.println(dd);
-				 
+				String s =String.valueOf(productDTO.getProductSize());
+				String [] ss = s.split("-");
+				String smin = ss[0];
+				String smax = ss[1];
+				System.out.println(smin);
+				System.out.println(smax); 
 				List<FileDTO> ar = new ArrayList<>();
 				ar = fileDAO.selectList(code);
+				request.setAttribute("size", ss);
 				request.setAttribute("file", ar);
 				request.setAttribute("pDTO", productDTO);
 				request.setAttribute("board", "product");
@@ -158,7 +162,8 @@ public class ProductService {
 				productDTO.setManufacturerCode(multi.getParameter("mCode"));
 				productDTO.setWriter(multi.getParameter("writer"));
 				productDTO.setContents(multi.getParameter("contents"));
-				int productSize = Integer.parseInt(multi.getParameter("sizemin")+multi.getParameter("sizemax"));
+				String s ="-";
+				String productSize = (multi.getParameter("sizemin")+s+multi.getParameter("sizemax"));
 				productDTO.setProductSize(productSize);
 
 				int result = productDAO.insert(productDTO);
