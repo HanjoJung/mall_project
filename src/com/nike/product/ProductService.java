@@ -256,30 +256,34 @@ public class ProductService {
 				productDTO.setPrice(Integer.parseInt(multi.getParameter("price")));
 				productDTO.setContents(multi.getParameter("contents"));
 				
-				FileDTO fileDTO = fileDAO.selectOne(Integer.parseInt(multi.getParameter("imagenum")));
-								
-				System.out.println("rrrrrrrrrrrrrr");
+				List<FileDTO> ar = fileDAO.selectList(multi.getParameter("code"));
+				for(int i=0;i<ar.size();i++) {
 				
-					System.out.println("qqqqqqqqqqqqqqqq");
-					file = multi.getFile("f");
+				FileDTO fileDTO = null;
+					 fileDTO = new FileDTO();
+
+
+					file = multi.getFile("f"+i);
 					if(file !=null) {
-						System.out.println("wwwwwwwwwwwww");
-						file = new File(path, fileDTO.getFname());
+						file = new File(path, ar.get(i).getFname());
 						file.delete();
-						System.out.println("eeeeeeeeeeeeee");
-						fileDTO.setFname(multi.getFilesystemName("f"));
-						fileDTO.setOname(multi.getOriginalFileName("f"));
-						System.out.println(fileDTO.getFname());
-						System.out.println(fileDTO.getOname());
-					
-						
-						
+						ar.get(i).setFname(multi.getFilesystemName("f"+i));
+						ar.get(i).setOname(multi.getOriginalFileName("f"+i));
+						System.out.println(ar.get(i).getFname());
+						System.out.println(ar.get(i).getOname());
+						System.out.println("----------------------");
+
+						ar.add(fileDTO);
+
 					}
-					fileDAO.update(fileDTO);
+
+					fileDAO.update(ar.get(i));
+
+			}
 					int result = productDAO.update(productDTO);
 					if(result>0) {
 						request.setAttribute("product", productDTO);
-						request.setAttribute("file", fileDTO);
+						request.setAttribute("file", ar);
 						message = "Update Success";
 					}
 				

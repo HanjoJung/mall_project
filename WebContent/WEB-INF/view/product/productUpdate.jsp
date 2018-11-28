@@ -84,7 +84,7 @@ $(function() {
 					<label for="file">File: ${upload.imageNum }</label> 
 					
 					<input type="file"
-						class="form-control" id="file" name="f" >
+						class="form-control" id="file" name="f${i.index}" >
 				</c:forEach>
 					
 				</div>
