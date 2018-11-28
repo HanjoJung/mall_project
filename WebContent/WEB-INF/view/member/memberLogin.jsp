@@ -30,9 +30,6 @@
 					$("#facebook").html(data);
 				})
 		$("#btn").click(function() {
-			if($("#breeze-me").attr("checked")!=null){
-				setCookie("userid", $("#id").val(), 365);	
-			}
 			$.ajax({
 				url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
 				type : "POST",
@@ -47,7 +44,12 @@
 							display : "block"
 						})
 					} else {
-						/* location.reload(); */
+						if($("#breeze-me").attr("checked")!=null){
+							setCookie("userid", $("#id").val(), 365);	
+						}else{
+							setCookie("userid", "", 0);	
+						}
+						location.reload();
 					}
 				}
 			})
@@ -87,7 +89,7 @@
 								<span class="input-checkbox checked"> <input
 									type="checkbox" id="breeze-me" name="receiveEmail" checked="checked"> <label
 									for="breeze-me"> <i class="brz-icon-checkbox">rediobox</i>
-										<span class="label">로그인 유지하기</span>
+										<span class="label">아이디 기억하기</span>
 								</label>
 								</span> <input type="hidden" value="off" name="breeze-me">
 							</div>
