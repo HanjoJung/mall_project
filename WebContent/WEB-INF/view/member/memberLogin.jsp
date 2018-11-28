@@ -9,6 +9,18 @@
 <html>
 <script type="text/javascript">
 	$(function() {
+		$("#id").val(getCookie("userid"));
+		$(".brz-icon-checkbox").parent().click(function() {
+			var checked = $(this).parent();
+			var c = checked.attr("class").lastIndexOf("checked");
+			if (c > 0) {
+				checked.attr("class","input-checkbox uk-width-1-1")
+				checked.children("input").attr("checked", false)
+			} else {
+				checked.attr("class","input-checkbox uk-width-1-1 checked")
+				checked.children("input").attr("checked", true)
+			}
+		})
 		$.get("${pageContext.request.contextPath}/ajax/kakaoLogin.do",
 				function(data) {
 					$("#kakao").html(data);
@@ -32,6 +44,11 @@
 							display : "block"
 						})
 					} else {
+						if($("#breeze-me").attr("checked")!=null){
+							setCookie("userid", $("#id").val(), 365);	
+						}else{
+							setCookie("userid", "", 0);	
+						}
 						location.reload();
 					}
 				}
@@ -70,9 +87,9 @@
 						<div class="uk-form-row">
 							<div class="input-form-group">
 								<span class="input-checkbox checked"> <input
-									type="checkbox" id="breeze-me" name="receiveEmail" /> <label
+									type="checkbox" id="breeze-me" name="receiveEmail" checked="checked"> <label
 									for="breeze-me"> <i class="brz-icon-checkbox">rediobox</i>
-										<span class="label">로그인 유지하기</span>
+										<span class="label">아이디 기억하기</span>
 								</label>
 								</span> <input type="hidden" value="off" name="breeze-me">
 							</div>

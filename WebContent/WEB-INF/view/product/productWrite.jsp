@@ -86,7 +86,7 @@ $(function() {
 				<div class="form-group">
 					<label for="manufacturerCode">사이즈:</label> 
 						<select class="form-control" id="sizemin" name="sizemin" style="display: inline; width: 10%">
-						<c:forEach begin="240" end="280" step="5" var="i">
+						<c:forEach begin="225" end="280" step="5" var="i">
 						<option>${i}</option>
 						</c:forEach>
 						</select>

@@ -82,8 +82,8 @@
 					url : "./buy.do",
 					tpye : "POST",
 					data : {
-						title : $("#styleCode").attr("data-model"),
-						amount : $("#totalPrice").children().attr("data-amount"),
+						title : $(".style-code").attr("data-model"),
+						amount : $(".total").children().attr("data-amount"),
 						email : $("#dataEmail").text(),
 						name : $("#addressFullName").val(),
 						tel : $("#phoneNumber").val(),

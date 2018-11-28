@@ -1,17 +1,4 @@
 $(function() {
-	$(".brz-icon-checkbox").parent().click(
-			function() {
-				var checked = $(this).parent();
-				var c = checked.attr("class").lastIndexOf("checked");
-				if (c > 0) {
-					checked.attr("class","input-checkbox uk-width-1-1")
-					checked.children("input").attr("checked", false)
-				} else {
-					checked.attr("class","input-checkbox uk-width-1-1 checked")
-					checked.children("input").attr("checked", true)
-				}
-			})
-			
 			function formCheck(data){
 				// 정규식 패턴
 				var pat = (RegExp)(data.attr("data-parsley-pattern"));

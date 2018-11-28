@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -151,6 +152,20 @@ public class MemberService {
 		ActionFoward actionFoward = new ActionFoward();
 		HttpSession session = request.getSession();
 		session.invalidate();
+		
+		Cookie [] cookies = request.getCookies();
+		if(cookies != null){
+		    for(int i=0; i < cookies.length; i++){
+				Cookie cookie = new Cookie(cookies[i].getName(), null);
+		             
+		        // 쿠키의 유효시간을 0으로 설정하여 바로 만료시킨다.
+		    	System.out.println(cookie.getName());
+		        cookie.setMaxAge(0);
+		        System.out.println(cookie.getValue());
+		        // 응답에 쿠키 추가
+		        response.addCookie(cookie);
+		    }
+		}
 
 		request.setAttribute("message", "logout");
 		request.setAttribute("path", "../index.jsp");
