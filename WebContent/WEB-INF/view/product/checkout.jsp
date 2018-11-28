@@ -72,7 +72,7 @@ $(function() {
 		$("#btn-next").click(function() {
 			if(checkFormAll()){
 				$.ajax({
-					url : "./checkout2.do",
+					url : "${pageContext.request.contextPath}/product/checkout2.do",
 					type : "POST",
 					data : {
 						email : $("#emailAddress").val(),
@@ -121,74 +121,101 @@ $(function() {
 										<strong>주문내역</strong>
 									</h5>
 								</div>
-
 								<div id="order-summary" class="body view">
 									<div class="cart-order_list" data-order="">
-										<dl class="order-list">
-											<dt class="image-wrap">
-												<img
-													src="/mall_project/upload/${file.fname}"
-													alt="${item.productName}">
-											</dt>
-
-											<dd class="order-info">
-												<a class="tit" id="productName"
-													href="./productSelectOne.do?code=${item.productCode}"
-													title="${item.productName}">${item.productName}</a>
-												<div class="style-code" data-model="${item.productCode}">스타일 :
-													${item.productCode}</div>
-
-												<!-- skuOptionDisplayProcess -->
-												<div class="current-option-wrap">
-													<input type="hidden" name="FW_SIZE" value="${item.productSize}">
-													<!-- bundle product -->
-													<!-- product -->
-													<span class="opt">사이즈 : ${item.productSize}</span>
-												</div>
-
-												<!-- itemAttribute -->
-												<span class="qty">수량 : ${quantity}개</span> <span
-													class="price-wrap"> <strong class="retail-price priceText" data-price="${item.price * quantity}"
-													></strong>
-
-												</span>
-											</dd>
-										</dl>
+										<c:choose>
+											<c:when test="${not empty blist}">
+												<c:forEach items="${blist}" var="bDTO" varStatus="i">
+													<dl class="order-list">
+														<dt class="image-wrap">
+															<img src="/mall_project/upload/${bDTO.fname}"
+																alt="${bDTO.productName}">
+														</dt>
+														<dd class="order-info">
+															<a class="tit" id="productName"
+																href="./productSelectOne.do?code=${bDTO.productCode}"
+																title="${bDTO.productName}">${bDTO.productName}</a>
+															<div class="style-code" data-model="${bDTO.productCode}">스타일
+																: ${bDTO.productCode}</div>
+															<div class="current-option-wrap">
+																<input type="hidden" name="FW_SIZE"
+																	value="${bDTO.productSize}"> <span class="opt">사이즈
+																	: ${bDTO.productSize}</span>
+															</div>
+															<span class="qty">수량 : 1개</span> <span
+																class="price-wrap"> <strong
+																class="retail-price priceText"
+																data-price="${bDTO.price}"></strong>
+															</span>
+														</dd>
+													</dl>
+												</c:forEach>
+											</c:when>
+											<c:otherwise>
+												<dl class="order-list">
+													<dt class="image-wrap">
+														<img src="/mall_project/upload/${file.fname}"
+															alt="${item.productName}">
+													</dt>
+													<dd class="order-info">
+														<a class="tit" id="productName"
+															href="./productSelectOne.do?code=${item.productCode}"
+															title="${item.productName}">${item.productName}</a>
+														<div class="style-code" data-model="${item.productCode}">스타일
+															: ${item.productCode}</div>
+														<div class="current-option-wrap">
+															<input type="hidden" name="FW_SIZE"
+																value="${item.productSize}"> <span class="opt">사이즈
+																: ${item.productSize}</span>
+														</div>
+														<span class="qty">수량 : ${quantity}개</span> <span
+															class="price-wrap"> <strong
+															class="retail-price priceText"
+															data-price="${item.price * quantity}"></strong>
+														</span>
+													</dd>
+												</dl>
+											</c:otherwise>
+										</c:choose>
 									</div>
-
 									<div class="uk-width-1-1 info-price">
-										<span class="item-price"> 
-											<span class="labeli">상품 금액</span> 
-											<span class="price">
-												<strong class="priceText" data-price="${item.price * quantity}"></strong>
-											</span>
-										</span> 
-										
-										<span class="delivery-price"> 
-											<span class="labeli">배송비</span>
-											<span class="price">
-												<strong class="priceText" data-price="0"></strong>
-											</span>
-										</span> 
-										
-										<span class="item-price"> 
-											<span class="labeli">상품 할인 금액</span>
-											<span class="price sale"> 
-												<strong class="priceText" data-price="0"></strong>
-											</span>
-										</span> 
-										
-										<span class="item-price"> 
-											<span class="labeli">주문 할인 금액</span> 
-											<span class="price sale">
-											<strong class="priceText" data-price="0"></strong>
-											</span>
+										<c:choose>
+											<c:when test="${not empty blist}">
+												<c:forEach items="${blist}" var="bDTO" varStatus="i">
+													<span class="item-price"> <span class="labeli">상품
+															금액</span> <span class="price"> <strong class="priceText"
+															data-price="${bDTO.price}"></strong>
+													</span>
+													</span>
+													<input type="hidden" ${total=total+bDTO.price} />
+												</c:forEach>
+											</c:when>
+											<c:otherwise>
+												<span class="item-price"> <span class="labeli">상품
+														금액</span> <span class="price"> <strong class="priceText"
+														data-price="${item.price * quantity}"></strong>
+												</span>
+												</span>
+											</c:otherwise>
+										</c:choose>
+										<span class="delivery-price"> <span class="labeli">배송비</span>
+											<span class="price"> <strong class="priceText"
+												data-price="0"></strong>
+										</span>
+										</span> <span class="item-price"> <span class="labeli">상품
+												할인 금액</span> <span class="price sale"> <strong
+												class="priceText" data-price="0"></strong>
+										</span>
+										</span> <span class="item-price"> <span class="labeli">주문
+												할인 금액</span> <span class="price sale"> <strong
+												class="priceText" data-price="0"></strong>
+										</span>
 										</span>
 
 										<div class="total-price">
-											<span class="labeli">총 결제 예정 금액</span> 
-											<span class="price sale total">
-												<strong class="priceText" data-price="0" data-amount="0"></strong>
+											<span class="labeli">총 결제 예정 금액</span> <span
+												class="price sale total"> <strong class="priceText"
+												data-price="0" data-amount="0"></strong>
 											</span>
 										</div>
 

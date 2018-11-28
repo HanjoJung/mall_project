@@ -2,6 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:import url="../../../temp/bootStrap.jsp" />
+<script type="text/javascript">
+	$(function() {
+		$(".btn-delete").click(function() {
+			location.reload();
+		});
+	});
+</script>
 <link href="/mall_project/css/index.css" rel="stylesheet"
 	type="text/css">
 <c:import url="../../../temp/header.jsp" />
@@ -19,7 +26,7 @@
 							<div class="product-select-all">
 								<a class="btn-cart-delete-All" href="#">전체삭제</a>
 							</div>
-							<c:forEach items="${blist}" var="bDTO" varStatus="i">
+							<c:forEach items="${blist}" var="bDTO" varStatus="i"> ${bDTO.num}
 								<div class="product-opt_cart" id="productRow21099499">
 									<input type="hidden" name="categoryId" value="10001"> <input
 										type="hidden" name="productId" data-id="10000009435"
@@ -44,11 +51,13 @@
 												<span class="uk-hidden"></span>
 												<!-- skuOptionDisplayProcess -->
 												<div class="current-option-wrap">
-													<input type="hidden" name="FW_SIZE" value="${bDTO.productSize}">
+													<input type="hidden" name="FW_SIZE"
+														value="${bDTO.productSize}">
 													<!-- bundle product -->
 													<!-- product -->
 													<span class="opt" data-opt="{FW_SIZE:270}"
-														data-attribute-name="FW_SIZE">사이즈 : ${bDTO.productSize}</span>
+														data-attribute-name="FW_SIZE">사이즈 :
+														${bDTO.productSize}</span>
 												</div>
 												<!-- itemAttribute -->
 												<span class="opt quantity">수량 : 1</span>
@@ -62,11 +71,13 @@
 											</div>
 										</div>
 										<div class="total-price">
-											<strong class="retail-price">${bDTO.price}원</strong>
+											<strong class="retail-price priceText"
+												data-price="${bDTO.price}">${bDTO.price}원</strong>
 										</div>
 										<div class="delete-btn">
-											<a class="btn-delete" href="#"> <i
-												class="icon-delete_bold"></i>
+											<a class="btn-delete"
+												href="${pageContext.request.contextPath}/basket/basketDelete.do?num=${bDTO.num}&id=${member.id}">
+												<i class="icon-delete_bold"></i>
 											</a>
 										</div>
 									</div>
@@ -74,8 +85,8 @@
 									<div class="btn-box">
 										<div class="btn-wishlist-add"></div>
 									</div>
-								</div>		
-								<input type="hidden" ${total=total+bDTO.price} /> 						
+								</div>
+								<input type="hidden" ${total=total+bDTO.price} />
 							</c:forEach>
 						</div>
 						<div class="pc-only">
@@ -102,10 +113,13 @@
 							</div>
 							<div class="total-price">
 								<span class="label">총 결제 예정 금액</span> <span
-									class="price sale total"><strong>${total} 원</strong></span>
+									class="price sale total priceText" data-price="${total}"><strong>${total}
+										원</strong></span>
 							</div>
 							<a class="btn-link xlarge width-max btn-order indian-red"
-								href="${pageContext.request.contextPath}/product/productSelectOne.do">주문하기</a>
+								href="${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}">주문하기
+								<button id="btn-order"></button>
+							</a>
 						</div>
 						<div
 							data-module-promotion="{errorMessageTarget:.promo-error-message}"

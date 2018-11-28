@@ -115,7 +115,7 @@ public class ProductDAO {
 		st.setString(5, productDTO.getManufacturerCode());
 		st.setString(6, productDTO.getWriter());
 		st.setString(7, productDTO.getContents());
-		st.setInt(8, productDTO.getProductSize());
+		st.setString(8, productDTO.getProductSize());
 
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);

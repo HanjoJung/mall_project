@@ -15,30 +15,30 @@
 			}
 		});
 		
-		$(".addcart-btn").on("click", function(event) {
+		$("#btn-add").on("click", function(event) {
 			
 			var size = $("#size").val();
 			
-			if ('${member}' == null ) {
+			if ('${member.id}' == '' ) {
 				alert("회원만 구입 가능합니다");
 			} else if(size =="") {
 				alert("사이즈를 선택하세요!");
 			} else {
 				$('.cart').addClass('cartadd');
 				$('body').addClass('stop-scrolling');
-				$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);
-				$.post('${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}');
-				$("#cart-order_list").load('../WEB-INF/view/basket/basketList.jsp');
+				$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);				
+				$("#cart-order_list").load('../WEB-INF/basketList.jsp');
 			}
+			
 		});		
 		
-		/* $('.cart-item').on("click", function(event) {
-			
-			if ('${member}' == '' ) {
+		/* $('.cart-item').on("click", function(event) {			
+			 if ('${member}' == '' ) {
 				alert("로그인 하십시요");
 				event.preventDefault();
-			} 
-		});		 */
+			}  
+			$.post('${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}');
+		}); */
 
 		$(".cart").click(function() {
 			$(this).removeClass('cartadd');

@@ -79,7 +79,7 @@
 			})
 			if(check){
 				$.ajax({
-					url : "./buy.do",
+					url : "${pageContext.request.contextPath}/product/buy.do",
 					tpye : "POST",
 					data : {
 						title : $(".style-code").attr("data-model"),

@@ -90,7 +90,7 @@ public class ProductService {
 			
 			try {
 				productDTO = productDAO.selectOne(productDTO.getProductCode());
-				productDTO.setProductSize(Integer.parseInt(request.getParameter("size")));
+				productDTO.setProductSize(request.getParameter("size"));
 				//List<FileDTO> ar = new ArrayList<>();
 				FileDTO fileDTO = fileDAO.selectOne(productDTO.getProductCode());
 				
@@ -154,8 +154,7 @@ public class ProductService {
 				productDTO.setManufacturerCode(multi.getParameter("mCode"));
 				productDTO.setWriter(multi.getParameter("writer"));
 				productDTO.setContents(multi.getParameter("contents"));
-				int productSize = Integer.parseInt(multi.getParameter("sizemin")+multi.getParameter("sizemax"));
-				productDTO.setProductSize(productSize);
+				productDTO.setProductSize(multi.getParameter("sizemin")+multi.getParameter("sizemax"));
 
 				int result = productDAO.insert(productDTO);
 				if (result > 0) {
