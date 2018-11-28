@@ -29,17 +29,17 @@
 				$('body').addClass('stop-scrolling');
 				$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);
 				$.post('${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}');
-				$("#cart-order_list").load('${pageContext.request.contextPath}/basket/basketList.jsp');
+				$("#cart-order_list").load('../WEB-INF/view/basket/basketList.jsp');
 			}
 		});		
 		
-		$('.cart-item').on("click", function(event) {
+		/* $('.cart-item').on("click", function(event) {
 			
 			if ('${member}' == '' ) {
 				alert("로그인 하십시요");
 				event.preventDefault();
 			} 
-		});		
+		});		 */
 
 		$(".cart").click(function() {
 			$(this).removeClass('cartadd');
@@ -95,7 +95,7 @@
 				</c:choose>
 				<li><a
 					href="${pageContext.request.contextPath}/cscenter/cscenter.do">고객센터</a></li>
-				<li><a class="cart-item" href="${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}"><i class="ns-cart"></i> <span
+				<li><a class="cart-item" href="${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}"><i class="ns-cart"></i> <span
 						class="">${blist.size()}</span> </a></li>
 				<li><a href="#"><span class="flag-kr" title="대한민국"></span></a></li>
 			</ul>
@@ -814,7 +814,7 @@
 		</div>
 		<div class="cart-order_buy uk-grid">
 			<div class="uk-width-1-1">
-				<a class="btn-link width-max large line" href="#">장바구니 가기</a>
+				<a class="btn-link width-max large line" href="${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}">장바구니 가기</a>
 			</div>
 		</div>
 	</div>

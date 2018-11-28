@@ -47,8 +47,26 @@ public class BasketService {
 			request.setAttribute("bDTO", basketDTO);
 			request.setAttribute("blist", ar);
 			actionFoward.setPath("../WEB-INF/view/basket/cartlistall.jsp");
-			/*System.out.println(basketDTO);
-			System.out.println(ar);*/
+		} catch (Exception e) {
+			request.setAttribute("message", "Basket Empty");
+			actionFoward.setPath("../WEB-INF/common/result.jsp");
+			e.printStackTrace();
+		}
+		
+		actionFoward.setCheck(true);
+		return actionFoward;
+	}
+	
+	public ActionFoward basketList(HttpServletRequest request, HttpServletResponse response) {
+		ActionFoward actionFoward = new ActionFoward();
+		String id = "";
+		try {
+			id = request.getParameter("id");
+			List<BasketDTO> ar = basketDAO.selectList(id);
+			BasketDTO basketDTO = new BasketDTO();
+			request.setAttribute("bDTO", basketDTO);
+			request.setAttribute("blist", ar);			
+			actionFoward.setPath("../WEB-INF/view/basket/basketList.jsp");
 		} catch (Exception e) {
 			request.setAttribute("message", "Basket Empty");
 			actionFoward.setPath("../WEB-INF/common/result.jsp");
