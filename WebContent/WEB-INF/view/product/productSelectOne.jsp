@@ -33,7 +33,6 @@
 
 		$("#btn-buy").click(function() {
 			var size = $("#size").val();
-			/* alert(size !=""); */
 			if (size != "") {
 				$("#frm").submit();
 			} else {
@@ -186,8 +185,8 @@ label.selected {
 														<div class="opt-list">
 															<c:forEach begin="235" end="330" step="5" var="i">
 																<span class="input-radio"> <label>${i}</label> <input
-																	id="radio2" type="radio" name="SIZE"
-																	disabled="disabled" />
+																	type="radio" name="SIZE"
+																	disabled="disabled">
 																</span>
 															</c:forEach>
 														</div>
@@ -229,7 +228,7 @@ label.selected {
 													<div data-add-item="" class="status-wrap btn-wrap">
 														<div class="order-wrap">
 															<button type="button"
-																class="btn-link xlarge btn-order width-max" id="btn-add">장바구니</button>
+																class="btn-link xlarge btn-order width-max addcart-btn" id="btn-add">장바구니</button>
 															<button type="button"
 																class="btn-link xlarge btn-order width-max" id="btn-buy">바로구매</button>
 														</div>
@@ -377,7 +376,7 @@ label.selected {
 							<div class="btn-group-box line type2">
 								<div class="status-wrap btn-wrap">
 									<div class="order-wrap">
-										<a class="btn-link width-max xlarge btn-cart addcart-btn"
+										<a class="btn-link width-max xlarge btn-cart"
 											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a 
 											class="btn-link xlarge btn-order width-max"
 											href="./${board}Delete.do?code=${pDTO.productCode}"> <span>삭제</span></a>
