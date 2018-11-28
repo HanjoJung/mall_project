@@ -10,6 +10,25 @@ import com.nike.util.DBconnector;
 
 public class FileDAO {
 	
+	public FileDTO selectOne(String code, String put) throws Exception{
+		Connection con = DBconnector.getConnect();
+		String sql = "select * from image where productcode=? and put=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, code);
+		st.setString(2, put);
+		ResultSet rs = st.executeQuery();
+		FileDTO fileDTO = null;
+		if(rs.next()) {
+			fileDTO = new FileDTO();
+			fileDTO.setFname(rs.getString("fname"));
+			fileDTO.setOname(rs.getString("oname"));
+			fileDTO.setPut(rs.getString("put"));
+		}
+		DBconnector.disConnect(rs, st, con);
+		return fileDTO;
+		
+	}
+	
 	public FileDTO selectOne(String code) throws Exception{
 		Connection con = DBconnector.getConnect();
 		String sql = "select * from image where productcode=? order by put desc";
