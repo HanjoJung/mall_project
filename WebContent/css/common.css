@@ -21309,7 +21309,7 @@ body.mobile .product-item .action-hover.over .quick-btn {
 
 .info-wrap_product_n .status-wrap .order-wrap .btn-link {
   width: 49%;
-  width: 154px;
+  width: 152px;
   text-align: center;
 }
 
@@ -21331,7 +21331,7 @@ body.mobile .product-item .action-hover.over .quick-btn {
 }
 
 .info-wrap_product_n .status-wrap .order-wrap .addcart-btn {
-  margin-right: 1px;
+  margin-right: 0px;
 }
 
 .info-wrap_product_n .status-wrap .order-wrap .addcart-btn:hover, .info-wrap_product_n .status-wrap .order-wrap .btn-order:hover {

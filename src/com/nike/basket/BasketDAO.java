@@ -22,21 +22,21 @@ public class BasketDAO {
 		return result;
 	}
 
-	public List<BasketDTO> selectList(String id, String cookie) throws Exception {
+	public List<BasketDTO> selectList(BasketDTO basketDTO) throws Exception {
 
 		Connection con = DBconnector.getConnect();
-		String sql = "select num, fname, productname, productcode, price, productsize "
-				+ "from basket "
-				+ "INNER JOIN product using(productcode) "
-				+ "JOIN image using(productcode) "
-				+ "where id=? or cookie=? order by num asc";
+		String sql = "select fname, productname, productcode, price, basket.productsize "
+					+ "from basket "
+					+ "INNER JOIN product using(productcode) " 
+					+ "JOIN image using(productcode) "
+					+ "where id = ? or cookie = ? "
+					+ "order by num asc";
 
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, id);
-		st.setString(2, cookie);
+		st.setString(1, basketDTO.getId());
+		st.setString(2, basketDTO.getCookie());
 		ResultSet rs = st.executeQuery();
 		List<BasketDTO> ar = new ArrayList<>();
-		BasketDTO basketDTO= null;
 		while (rs.next()) {
 			basketDTO = new BasketDTO();
 			basketDTO.setFname(rs.getString("fname"));
@@ -46,11 +46,6 @@ public class BasketDAO {
 			basketDTO.setProductSize(rs.getString("productsize"));
 			basketDTO.setNum(rs.getInt("num"));
 			ar.add(basketDTO);
-			/*System.out.println(basketDTO.getFname());
-			System.out.println(basketDTO.getProductName());
-			System.out.println(basketDTO.getProductCode());
-			System.out.println(basketDTO.getPrice());			
-			System.out.println(ar.size());*/
 		}
 
 		DBconnector.disConnect(rs, st, con);

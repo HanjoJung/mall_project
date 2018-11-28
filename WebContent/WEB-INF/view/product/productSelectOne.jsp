@@ -7,21 +7,81 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../../../temp/bootStrap.jsp" />
+<style type="text/css">
+.form-control {
+	height: 20px;
+	padding: 0px 6px;
+	margin: 2px;
+}
+
+.review-write-btn, .btn-more-review{
+	display: inline-block;
+	width: auto;
+	margin-top: 0;
+	padding: 0;
+	color: #2e2e2e;
+	border-bottom: 1px solid #2e2e2e;
+	font-size: 13px;
+	line-height: 14px;
+	background-color: white;
+}
+</style>
 <script type="text/javascript">
 	$(function() {
+		function review(Page) {
+			$.ajax({
+				url : "../review/reviewList.do",
+				type : "POST",	
+				data : {
+					code : "${param.code}",
+					Page : page
+				},
+				success : function(data) {
+					$(".detail-review").html(data);
+				}
+			})
+		}
+		var page = 1;
+		review(page);
+		$(".detail-review").on("click",".btn-more-review",function() {
+			page++
+			review(page);
+		})
+
+		$(".review-write-btn").click(function() {
+			$.ajax({
+				url : "../review/reviewWrite.do",
+				type : "POST",
+				data : {
+					code : "${param.code}",
+					writer : $("#writer").val(),
+					title : $("#title").val(),
+					contents : $("#contents").val(),
+					score : $(".rating-star").children(".active:last").attr("data-value")
+				},
+				success : function() {
+					review(page);
+				}
+			})
+		})
+
 		$(".pop-detail-title").click(function() {
-			console.log("click");
-			if($(this).attr("class")=="pop-detail-title uk-accordion-title"){
+			if ($(this).attr("class") == "pop-detail-title uk-accordion-title") {
 				$(this).attr("class","pop-detail-title uk-accordion-title uk-active");
-				$(this).next(".accordion-wrapper").css({height: "auto"});
+				$(this).next(".accordion-wrapper").css({
+					height : "auto"
+				});
 				$(this).next(".accordion-wrapper").children().attr("class","pop-detail-content uk-accordion-content uk-active");
-			}else{
+			} else {
 				$(this).attr("class","pop-detail-title uk-accordion-title");
-				$(this).next(".accordion-wrapper").css({height: "0"});
+				$(this).next(".accordion-wrapper").css({
+					height : "0"
+				});
 				$(this).next(".accordion-wrapper").children().attr("class","pop-detail-content uk-accordion-content");
 			}
 		})
-	var s = $(".opt-list");
+		
+		var s = $(".opt-list");
 
 		$(".input-radio").click(function() {
 			$(this).addClass("checked");
@@ -33,7 +93,6 @@
 
 		$("#btn-buy").click(function() {
 			var size = $("#size").val();
-			/* alert(size !=""); */
 			if (size != "") {
 				$("#frm").submit();
 			} else {
@@ -62,6 +121,13 @@
 				}
 			}
 		})
+		
+		$(".brz-icon-star_xlarge").click(function() {
+			$(this).prevAll().attr("class", "brz-icon-star_xlarge active");
+			$(this).attr("class", "brz-icon-star_xlarge active");
+			$(this).nextAll().attr("class", "brz-icon-star_xlarge");
+			$(".rating-description").text($(this).attr("data-message"));
+		})
 	});
 </script>
 <style type="text/css">
@@ -77,12 +143,6 @@ label.selected {
     text-align: center;
     outline: none;
     box-sizing: border-box;
-}
-
-.info-wrap_product_n .status-wrap .order-wrap .btn-link {
-    width: 49%;
-    width: 152px;
-    text-align: center;
 }
 
 </style>
@@ -186,8 +246,8 @@ label.selected {
 														<div class="opt-list">
 															<c:forEach begin="235" end="330" step="5" var="i">
 																<span class="input-radio"> <label>${i}</label> <input
-																	id="radio2" type="radio" name="SIZE"
-																	disabled="disabled" />
+																	type="radio" name="SIZE"
+																	disabled="disabled">
 																</span>
 															</c:forEach>
 														</div>
@@ -216,7 +276,7 @@ label.selected {
 											<div class="select-box width-max"
 												data-component-select="{changeType:normal,icon:brz-icon-opt-select_down,required:true}">
 												<select id="fType" name="fType">
-													<option value="PHYSICAL_SHIP" selected="true">택배배송</option>
+													<option value="PHYSICAL_SHIP" selected="selected">택배배송</option>
 													<option value="PHYSICAL_PICKUP">매장방문</option>
 												</select>
 											</div>
@@ -229,7 +289,7 @@ label.selected {
 													<div data-add-item="" class="status-wrap btn-wrap">
 														<div class="order-wrap">
 															<button type="button"
-																class="btn-link xlarge btn-order width-max" id="btn-add">장바구니</button>
+																class="btn-link xlarge btn-order width-max addcart-btn" id="btn-add">장바구니</button>
 															<button type="button"
 																class="btn-link xlarge btn-order width-max" id="btn-buy">바로구매</button>
 														</div>
@@ -305,33 +365,52 @@ label.selected {
 											</span> <span class="upc-code"></span>
 										</div>
 									</h2>
-									<div data-wrapper="true" class="accordion-wrapper"
-										aria-expanded="true">
-										<div class="pop-detail-content uk-accordion-content">
-											<div class="detail-review" id="detail-review">
-												<div
-													data-module-review="{target:#detail-review,api:/kr/ko_kr/review/list,isSignIn:false}">
-													<div class="no-detail-review">
-														<p class="star-average">
-															<span class="like"> <i class="icon-star5 per"
-																style="width: 0.0%"></i> <i
-																class="icon-star5 star-default-bg"></i>
-															</span>
-														</p>
-														<div class="review-noti">이 상품의 첫 번째 리뷰를 작성해 주세요.</div>
-														<a href="#common-modal-large" class="review-write-btn"
-															data-successmsg="완료되었습니다." data-productid="10000008722">리뷰
-															작성하기</a>
+										<div class="accordion-wrapper">
+											<div class="pop-detail-content uk-accordion-content">
+
+												<form id="frm" action="../review/reviewWrite.do"
+													method="post" class="form-inline">
+													<div class="form-group"><input type="hidden"
+															class="form-control" id="writer" name="writer"
+															value="${member.name}n">
 													</div>
-												</div>
+													<div class="form-group">
+
+														<div class="rating-star-data">
+															<div class="rating-star" id="score">
+																<a data-value="1" data-message="별로에요." class="brz-icon-star_xlarge"></a> 
+																<a data-value="2" data-message="그저 그래요." class="brz-icon-star_xlarge"></a> 
+																<a data-value="3" data-message="나쁘지 않아요." class="brz-icon-star_xlarge"></a> 
+																<a data-value="4" data-message="마음에 들어요." class="brz-icon-star_xlarge"></a> 
+																<a data-value="5" data-message="좋아요!" class="brz-icon-star_xlarge"></a>
+															</div>
+															<p class="rating-description" ></p>
+														</div>
+													</div>
+													<br>
+													<div class="form-group" style="width: 100%;">
+														<label for="productName">제목:</label> <input type="text"
+															class="form-control" style="width: 90%;" id="title"
+															name="title" value="t">
+													</div>
+													<br>
+
+													<div class="form-group" style="width: 100%;">
+														<label for="kind">내용:</label> <input type="text"
+															class="form-control" style="width: 90%;" id="contents"
+															name="contents" value="c">
+													</div>
+													<br>
+													<a class="review-write-btn" id="submit">리뷰 작성하기</a>
+												</form>
+												<div class="detail-review"></div>
 											</div>
 										</div>
-									</div>
 
-									<h2 class="pop-detail-title uk-accordion-title">
-										배송<span class="sub-title-wrap">무료배송 / 5일 이내 배송</span>
-									</h2>
-									<div class="accordion-wrapper">
+										<h2 class="pop-detail-title uk-accordion-title">
+											배송<span class="sub-title-wrap">무료배송 / 5일 이내 배송</span>
+										</h2>
+										<div class="accordion-wrapper">
 										<div class="pop-detail-content uk-accordion-content">
 											<p>상품의 구매금액에 상관없이 모든 상품이 무료배송 됩니다.</p>
 											<h3 class="detail-content-title">배송안내</h3>
@@ -377,7 +456,7 @@ label.selected {
 							<div class="btn-group-box line type2">
 								<div class="status-wrap btn-wrap">
 									<div class="order-wrap">
-										<a class="btn-link width-max xlarge btn-cart addcart-btn"
+										<a class="btn-link width-max xlarge btn-cart"
 											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a 
 											class="btn-link xlarge btn-order width-max"
 											href="./${board}Delete.do?code=${pDTO.productCode}"> <span>삭제</span></a>

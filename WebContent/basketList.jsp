@@ -14,10 +14,8 @@
 				<a class="tit"
 					href="./productSelectOne.do?code=${productDTO.productCode}"
 					title="${bDTO.productName}">${bDTO.productName}</a>
-				<div class="style-code" data-model="AR1689-001">스타일 :
-					${bDTO.productCode}</div>
-				<span class="uk-hidden" data-upc="091204574916"
-					data-model="AR1689-001"></span> <span class="opt quantity">수량:
+				<div class="style-code">스타일 :
+					${bDTO.productCode}</div> <span class="opt quantity">수량:
 					${blist.size()}</span> <span class="price-wrap">
 					<div class="total-price">
 						<strong class="retail-price">${bDTO.price} 원</strong>

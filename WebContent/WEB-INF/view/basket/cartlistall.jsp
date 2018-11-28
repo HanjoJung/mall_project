@@ -11,7 +11,6 @@
 </script>
 <link href="/mall_project/css/index.css" rel="stylesheet"
 	type="text/css">
-<c:import url="../../../temp/header.jsp" />
 <section class="wrapper">
 	<section class="content-area">
 		<section class="pt_cart">
@@ -146,11 +145,6 @@
 										<span class="text">Coupon code "1212" is unknown.</span>
 									</div>
 								</div>
-								<div class="uk-grid uk-margin-mini-top">
-									<div class="promo-list uk-width-1-1"></div>
-								</div>
-								<input type="hidden" name="csrfToken"
-									value="TFK5-HKGH-9693-HIO1-DCKX-Z2I0-92N8-O6A5">
 							</form>
 						</div>
 						<div class="info">

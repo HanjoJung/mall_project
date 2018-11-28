@@ -8,12 +8,7 @@
 <jsp:include page="./temp/bootStrap.jsp"></jsp:include>
 <script type="text/javascript">
 $(function() {
-	setCookie("JSESSIONID", null, 0);
-	setCookie("s_pers", null, 0);
-	setCookie("username", null, 0);
-	setCookie("test", null, 0);
-	setCookie("userID", null, 0);
-	setCookie("userid", null, 0);
+	//setCookie("userid", null, 0);
 	var data = document.cookie;
 	console.log(data);
 	//checkCookie();
