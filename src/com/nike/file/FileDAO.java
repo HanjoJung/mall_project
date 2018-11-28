@@ -10,16 +10,16 @@ import com.nike.util.DBconnector;
 
 public class FileDAO {
 	
-	public FileDTO selectOne(String code, String put) throws Exception{
+	public FileDTO selectOne(int num) throws Exception{
 		Connection con = DBconnector.getConnect();
-		String sql = "select * from image where productcode=? and put=?";
+		String sql = "select * from image where imagenum=?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, code);
-		st.setString(2, put);
+		st.setInt(1, num);
 		ResultSet rs = st.executeQuery();
 		FileDTO fileDTO = null;
 		if(rs.next()) {
 			fileDTO = new FileDTO();
+			fileDTO.setImageNum(rs.getInt("imagenum"));
 			fileDTO.setFname(rs.getString("fname"));
 			fileDTO.setOname(rs.getString("oname"));
 			fileDTO.setPut(rs.getString("put"));
@@ -28,7 +28,7 @@ public class FileDAO {
 		return fileDTO;
 		
 	}
-	
+		
 	public FileDTO selectOne(String code) throws Exception{
 		Connection con = DBconnector.getConnect();
 		String sql = "select * from image where productcode=? order by put desc";
@@ -38,6 +38,7 @@ public class FileDAO {
 		FileDTO fileDTO = null;
 		if(rs.next()) {
 			fileDTO = new FileDTO();
+			fileDTO.setImageNum(rs.getInt("imagenum"));
 			fileDTO.setFname(rs.getString("fname"));
 			fileDTO.setOname(rs.getString("oname"));
 			fileDTO.setPut(rs.getString("put"));
@@ -101,11 +102,11 @@ public class FileDAO {
 	public int update(FileDTO fileDTO) throws Exception{
 		
 		Connection con = DBconnector.getConnect();
-		String sql = "update image set fname=?, oname=? where productcode=?";
+		String sql = "update image set fname=?, oname=? where imagenum=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, fileDTO.getFname());
 		st.setString(2, fileDTO.getOname());
-		st.setString(3, fileDTO.getProductCode());
+		st.setInt(3, fileDTO.getImageNum());
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
 		

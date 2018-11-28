@@ -237,10 +237,8 @@ public class ProductService {
 
 	public ActionFoward update(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
-
 		String method = request.getMethod();
 		if (method.equals("POST")) {
-			
 			int max = 1024*1024*10;
 			String path = request.getServletContext().getRealPath("upload");
 			File file = new File(path);
@@ -249,37 +247,41 @@ public class ProductService {
 				file.mkdirs();
 			}
 			String message = "upload Fail";
-			
 			try {
 				MultipartRequest multi = new MultipartRequest(request, path, max, "utf-8", new DefaultFileRenamePolicy());
 				ProductDTO productDTO = new ProductDTO();
-				
 				productDTO=productDAO.selectOne(multi.getParameter("code"));
 				productDTO.setProductName(multi.getParameter("name"));
 				productDTO.setKind(multi.getParameter("kind"));
 				productDTO.setPrice(Integer.parseInt(multi.getParameter("price")));
 				productDTO.setContents(multi.getParameter("contents"));
-				List<FileDTO>ar = fileDAO.selectList(multi.getParameter("code"));
-				for(int i=0;i<ar.size();i++) {
-					
-					file = multi.getFile("fname"+i);
+				
+				FileDTO fileDTO = fileDAO.selectOne(Integer.parseInt(multi.getParameter("imagenum")));
+								
+				System.out.println("rrrrrrrrrrrrrr");
+				
+					System.out.println("qqqqqqqqqqqqqqqq");
+					file = multi.getFile("f");
 					if(file !=null) {
-						file = new File(path, ar.get(i).getFname());
+						System.out.println("wwwwwwwwwwwww");
+						file = new File(path, fileDTO.getFname());
 						file.delete();
-						ar.get(i).setFname(multi.getFilesystemName("fname"+i));
-						ar.get(i).setOname(multi.getOriginalFileName("fname"+i));
-						fileDAO.update(ar.get(i));
-						System.out.println(ar.get(i).getFname());
-						System.out.println(ar.get(i).getOname());
+						System.out.println("eeeeeeeeeeeeee");
+						fileDTO.setFname(multi.getFilesystemName("f"));
+						fileDTO.setOname(multi.getOriginalFileName("f"));
+						System.out.println(fileDTO.getFname());
+						System.out.println(fileDTO.getOname());
+					
+						
 						
 					}
+					fileDAO.update(fileDTO);
 					int result = productDAO.update(productDTO);
 					if(result>0) {
 						request.setAttribute("product", productDTO);
-						request.setAttribute("file", ar);
+						request.setAttribute("file", fileDTO);
 						message = "Update Success";
 					}
-				}
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

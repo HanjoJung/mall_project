@@ -41,7 +41,13 @@ $(function() {
 						value="${member.id}" readonly="readonly">
 				</div>
 				<div class="form-group">
-					<label for="productCode">상품코드:</label> <input type="hidden"
+					<c:forEach items="${ar }" var="fDTO">
+					<label for="productCode">이미지넘버:</label> <input type="text" readonly="readonly"
+						class="form-control" id="imagenum" name="imagenum" value="${fDTO.imageNum}">
+					</c:forEach>
+				</div>
+				<div class="form-group">
+					<label for="productName">상품명:</label> <input type="hidden"
 						class="form-control" id="code" name="code" value="${pDTO.productCode}">
 				</div>
 				<div class="form-group">
@@ -75,10 +81,10 @@ $(function() {
 
 				<div class="form-group">
 				<c:forEach items="${ar}" var="upload" varStatus="i">
-					<label for="file">File:</label> 
+					<label for="file">File: ${upload.imageNum }</label> 
 					
 					<input type="file"
-						class="form-control" id="file" name="fname${i.index}">
+						class="form-control" id="file" name="f" >
 				</c:forEach>
 					
 				</div>
