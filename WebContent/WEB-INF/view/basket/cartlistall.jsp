@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:import url="../../../temp/bootStrap.jsp" />
+<c:import url="../../../temp/header.jsp" />
 <link href="/mall_project/css/index.css" rel="stylesheet"
 	type="text/css">
-<c:import url="../../../temp/header.jsp" />
 <section class="wrapper">
 	<section class="content-area">
 		<section class="pt_cart">
