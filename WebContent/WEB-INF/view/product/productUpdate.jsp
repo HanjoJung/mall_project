@@ -42,12 +42,12 @@ $(function() {
 				</div>
 				<div class="form-group">
 					<c:forEach items="${ar }" var="fDTO">
-					<label for="productCode">이미지넘버:</label> <input type="text" readonly="readonly"
+					<input type="hidden" 
 						class="form-control" id="imagenum" name="imagenum" value="${fDTO.imageNum}">
 					</c:forEach>
 				</div>
 				<div class="form-group">
-					<label for="productName">상품명:</label> <input type="hidden"
+					<input type="hidden"
 						class="form-control" id="code" name="code" value="${pDTO.productCode}">
 				</div>
 				<div class="form-group">

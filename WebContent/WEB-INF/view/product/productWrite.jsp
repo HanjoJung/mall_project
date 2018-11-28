@@ -91,7 +91,7 @@ $(function() {
 						</c:forEach>
 						</select>
 						~
-						<select class="form-control" id="sizemin" name="sizemax" style="display: inline; width: 10%">
+						<select class="form-control" id="sizemax" name="sizemax" style="display: inline; width: 10%">
 						<c:forEach begin="0" end="50" step="5" var="i">
 						<option>${330-i}</option>
 						</c:forEach>

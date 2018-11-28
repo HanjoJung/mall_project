@@ -114,6 +114,9 @@ public class ProductService {
 			String code = request.getParameter("code");
 			try {
 				productDTO = productDAO.selectOne(code);
+				String dd =String.valueOf(productDTO.getProductSize());
+				System.out.println(dd);
+				 
 				List<FileDTO> ar = new ArrayList<>();
 				ar = fileDAO.selectList(code);
 				request.setAttribute("file", ar);
@@ -257,6 +260,7 @@ public class ProductService {
 				productDTO.setContents(multi.getParameter("contents"));
 				
 				List<FileDTO> ar = fileDAO.selectList(multi.getParameter("code"));
+				
 				for(int i=0;i<ar.size();i++) {
 				
 				FileDTO fileDTO = null;
@@ -264,6 +268,7 @@ public class ProductService {
 
 
 					file = multi.getFile("f"+i);
+					
 					if(file !=null) {
 						file = new File(path, ar.get(i).getFname());
 						file.delete();
