@@ -92,4 +92,12 @@
     <servlet-name>basket</servlet-name>
     <url-pattern>/basket/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>review</servlet-name>
+    <servlet-class>com.nike.controller.ReviewController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>review</servlet-name>
+    <url-pattern>/review/*</url-pattern>
+  </servlet-mapping>
 </web-app>

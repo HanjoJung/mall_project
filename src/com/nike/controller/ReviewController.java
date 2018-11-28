@@ -25,7 +25,7 @@ public class ReviewController extends HttpServlet {
      */
     public ReviewController() {
         super();
-        // TODO Auto-generated constructor stub
+        reviewService = new ReviewService();
     }
 
 	/**
@@ -37,13 +37,9 @@ public class ReviewController extends HttpServlet {
 		
 		if(command.equals("/reviewList.do")) {
 			actionFoward = reviewService.selectList(request, response);
-		}else if(command.equals("/reviewSelectOne.do")) {
-			actionFoward= reviewService.selectOne(request, response);
 		}else if(command.equals("/reviewWrite.do")) {
 			actionFoward= reviewService.insert(request, response);
-			
 		}
-		
 		
 		if(actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
