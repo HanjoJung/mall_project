@@ -14,8 +14,7 @@
 	<c:import url="../../../temp/header.jsp" />
 	<div class="container-fluid wrapper">
 		<div class="row">
-			<form action="./memberUpdate.do" method="post"
-				enctype="multipart/form-data" name="frm">
+			<form action="./memberUpdate.do" method="post" name="frm">
 				<div class="form-group">
 					<label for="id">ID:</label> <input type="email"
 						class="form-control" value="${member.id}" name="id"
@@ -43,24 +42,6 @@
 				<div class="form-group">
 					<label for="address">주소:</label> <input type="text"
 						class="form-control" value="${member.address}" name="address">
-				</div>
-				<div class="form-group">
-					<c:if test="${member.sex eq '남자'}">
-					남자<input type="radio" name="sex" value="남자" checked="checked">
-					여자<input type="radio" name="sex" value="여자">
-					</c:if>
-					<c:if test="${member.sex eq '여자'}">
-					남자<input type="radio" name="sex" value="남자">
-					여자<input type="radio" name="sex" value="여자" checked="checked">
-					</c:if>
-				</div>
-				<div class="form-group">
-					<label for="birthday">생년월일:</label> <input type="date"
-						class="form-control" value="${member.birthday}" name="birthday">
-				</div>
-				<div class="form-group">
-					<label for="file">프로필 사진:</label> <input type="file"
-						class="form-control" id="file" name="f">
 				</div>
 				<input type="button" class="btn btn-default" value="수정 " id="btn">
 			</form>

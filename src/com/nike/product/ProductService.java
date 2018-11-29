@@ -1,7 +1,6 @@
 package com.nike.product;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -115,14 +114,17 @@ public class ProductService {
 				String[] ss = s.split("-");
 				String smin = ss[0];
 				String smax = ss[1];
-				System.out.println(smin);
-				System.out.println(smax);
 				List<FileDTO> ar = new ArrayList<>();
 				ar = fileDAO.selectList(code);
+				int result = productDAO.getScoreAvg(productDTO.getProductCode());
+				int reviewTotal = productDAO.getReviewTotal(productDTO.getProductCode());
 				request.setAttribute("size", ss);
 				request.setAttribute("file", ar);
 				request.setAttribute("pDTO", productDTO);
 				request.setAttribute("board", "product");
+				request.setAttribute("scoreAvg", result);
+				request.setAttribute("reviewTotal", reviewTotal);
+
 				actionFoward.setCheck(true);
 				actionFoward.setPath("../WEB-INF/view/product/productSelectOne.jsp");
 			} catch (Exception e) {
@@ -146,7 +148,6 @@ public class ProductService {
 			int maxSize = 1024 * 1024 * 20;
 			// 파일 저장공간
 			String save = request.getServletContext().getRealPath("upload");
-			System.out.println(save);
 			File file = new File(save);
 			if (!file.exists()) {
 				file.mkdirs();
@@ -275,16 +276,11 @@ public class ProductService {
 						file.delete();
 						ar.get(i).setFname(multi.getFilesystemName("f" + i));
 						ar.get(i).setOname(multi.getOriginalFileName("f" + i));
-						System.out.println(ar.get(i).getFname());
-						System.out.println(ar.get(i).getOname());
-						System.out.println("----------------------");
 
 						ar.add(fileDTO);
-
 					}
 
 					fileDAO.update(ar.get(i));
-
 				}
 				int result = productDAO.update(productDTO);
 				if (result > 0) {

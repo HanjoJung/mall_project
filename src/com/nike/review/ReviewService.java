@@ -28,7 +28,7 @@ public class ReviewService {
 		int lastnum = Page * 2;
 
 		try {
-			List<BoardDTO> ar = reviewDAO.selectList(code, lastnum);
+			List<ReviewDTO> ar = reviewDAO.selectList(code, lastnum);
 			request.setAttribute("list", ar);
 			request.setAttribute("count", lastnum);
 			request.setAttribute("Page", Page);

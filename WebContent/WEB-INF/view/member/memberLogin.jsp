@@ -9,7 +9,7 @@
 <html>
 <script type="text/javascript">
 	$(function() {
-		$("#id").val(getCookie("userid"));
+		$(".userid").val(getCookie("userid"));
 		$(".brz-icon-checkbox").parent().click(function() {
 			var checked = $(this).parent();
 			var c = checked.attr("class").lastIndexOf("checked");
@@ -34,8 +34,8 @@
 				url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
 				type : "POST",
 				data : {
-					id : $("#id").val(),
-					pw : $("#pw1").val()
+					id : $(".userid").val(),
+					pw : $(".password").val()
 				},
 				success : function(data) {
 					data.trim();
@@ -70,7 +70,7 @@
 					<form method="POST" class="uk-form-large" action="">
 						<div class="uk-form-row">
 							<div class="input-textfield width-max">
-								<input class="data" type="email"
+								<input class="data userid" type="email"
 									data-parsley-required-message="필수 입력 항목입니다." placeholder="아이디"
 									id="id" name="id" /> <span class="error-message filled"></span>
 							</div>
@@ -78,8 +78,8 @@
 
 						<div class="uk-form-row">
 							<div class="input-textfield width-max">
-								<input class="data" type="password" autocomplete="new-password"
-									data-parsley-required-message="필수 입력 항목입니다." id="pw1"
+								<input class="data password" type="password" autocomplete="new-password"
+									data-parsley-required-message="필수 입력 항목입니다." 
 									placeholder="비밀번호" id="pw" name="pw" /> <span
 									class="error-message filled"></span>
 							</div>

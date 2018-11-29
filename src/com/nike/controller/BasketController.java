@@ -57,8 +57,6 @@ public class BasketController extends HttpServlet {
 			actionFoward = basketService.basketDelete(request, response);
 		}
 
-		System.out.println(command);
-
 		if (actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
 			view.forward(request, response);

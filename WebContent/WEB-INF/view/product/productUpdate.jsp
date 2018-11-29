@@ -21,9 +21,6 @@ $(function() {
 			alert("상품명을 입력하세요");
 		}
 	});
-	
-	
-	
 })
 </script>
 </head>

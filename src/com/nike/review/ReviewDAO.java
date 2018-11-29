@@ -7,12 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.nike.board.BoardDTO;
-import com.nike.page.RowNumber;
 import com.nike.util.DBconnector;
 
 public class ReviewDAO {
 
-	public List<BoardDTO> selectList(String code, int lastnum) throws Exception {
+	public List<ReviewDTO> selectList(String code, int lastnum) throws Exception {
 		Connection con = DBconnector.getConnect();
 		String sql = "select * from " + 
 				"(select rownum R, r.* from " + 
@@ -23,7 +22,7 @@ public class ReviewDAO {
 		st.setString(1, code);
 		st.setInt(2, lastnum);
 		ResultSet rs = st.executeQuery();
-		List<BoardDTO> ar = new ArrayList<>();
+		List<ReviewDTO> ar = new ArrayList<>();
 		ReviewDTO reviewDTO = null;
 		while (rs.next()) {
 			reviewDTO = new ReviewDTO();
@@ -101,19 +100,6 @@ public class ReviewDAO {
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
 
-		return result;
-	}
-
-	public int getCount() throws Exception {
-		Connection con = DBconnector.getConnect();
-		String sql = "select count(num) from review";
-		PreparedStatement st = con.prepareStatement(sql);
-
-		ResultSet rs = st.executeQuery();
-		rs.next();
-		int result = rs.getInt(1);
-
-		DBconnector.disConnect(rs, st, con);
 		return result;
 	}
 }

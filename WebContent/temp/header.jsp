@@ -26,7 +26,6 @@
 				$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);				
 				$("#cart-order_list").load('../WEB-INF/basketList.jsp');
 			}
-			
 		});		
 		
 		/* $('.cart-item').on("click", function(event) {			

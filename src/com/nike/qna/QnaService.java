@@ -10,12 +10,10 @@ import com.nike.action.ActionFoward;
 import com.nike.board.BoardDTO;
 import com.nike.board.BoardService;
 import com.nike.member.MemberDTO;
-import com.nike.notice.NoticeDTO;
 import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
 import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class QnaService implements BoardService{
 	private QnaDAO qnaDao;

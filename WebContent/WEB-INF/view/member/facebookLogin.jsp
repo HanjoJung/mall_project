@@ -46,7 +46,6 @@ $(function() {
 								},
 						success : function(data) {
 							data = data.trim();
-							console.log(data);
 							if (data == '1') {
 							var url = "${pageContext.request.contextPath}/ajax/snsLogin.do?id=" + userEmail
 								+ "&snsid=" + userID

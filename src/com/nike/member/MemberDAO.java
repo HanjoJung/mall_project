@@ -46,7 +46,7 @@ public class MemberDAO {
 
 	public int insert(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "insert into member values(?,?,?,?,?,?,?,sysdate,?,?,?,?)";
+		String sql = "insert into member values(?,?,?,?,?,sysdate,?,?)";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getId());
@@ -54,12 +54,8 @@ public class MemberDAO {
 		st.setString(3, memberDTO.getName());
 		st.setString(4, memberDTO.getPhone());
 		st.setString(5, memberDTO.getAddress());
-		st.setString(6, memberDTO.getSex());
-		st.setDate(7, memberDTO.getBirthday());
-		st.setString(8, memberDTO.getProfileFname());
-		st.setString(9, memberDTO.getProfileOname());
-		st.setString(10, memberDTO.getKakaoID());
-		st.setString(11, memberDTO.getFacebookID());
+		st.setString(6, memberDTO.getKakaoID());
+		st.setString(7, memberDTO.getFacebookID());
 		int result = st.executeUpdate();
 
 		DBconnector.disConnect(st, con);
@@ -68,19 +64,14 @@ public class MemberDAO {
 
 	public int update(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "update member set password=?, name=?, phone=?, "
-				+ "address=?, sex=?, birthday=?, ProfileFname=?, ProfileOname=?  where id =?";
+		String sql = "update member set password=?, name=?, phone=?, address=?, where id =?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getPassword());
 		st.setString(2, memberDTO.getName());
 		st.setString(3, memberDTO.getPhone());
 		st.setString(4, memberDTO.getAddress());
-		st.setString(5, memberDTO.getSex());
-		st.setDate(6, memberDTO.getBirthday());
-		st.setString(7, memberDTO.getProfileFname());
-		st.setString(8, memberDTO.getProfileOname());
-		st.setString(9, memberDTO.getId());
+		st.setString(5, memberDTO.getId());
 		int result = st.executeUpdate();
 
 		DBconnector.disConnect(st, con);
@@ -101,7 +92,7 @@ public class MemberDAO {
 
 	public MemberDTO login(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "select * from member where id=? and password=? " + "or id=? and kakaoid=? "
+		String sql = "select * from member where id=? and password=? or id=? and kakaoid=? "
 				+ "or id=? and facebookid=?";
 
 		PreparedStatement st = con.prepareStatement(sql);
@@ -117,11 +108,7 @@ public class MemberDAO {
 			memberDTO.setName(rs.getString("name"));
 			memberDTO.setPhone(rs.getString("phone"));
 			memberDTO.setAddress(rs.getString("address"));
-			memberDTO.setSex(rs.getString("sex"));
-			memberDTO.setBirthday(rs.getDate("birthday"));
 			memberDTO.setJoin_date(rs.getDate("join_date"));
-			memberDTO.setProfileFname(rs.getString("profileFname"));
-			memberDTO.setProfileOname(rs.getString("profileOname"));
 		}
 		DBconnector.disConnect(rs, st, con);
 		return memberDTO;
@@ -163,11 +150,9 @@ public class MemberDAO {
 			memberDTO.setName(rs.getString("name"));
 			memberDTO.setPhone(rs.getString("phone"));
 			memberDTO.setAddress(rs.getString("address"));
-			memberDTO.setSex(rs.getString("sex"));
-			memberDTO.setBirthday(rs.getDate("birthday"));
 			memberDTO.setJoin_date(rs.getDate("join_date"));
-			memberDTO.setProfileFname(rs.getString("profileFname"));
-			memberDTO.setProfileOname(rs.getString("profileOname"));
+			memberDTO.setKakaoID(rs.getString("kakaoID"));
+			memberDTO.setFacebookID(rs.getString("facebookID"));
 			ar.add(memberDTO);
 		}
 

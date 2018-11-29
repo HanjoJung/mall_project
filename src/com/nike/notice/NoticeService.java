@@ -14,7 +14,6 @@ import com.nike.member.MemberDTO;
 import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
-import com.oreilly.servlet.MultipartRequest;
 
 public class NoticeService implements BoardService {
 	private NoticeDAO noticeDAO;

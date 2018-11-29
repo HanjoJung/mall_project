@@ -170,7 +170,33 @@ public class ProductDAO {
 
 	}
 	
+
+	public int getScoreAvg(String code) throws Exception {
+		Connection con = DBconnector.getConnect();
+		String sql = "select avg(score)*20 from review "
+				+ "where PRODUCTCODE = ?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, code);
+		ResultSet rs = st.executeQuery();
+		rs.next();
+		int result = rs.getInt(1);
+
+		DBconnector.disConnect(rs, st, con);
+		return result;
+	}
 	
-	
+	public int getReviewTotal(String code) throws Exception {
+		Connection con = DBconnector.getConnect();
+		String sql = "select count(num) from review "
+				+ "where PRODUCTCODE = ?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, code);
+		ResultSet rs = st.executeQuery();
+		rs.next();
+		int result = rs.getInt(1);
+
+		DBconnector.disConnect(rs, st, con);
+		return result;
+	}
 
 }

@@ -1,7 +1,5 @@
 package com.nike.member;
 
-import java.io.File;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +12,6 @@ import com.nike.action.ActionFoward;
 import com.nike.page.MakePager;
 import com.nike.page.Pager;
 import com.nike.page.RowNumber;
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class MemberService {
 	private MemberDAO memberDAO;
@@ -70,10 +66,6 @@ public class MemberService {
 				memberDTO.setPassword(request.getParameter("pw2"));
 				memberDTO.setName(request.getParameter("name"));
 				memberDTO.setPhone(request.getParameter("phone"));
-//				memberDTO.setAddress(request.getParameter("address"));
-//				memberDTO.setSex(request.getParameter("sex"));
-//				memberDTO.setBirthday(Date.valueOf(request.getParameter("birthday")));
-//				memberDTO.setProfileFname(request.getParameter("fname"));
 				if (sns != null) {
 					if (sns.equals("kakao")) {
 						memberDTO.setKakaoID(request.getParameter("snsid"));
@@ -159,9 +151,7 @@ public class MemberService {
 				Cookie cookie = new Cookie(cookies[i].getName(), null);
 		             
 		        // 쿠키의 유효시간을 0으로 설정하여 바로 만료시킨다.
-		    	System.out.println(cookie.getName());
 		        cookie.setMaxAge(0);
-		        System.out.println(cookie.getValue());
 		        // 응답에 쿠키 추가
 		        response.addCookie(cookie);
 		    }
@@ -205,31 +195,13 @@ public class MemberService {
 
 			request.setAttribute("message", "fail");
 			request.setAttribute("path", "./memberUpdate.do");
-			int max = 1024 * 1024 * 10;
-			String save = request.getServletContext().getRealPath("upload");
-			File file = new File(save);
-			if (!file.exists()) {
-				file.mkdirs();
-			}
 			try {
-				MultipartRequest multi;
-				multi = new MultipartRequest(request, save, max, "UTF-8", new DefaultFileRenamePolicy());
-
 				MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
-				memberDTO.setId(multi.getParameter("id"));
-				memberDTO.setPassword(multi.getParameter("pw2"));
-				memberDTO.setName(multi.getParameter("name"));
-				memberDTO.setPhone(multi.getParameter("phone"));
-				memberDTO.setAddress(multi.getParameter("address"));
-				memberDTO.setSex(multi.getParameter("sex"));
-				memberDTO.setBirthday(Date.valueOf(multi.getParameter("birthday")));
-				file = multi.getFile("f");
-				if (file != null) {
-					file = new File(save, memberDTO.getProfileFname());
-					file.delete();
-					memberDTO.setProfileFname(multi.getFilesystemName("f"));
-					memberDTO.setProfileOname(multi.getOriginalFileName("f"));
-				}
+				memberDTO.setId(request.getParameter("id"));
+				memberDTO.setPassword(request.getParameter("pw2"));
+				memberDTO.setName(request.getParameter("name"));
+				memberDTO.setPhone(request.getParameter("phone"));
+				memberDTO.setAddress(request.getParameter("address"));
 				int result = memberDAO.update(memberDTO);
 				if (result > 0) {
 					session.setAttribute("member", memberDTO);
@@ -250,7 +222,6 @@ public class MemberService {
 	public ActionFoward checkId(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
 		String id = request.getParameter("id");
-
 		try {
 			int result = memberDAO.checkId(id);
 			request.setAttribute("result", result);
