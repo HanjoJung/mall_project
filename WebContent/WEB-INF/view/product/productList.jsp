@@ -396,6 +396,17 @@ body {
 								</div>
 							</div>
 						</div>
+						<script type="text/javascript">
+							$(function() {
+								$(".input-radio").click(function() {
+									$(this).addClass("checked");
+									$(this).siblings().removeClass('checked');
+									$(this).children("label").addClass("selected");
+									$(this).siblings().children('label').removeClass('selected');
+									$("#size").attr('value', s.find(".selected").text());
+								});
+							});
+						</script>
 						<div class="filter-wrap_category">
 							<div class="filter-tagbox">
 								<div class="filter-tit">
@@ -404,7 +415,7 @@ body {
 								<div class="filter_check_wrap"></div>
 							</div>
 							<div class="select-box sort right pc"
-								data-component-select="{'changeType':'submit', 'icon':'icon-arrow_bottom'}">
+								>
 								<a class="select-head"><span class="currentOpt">신상품a</span></a>
 								<ul class="select-body">
 									<li class="list"><a href="" data-value=""><span
@@ -433,6 +444,7 @@ body {
 								$(".action-hover").mouseleave(function() {
 									$(this).parent().attr("class", "");
 								});
+								
 							})
 						</script>
 						<ul class="uk-grid item-list-wrap">
