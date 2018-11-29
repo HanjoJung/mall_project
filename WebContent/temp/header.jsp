@@ -23,23 +23,12 @@
 			} else if ('${member.id}' == '') {
 				alert("회원만 구입 가능합니다");
 			} else {
-				$('.cart').addClass('cartadd');
-				$('body').addClass('stop-scrolling');
-				/* $.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);
-				$("#cart-order_list").html("../WEB-INF/basketList.jsp"); */
-				$.ajax({
-					url : "${pageContext.request.contextPath}/basket/basketAdd.do",
-					type : "POST",
-					data : {
-						id : $(${member.id}),
-						productCode : $({pDTO.productCode}),
-					},
-					success: function(data) {
-						$("#cart-order_list").html(data);
-					}
-				})
+				/* $('.cart').addClass('cartadd');
+				$('body').addClass('stop-scrolling'); */
+				alert("상품명   ${pDTO.productName}  1개를 장바구니에 담았습니다");
+				$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);
+				$.post('${pageContext.request.contextPath}/basket/minicart.do?id=${member.id}');
 			}
-			
 		});		
 		
 		/* $('.cart-item').on("click", function(event) {			
@@ -105,8 +94,9 @@
 				</c:choose>
 				<li><a
 					href="${pageContext.request.contextPath}/cscenter/cscenter.do">고객센터</a></li>
-				<li><a class="cart-item" href="${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}"><i class="ns-cart"></i> <span
-						class="cart-num"></span> </a></li>
+				<li><a class="cart-item"
+					href="${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}"><i
+						class="ns-cart"></i> <span class="cart-num"></span> </a></li>
 				<li><a href="#"><span class="flag-kr" title="대한민국"></span></a></li>
 			</ul>
 		</div>
@@ -151,26 +141,36 @@
 									<ul class="header-menu_threedepth">
 										<li class="threedepth-list"><a
 											href="${pageContext.request.contextPath}/product/productList.do"
-											data-click-area="GNB" data-click-name="MEN_신발_신발 전체">신발 전체</a></li>
-										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
+											data-click-area="GNB" data-click-name="MEN_신발_신발 전체">신발
+												전체</a></li>
+										<li class="threedepth-list"><a
+											href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_라이프스타일">라이프스타일</a></li>
-										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
+										<li class="threedepth-list"><a
+											href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_러닝">러닝</a></li>
-										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
+										<li class="threedepth-list"><a
+											href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_트레이닝 &amp; 짐">트레이닝
 												&amp; 짐</a></li>
-										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
+										<li class="threedepth-list"><a
+											href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_농구">농구</a></li>
-										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
+										<li class="threedepth-list"><a
+											href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_조던">조던</a></li>
-										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
+										<li class="threedepth-list"><a
+											href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_축구">축구</a></li>
-										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
+										<li class="threedepth-list"><a
+											href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_스케이트보딩">스케이트보딩</a>
 										</li>
-										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
+										<li class="threedepth-list"><a
+											href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_골프">골프</a></li>
-										<li class="threedepth-list"><a href="${pageContext.request.contextPath}/product/productList.do"
+										<li class="threedepth-list"><a
+											href="${pageContext.request.contextPath}/product/productList.do"
 											data-click-area="GNB" data-click-name="MEN_신발_테니스">테니스</a></li>
 									</ul></li>
 							</ul>
@@ -785,13 +785,14 @@
 	<div
 		class="cart-main section-minicart uk-offcanvas-bar uk-offcanvas-bar-flip">
 		<input type="hidden" name="itemSize" value="1"> <input
-			type="hidden" name="cartId" value="${bDTO.productCode}">
+			type="hidden" name="cartId" value="">
 		<div class="cart-order_list uk-grid" id="cart-order_list">
 			<div class="uk-width-1-1">
 				<h5 class="minicart-title">미니 장바구니</h5>
 			</div>
 			<div class="uk-width-1-1">
 				<c:forEach items="${blist}" var="bDTO" varStatus="i">
+					<h2>${bDTO.productCode}test</h2>
 					<dl class="order-list" data-product-item="">
 						<dt class="image-wrap">
 							<img src="/mall_project/upload/${bDTO.fname}" alt="">
@@ -813,18 +814,20 @@
 					</dl>
 				</c:forEach>
 			</div>
-		</div>
-		<div class="cart-order_price uk-grid">
-			<span class="order-price uk-width-1-1"> <span>총 상품금액</span> <strong>
-					원</strong>
-			</span>
-		</div>
-		<div class="cart-order_deliveryinfo uk-grid">
-			<div class="uk-width-1-1">배송비는 주문서에서 확인이 가능합니다.</div>
-		</div>
-		<div class="cart-order_buy uk-grid">
-			<div class="uk-width-1-1">
-				<a class="btn-link width-max large line" href="#">장바구니 가기</a>
+			<div class="cart-order_price uk-grid">
+				<span class="order-price uk-width-1-1"> <span>총 상품금액</span> <strong>
+						원</strong>
+				</span>
+			</div>
+			<div class="cart-order_deliveryinfo uk-grid">
+				<div class="uk-width-1-1">배송비는 주문서에서 확인이 가능합니다.</div>
+			</div>
+			<div class="cart-order_buy uk-grid">
+				<div class="uk-width-1-1">
+					<a class="btn-link width-max large line"
+						href="${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}">장바구니
+						가기</a>
+				</div>
 			</div>
 		</div>
 	</div>

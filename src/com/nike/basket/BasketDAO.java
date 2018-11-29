@@ -30,7 +30,7 @@ public class BasketDAO {
 					+ "INNER JOIN product using(productcode) " 
 					+ "JOIN image using(productcode) "
 					+ "where id = ? or cookie = ? "
-					+ "order by num asc";
+					+ "order by num desc";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, basketDTO.getId());
