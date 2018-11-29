@@ -31,7 +31,7 @@
 		function review(Page) {
 			$.ajax({
 				url : "../review/reviewList.do",
-				type : "POST",	
+				type : "POST",
 				data : {
 					code : "${param.code}",
 					Page : page
@@ -43,7 +43,7 @@
 		}
 		var page = 1;
 		review(page);
-		$(".detail-review").on("click",".btn-more-review",function() {
+		$(".detail-review").on("click", ".btn-more-review", function() {
 			page++
 			review(page);
 		})
@@ -74,31 +74,53 @@
 				})
 			}
 		})
+		$(".review-write-btn").click(
+				function() {
+					$.ajax({
+						url : "../review/reviewWrite.do",
+						type : "POST",
+						data : {
+							code : "${param.code}",
+							writer : $("#writer").val(),
+							title : $("#title").val(),
+							contents : $("#contents").val(),
+							score : $(".rating-star").children(".active:last")
+									.attr("data-value")
+						},
+						success : function() {
+							review(page);
+						}
+					})
+				})
 
-		$(".pop-detail-title").click(function() {
-			if ($(this).attr("class") == "pop-detail-title uk-accordion-title") {
-				$(this).attr("class","pop-detail-title uk-accordion-title uk-active");
-				$(this).next(".accordion-wrapper").css({
-					height : "auto"
-				});
-				$(this).next(".accordion-wrapper").children().attr("class","pop-detail-content uk-accordion-content uk-active");
-			} else {
-				$(this).attr("class","pop-detail-title uk-accordion-title");
-				$(this).next(".accordion-wrapper").css({
-					height : "0"
-				});
-				$(this).next(".accordion-wrapper").children().attr("class","pop-detail-content uk-accordion-content");
-			}
-		})
-		
+		$(".pop-detail-title")
+				.click(
+						function() {
+							if ($(this).attr("class") == "pop-detail-title uk-accordion-title") {
+								$(this).attr("class","pop-detail-title uk-accordion-title uk-active");
+								$(this).next(".accordion-wrapper").css({
+									height : "auto"
+								});
+								$(this).next(".accordion-wrapper").children().attr("class","pop-detail-content uk-accordion-content uk-active");
+							} else {
+								$(this).attr("class","pop-detail-title uk-accordion-title");
+								$(this).next(".accordion-wrapper").css({
+									height : "0"
+								});
+								$(this).next(".accordion-wrapper").children().attr("class","pop-detail-content uk-accordion-content");
+							}
+						})
+
 		var s = $(".opt-list");
 
 		$(".input-radio").click(function() {
-			$(this).addClass("checked");
-			$(this).siblings().removeClass('checked');
-			$(this).children("label").addClass("selected");
-			$(this).siblings().children('label').removeClass('selected');
-			$("#size").attr('value', s.find(".selected").text());
+			if (!$(this).attr('disabled')) {
+				$(this).addClass("checked");
+				$(this).siblings().removeClass('checked');
+				$(this).children("label").addClass("selected");
+				$(this).siblings().children('label').removeClass('selected');
+				$("#size").attr('value', s.find(".selected").text());
+			}
 		});
 
 		$("#btn-buy").click(function() {
@@ -131,7 +153,7 @@
 				}
 			}
 		})
-		
+
 		$(".brz-icon-star_xlarge").click(function() {
 			$(this).prevAll().attr("class", "brz-icon-star_xlarge active");
 			$(this).attr("class", "brz-icon-star_xlarge active");
@@ -251,17 +273,24 @@ label.selected {
 														<span class="txt">FW_SIZE</span> <span class="over-txt"></span>
 														<span class="msg"></span>
 													</h2>
-
-
 													<div class="product-option_radio square">
-														<%-- <div class="opt-list">
-															<c:if test="${size}"></c:if>
+														<div class="opt-list">
 															<c:forEach begin="235" end="330" step="5" var="i">
-																<span class="input-radio"> <label>${i}</label> <input
-																	type="radio" name="SIZE" disabled="disabled">
-																</span>
+																<c:choose>
+																	<c:when test="${size[0] le i and size[1] ge i}">
+																		<span class="input-radio"> <label>${i}</label>
+																			<input type="radio" name="SIZE" disabled="disabled">
+																		</span>
+																	</c:when>
+																	<c:otherwise>
+																		<span class="input-radio" disabled="disabled">
+																			<label class="sd-out">${i}</label> <input
+																			type="radio" name="SIZE" disabled="disabled">
+																		</span>
+																	</c:otherwise>
+																</c:choose>
 															</c:forEach>
-														</div> --%>
+														</div>
 													</div>
 												</div>
 												<div class="quantity">
