@@ -8,6 +8,12 @@
 <title>Insert title here</title>
 <jsp:include page="../../../temp/bootStrap.jsp"></jsp:include>
 <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
+<style type="text/css">
+.write {
+	padding: 20px;
+	max-width: 1500px;
+}
+</style>
 <script type="text/javascript">
 $(function() {
 	$("#btn").click(function() {
@@ -28,8 +34,8 @@ $(function() {
 
 	<jsp:include page="../../../temp/header.jsp"></jsp:include>
 
-	<div class="container-fluid wrapper">
-		<div class="row">
+	<div class="container-fluid wrapper write">
+		<div class="row write">
 			<form id="frm" action="./${board}Write.do" method="post">
 				<div class="form-group">
 					<label for="title">Title:</label> <input type="text"

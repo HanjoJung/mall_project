@@ -33,7 +33,7 @@
 					id : $("#id").val(),
 					pw : $("#pw1").val(),
 					sns : '${param.sns}',
-					snsid : ${param.snsid},
+					snsid : '${param.snsid}',
 				},
 				async : false,
 				success : function(data) {

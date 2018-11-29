@@ -181,7 +181,7 @@
 
 
 							<div class="article-more-questions">
-								또 다른 질문이 있으십니까? <a href="#">문의 등록</a>
+								또 다른 질문이 있으십니까? <a href="../qna/qnaWrite.do">문의 등록</a>
 							</div>
 						</article>
 					</div>

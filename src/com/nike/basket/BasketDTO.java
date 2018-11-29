@@ -1,7 +1,5 @@
 package com.nike.basket;
 
-import java.util.Random;
-
 import com.nike.product.ProductDTO;
 
 public class BasketDTO extends ProductDTO {

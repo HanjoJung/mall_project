@@ -7,12 +7,12 @@ import java.util.Map;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.nike.member.MemberDTO;
@@ -53,7 +53,10 @@ public class LoginCheck implements Filter {
 			if (memberDTO != null) {
 				chain.doFilter(request, response);
 			} else {
-				((HttpServletResponse) response).sendRedirect("./memberLogin.do");
+				request.setAttribute("message", "로그인을 하십시오");
+				request.setAttribute("path", "../member/memberSnsLogin.do");
+				RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/view/common/result.jsp");
+				view.forward(request, response);
 			}
 		} else {
 			chain.doFilter(request, response);
@@ -67,6 +70,13 @@ public class LoginCheck implements Filter {
 		map.put("/memberSelectOne.do", "");
 		map.put("/memberUpdate.do", "");
 		map.put("/memberDelete.do", "");
+		map.put("/noticeWrite.do", "");
+		map.put("/noticeUpdate.do", "");
+		map.put("/noticeDelete.do", "");
+		map.put("/qnaWrite.do", "");
+		map.put("/qnaUpdate.do", "");
+		map.put("/qnaDelete.do", "");
+		map.put("/reviewWrite.do", "");
 	}
 
 }

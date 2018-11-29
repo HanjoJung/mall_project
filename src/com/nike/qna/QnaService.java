@@ -114,7 +114,7 @@ public class QnaService implements BoardService{
 			actionFoward.setCheck(true);
 			if(session.getAttribute("member")==null) {
 				request.setAttribute("message", "로그인을 하십시오");
-				request.setAttribute("path", "./qnaList.do");
+				request.setAttribute("path", "../member/memberSnsLogin.do");
 				actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 			}else {
 				actionFoward.setPath("../WEB-INF/view/board/boardWrite.jsp");
