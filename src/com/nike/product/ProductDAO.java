@@ -16,9 +16,10 @@ public class ProductDAO {
 
 		Connection con = DBconnector.getConnect();
 		String sql = "select count(productcode) from product "
-				+ "where " + search.getKind() + " like ?";
+				+ "where PRODUCTCODE like ? or PRODUCTNAME like ?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%" + search.getSearch() + "%");
+		st.setString(2, "%" + search.getSearch() + "%");
 		ResultSet rs = st.executeQuery();
 		rs.next();
 		int result = rs.getInt(1);
@@ -41,7 +42,7 @@ public class ProductDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+rowNumber.getSearch().getSearch()+"%");
 		st.setString(2, "%"+rowNumber.getSearch().getSearch()+"%");
-		st.setString(3, "");
+		st.setString(3, "productcode desc");
 		st.setInt(4, rowNumber.getStartRow());
 		st.setInt(5, rowNumber.getLastRow());
 		ResultSet rs = st.executeQuery();

@@ -483,9 +483,11 @@ body {
 
 						<div class="container-fluid" align="center">
 							<div class="row">
-								<div style="float: left;">
-									<a href="./${board}Write.do" class="btn btn-primary">Write</a>
-								</div>
+								<c:if test="${member.id eq 'manager'}">
+									<div style="float: left;">
+										<a href="./${board}Write.do" class="btn btn-primary">Write</a>
+									</div>
+								</c:if>
 
 								<ul class="pagination">
 									<li><a href="./${board}List.do?curPage==1"><span

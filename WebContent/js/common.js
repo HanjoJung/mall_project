@@ -1,4 +1,15 @@
 $(function() {
+	$(".brz-icon-checkbox").parent().click(function() {
+		var checked = $(this).parent();
+		var c = checked.attr("class").lastIndexOf("checked");
+		if (c > 0) {
+			checked.attr("class","input-checkbox uk-width-1-1")
+			checked.children("input").attr("checked", false)
+		} else {
+			checked.attr("class","input-checkbox uk-width-1-1 checked")
+			checked.children("input").attr("checked", true)
+		}
+	})
 	var total = 0;
 	$(".info-price").find(".priceText").each(function() {
 		var price = parseInt($(this).attr("data-price"));

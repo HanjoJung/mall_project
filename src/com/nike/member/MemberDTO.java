@@ -52,6 +52,9 @@ public class MemberDTO {
 	}
 
 	public void setAddress(String address) {
+		if(address == null) {
+			address = "";
+		}
 		this.address = address;
 	}
 

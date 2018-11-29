@@ -8,7 +8,7 @@ public class MakePager {
 	private Search search;
 	
 	public MakePager(int curPage, String search, String kind) {
-		this(curPage, 10, search, kind);
+		this(curPage, 12, search, kind);
 	}
 	public MakePager(int curPage, int perPage, String search, String kind) {
 		this.curPage = curPage;

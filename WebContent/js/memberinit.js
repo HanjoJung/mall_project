@@ -47,9 +47,6 @@ $(function() {
 				}
 				return false;
 	}
-	$(".data").keyup(function() {
-		formCheck($(this));
-	});
 	
 	$("#pw2").keyup(
 		function() {
@@ -72,6 +69,10 @@ $(function() {
 				});
 			}
 		})
+		
+	$(".data").keyup(function() {
+		formCheck($(this));
+	});
 		
 		$("#submit").click(function() {
 			var check = true;

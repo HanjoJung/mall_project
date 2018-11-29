@@ -55,6 +55,7 @@ public class MemberService {
 		ActionFoward actionFoward = new ActionFoward();
 		int result = 0;
 		String method = request.getMethod();
+		HttpSession session = request.getSession();
 
 		if (method.equals("POST")) {
 			request.setAttribute("message", "fail");
@@ -77,6 +78,7 @@ public class MemberService {
 				result = memberDAO.insert(memberDTO);
 
 				if (result > 0) {
+					session.setAttribute("member", memberDTO);
 					request.setAttribute("message", "success");
 					request.setAttribute("path", "../index.jsp");
 				}
@@ -199,9 +201,8 @@ public class MemberService {
 				MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
 				memberDTO.setId(request.getParameter("id"));
 				memberDTO.setPassword(request.getParameter("pw2"));
-				memberDTO.setName(request.getParameter("name"));
+				memberDTO.setName(request.getParameter("firstName"));
 				memberDTO.setPhone(request.getParameter("phone"));
-				memberDTO.setAddress(request.getParameter("address"));
 				int result = memberDAO.update(memberDTO);
 				if (result > 0) {
 					session.setAttribute("member", memberDTO);
@@ -213,7 +214,7 @@ public class MemberService {
 			}
 			actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 		} else {
-			actionFoward.setPath("../WEB-INF/view/member/memberUpdate.jsp");
+			actionFoward.setPath("../WEB-INF/view/member/memberSelectOne.jsp");
 		}
 		actionFoward.setCheck(true);
 		return actionFoward;
