@@ -48,14 +48,14 @@ public class ProductService {
 		}
 		String text = request.getParameter("text");
 		if (text == null || text.equals("")) {
-			text = "신상품순";
+			text = "신상품순"; 
 		}
-		MakePager makePager = new MakePager(curPage, search, kind, order);
+		MakePager makePager = new MakePager(curPage, search, kind);
 		RowNumber rowNumber = makePager.makeRow();
 
 		try {
 
-			List<ProductDTO> ar = productDAO.selectList(rowNumber);
+			List<ProductDTO> ar = productDAO.selectList(rowNumber, order);
 			List<FileDTO> far = new ArrayList<>();
 			for (int i = 0; i < ar.size(); i++) {
 				FileDTO fileDTO = fileDAO.selectOne(ar.get(i).getProductCode());

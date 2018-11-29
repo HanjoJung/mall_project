@@ -29,14 +29,14 @@ public class ProductDAO {
 
 	}
 	
-	public List<ProductDTO> selectList(RowNumber rowNumber) throws Exception {
+	public List<ProductDTO> selectList(RowNumber rowNumber, String order) throws Exception {
 
 		Connection con = DBconnector.getConnect();
 		String sql = "select * from "
 					+ "(select rownum R, N.* from "
 					+ "(select * from product "
 					+ "where PRODUCTCODE like ? or PRODUCTNAME like ? "
-					+ "order by "+rowNumber.getSearch().getOrder()+") N) "
+					+ "order by " + order + ") N) "
 					+ "where R between ? and ?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
