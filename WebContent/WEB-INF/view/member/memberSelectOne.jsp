@@ -7,6 +7,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../../../temp/bootStrap.jsp" />
+<style type="text/css">
+.labeli{
+
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13px;
+    line-height: 20px;
+    cursor: pointer;
+    list-style: none;
+    font-family: "Helvetica LT W01 Roman", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "MalgunGothic", Dotum, serif, Arial, Helvetica;
+    color: #606060;
+    font-weight: normal;
+}
+</style>
 </head>
 <body>
 	<c:import url="../../../temp/header.jsp" />
@@ -68,51 +82,19 @@
 						</div>
 					</div>
 
-
-
-
-
-
-
-
-
-
 					<div class="customer-contents">
 						<h2 class="customer-location">
 							회원정보 수정<a href="/kr/ko_kr/mypage"><i class="icon-arrow_left"></i></a>
 						</h2>
 						<div class="customer-update">
 							<h2 class="title">
-								<span class="label">회원정보 수정</span>
+								<span class="label" style="padding: 0px;">회원정보 수정</span>
 							</h2>
 
-
-
-
-
-
-
 							<div data-module-dynamicform="">
-
 								<div class="uk-grid">
 									<div class="uk-width-medium-1-2 uk-width-small-1-1">
-
 										<div class="dynamic-form" data-form="">
-
-
-
-
-											<div class="uk-alert uk-alert-danger" id="jq_uk-alert-danger"
-												style="display: none;">
-												<div>이메일 혹은 비밀번호가 잘못 입력되었습니다.</div>
-											</div>
-
-
-
-
-
-
-
 											<form method="POST" class="uk-form-large"
 												action="/kr/ko_kr/account" novalidate="">
 												<input type="hidden" name="locale" value="ko_KR"> <input
@@ -122,31 +104,17 @@
 													type="hidden" name="successUrl"
 													value="/updateAccountSuccess"> <input type="hidden"
 													name="userId" value="">
-
-
-
 												<div class="uk-form-row">
-
 													<label class="uk-form-label">아이디</label>
-													<div class="input-textfield width-max  disabled value"
-														data-component-textfield="">
+													<div class="input-textfield width-max  disabled value">
 														<label for="username"></label> <input type="text"
-															data-parsley-trigger="keyup"
-															data-parsley-required-message="필수 입력 항목입니다."
-															data-parsley-equalto-message="입력값이 일치하지 않습니다."
 															data-parsley-required="false" id="username"
 															name="username" readonly="readonly"
-															value="gkffndnl123@naver.com">
-
+															value="${member.id}">
 													</div>
-
-
-
 												</div>
 
-
 												<div class="uk-form-row">
-
 													<label class="uk-form-label">이름</label>
 													<div class="input-textfield width-max  disabled value"
 														data-component-textfield="">
@@ -155,41 +123,23 @@
 															data-parsley-required-message="필수 입력 항목입니다."
 															data-parsley-equalto-message="입력값이 일치하지 않습니다."
 															data-parsley-required="true" id="firstName"
-															name="firstName" readonly="readonly" value="s">
-
+															name="firstName" readonly="readonly" value="${member.name}">
 													</div>
-
-
-
 												</div>
 
-
 												<div class="uk-form-row">
-
-													<label class="uk-form-label">이메일</label>
+													<label class="uk-form-label">주소</label>
 													<div class="input-textfield width-max  disabled value"
 														data-component-textfield="">
 														<label for="emailAddress"></label> <input type="email"
-															data-parsley-trigger="keyup"
-															data-parsley-equalto-message="입력값이 일치하지 않습니다."
-															data-parsley-required="true"
-															data-parsley-type-message="Validation_pattern_email_CUSTOMER_MODIFY"
-															data-parsley-type="email"
-															data-parsley-required-message="필수 입력 항목입니다."
 															id="emailAddress" name="emailAddress" readonly="readonly"
-															value="gkffndnl123@naver.com">
-
+															value="${member.address}">
 													</div>
-
-
-
 												</div>
 
-
 												<div class="uk-form-row">
-
 													<label class="uk-form-label">휴대폰</label>
-													<div class="input-textfield width-max  disabled value"
+													<div class="input-textfield width-max disabled value"
 														data-component-textfield="">
 														<label for="phone"></label> <input type="text"
 															data-parsley-trigger="keyup"
@@ -199,86 +149,51 @@
 															data-parsley-required="true"
 															data-parsley-type-message="숫자만 입력 가능합니다."
 															data-parsley-pattern-message="숫자만 입력 가능합니다." id="phone"
-															name="phone" readonly="readonly" value="12">
-
+															name="phone" readonly="readonly" value="${member.phone}">
 													</div>
-
-
-
-													<!-- 이용약관 -->
-
-
 												</div>
 
-
 												<div class="uk-form-row">
-
 													<label class="uk-form-label"></label>
 													<div class="input-form-group">
-
-
 														<span class="input-checkbox" data-component-checkbox="">
 															<input type="checkbox" data-parsley-required="false"
 															data-parsley-required-message="필수 입력 항목입니다."
 															id="receiveEmail" name="receiveEmail"
 															data-parsley-multiple="receiveEmail"> <label
 															for="receiveEmail"> <i class="brz-icon-checkbox">rediobox</i>
-																<span class="label">이메일을 통한 상품 및 이벤트 정보 수신에
+																<span class="labeli">이메일을 통한 상품 및 이벤트 정보 수신에
 																	동의합니다.(선택)</span>
 														</label>
 														</span> <input type="hidden" value="off" name="receiveEmail">
 													</div>
-
-
-
-
 												</div>
 
-
 												<div class="uk-form-row">
-
 													<label class="uk-form-label"></label>
 													<div class="input-form-group">
-
-
 														<span class="input-checkbox" data-component-checkbox="">
 															<input type="checkbox" data-parsley-required="false"
 															data-parsley-required-message="필수 입력 항목입니다."
 															name="ATTRIBUTE@smsAgree"
 															data-parsley-multiple="ATTRIBUTE@smsAgree"> <label>
 																<i class="brz-icon-checkbox">rediobox</i> <span
-																class="label">휴대폰을 통한 상품 및 할인쿠폰 등의 정보 수신에
+																class="labeli">휴대폰을 통한 상품 및 할인쿠폰 등의 정보 수신에
 																	동의합니다.(선택)</span>
 														</label>
-														</span> <input type="hidden" value="off"
-															name="ATTRIBUTE@smsAgree">
+														</span> 
 													</div>
-
-
-
-
 												</div>
-
-
-												<input type="hidden" name="csrfToken"
-													value="OS3K-VM0Z-FKUB-BF5W-ZOV1-LI4W-MYZR-Q4HO">
 											</form>
 										</div>
-
-
-
 									</div>
 								</div>
-
 
 								<div class="uk-grid uk-margin-large-top">
 									<div class="uk-width-medium-1-2 uk-width-small-1-1">
-										<button class="button xlarge width-max" type="submit"
-											data-endpoint-type="updateProfile"
-											data-endpoint-value="personal info">수정하기</button>
+										<button class="button xlarge width-max" type="submit">수정하기</button>
 									</div>
 								</div>
-
 							</div>
 						</div>
 					</div>
@@ -286,6 +201,10 @@
 			</article>
 		</section>
 	</section>
+
+
+
+
 
 
 

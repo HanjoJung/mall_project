@@ -31,8 +31,8 @@
 					url : "${pageContext.request.contextPath}/basket/basketAdd.do",
 					type : "POST",
 					data : {
-						id : $(${member.id}),
-						productCode : $({pDTO.productCode}),
+						id : "${member.id}",
+						productCode : "${pDTO.productCode}",
 					},
 					success: function(data) {
 						$("#cart-order_list").html(data);

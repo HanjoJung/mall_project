@@ -98,8 +98,7 @@ $(function() {
 					if(data!=1){
 						check = false;
 						$("#id").parent().children(".error-message").html("이미 사용중인 아이디입니다");
-						$("#id").parent()
-								.children(".uk-form-row .error-message").css({
+						$("#id").parent().children(".uk-form-row .error-message").css({
 									display : "block"
 								});
 						$("#id")
