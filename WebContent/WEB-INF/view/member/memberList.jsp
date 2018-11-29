@@ -10,26 +10,27 @@
 </head>
 <body>
 	<c:import url="../../../temp/header.jsp" />
+
 	<div class="container-fluid wrapper">
 		<div class="row">
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<td width="5%"><input type="checkbox" id="check"></td>
+						<td width="5%"></td>
 						<td width="10%">ID</td>
 						<td width="10%">이름</td>
 						<td width="10%">연락처</td>
-						<td width="25%">주소</td>
+						<td width="30%">주소</td>
 						<td width="10%">가입날짜</td>
 						<td width="10%">kakao</td>
 						<td width="10%">facebook</td>
+						<td width="5%"></td>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${list}" var="dto">
 						<tr>
-							<td><input type="checkbox" class="del" value="${dto.id}"
-								id="${dto.id}" name="del"></td>
+							<td width="5%"></td>
 							<td>${dto.id}</td>
 							<td>${dto.name}</td>
 							<td>${dto.phone}</td>
@@ -37,6 +38,7 @@
 							<td>${dto.join_date}</td>
 							<td>${dto.kakaoID}</td>
 							<td>${dto.facebookID}</td>
+							<td width="5%"></td>
 						</tr>
 					</c:forEach>
 				</tbody>
