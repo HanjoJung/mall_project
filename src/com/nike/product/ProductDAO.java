@@ -35,15 +35,14 @@ public class ProductDAO {
 					+ "(select rownum R, N.* from "
 					+ "(select * from product "
 					+ "where PRODUCTCODE like ? or PRODUCTNAME like ? "
-					+ "order by ?) N) "
+					+ "order by "+rowNumber.getSearch().getOrder()+") N) "
 					+ "where R between ? and ?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+rowNumber.getSearch().getSearch()+"%");
 		st.setString(2, "%"+rowNumber.getSearch().getSearch()+"%");
-		st.setString(3, rowNumber.getSearch().getOrder());
-		st.setInt(4, rowNumber.getStartRow());
-		st.setInt(5, rowNumber.getLastRow());
+		st.setInt(3, rowNumber.getStartRow());
+		st.setInt(4, rowNumber.getLastRow());
 		ResultSet rs = st.executeQuery();
 
 

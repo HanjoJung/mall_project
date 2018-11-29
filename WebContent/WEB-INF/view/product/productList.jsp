@@ -404,12 +404,16 @@ body {
 								});
 								$(".select-box").mouseleave(function() {
 									$(this).removeClass("checked");
-									
+								});
+								$(".list").mouseover(function() {
+									$(this).addClass("checked");
+									$(this).siblings().removeClass("checked");
 								});
 
 							});
 						</script>
 						<div class="filter-wrap_category">
+							
 							<div class="filter-tagbox">
 								<div class="filter-tit">
 									신발 <span class="num">(${totalCount})</span>
@@ -418,23 +422,21 @@ body {
 							</div>
 							<div class="select-box sort right pc"
 								data-component-select="{'changeType':'submit', 'icon':'icon-arrow_bottom'}">
-								<a class="select-head"><span class="currentOpt">신상품a</span></a>
+								<a class="select-head"><span class="currentOpt">${text}</span></a>
 								<ul class="select-body">
 									<li class="list"><a href="" data-value=""><span
 											class="label">SORT BY</span></a></li>
-									<li class="list checked "><a href="default"
-										data-value="default"><span class="label">신상품tns</span></a></li>
-									<li class="list  "><a href="price desc"
+									<li class="list checked "><a
+										href="./productList.do?order=productcode desc&text=신상품순"
+										data-value="productcode desc"><span class="label">신상품순</span></a></li>
+									<li class="list  "><a
+										href="./productList.do?order=price desc&text=높은 가격순"
 										data-value="price desc"><span class="label">높은 가격순</span></a></li>
-									<li class="list  "><a href="price asc"
-										data-value="price asc"><span class="label">낮은 가격순</span></a></li>
+									<li class="list  "><a
+										href="./productList.do?order=hit desc&text=조회수순"
+										data-value="hit desc"><span class="label">조회수순</span></a></li>
 								</ul>
-								<select name="sort">
-									<option value="">SORT BY</option>
-									<option value="default" selected="selected">신상품</option>
-									<option value="price desc">높은 가격순</option>
-									<option value="price asc">낮은 가격순</option>
-								</select>
+
 							</div>
 
 						</div>

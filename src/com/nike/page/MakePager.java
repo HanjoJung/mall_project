@@ -7,14 +7,15 @@ public class MakePager {
 	private RowNumber rowNumber;
 	private Search search;
 	
-	public MakePager(int curPage, String search, String kind) {
-		this(curPage, 10, search, kind);
+	public MakePager(int curPage, String search, String kind, String order) {
+		this(curPage, 10, search, kind, order);
 	}
-	public MakePager(int curPage, int perPage, String search, String kind) {
+	public MakePager(int curPage, int perPage, String search, String kind, String order) {
 		this.curPage = curPage;
 		this.search = new Search();
 		this.search.setKind(kind);
 		this.search.setSearch(search);
+		this.search.setOrder(order);
 		this.perPage = perPage;
 	}
 	
