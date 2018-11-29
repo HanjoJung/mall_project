@@ -48,9 +48,6 @@ public class BasketController extends HttpServlet {
 		 */
 		if (command.equals("/basketAdd.do")) {
 			actionFoward = basketService.insert(request, response);
-			actionFoward = new ActionFoward();
-			actionFoward.setCheck(true);
-			actionFoward.setPath("../WEB-INF/view/basket/basketlist.jsp");
 		} else if (command.equals("/selectList.do")) {
 			actionFoward = basketService.selectList(request, response);
 		} else if (command.equals("/basketList.do")) {
@@ -59,6 +56,8 @@ public class BasketController extends HttpServlet {
 			actionFoward = basketService.basketDelete(request, response);
 		} else if (command.equals("/basketDeleteall.do")) {
 			actionFoward = basketService.basketDeleteall(request, response);
+		} else if (command.equals("/minicart.do")) {
+			actionFoward = basketService.minicartList(request, response);
 		}
 
 		if (actionFoward.isCheck()) {

@@ -37,13 +37,13 @@ public class BasketService {
 		basketDTO.setProductCode(request.getParameter("productCode"));
 		basketDTO.setProductSize(request.getParameter("productSize"));
 		basketDTO.setCookie(request.getParameter("cookie"));
-		try {
+		try {			
 			basketDAO.insert(basketDTO);
+			actionFoward.setPath("../WEB-INF/view/basket/basketAdd.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}		
 		actionFoward.setCheck(true);
-		actionFoward.setPath("../WEB-INF/view/basket/basketlist.jsp");
 		return actionFoward;
 	}
 
@@ -57,10 +57,32 @@ public class BasketService {
 			/*basketDTO.setCookie(session.getAttribute("basket").toString());*/
 
 			List<BasketDTO> ar = basketDAO.selectList(basketDTO);
-			basketDTO = new BasketDTO();
-			request.setAttribute("bDTO", basketDTO);
 			request.setAttribute("blist", ar);
 			actionFoward.setPath("../WEB-INF/view/basket/cartlistall.jsp");
+			/*System.out.println(basketDTO);
+			System.out.println(ar);*/
+		} catch (Exception e) {
+			request.setAttribute("message", "Basket Empty");
+			actionFoward.setPath("../WEB-INF/common/result.jsp");
+			e.printStackTrace();
+		}
+
+		actionFoward.setCheck(true);
+		return actionFoward;
+	}
+	
+	public ActionFoward minicartList(HttpServletRequest request, HttpServletResponse response) {
+		/*HttpSession session = request.getSession();*/
+		ActionFoward actionFoward = new ActionFoward();
+		try {
+			BasketDTO basketDTO = new BasketDTO();
+			basketDTO.setId(request.getParameter("id"));
+			basketDTO.setCookie(request.getParameter("cookie"));
+			/*basketDTO.setCookie(session.getAttribute("basket").toString());*/
+
+			List<BasketDTO> ar = basketDAO.selectList(basketDTO);
+			request.setAttribute("blist", ar);
+			actionFoward.setPath("../minicart.jsp");
 			/*System.out.println(basketDTO);
 			System.out.println(ar);*/
 		} catch (Exception e) {
@@ -83,7 +105,6 @@ public class BasketService {
 			/*basketDTO.setCookie(session.getAttribute("basket").toString());*/
 			
 			List<BasketDTO> ar = basketDAO.selectList(basketDTO);
-			request.setAttribute("bDTO", basketDTO);
 			request.setAttribute("blist", ar);
 			actionFoward.setPath("../WEB-INF/view/product/checkout.jsp");
 		} catch (Exception e) {

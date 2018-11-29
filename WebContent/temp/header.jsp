@@ -3,31 +3,42 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="/mall_project/js/index.js"></script>
 <script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-
-						$(".log_user")
-								.click(
-										function() {
-											if ($("#account-box").attr("class") == "account-box uk-hidden") {
-												$("#account-box").attr("class",
-														"account-box");
-												$(this).attr("class",
-														"log_user on")
-											} else {
-												$("#account-box")
-														.attr("class",
-																"account-box uk-hidden");
-												$(this).attr("class",
-														"log_user")
-											}
-										});
-
-						$("#btn-add")
-								.on(
-										"click",
-										function(event) {
+	$(document).ready(function() {
+		
+		$(".log_user").click(function() {
+			if ($("#account-box").attr("class") == "account-box uk-hidden") {
+				$("#account-box").attr("class", "account-box");
+				$(this).attr("class", "log_user on")
+			} else {
+				$("#account-box").attr("class", "account-box uk-hidden");
+				$(this).attr("class", "log_user")
+			}
+		});
+		
+		$("#btn-add").on("click", function(event) {
+			
+			var size = $("#size").val();
+			if ( size == "") {
+				alert("사이즈를 선택하세요!");
+			} else if ('${member.id}' == '') {
+				alert("회원만 구입 가능합니다");
+			} else {
+				/* $('.cart').addClass('cartadd');
+				$('body').addClass('stop-scrolling'); */
+				alert("상품명   ${pDTO.productName}  1개를 장바구니에 담았습니다");
+				$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);
+				$.post('${pageContext.request.contextPath}/basket/minicart.do?id=${member.id}');
+			}
+		});		
+		
+		/* $('.cart-item').on("click", function(event) {			
+			 if ('${member}' == '' ) {
+				alert("로그인 하십시요");
+				event.preventDefault();
+			}  
+			$.post('${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}');
+			$("#cart-order_list").load('../WEB-INF/basketList.jsp');
+		}); */
 
 											var size = $("#size").val();
 											if (size == "") {
@@ -36,26 +47,20 @@
 												alert("회원만 구입 가능합니다");
 											} else {
 												$('.cart').addClass('cartadd');
-												$('body').addClass(
-														'stop-scrolling');
+												$('body').addClass('stop-scrolling');
 												/* $.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);
 												$("#cart-order_list").html("../WEB-INF/basketList.jsp"); */
-												$
-														.ajax({
-															url : "${pageContext.request.contextPath}/basket/basketAdd.do",
-															type : "POST",
-															data : {
-																id : "${member.id}",
-																productCode : "${pDTO.productCode}",
-															},
-															success : function(
-																	data) {
-																$(
-																		"#cart-order_list")
-																		.html(
-																				data);
-															}
-														})
+												$.ajax({
+													url : "${pageContext.request.contextPath}/basket/basketAdd.do",
+													type : "POST",
+													data : {
+														id : "${member.id}",
+														productCode : "${pDTO.productCode}",
+													},
+													success : function(data) {
+														$("#cart-order_list").html(data);
+													}
+												})
 											}
 										});
 
@@ -205,17 +210,12 @@
 						</div>
 					</div></li>
 			</ul>
-			
-			<div class="header-menu_etc">
-				<a class="gnb-search-btn" href="#"><i class="ns-search large"></i></a>
-				<a icon-text-attr="0" data-click-area="Upper GNB"
-					data-click-name="Cart" data-component-cartitemlen="{itemCount:0}"
-					href="#" class="mini-cart empty"><i class="ns-cart large"></i>
-					<!----></a>
+			</a>
 			</div>
 			<div class="gnb-search-field"
 				data-module-search="{keywordMaxLen:10, isLatestKeyword:false}">
-				<form method="GET" id="search-form" action="${pageContext.request.contextPath}/product/productList.do">
+				<form method="GET" id="search-form"
+					action="${pageContext.request.contextPath}/product/productList.do">
 					<fieldset>
 						<legend>gift search</legend>
 						<div class="search-field"
@@ -250,13 +250,14 @@
 	<div
 		class="cart-main section-minicart uk-offcanvas-bar uk-offcanvas-bar-flip">
 		<input type="hidden" name="itemSize" value="1"> <input
-			type="hidden" name="cartId" value="${bDTO.productCode}">
+			type="hidden" name="cartId" value="">
 		<div class="cart-order_list uk-grid" id="cart-order_list">
 			<div class="uk-width-1-1">
 				<h5 class="minicart-title">미니 장바구니</h5>
 			</div>
 			<div class="uk-width-1-1">
 				<c:forEach items="${blist}" var="bDTO" varStatus="i">
+					<h2>${bDTO.productCode}test</h2>
 					<dl class="order-list" data-product-item="">
 						<dt class="image-wrap">
 							<img src="/mall_project/upload/${bDTO.fname}" alt="">
@@ -266,9 +267,8 @@
 								href="./productSelectOne.do?code=${productDTO.productCode}"
 								title="${bDTO.productName}">${bDTO.productName}</a>
 							<div class="style-code">스타일 : ${bDTO.productCode}</div>
-							<span class="uk-hidden"></span> <span
-								class="opt quantity">수량: ${blist.size()}</span> <span
-								class="price-wrap">
+							<span class="uk-hidden"></span> <span class="opt quantity">수량:
+								${blist.size()}</span> <span class="price-wrap">
 								<div class="total-price">
 									<strong class="retail-price">${bDTO.price} 원</strong>
 								</div>
@@ -277,18 +277,20 @@
 					</dl>
 				</c:forEach>
 			</div>
-		</div>
-		<div class="cart-order_price uk-grid">
-			<span class="order-price uk-width-1-1"> <span>총 상품금액</span> <strong>
-					원</strong>
-			</span>
-		</div>
-		<div class="cart-order_deliveryinfo uk-grid">
-			<div class="uk-width-1-1">배송비는 주문서에서 확인이 가능합니다.</div>
-		</div>
-		<div class="cart-order_buy uk-grid">
-			<div class="uk-width-1-1">
-				<a class="btn-link width-max large line" href="#">장바구니 가기</a>
+			<div class="cart-order_price uk-grid">
+				<span class="order-price uk-width-1-1"> <span>총 상품금액</span> <strong>
+						원</strong>
+				</span>
+			</div>
+			<div class="cart-order_deliveryinfo uk-grid">
+				<div class="uk-width-1-1">배송비는 주문서에서 확인이 가능합니다.</div>
+			</div>
+			<div class="cart-order_buy uk-grid">
+				<div class="uk-width-1-1">
+					<a class="btn-link width-max large line"
+						href="${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}">장바구니
+						가기</a>
+				</div>
 			</div>
 		</div>
 	</div>

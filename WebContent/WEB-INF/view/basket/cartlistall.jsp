@@ -14,7 +14,6 @@
 		
 		$(".btn-cart-delete-All").click(function() {
 			alert("전체 상품이 삭제되었습니다");
-			location.href("${pageContext.request.contextPath}/product/productList.do");
 		});
 	});
 </script>
@@ -36,7 +35,7 @@
 							<div class="product-select-all">
 								<a class="btn-cart-delete-All" href="${pageContext.request.contextPath}/basket/basketDeleteall.do?id=${member.id}">전체삭제</a>
 							</div>
-							<c:forEach items="${blist}" var="bDTO" varStatus="i"> ${bDTO.num}
+							<c:forEach items="${blist}" var="bDTO" varStatus="i">
 								<div class="product-opt_cart" id="productRow21099499">
 									<input type="hidden" name="categoryId" value="10001"> <input
 										type="hidden" name="productId" data-id="10000009435"
