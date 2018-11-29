@@ -24,12 +24,16 @@ public class BasketDAO {
 	public List<BasketDTO> selectList(BasketDTO basketDTO) throws Exception {
 
 		Connection con = DBconnector.getConnect();
-		String sql = "select fname, productname, productcode, price, basket.productsize, num "
-					+ "from basket "
-					+ "INNER JOIN product using(productcode) " 
-					+ "JOIN image using(productcode) "
-					+ "where id = ? or cookie = ? "
-					+ "order by num desc";
+		String sql = "select n.*, i.fname from " + 
+				"(select id, productname, productcode, price, basket.productsize, num, min(imagenum) m " + 
+				"from basket " + 
+				"INNER JOIN product using(productcode) " + 
+				"JOIN image using(productcode)  " + 
+				"where num in(select num from basket) " + 
+				"group by id, productname, productcode, price, basket.productsize, num) n " + 
+				"INNER JOIN image i on(n.m = i.imagenum) " + 
+				"where id = ? " + 
+				"order by num desc";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, basketDTO.getId());

@@ -69,10 +69,6 @@
 								aria-hidden="true">
 								<a title="마이페이지"
 									href="${pageContext.request.contextPath}/member/memberSelectOne.do">마이페이지</a>
-								<a title="회원정보관리"
-									href="${pageContext.request.contextPath}/member/memberUpdate.do">회원정보관리</a>
-								<a title="위시리스트"
-									href="${pageContext.request.contextPath}/member/memberSelectOne.do">위시리스트</a>
 								<a title="로그아웃"
 									href="${pageContext.request.contextPath}/member/memberLogout.do">로그아웃</a>
 							</div></li>
@@ -82,7 +78,7 @@
 					href="${pageContext.request.contextPath}/cscenter/cscenter.do">고객센터</a></li>
 				<li><a class="cart-item"
 					href="${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}"><i
-						class="ns-cart"></i> <span class="cart-num"></span> </a></li>
+						class="ns-cart"></i> </a></li>
 				<li><a href="#"><span class="flag-kr" title="대한민국"></span></a></li>
 			</ul>
 		</div>
@@ -169,6 +165,8 @@
 				data-module-search="{keywordMaxLen:10, isLatestKeyword:false}">
 				<form method="GET" id="search-form"
 					action="${pageContext.request.contextPath}/product/productList.do">
+					<input type="hidden" name="order" value="${param.order}">
+					<input type="hidden" name="text" value="${text}">
 					<fieldset>
 						<legend>gift search</legend>
 						<div class="search-field"

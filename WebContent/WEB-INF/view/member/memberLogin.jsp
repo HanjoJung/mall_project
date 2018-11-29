@@ -10,6 +10,7 @@
 <script type="text/javascript">
 	$(function() {
 		$(".userid").val(getCookie("userid"));
+		
 		$(".brz-icon-checkbox").parent().click(function() {
 			var checked = $(this).parent();
 			var c = checked.attr("class").lastIndexOf("checked");
@@ -21,14 +22,17 @@
 				checked.children("input").attr("checked", true)
 			}
 		})
+		
 		$.get("${pageContext.request.contextPath}/ajax/kakaoLogin.do",
 				function(data) {
 					$("#kakao").html(data);
-				})
+		})
+				
 		$.get("${pageContext.request.contextPath}/ajax/facebookLogin.do",
 				function(data) {
 					$("#facebook").html(data);
-				})
+		})
+
 		$("#btn").click(function() {
 			$.ajax({
 				url : "${pageContext.request.contextPath}/ajax/memberLogin.do",

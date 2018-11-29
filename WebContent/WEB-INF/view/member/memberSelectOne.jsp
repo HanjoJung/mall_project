@@ -48,7 +48,7 @@
 				<div class="customer-wapper min-height_large">
 					<div class="customer-aside mypage pc-only">
 						<div class="customer-name">
-							<span class="ns-mypage icon-user"></span> <span>s</span>
+							<span class="ns-mypage icon-user"></span> <span>${member.name}</span>
 						</div>
 
 						<div class="lnb">

@@ -5,16 +5,13 @@ $(function() {
 				// 입력 여부
 				if (data.val().length == 0) { // 입력하지 않은 경우
 					// 메세지 출력
-					data.parent().children(".error-message").html(
-							data.attr("data-parsley-required-message")); 
+					data.parent().children(".error-message").html(data.attr("data-parsley-required-message")); 
 					// 필수 입력 항목입니다.
 					// 메세지 블럭 노출
-					data.parent().children(".uk-form-row .error-message")
-					.css({
+					data.parent().children(".uk-form-row .error-message").css({
 						display : "block"
 					});
-					data
-					.css({
+					data.css({
 						"border-color" : "red"
 					});
 				} else { // 입력한 경우
@@ -47,34 +44,43 @@ $(function() {
 				}
 				return false;
 	}
-	
-	$("#pw2").keyup(
-		function() {
-			// 패스워드 검사
-			if ($("#pw1").val()==$("#pw2").val()) {
-				$(this).parent().children(".error-message").html("");
-				// 에러 메세지 숨김
-				$(this).parent()
-					.children(".uk-form-row .error-message").css({
-						display : "none"
-					});
-			} else {
-				// 메세지 출력
-				$(this).parent().children(".error-message").html(
-						$(this).attr("data-parsley-equalto-message")); 
-				// 메세지 블럭 노출
-				$(this).parent().children(".uk-form-row .error-message")
-				.css({
-					display : "block"
+	function password(data) {
+		// 패스워드 검사
+		if ($("#pw1").val()==$("#pw2").val()) {
+			data.parent().children(".error-message").html("");
+			// 에러 메세지 숨김
+			data.parent()
+				.children(".error-message").css({
+					display : "none"
 				});
-			}
-		})
-		
+			return true;
+		} else {
+			// 메세지 출력
+			data.parent().children(".error-message").html(data.attr("data-parsley-equalto-message")); 
+			// 메세지 블럭 노출
+			data.parent().children(".error-message").css({
+				display : "block",
+			});
+			data.css({
+				"border-color" : "red"
+			});
+			return false;
+		}
+	}
+	
 	$(".data").keyup(function() {
 		formCheck($(this));
 	});
-		
-		$("#submit").click(function() {
+
+	$('.data').keydown(function(e){
+		if(e.keyCode == 13){
+			submitFrm();
+		}
+	})
+
+	$("#submit").click(submitFrm)
+	
+	function submitFrm() {
 			var check = true;
 			$(".data").each(function() {
 				if(!formCheck($(this))){
@@ -83,6 +89,7 @@ $(function() {
 					return check;
 				};
 			})
+			check = password($("#pw2"));
 			if(check){
 				$(".essential").each(function() {
 					if(!$(this).attr("checked")) {
@@ -118,5 +125,5 @@ $(function() {
 						$(".uk-form-large").submit();
 					}
 				}
-		})
+		}
 })

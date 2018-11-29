@@ -107,21 +107,21 @@
 						<div
 							class="product-checkout__in-box product-checkout__in-box--pay">
 							<div class="info-price">
-								<span class="item-price"> <span class="label">상품
+								<span class="item-price"> <span class="label" style="text-align: left;">상품
 										금액</span> <span class="price"> <strong>${total} 원</strong>
 								</span>
-								</span> <span class="delivery-price"> <span class="label">예상
+								</span> <span class="delivery-price"> <span class="label" style="text-align: left;">예상
 										배송비</span> <span class="price"><strong>0 원</strong></span>
-								</span> <span class="item-price"> <span class="label">상품
+								</span> <span class="item-price"> <span class="label" style="text-align: left;">상품
 										할인 금액</span> <span class="price sale"> <strong>0 원</strong>
 								</span>
-								</span> <span class="item-price"> <span class="label">주문
+								</span> <span class="item-price"> <span class="label" style="text-align: left;">주문
 										할인 금액</span> <span class="price sale"> <strong> 0 원 </strong>
 								</span>
 								</span>
 							</div>
 							<div class="total-price">
-								<span class="label">총 결제 예정 금액</span> <span
+								<span class="label" style="text-align: left;">총 결제 예정 금액</span> <span
 									class="price sale total priceText" data-price="${total}"><strong>${total}
 										원</strong></span>
 							</div>
@@ -129,33 +129,6 @@
 								href="${pageContext.request.contextPath}/basket/basketList.do?id=${member.id}">주문하기
 								<button id="btn-order"></button>
 							</a>
-						</div>
-						<div
-							data-module-promotion="{errorMessageTarget:.promo-error-message}"
-							class="promotion">
-							<form method="POST" class="promo-form uk-margin-small-bottom"
-								action="/kr/ko_kr/cart/promo">
-								<div class="uk-grid">
-									<div class="uk-width-1-1">
-										<div class="uk-grid uk-grid-collapse">
-											<div class="uk-width-7-10">
-												<span class="input-textfield width-max"
-													data-component-textfield=""> <label for="promoCode">프로모
-														코드 입력</label> <input type="text" id="promoCode" name="promoCode">
-												</span>
-											</div>
-											<div class="uk-width-3-10">
-												<button type="submit"
-													class="button line xlarge width-max btn-submit">적용</button>
-											</div>
-										</div>
-									</div>
-									<div
-										class="uk-width-1-1 uk-margin-small-top promo-error-message uk-hidden">
-										<span class="text">Coupon code "1212" is unknown.</span>
-									</div>
-								</div>
-							</form>
 						</div>
 						<div class="info">
 							<span><ul>
