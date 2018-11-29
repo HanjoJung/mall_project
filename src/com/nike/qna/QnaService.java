@@ -88,13 +88,13 @@ public class QnaService implements BoardService{
 		if(method.equals("POST")) {
 			String message="작성실패";
 			String path="./qnaList.do";
-			String save = request.getServletContext().getRealPath("upload");
+			actionFoward.setCheck(false);
+			actionFoward.setPath("./qnaList.do");
 			try {
-				MultipartRequest multi=new MultipartRequest(request, save, "UTF-8");
 				QnaDTO qnaDTO=new QnaDTO();
-				qnaDTO.setTitle(multi.getParameter("title"));
-				qnaDTO.setWriter(multi.getParameter("writer"));
-				qnaDTO.setContents(multi.getParameter("contents"));
+				qnaDTO.setTitle(request.getParameter("title"));
+				qnaDTO.setWriter(request.getParameter("writer"));
+				qnaDTO.setContents(request.getParameter("contents"));
 				qnaDTO.setNum(qnaDao.getNum());
 				int result=qnaDao.insert(qnaDTO);
 				if(result>0) {
@@ -102,8 +102,6 @@ public class QnaService implements BoardService{
 					actionFoward.setCheck(true);
 					actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 				} else {
-					actionFoward.setCheck(false);
-					actionFoward.setPath("./qnaList.do");
 				}
 			} catch (Exception e) {
 				

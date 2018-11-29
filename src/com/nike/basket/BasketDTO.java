@@ -9,7 +9,6 @@ public class BasketDTO extends ProductDTO {
 	private String id;
 	private String fname;
 	private String productSize;
-	private String cookie;
 
 	public int getNum() {
 		return num;
@@ -44,23 +43,6 @@ public class BasketDTO extends ProductDTO {
 
 	public void setProductSize(String productSize) {
 		this.productSize = productSize;
-	}
-
-	public String getCookie() {
-		return cookie;
-	}
-
-	public void setCookie(String cookie) {
-		if (cookie == null) {
-			String str = "";
-			Random ran = new Random(System.currentTimeMillis());
-			for (int i = 0; i < 10; i++) {
-				char c = (char) (ran.nextInt(78) + 48);
-				str += c;
-			}
-			cookie = str;
-		}
-		this.cookie = cookie;
 	}
 
 }

@@ -11,12 +11,11 @@ public class BasketDAO {
 
 	public int insert(BasketDTO basketDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "insert into basket values(basket_seq.nextval,?,?,?,?)";
+		String sql = "insert into basket values(basket_seq.nextval,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, basketDTO.getId());
 		st.setString(2, basketDTO.getProductCode());
 		st.setString(3, basketDTO.getProductSize());
-		st.setString(4, basketDTO.getCookie());
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
 		return result;
@@ -34,7 +33,6 @@ public class BasketDAO {
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, basketDTO.getId());
-		st.setString(2, basketDTO.getCookie());
 		ResultSet rs = st.executeQuery();
 		List<BasketDTO> ar = new ArrayList<>();
 		while (rs.next()) {

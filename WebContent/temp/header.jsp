@@ -4,7 +4,6 @@
 <script src="/mall_project/js/index.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		
 		$(".log_user").click(function() {
 			if ($("#account-box").attr("class") == "account-box uk-hidden") {
 				$("#account-box").attr("class", "account-box");
@@ -16,73 +15,27 @@
 		});
 		
 		$("#btn-add").on("click", function(event) {
-			
 			var size = $("#size").val();
 			if ( size == "") {
 				alert("사이즈를 선택하세요!");
 			} else if ('${member.id}' == '') {
 				alert("회원만 구입 가능합니다");
 			} else {
-				/* $('.cart').addClass('cartadd');
-				$('body').addClass('stop-scrolling'); */
 				alert("상품명   ${pDTO.productName}  1개를 장바구니에 담았습니다");
 				$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);
 				$.post('${pageContext.request.contextPath}/basket/minicart.do?id=${member.id}');
 			}
 		});		
-		
-		/* $('.cart-item').on("click", function(event) {			
-			 if ('${member}' == '' ) {
-				alert("로그인 하십시요");
-				event.preventDefault();
-			}  
-			$.post('${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}');
-			$("#cart-order_list").load('../WEB-INF/basketList.jsp');
-		}); */
 
-											var size = $("#size").val();
-											if (size == "") {
-												alert("사이즈를 선택하세요!");
-											} else if ('${member.id}' == '') {
-												alert("회원만 구입 가능합니다");
-											} else {
-												$('.cart').addClass('cartadd');
-												$('body').addClass('stop-scrolling');
-												/* $.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);
-												$("#cart-order_list").html("../WEB-INF/basketList.jsp"); */
-												$.ajax({
-													url : "${pageContext.request.contextPath}/basket/basketAdd.do",
-													type : "POST",
-													data : {
-														id : "${member.id}",
-														productCode : "${pDTO.productCode}",
-													},
-													success : function(data) {
-														$("#cart-order_list").html(data);
-													}
-												})
-											}
-										});
-
-						/* $('.cart-item').on("click", function(event) {			
-							 if ('${member}' == '' ) {
-								alert("로그인 하십시요");
-								event.preventDefault();
-							}  
-							$.post('${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}');
-							$("#cart-order_list").load('../WEB-INF/basketList.jsp');
-						}); */
-
-						$(".cart").click(function() {
-							$(this).removeClass('cartadd');
-							$('body').removeClass('stop-scrolling');
-						});
-
-						$(".cart-main").click(function(e) {
-							e.stopPropagation();
-						});
-
-					})
+		$(".cart").click(function() {
+			$(this).removeClass('cartadd');
+			$('body').removeClass('stop-scrolling');
+		});
+	
+		$(".cart-main").click(function(e) {
+			e.stopPropagation();
+		});
+	});
 </script>
 <script src="/mall_project/js/index.js?=fgrt"></script>
 <link href="/mall_project/css/index.css" rel="stylesheet"

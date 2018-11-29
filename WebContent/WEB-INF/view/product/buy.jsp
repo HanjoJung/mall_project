@@ -23,7 +23,7 @@
 		IMP.request_pay({
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '${param.title}',
-			amount : '${param.amount}',
+			amount : 100,
 			buyer_email : '${param.email}',
 			buyer_name : '${param.name}',
 			buyer_tel : '${param.tel}',

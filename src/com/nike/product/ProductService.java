@@ -42,7 +42,6 @@ public class ProductService {
 		}
 		String search = request.getParameter("search");
 		String order = request.getParameter("order");
-		System.out.println(order);
 		if (order == null || order.equals("")) {
 			order = "productcode desc";
 		}
