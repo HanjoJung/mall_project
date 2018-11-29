@@ -35,14 +35,15 @@ public class ProductDAO {
 					+ "(select rownum R, N.* from "
 					+ "(select * from product "
 					+ "where PRODUCTCODE like ? or PRODUCTNAME like ? "
-					+ "order by productcode desc) N) "
+					+ "order by ?) N) "
 					+ "where R between ? and ?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+rowNumber.getSearch().getSearch()+"%");
 		st.setString(2, "%"+rowNumber.getSearch().getSearch()+"%");
-		st.setInt(3, rowNumber.getStartRow());
-		st.setInt(4, rowNumber.getLastRow());
+		st.setString(3, rowNumber.getSearch().getOrder());
+		st.setInt(4, rowNumber.getStartRow());
+		st.setInt(5, rowNumber.getLastRow());
 		ResultSet rs = st.executeQuery();
 
 
@@ -170,6 +171,19 @@ public class ProductDAO {
 
 	}
 	
+	public int updateHit(ProductDTO productDTO) throws Exception {
+
+		Connection con = DBconnector.getConnect();
+		String sql = "update product set hit=? where productcode=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, productDTO.getHit());
+		st.setString(2, productDTO.getProductCode());
+		int result = st.executeUpdate();
+		DBconnector.disConnect(st, con);
+
+		return result;
+
+	}
 	
 	
 

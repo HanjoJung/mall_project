@@ -37,6 +37,16 @@
 				msg += '결제 금액 : ' + rsp.paid_amount;
 				msg += '카드 승인번호 : ' + rsp.apply_num;
 				console.log(rsp);
+				$.ajax({
+					url : "./productSaleup.do",
+					type : "POST",
+					data : {
+						id : id
+					},
+					success : function(data) {
+						alert(data);
+					}
+				})
 			} else {
 				var msg = '결제에 실패하였습니다.';
 				msg += '에러내용 : ' + rsp.error_msg;
