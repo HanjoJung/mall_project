@@ -115,8 +115,8 @@ public class ProductService {
 				String[] ss = s.split("-");
 				String smin = ss[0];
 				String smax = ss[1];
-				System.out.println(smin);
-				System.out.println(smax);
+				/*System.out.println(smin);
+				System.out.println(smax);*/
 				List<FileDTO> ar = new ArrayList<>();
 				ar = fileDAO.selectList(code);
 				request.setAttribute("size", ss);

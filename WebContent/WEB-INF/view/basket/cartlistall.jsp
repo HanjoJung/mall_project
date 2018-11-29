@@ -5,12 +5,19 @@
 <script type="text/javascript">
 	$(function() {
 		$(".btn-delete").click(function() {
+			alert("1개 상품이 삭제되었습니다");
 			location.reload();
+		});
+		
+		$(".btn-cart-delete-All").click(function() {
+			alert("전체 상품이 삭제되었습니다");
+			location.href("${pageContext.request.contextPath}/product/productList.do");
 		});
 	});
 </script>
 <link href="/mall_project/css/index.css" rel="stylesheet"
 	type="text/css">
+<c:import url="../../../temp/header.jsp" />
 <section class="wrapper">
 	<section class="content-area">
 		<section class="pt_cart">
@@ -23,7 +30,7 @@
 					<div class="item-list-wrap" id="cart">
 						<div class="mypage-cart" id="current-item-wrap">
 							<div class="product-select-all">
-								<a class="btn-cart-delete-All" href="#">전체삭제</a>
+								<a class="btn-cart-delete-All" href="${pageContext.request.contextPath}/basket/basketDeleteall.do?id=${member.id}">전체삭제</a>
 							</div>
 							<c:forEach items="${blist}" var="bDTO" varStatus="i"> ${bDTO.num}
 								<div class="product-opt_cart" id="productRow21099499">

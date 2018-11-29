@@ -37,24 +37,28 @@ public class BasketController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		/* HttpSession session = request.getSession(); */
 		String command = request.getPathInfo();
 		ActionFoward actionFoward = null;
 
-		Cookie[] cookies = request.getCookies();
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("basket")) {
-				session.setAttribute("cookie", cookie.getValue());
-			}
-		}
+		/*
+		 * Cookie[] cookies = request.getCookies(); for (Cookie cookie : cookies) { if
+		 * (cookie.getName().equals("basket")) { session.setAttribute("cookie",
+		 * cookie.getValue()); } }
+		 */
 		if (command.equals("/basketAdd.do")) {
 			actionFoward = basketService.insert(request, response);
+			actionFoward = new ActionFoward();
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/basket/basketlist.jsp");
 		} else if (command.equals("/selectList.do")) {
 			actionFoward = basketService.selectList(request, response);
-		} else if (command.equals("/baskettList.do")) {
+		} else if (command.equals("/basketList.do")) {
 			actionFoward = basketService.basketList(request, response);
 		} else if (command.equals("/basketDelete.do")) {
 			actionFoward = basketService.basketDelete(request, response);
+		} else if (command.equals("/basketDeleteall.do")) {
+			actionFoward = basketService.basketDeleteall(request, response);
 		}
 
 		System.out.println(command);

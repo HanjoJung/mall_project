@@ -18,13 +18,26 @@
 		$("#btn-add").on("click", function(event) {
 			
 			var size = $("#size").val();
-			if ('${member.id}' == '' ) {
+			if ( size == "") {
+				alert("사이즈를 선택하세요!");
+			} else if ('${member.id}' == '') {
 				alert("회원만 구입 가능합니다");
 			} else {
 				$('.cart').addClass('cartadd');
 				$('body').addClass('stop-scrolling');
-				$.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);				
-				$("#cart-order_list").load('../WEB-INF/basketList.jsp');
+				/* $.post('${pageContext.request.contextPath}/basket/basketAdd.do?id=${member.id}&productCode=${pDTO.productCode}&productSize='+size);
+				$("#cart-order_list").html("../WEB-INF/basketList.jsp"); */
+				$.ajax({
+					url : "${pageContext.request.contextPath}/basket/basketAdd.do",
+					type : "POST",
+					data : {
+						id : $(${member.id}),
+						productCode : $({pDTO.productCode}),
+					},
+					success: function(data) {
+						$("#cart-order_list").html(data);
+					}
+				})
 			}
 			
 		});		
@@ -35,6 +48,7 @@
 				event.preventDefault();
 			}  
 			$.post('${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}');
+			$("#cart-order_list").load('../WEB-INF/basketList.jsp');
 		}); */
 
 		$(".cart").click(function() {
@@ -91,7 +105,7 @@
 				</c:choose>
 				<li><a
 					href="${pageContext.request.contextPath}/cscenter/cscenter.do">고객센터</a></li>
-				<li><a class="cart-item"><i class="ns-cart"></i> <span
+				<li><a class="cart-item" href="${pageContext.request.contextPath}/basket/selectList.do?id=${member.id}"><i class="ns-cart"></i> <span
 						class="cart-num"></span> </a></li>
 				<li><a href="#"><span class="flag-kr" title="대한민국"></span></a></li>
 			</ul>

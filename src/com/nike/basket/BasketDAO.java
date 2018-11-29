@@ -25,7 +25,7 @@ public class BasketDAO {
 	public List<BasketDTO> selectList(BasketDTO basketDTO) throws Exception {
 
 		Connection con = DBconnector.getConnect();
-		String sql = "select fname, productname, productcode, price, basket.productsize "
+		String sql = "select fname, productname, productcode, price, basket.productsize, num "
 					+ "from basket "
 					+ "INNER JOIN product using(productcode) " 
 					+ "JOIN image using(productcode) "
@@ -58,6 +58,18 @@ public class BasketDAO {
 		String sql = "DELETE from basket where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, num);
+		int result = st.executeUpdate();
+		DBconnector.disConnect(st, con);
+		return result;
+
+	}
+	
+	public int deleteall(String id) throws Exception {
+
+		Connection con = DBconnector.getConnect();
+		String sql = "DELETE from basket where id=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, id);
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);
 		return result;
