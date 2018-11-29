@@ -426,7 +426,7 @@ body {
 								<ul class="select-body">
 									<li class="list"><a href="" data-value=""><span
 											class="label">SORT BY</span></a></li>
-									<li class="list checked "><a
+									<li class="list "><a
 										href="./productList.do?order=productcode desc&text=신상품순"
 										data-value="productcode desc"><span class="label">신상품순</span></a></li>
 									<li class="list  "><a
