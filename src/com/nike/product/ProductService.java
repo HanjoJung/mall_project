@@ -42,10 +42,15 @@ public class ProductService {
 		}
 		String search = request.getParameter("search");
 		String order = request.getParameter("order");
+		System.out.println(order);
 		if (order == null || order.equals("")) {
-			order = "hit desc";
+			order = "productcode desc";
 		}
-		MakePager makePager = new MakePager(curPage, search, kind);
+		String text = request.getParameter("text");
+		if (text == null || text.equals("")) {
+			text = "신상품순";
+		}
+		MakePager makePager = new MakePager(curPage, search, kind, order);
 		RowNumber rowNumber = makePager.makeRow();
 
 		try {
@@ -60,6 +65,7 @@ public class ProductService {
 			int totalCount = productDAO.getCount(rowNumber.getSearch());
 			Pager pager = makePager.makePage(totalCount);
 
+			request.setAttribute("text", text);
 			request.setAttribute("list", ar);
 			request.setAttribute("file", far);
 			request.setAttribute("pager", pager);
