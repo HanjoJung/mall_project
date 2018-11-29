@@ -41,7 +41,10 @@ public class ProductService {
 			kind = "productCode";
 		}
 		String search = request.getParameter("search");
-
+		String order = request.getParameter("order");
+		if (order == null || order.equals("")) {
+			order = "hit desc";
+		}
 		MakePager makePager = new MakePager(curPage, search, kind);
 		RowNumber rowNumber = makePager.makeRow();
 
@@ -109,14 +112,19 @@ public class ProductService {
 			ProductDTO productDTO = null;
 			String code = request.getParameter("code");
 			try {
+				
 				productDTO = productDAO.selectOne(code);
+				int c = productDTO.getHit()+1;
+				productDTO.setHit(c);
+				int result = productDAO.updateHit(productDTO);
+				
+			
+			
 				String s = String.valueOf(productDTO.getProductSize());
 				String[] ss = s.split("-");
-				String smin = ss[0];
-				String smax = ss[1];
 				List<FileDTO> ar = new ArrayList<>();
 				ar = fileDAO.selectList(code);
-				int result = productDAO.getScoreAvg(productDTO.getProductCode());
+				result = productDAO.getScoreAvg(productDTO.getProductCode());
 				int reviewTotal = productDAO.getReviewTotal(productDTO.getProductCode());
 				request.setAttribute("size", ss);
 				request.setAttribute("file", ar);

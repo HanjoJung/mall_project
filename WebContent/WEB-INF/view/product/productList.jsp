@@ -396,6 +396,17 @@ body {
 								</div>
 							</div>
 						</div>
+						<script type="text/javascript">
+							$(function() {
+								$(".input-radio").click(function() {
+									$(this).addClass("checked");
+									$(this).siblings().removeClass('checked');
+									$(this).children("label").addClass("selected");
+									$(this).siblings().children('label').removeClass('selected');
+									$("#size").attr('value', s.find(".selected").text());
+								});
+							});
+						</script>
 						<div class="filter-wrap_category">
 							<div class="filter-tagbox">
 								<div class="filter-tit">
@@ -404,13 +415,13 @@ body {
 								<div class="filter_check_wrap"></div>
 							</div>
 							<div class="select-box sort right pc"
-								data-component-select="{'changeType':'submit', 'icon':'icon-arrow_bottom'}">
-								<a class="select-head"><span class="currentOpt">신상품순</span></a>
+								>
+								<a class="select-head"><span class="currentOpt">신상품a</span></a>
 								<ul class="select-body">
 									<li class="list"><a href="" data-value=""><span
 											class="label">SORT BY</span></a></li>
 									<li class="list checked "><a href="default"
-										data-value="default"><span class="label">신상품순</span></a></li>
+										data-value="default"><span class="label">신상품tns</span></a></li>
 									<li class="list  "><a href="price desc"
 										data-value="price desc"><span class="label">높은 가격순</span></a></li>
 									<li class="list  "><a href="price asc"
@@ -418,7 +429,7 @@ body {
 								</ul>
 								<select name="sort">
 									<option value="">SORT BY</option>
-									<option value="default" selected="selected">신상품순</option>
+									<option value="default" selected="selected">신상품</option>
 									<option value="price desc">높은 가격순</option>
 									<option value="price asc">낮은 가격순</option>
 								</select>
@@ -433,6 +444,7 @@ body {
 								$(".action-hover").mouseleave(function() {
 									$(this).parent().attr("class", "");
 								});
+								
 							})
 						</script>
 						<ul class="uk-grid item-list-wrap">

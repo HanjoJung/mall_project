@@ -48,6 +48,8 @@ public class ProductController extends HttpServlet {
 			actionFoward = productService.delete(request, response);
 		} else if (command.equals("/productUpdate.do")) {
 			actionFoward = productService.update(request, response);
+		} else if (command.equals("/productSaleup.do")) {
+			actionFoward = productService.update(request, response);
 		} else if (command.equals("/checkout.do")) {
 			actionFoward = new ActionFoward();
 			actionFoward.setCheck(true);
