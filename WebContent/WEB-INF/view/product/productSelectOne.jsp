@@ -14,7 +14,6 @@
 	margin: 2px;
 }
 
-.review-write-btn, .btn-more-review{
 .review-write-btn, .btn-more-review {
 	display: inline-block;
 	width: auto;
