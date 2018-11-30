@@ -77,6 +77,7 @@ public class LoginCheck implements Filter {
 		map.put("/qnaUpdate.do", "");
 		map.put("/qnaDelete.do", "");
 		map.put("/reviewWrite.do", "");
+		map.put("/reviewDelete.do", "");
 	}
 
 }

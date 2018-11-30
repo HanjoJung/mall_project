@@ -7,7 +7,13 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	alert('${message}');
-	location.href="${path}?id=${id}&name=${name}&kakaoID=${snsid}&sns${sns}";
+	var sns = "${sns}";
+	
+	if(sns == ""){
+		location.href="${path}";
+	}else{
+		location.href="${path}?id=${id}&name=${name}&kakaoID=${snsid}&sns${sns}";
+	}
 </script>
 </head>
 <body>

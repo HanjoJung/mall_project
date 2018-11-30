@@ -25,7 +25,7 @@
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${list}" var="dto">
-						<li data-reviewid="${dto.num}">
+						<li id="num" data-reviewid="${dto.num}">
 							<div class="uk-grid">
 								<div class="read-list uk-width-large-2-3">
 									<p class="read-subject">${dto.title}</p>
@@ -40,10 +40,10 @@
 										<span>${dto.writer}-</span>
 									</div>
 									<span class="write-date" date="${dto.reg_date}">${dto.reg_date}</span>
-									<p></p>
+									<c:if test="${dto.writer eq member.name}">
+									<button class="btn btn-default btn-xs btn-del" style="float: right;">삭제</button>
+									</c:if>
 									<p class="read-comment shorten-txt">${dto.contents}</p>
-									<p class="review-img-info"></p>
-									<div class="review-help"></div>
 								</div>
 							</div>
 						</li>

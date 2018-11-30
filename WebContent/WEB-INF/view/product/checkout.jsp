@@ -138,7 +138,7 @@ $(function() {
 															<div class="style-code" data-model="${bDTO.productCode}">스타일
 																: ${bDTO.productCode}</div>
 															<div class="current-option-wrap">
-																<input type="hidden" name="FW_SIZE"
+																<input type="hidden" name="FW_SIZE" id="FW_SIZE"
 																	value="${bDTO.productSize}"> <span class="opt">사이즈
 																	: ${bDTO.productSize}</span>
 															</div>

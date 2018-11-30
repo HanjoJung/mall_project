@@ -88,8 +88,11 @@ $(function() {
 					check = false;
 					return check;
 				};
-			})
-			check = password($("#pw2"));
+			});
+			if((password($("#pw2")) || $("#pw2").val().length == 0) && check){
+				check = false;
+				$("#pw2").focus();
+			}
 			if(check){
 				$(".essential").each(function() {
 					if(!$(this).attr("checked")) {

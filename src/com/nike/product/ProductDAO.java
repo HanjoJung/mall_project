@@ -170,7 +170,6 @@ public class ProductDAO {
 		return result;
 
 	}
-	
 
 	public int getScoreAvg(String code) throws Exception {
 		Connection con = DBconnector.getConnect();
@@ -192,6 +191,19 @@ public class ProductDAO {
 		String sql = "update product set hit=? where productcode=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, productDTO.getHit());
+		st.setString(2, productDTO.getProductCode());
+		int result = st.executeUpdate();
+		DBconnector.disConnect(st, con);
+
+		return result;
+	}
+
+	public int updateSale(ProductDTO productDTO) throws Exception {
+
+		Connection con = DBconnector.getConnect();
+		String sql = "update product set sale=? where productcode=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, productDTO.getSale());
 		st.setString(2, productDTO.getProductCode());
 		int result = st.executeUpdate();
 		DBconnector.disConnect(st, con);

@@ -74,23 +74,19 @@ public class ReviewService {
 		request.setAttribute("message", "수정 실패");
 
 		MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
-		if (memberDTO != null) {
-			if (memberDTO.getId().equals(request.getParameter("writer"))) {
-				try {
-					int num = Integer.parseInt(request.getParameter("num"));
-					ReviewDTO reviewDTO = reviewDAO.selectOne(num);
-					int result = reviewDAO.update(reviewDTO);
-					if (result > 0) {
-						request.setAttribute("message", "수정 성공");
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
+		if (memberDTO.getId().equals(request.getParameter("writer"))) {
+			try {
+				int num = Integer.parseInt(request.getParameter("num"));
+				ReviewDTO reviewDTO = reviewDAO.selectOne(num);
+				int result = reviewDAO.update(reviewDTO);
+				if (result > 0) {
+					request.setAttribute("message", "수정 성공");
 				}
-			} else {
-				request.setAttribute("message", "작성자만 수정 할 수 있습니다");
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		} else {
-			request.setAttribute("message", "로그인 해주시길 바랍니다");
+			request.setAttribute("message", "작성자만 수정 할 수 있습니다");
 		}
 		actionFoward.setCheck(true);
 		request.setAttribute("path", "../WEB-INF/view/product/review.jsp");
@@ -105,9 +101,10 @@ public class ReviewService {
 		MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
 		request.setAttribute("message", "삭제 실패");
 		int num = Integer.parseInt(request.getParameter("num"));
+		String code = request.getParameter("code");
 		try {
 			BoardDTO boardDTO = reviewDAO.selectOne(num);
-			if (memberDTO.getId().equals(boardDTO.getWriter())) {
+			if (memberDTO.getName().equals(boardDTO.getWriter())) {
 				num = reviewDAO.delete(num);
 				if (num > 0) {
 					request.setAttribute("message", "삭제 성공");
@@ -119,7 +116,7 @@ public class ReviewService {
 			e.printStackTrace();
 		}
 		actionFoward.setCheck(true);
-		request.setAttribute("path", "../WEB-INF/view/product/review.jsp");
+		request.setAttribute("path", "../product/productSelectOne.do?code="+code);
 		actionFoward.setPath("../WEB-INF/view/common/result.jsp");
 		return actionFoward;
 	}

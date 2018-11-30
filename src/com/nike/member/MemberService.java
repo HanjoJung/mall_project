@@ -203,6 +203,7 @@ public class MemberService {
 				memberDTO.setPassword(request.getParameter("pw2"));
 				memberDTO.setName(request.getParameter("firstName"));
 				memberDTO.setPhone(request.getParameter("phone"));
+				memberDTO.setAddress(request.getParameter("address"));
 				int result = memberDAO.update(memberDTO);
 				if (result > 0) {
 					session.setAttribute("member", memberDTO);

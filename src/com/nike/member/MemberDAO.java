@@ -64,13 +64,14 @@ public class MemberDAO {
 
 	public int update(MemberDTO memberDTO) throws Exception {
 		Connection con = DBconnector.getConnect();
-		String sql = "update member set password=?, name=?, phone=? where id =?";
+		String sql = "update member set password=?, name=?, phone=?, address=? where id =?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, memberDTO.getPassword());
 		st.setString(2, memberDTO.getName());
 		st.setString(3, memberDTO.getPhone());
-		st.setString(4, memberDTO.getId());
+		st.setString(4, memberDTO.getAddress());
+		st.setString(5, memberDTO.getId());
 		int result = st.executeUpdate();
 
 		DBconnector.disConnect(st, con);

@@ -33,7 +33,18 @@
 					$("#facebook").html(data);
 		})
 
-		$("#btn").click(function() {
+		$('.loginData').keydown(function(e){
+			if(e.keyCode == 13){
+				login();
+			}
+		})
+			
+		$(".loginData").keyup(function() {
+			formCheck($(this));
+		});
+
+		$("#btn").click(login)
+			function login() {
 			$.ajax({
 				url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
 				type : "POST",
@@ -57,7 +68,7 @@
 					}
 				}
 			})
-		})
+		}
 	})
 </script>
 <div class="login-wrap width-small">
@@ -74,7 +85,7 @@
 					<form method="POST" class="uk-form-large" action="">
 						<div class="uk-form-row">
 							<div class="input-textfield width-max">
-								<input class="data userid" type="email"
+								<input class="loginData userid" type="email"
 									data-parsley-required-message="필수 입력 항목입니다." placeholder="아이디"
 									id="id" name="id" /> <span class="error-message filled"></span>
 							</div>
@@ -82,7 +93,7 @@
 
 						<div class="uk-form-row">
 							<div class="input-textfield width-max">
-								<input class="data password" type="password" autocomplete="new-password"
+								<input class="loginData password" type="password" autocomplete="new-password"
 									data-parsley-required-message="필수 입력 항목입니다." 
 									placeholder="비밀번호" id="pw" name="pw" /> <span
 									class="error-message filled"></span>

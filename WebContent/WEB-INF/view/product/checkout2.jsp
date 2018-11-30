@@ -88,7 +88,8 @@
 						name : $("#addressFullName").val(),
 						tel : $("#phoneNumber").val(),
 						addr : $("#sample3_address").val()+"/"+$("#sample3_address2").val(),
-						postcode : $("#sample3_postcode").val()
+						postcode : $("#sample3_postcode").val(),
+						size : $("#FW_SIZE").val()
 					  },
 					  success: function(data) {
 						  $("#iamport").html(data);

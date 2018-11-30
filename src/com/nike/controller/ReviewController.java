@@ -39,6 +39,8 @@ public class ReviewController extends HttpServlet {
 			actionFoward = reviewService.selectList(request, response);
 		}else if(command.equals("/reviewWrite.do")) {
 			actionFoward= reviewService.insert(request, response);
+		}else if(command.equals("/reviewDelete.do")) {
+			actionFoward= reviewService.delete(request, response);
 		}
 		
 		if(actionFoward.isCheck()) {

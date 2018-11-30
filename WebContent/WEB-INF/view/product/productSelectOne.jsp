@@ -43,6 +43,7 @@
 		}
 		var page = 1;
 		review(page);
+		
 		$(".detail-review").on("click", ".btn-more-review", function() {
 			page++
 			review(page);
@@ -70,28 +71,26 @@
 					},
 					success : function() {
 						review(page);
+						$("#title").val("");
+						$("#contents").val("");
 					}
 				})
 			}
 		})
-		$(".review-write-btn").click(
-				function() {
-					$.ajax({
-						url : "../review/reviewWrite.do",
-						type : "POST",
-						data : {
-							code : "${param.code}",
-							writer : $("#writer").val(),
-							title : $("#title").val(),
-							contents : $("#contents").val(),
-							score : $(".rating-star").children(".active:last")
-									.attr("data-value")
-						},
-						success : function() {
-							review(page);
-						}
-					})
-				})
+		
+		
+		$(".detail-review").on("click", ".btn-del", function() {
+			$.ajax({
+				url : "../review/reviewDelete.do",
+				type : "POST",
+				data : {
+					num : $("#num").attr("data-reviewid")
+				},
+				success : function() {
+					review(page);
+				}
+			})
+		})
 
 		$(".pop-detail-title")
 				.click(
@@ -444,8 +443,7 @@ label.selected {
 															class="form-control" style="width: 90%;" id="contents"
 															name="contents" value="">
 													</div>
-													<br> <a class="review-write-btn" id="submit">리뷰
-														작성하기</a>
+													<br> <a class="review-write-btn">리뷰 작성하기</a>
 												</form>
 												<div class="detail-review"></div>
 											</div>

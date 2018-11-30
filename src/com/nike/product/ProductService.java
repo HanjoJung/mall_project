@@ -84,6 +84,16 @@ public class ProductService {
 		return actionFoward;
 	}
 
+	public ActionFoward buy(HttpServletRequest request, HttpServletResponse response) {
+
+		ActionFoward actionFoward = new ActionFoward();
+		ProductDTO productDTO = new ProductDTO();
+		
+		actionFoward.setCheck(true);
+		actionFoward.setPath("");
+		return actionFoward;
+		
+	}
 	public ActionFoward selectOne(HttpServletRequest request, HttpServletResponse response) {
 
 		ActionFoward actionFoward = new ActionFoward();
@@ -109,7 +119,6 @@ public class ProductService {
 				actionFoward.setCheck(true);
 				actionFoward.setPath("../WEB-INF/view/product/checkout.jsp");
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 

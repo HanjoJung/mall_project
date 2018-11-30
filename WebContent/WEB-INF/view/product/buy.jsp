@@ -4,26 +4,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript"
-		src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript"
+	src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
-	<script type="text/javascript">
+<script type="text/javascript">
 	$(function() {
-			console.log("${param.title}");
-			console.log("${param.amount}");
-			console.log("${param.email}");
-			console.log("${param.name}");
-			console.log("${param.tel}");
-			console.log("${param.addr}");
-			console.log("${param.postcode}");
-		
+		$.ajax({
+			url : "../member/memberUpdate.do",
+			type : "POST",
+			data : {
+				id : "${param.email}",
+				pw2 : "${member.password}",
+				firstName : "${param.name}",
+				phone : "${param.tel}",
+				address : "${param.addr}"
+			},
+			success : function() {
+				alert("데이터 저장");
+			} 
+		})
+
 		IMP.init('imp27429041'); //iamport 대신 자신의 "가맹점 식별코드"를 사용하시면 됩니다
 		IMP.request_pay({
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '${param.title}',
-			amount : 100,
+			amount : 100,//${param.amount}
 			buyer_email : '${param.email}',
 			buyer_name : '${param.name}',
 			buyer_tel : '${param.tel}',
@@ -38,16 +45,23 @@
 				msg += '결제 금액 : ' + rsp.paid_amount;
 				msg += '카드 승인번호 : ' + rsp.apply_num;
 				console.log(rsp);
-				$.ajax({
+				
+/* 				$.ajax({
 					url : "./productSaleup.do",
 					type : "POST",
 					data : {
-						id : id
+						imp_uid : rsp.imp_uid,
+						merchant_uid ; rsp.merchant_uid,
+						code : '${param.postcode}',
+						size : '${param.size}',
+						id : '${param.email}',
+						address : '${param.addr}'
 					},
 					success : function(data) {
 						alert(data);
 					}
-				})
+				}) */
+				
 			} else {
 				var msg = '결제에 실패하였습니다.';
 				msg += '에러내용 : ' + rsp.error_msg;
@@ -55,6 +69,6 @@
 			}
 		});
 	})
-	</script>
+</script>
 </head>
 </html>
