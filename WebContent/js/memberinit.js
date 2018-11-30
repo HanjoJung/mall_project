@@ -77,9 +77,8 @@ $(function() {
 			submitFrm();
 		}
 	})
-
-	$("#submit").click(submitFrm)
 	
+	$("#submit").click(submitFrm)
 	function submitFrm() {
 			var check = true;
 			$(".data").each(function() {
@@ -89,11 +88,11 @@ $(function() {
 					return check;
 				};
 			});
-			if((password($("#pw2")) || $("#pw2").val().length == 0) && check){
+			if(!password($("#pw2")) || $("#pw2").val().length == 0){
+				console.log("ok");
 				check = false;
 				$("#pw2").focus();
-			}
-			if(check){
+			} else if(check){
 				$(".essential").each(function() {
 					if(!$(this).attr("checked")) {
 						alert($(this).attr("data-parsley-message"));
@@ -118,7 +117,6 @@ $(function() {
 						});
 						$("#id").focus();
 					};
-					
 					if(check){
 						$(".uk-form-large").submit();
 					}
@@ -129,4 +127,5 @@ $(function() {
 					}
 				}
 		}
+
 })

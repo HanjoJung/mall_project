@@ -396,8 +396,8 @@ label.selected {
 											</div>
 										</div>
 
-										<h2 class="pop-detail-title uk-accordion-title">리뷰
-										<span class="review-num">(${reviewTotal}개)</span>
+										<h2 class="pop-detail-title uk-accordion-title">
+											리뷰 <span class="review-num">(${reviewTotal}개)</span>
 											<div class="review-wrap">
 												<span class="like" style="display: none"> <i
 													class="icon-star5 per" style="width: ${scoreAvg}%"></i> <i
@@ -497,10 +497,12 @@ label.selected {
 							<div class="btn-group-box line type2">
 								<div class="status-wrap btn-wrap">
 									<div class="order-wrap">
-										<a class="btn-link width-max xlarge btn-cart"
-											href="./${board}Update.do?code=${pDTO.productCode}">수정</a> <a
-											class="btn-link xlarge btn-order width-max"
-											href="./${board}Delete.do?code=${pDTO.productCode}"> <span>삭제</span></a>
+										<c:if test="${member.id eq 'manager'}">
+											<a class="btn-link width-max xlarge btn-cart"
+												href="./${board}Update.do?code=${pDTO.productCode}">수정</a>
+											<a class="btn-link xlarge btn-order width-max"
+												href="./${board}Delete.do?code=${pDTO.productCode}"> <span>삭제</span></a>
+										</c:if>
 									</div>
 								</div>
 							</div>

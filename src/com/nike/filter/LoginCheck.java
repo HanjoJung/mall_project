@@ -67,12 +67,16 @@ public class LoginCheck implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
+		map.put("/memberList.do", "");
 		map.put("/memberSelectOne.do", "");
 		map.put("/memberUpdate.do", "");
 		map.put("/memberDelete.do", "");
 		map.put("/noticeWrite.do", "");
 		map.put("/noticeUpdate.do", "");
 		map.put("/noticeDelete.do", "");
+		map.put("/productWrite.do", "");
+		map.put("/productUpdate.do", "");
+		map.put("/productDelete.do", "");
 		map.put("/qnaWrite.do", "");
 		map.put("/qnaUpdate.do", "");
 		map.put("/qnaDelete.do", "");
