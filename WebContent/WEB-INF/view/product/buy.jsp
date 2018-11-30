@@ -11,6 +11,7 @@
 
 <script type="text/javascript">
 	$(function() {
+		if(${member}!=null){
 		$.ajax({
 			url : "../member/memberUpdate.do",
 			type : "POST",
@@ -25,6 +26,7 @@
 				alert("데이터 저장");
 			} 
 		})
+		}
 
 		IMP.init('imp27429041'); //iamport 대신 자신의 "가맹점 식별코드"를 사용하시면 됩니다
 		IMP.request_pay({

@@ -213,7 +213,7 @@
 											class="order-field-list uk-width-small-1-1 uk-width-medium-1-2">
 											<h6 class="tit">받으시는 분</h6>
 											<div class="input-textfield width-max">
-												<input type="text" data-parsley-minlength="2"
+												<input type="text" data-parsley-minlength="1"
 													data-parsley-minlength-message="입력값이 너무 짧습니다."
 													data-parsley-required-message="필수 입력 항목입니다."
 													id="addressFullName" name="addressFullName"
@@ -247,14 +247,14 @@
 											<h6 class="tit">배송 주소</h6>
 
 											<div class="search-field shipping-address">
-												<input type="hidden" id="sample3_postcode" value="06112">
+												<input type="hidden" id="sample3_postcode" value="">
 												<span class="input-textfield width-max"> <input
 													type="text" data-parsley-minlength="2"
 													data-parsley-minlength-message="입력값이 너무 짧습니다."
 													data-parsley-required-message="필수 입력 항목입니다."
 													id="sample3_address" name="addressSddressLine1"
 													placeholder="예) 문래동 강서타워, 선유로 82"
-													value="서울 강남구 논현로123길 4-1 (논현동)" readonly="readonly">
+													value="" readonly="readonly">
 												</span> <input type="button" onclick="sample3_execDaumPostcode()"
 													class="btn_search button line xlarge width-fix" value="검색"><br>
 												<span class="error-message filled"></span>
