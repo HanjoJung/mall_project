@@ -170,11 +170,13 @@ public class ProductService {
 			int maxSize = 1024 * 1024 * 20;
 			// 파일 저장공간
 			String save = request.getServletContext().getRealPath("upload");
+			System.out.println(save);
 			File file = new File(save);
 			if (!file.exists()) {
 				file.mkdirs();
 			} // 파일이 없으면 파일을 만들기
 			try {
+				System.out.println(save);
 				MultipartRequest multi = new MultipartRequest(request, save, maxSize, "utf-8",
 						new DefaultFileRenamePolicy());
 				ProductDTO productDTO = new ProductDTO();
