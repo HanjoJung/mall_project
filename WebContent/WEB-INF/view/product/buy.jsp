@@ -6,26 +6,27 @@
 <head>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript"
 	src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
 <script type="text/javascript">
-	$(function() {
-		if(${member}!=null){
-		$.ajax({
-			url : "../member/memberUpdate.do",
-			type : "POST",
-			data : {
-				id : "${param.email}",
-				pw2 : "${member.password}",
-				firstName : "${param.name}",
-				phone : "${param.tel}",
-				address : "${param.addr}"
-			},
-			success : function() {
-				alert("데이터 저장");
-			} 
-		})
+$(function() {
+	if('${member}'!=null){
+	$.ajax({
+		url : "../member/memberUpdate.do",
+		type : "POST",
+		data : {
+			id : "${param.email}",
+			pw2 : "${member.password}",
+			firstName : "${param.name}",
+			phone : "${param.tel}",
+			address : "${param.addr}"
+		},
+		success : function() {
+			alert("데이터 저장");
+		} 
+	})
 		}
 
 		IMP.init('imp27429041'); //iamport 대신 자신의 "가맹점 식별코드"를 사용하시면 됩니다
