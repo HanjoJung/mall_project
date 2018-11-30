@@ -17,17 +17,17 @@
 	src="${pageContext.request.contextPath}/js/memberinit.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$.get("${pageContext.request.contextPath}/ajax/kakaoLogin.do",
+		$.get("${pageContext.request.contextPath}/member/kakaoLogin.do",
 				function(data) {
 					$("#kakao").html(data);
 				})
-		$.get("${pageContext.request.contextPath}/ajax/facebookLogin.do",
+		$.get("${pageContext.request.contextPath}/member/facebookLogin.do",
 				function(data) {
 					$("#facebook").html(data); 
 				})
 		$("#login").click(function() {
 			$.ajax({
-				url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
+				url : "${pageContext.request.contextPath}/member/memberLogin.do",
 				type : "POST",
 				data : {
 					id : $("#id").val(),

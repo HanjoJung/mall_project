@@ -9,7 +9,11 @@
 			$(this).css({
 				width : score + "%"
 			})
-		})
+		});
+		$(".user-name").each(function() {
+			var userName = $(this).attr("data-writer");
+			$(this).children().text(userName.substring(0,1)+"*"+userName.substring(2,3));
+		});
 	})
 </script>
 <div class="detail-reviewlist-summary">
@@ -36,19 +40,22 @@
 											data-score="${dto.score}"></i> <i class="brz-icon-star_small"></i>
 										</span>
 									</p>
-									<div class="user-name">
-										<span>${dto.writer}-</span>
+									<div class="user-name" data-writer="${dto.writer}">
+										<span></span>
 									</div>
-									<span class="write-date" date="${dto.reg_date}">${dto.reg_date}</span>
+									<span class="write-date">${dto.reg_date}</span>
 									<c:if test="${dto.writer eq member.name}">
-									<button class="btn btn-default btn-xs btn-del" style="float: right;">삭제</button>
+										<button class="btn btn-default btn-xs btn-del"
+											style="float: right;">삭제</button>
 									</c:if>
 									<p class="read-comment shorten-txt">${dto.contents}</p>
 								</div>
 							</div>
 						</li>
 					</c:forEach>
-					<a class="btn-more-review">더 많은 리뷰 보기${curPage}</a>
+					<c:if test="${next}">
+						<a class="btn-more-review">더 많은 리뷰 보기</a>
+					</c:if>
 				</c:otherwise>
 			</c:choose>
 		</ul>

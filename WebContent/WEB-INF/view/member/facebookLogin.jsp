@@ -39,7 +39,7 @@ $(function() {
 					userEmail = response.email;
 					
 					$.ajax({
-						url : "${pageContext.request.contextPath}/ajax/memberCheckId.do",
+						url : "${pageContext.request.contextPath}/member/memberCheckId.do",
 						type : "POST",
 						data : {
 							id : userEmail
@@ -47,14 +47,14 @@ $(function() {
 						success : function(data) {
 							data = data.trim();
 							if (data == '1') {
-							var url = "${pageContext.request.contextPath}/ajax/snsLogin.do?id=" + userEmail
+							var url = "${pageContext.request.contextPath}/member/snsLogin.do?id=" + userEmail
 								+ "&snsid=" + userID
 								+ "&name=" + userName 
 								+ "&sns=" + sns;
 								location.href = url;
 							} else {
 								$.ajax({
-									url : "${pageContext.request.contextPath}/ajax/memberCheckSns.do",
+									url : "${pageContext.request.contextPath}/member/memberCheckSns.do",
 									type : "POST",
 									data : {
 										snsid : userID,
@@ -62,11 +62,11 @@ $(function() {
 									},
 									success : function(data) {
 										if(data == '1'){
-											location.href = "${pageContext.request.contextPath}/ajax/snsLogin."
+											location.href = "${pageContext.request.contextPath}/member/snsLogin."
 											+ "do?sns="+sns+"&snsid="+userID+"&name="+userName+"&id="+userEmail;
 										}else{
 											$.ajax({
-												url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
+												url : "${pageContext.request.contextPath}/member/memberLogin.do",
 												type : "POST",
 												data : {
 													id : userEmail,

@@ -23,12 +23,12 @@
 			}
 		})
 		
-		$.get("${pageContext.request.contextPath}/ajax/kakaoLogin.do",
+		$.get("${pageContext.request.contextPath}/member/kakaoLogin.do",
 				function(data) {
 					$("#kakao").html(data);
 		})
 				
-		$.get("${pageContext.request.contextPath}/ajax/facebookLogin.do",
+		$.get("${pageContext.request.contextPath}/member/facebookLogin.do",
 				function(data) {
 					$("#facebook").html(data);
 		})
@@ -38,15 +38,11 @@
 				login();
 			}
 		})
-			
-		$(".loginData").keyup(function() {
-			formCheck($(this));
-		});
 
 		$("#btn").click(login)
 			function login() {
 			$.ajax({
-				url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
+				url : "${pageContext.request.contextPath}/member/memberLogin.do",
 				type : "POST",
 				data : {
 					id : $(".userid").val(),
@@ -60,7 +56,7 @@
 						})
 					} else {
 						if($("#breeze-me").attr("checked")!=null){
-							setCookie("userid", $("#id").val(), 365);	
+							setCookie("userid", $(".userid").val(), 365);	
 						}else{
 							setCookie("userid", "", 0);	
 						}
@@ -87,7 +83,7 @@
 							<div class="input-textfield width-max">
 								<input class="loginData userid" type="email"
 									data-parsley-required-message="필수 입력 항목입니다." placeholder="아이디"
-									id="id" name="id" /> <span class="error-message filled"></span>
+									name="id" /> <span class="error-message filled"></span>
 							</div>
 						</div>
 
@@ -95,7 +91,7 @@
 							<div class="input-textfield width-max">
 								<input class="loginData password" type="password" autocomplete="new-password"
 									data-parsley-required-message="필수 입력 항목입니다." 
-									placeholder="비밀번호" id="pw" name="pw" /> <span
+									placeholder="비밀번호" name="pw" /> <span
 									class="error-message filled"></span>
 							</div>
 						</div>

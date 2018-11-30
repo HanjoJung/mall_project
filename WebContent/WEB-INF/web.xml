@@ -29,14 +29,6 @@
     <location>/error/error_500.jsp</location>
   </error-page>
   <servlet>
-    <servlet-name>ajax</servlet-name>
-    <servlet-class>com.nike.controller.AjaxController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ajax</servlet-name>
-    <url-pattern>/ajax/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>policy</servlet-name>
     <servlet-class>com.nike.controller.CSCenterController</servlet-class>
   </servlet>

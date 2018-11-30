@@ -26,11 +26,16 @@ public class ReviewService {
 		}
 		String code = request.getParameter("code");
 		int lastnum = Page * 2;
+		boolean next = false;
 
 		try {
 			List<ReviewDTO> ar = reviewDAO.selectList(code, lastnum);
+			if(lastnum == ar.size()) {
+				next = true;
+			}
 			request.setAttribute("list", ar);
 			request.setAttribute("count", lastnum);
+			request.setAttribute("next", next);
 			request.setAttribute("Page", Page);
 			actionFoward.setPath("../WEB-INF/view/product/review.jsp");
 		} catch (Exception e) {

@@ -408,8 +408,7 @@ label.selected {
 
 										<div class="accordion-wrapper">
 											<div class="pop-detail-content uk-accordion-content">
-												<form id="frm" action="../review/reviewWrite.do"
-													method="post" class="form-inline">
+												<form method="post" class="form-inline">
 													<div class="form-group">
 														<input type="hidden" class="form-control" id="writer"
 															name="writer" value="${member.name}">

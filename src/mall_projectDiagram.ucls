@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <interface id="1" language="java" name="com.nike.board.BoardDAO" project="mall_project" 
     file="/mall_project/src/com/nike/board/BoardDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="420" y="934"/>    
+    <position height="-1" width="-1" x="773" y="1047"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </interface>  
   <class id="2" language="java" name="com.nike.board.BoardDTO" project="mall_project" 
     file="/mall_project/src/com/nike/board/BoardDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1216" y="938"/>    
+    <position height="-1" width="-1" x="786" y="550"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <interface id="3" language="java" name="com.nike.board.BoardReply" project="mall_project" 
     file="/mall_project/src/com/nike/board/BoardReply.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="130" y="922"/>    
+    <position height="-1" width="-1" x="769" y="1196"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </interface>  
   <class id="4" language="java" name="com.nike.board.BoardReplyDTO" project="mall_project" 
     file="/mall_project/src/com/nike/board/BoardReplyDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1539" y="1005"/>    
+    <position height="-1" width="-1" x="945" y="469"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <interface id="5" language="java" name="com.nike.board.BoardService" project="mall_project" 
     file="/mall_project/src/com/nike/board/BoardService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="833" y="923"/>    
+    <position height="-1" width="-1" x="778" y="865"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </interface>  
   <class id="6" language="java" name="com.nike.controller.NoticeController" project="mall_project" 
     file="/mall_project/src/com/nike/controller/NoticeController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="547" y="407"/>    
+    <position height="-1" width="-1" x="349" y="669"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="com.nike.notice.NoticeDTO" project="mall_project" 
     file="/mall_project/src/com/nike/notice/NoticeDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="842" y="624"/>    
+    <position height="-1" width="-1" x="637" y="592"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="com.nike.notice.NoticeService" project="mall_project" 
     file="/mall_project/src/com/nike/notice/NoticeService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="560" y="637"/>    
+    <position height="-1" width="-1" x="346" y="862"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="com.nike.qna.QnaDAO" project="mall_project" 
     file="/mall_project/src/com/nike/qna/QnaDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="191" y="1282"/>    
+    <position height="-1" width="-1" x="1222" y="1161"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="com.nike.qna.QnaDTO" project="mall_project" 
     file="/mall_project/src/com/nike/qna/QnaDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1498" y="1300"/>    
+    <position height="-1" width="-1" x="943" y="652"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="com.nike.qna.QnaService" project="mall_project" 
     file="/mall_project/src/com/nike/qna/QnaService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="644" y="1256"/>    
+    <position height="-1" width="-1" x="1223" y="917"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="com.nike.review.ReviewDAO" project="mall_project" 
     file="/mall_project/src/com/nike/review/ReviewDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1541" y="308"/>    
+    <position height="-1" width="-1" x="1207" y="1710"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="com.nike.review.ReviewDTO" project="mall_project" 
     file="/mall_project/src/com/nike/review/ReviewDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1217" y="537"/>    
+    <position height="-1" width="-1" x="602" y="444"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="com.nike.review.ReviewService" project="mall_project" 
     file="/mall_project/src/com/nike/review/ReviewService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1553" y="537"/>    
+    <position height="-1" width="-1" x="1272" y="1529"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="com.nike.util.DBconnector" project="mall_project" 
     file="/mall_project/src/com/nike/util/DBconnector.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="189" y="-9"/>    
+    <position height="-1" width="-1" x="189" y="53"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -138,7 +138,7 @@
   </class>  
   <class id="16" language="java" name="com.nike.action.ActionFoward" project="mall_project" 
     file="/mall_project/src/com/nike/action/ActionFoward.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="460" y="14"/>    
+    <position height="-1" width="-1" x="1672" y="81"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -147,7 +147,7 @@
   </class>  
   <class id="17" language="java" name="com.nike.controller.QnaController" project="mall_project" 
     file="/mall_project/src/com/nike/controller/QnaController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1058" y="1270"/>    
+    <position height="-1" width="-1" x="1223" y="721"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -156,23 +156,14 @@
   </class>  
   <class id="18" language="java" name="com.nike.notice.NoticeDAO" project="mall_project" 
     file="/mall_project/src/com/nike/notice/NoticeDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="152" y="527"/>    
+    <position height="-1" width="-1" x="348" y="1101"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="com.nike.controller.AjaxController" project="mall_project" 
-    file="/mall_project/src/com/nike/controller/AjaxController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="721" y="-16"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="20" language="java" name="com.nike.controller.BasketController" project="mall_project" 
+  <class id="19" language="java" name="com.nike.controller.BasketController" project="mall_project" 
     file="/mall_project/src/com/nike/controller/BasketController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="227" y="2277"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -181,25 +172,25 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="com.nike.basket.BasketDAO" project="mall_project" 
+  <class id="20" language="java" name="com.nike.basket.BasketDAO" project="mall_project" 
     file="/mall_project/src/com/nike/basket/BasketDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="163" y="1721"/>    
+    <position height="-1" width="-1" x="171" y="1872"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="com.nike.basket.BasketDTO" project="mall_project" 
+  <class id="21" language="java" name="com.nike.basket.BasketDTO" project="mall_project" 
     file="/mall_project/src/com/nike/basket/BasketDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="399" y="1755"/>    
+    <position height="-1" width="-1" x="604" y="2091"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="com.nike.basket.BasketService" project="mall_project" 
+  <class id="22" language="java" name="com.nike.basket.BasketService" project="mall_project" 
     file="/mall_project/src/com/nike/basket/BasketService.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="253" y="2066"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -208,7 +199,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="com.nike.product.ProductDAO" project="mall_project" 
+  <class id="23" language="java" name="com.nike.product.ProductDAO" project="mall_project" 
     file="/mall_project/src/com/nike/product/ProductDAO.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1430" y="1955"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -217,7 +208,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="com.nike.product.ProductDTO" project="mall_project" 
+  <class id="24" language="java" name="com.nike.product.ProductDTO" project="mall_project" 
     file="/mall_project/src/com/nike/product/ProductDTO.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="818" y="2299"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -226,7 +217,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="com.nike.product.ProductService" project="mall_project" 
+  <class id="25" language="java" name="com.nike.product.ProductService" project="mall_project" 
     file="/mall_project/src/com/nike/product/ProductService.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1276" y="2245"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -235,7 +226,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="27" language="java" name="com.nike.controller.ProductController" project="mall_project" 
+  <class id="26" language="java" name="com.nike.controller.ProductController" project="mall_project" 
     file="/mall_project/src/com/nike/controller/ProductController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1279" y="2508"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -244,16 +235,16 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="com.nike.controller.ReviewController" project="mall_project" 
+  <class id="27" language="java" name="com.nike.controller.ReviewController" project="mall_project" 
     file="/mall_project/src/com/nike/controller/ReviewController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1555" y="749"/>    
+    <position height="-1" width="-1" x="1480" y="1723"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="29" language="java" name="com.nike.file.FileDAO" project="mall_project" 
+  <class id="28" language="java" name="com.nike.file.FileDAO" project="mall_project" 
     file="/mall_project/src/com/nike/file/FileDAO.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="986" y="1736"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -262,7 +253,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="30" language="java" name="com.nike.file.FileDTO" project="mall_project" 
+  <class id="29" language="java" name="com.nike.file.FileDTO" project="mall_project" 
     file="/mall_project/src/com/nike/file/FileDTO.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="719" y="1710"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -271,25 +262,25 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="31" language="java" name="com.nike.filter.CharacterFilter" project="mall_project" 
+  <class id="30" language="java" name="com.nike.filter.CharacterFilter" project="mall_project" 
     file="/mall_project/src/com/nike/filter/CharacterFilter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="546" y="215"/>    
+    <position height="-1" width="-1" x="831" y="63"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="32" language="java" name="com.nike.filter.LoginCheck" project="mall_project" 
+  <class id="31" language="java" name="com.nike.filter.LoginCheck" project="mall_project" 
     file="/mall_project/src/com/nike/filter/LoginCheck.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="189" y="209"/>    
+    <position height="-1" width="-1" x="511" y="63"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="33" language="java" name="com.nike.member.MemberDAO" project="mall_project" 
+  <class id="32" language="java" name="com.nike.member.MemberDAO" project="mall_project" 
     file="/mall_project/src/com/nike/member/MemberDAO.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="439" y="2563"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -298,7 +289,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="34" language="java" name="com.nike.member.MemberDTO" project="mall_project" 
+  <class id="33" language="java" name="com.nike.member.MemberDTO" project="mall_project" 
     file="/mall_project/src/com/nike/member/MemberDTO.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="141" y="2702"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -307,7 +298,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="35" language="java" name="com.nike.member.MemberService" project="mall_project" 
+  <class id="34" language="java" name="com.nike.member.MemberService" project="mall_project" 
     file="/mall_project/src/com/nike/member/MemberService.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="436" y="2839"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -316,244 +307,316 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="36" language="java" name="com.nike.controller.MemberController" project="mall_project" 
+  <class id="35" language="java" name="com.nike.controller.MemberController" project="mall_project" 
     file="/mall_project/src/com/nike/controller/MemberController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="428" y="3092"/>    
+    <position height="-1" width="-1" x="439" y="3087"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="37" language="java" name="com.nike.page.MakePager" project="mall_project" 
+  <class id="36" language="java" name="com.nike.page.MakePager" project="mall_project" 
     file="/mall_project/src/com/nike/page/MakePager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1170" y="3205"/>    
+    <position height="-1" width="-1" x="1395" y="507"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="38" language="java" name="com.nike.page.Pager" project="mall_project" 
+  <class id="37" language="java" name="com.nike.page.Pager" project="mall_project" 
     file="/mall_project/src/com/nike/page/Pager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="835" y="2972"/>    
+    <position height="-1" width="-1" x="1113" y="339"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="39" language="java" name="com.nike.page.RowNumber" project="mall_project" 
+  <class id="38" language="java" name="com.nike.page.RowNumber" project="mall_project" 
     file="/mall_project/src/com/nike/page/RowNumber.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1479" y="2939"/>    
+    <position height="-1" width="-1" x="1507" y="264"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="40" language="java" name="com.nike.page.Search" project="mall_project" 
+  <class id="39" language="java" name="com.nike.page.Search" project="mall_project" 
     file="/mall_project/src/com/nike/page/Search.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1174" y="2761"/>    
+    <position height="-1" width="-1" x="1297" y="264"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="41" language="java" name="com.nike.controller.CSCenterController" project="mall_project" 
+  <class id="40" language="java" name="com.nike.controller.CSCenterController" project="mall_project" 
     file="/mall_project/src/com/nike/controller/CSCenterController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1050" y="-18"/>    
+    <position height="-1" width="-1" x="1444" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="42">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="5"/>  
-  </realization>  
-  <association id="43">    
-    <end type="SOURCE" refId="37" navigable="false">      
-      <attribute id="44" name="rowNumber"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="39" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="46">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="47" name="fileDAO"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="29" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="49">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <association id="50">    
-    <end type="SOURCE" refId="38" navigable="false">      
-      <attribute id="51" name="search"/>      
-      <multiplicity id="52" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="40" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="53">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <association id="54">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="55" name="fileDTO"/>      
-      <multiplicity id="56" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="30" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="57">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="58" name="qnaService"/>      
-      <multiplicity id="59" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="60">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <association id="61">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="62" name="reviewDAO"/>      
-      <multiplicity id="63" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="64">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <realization id="65">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="5"/>  
-  </realization>  
-  <generalization id="66">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
-  <association id="67">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="68" name="noticeDAO"/>      
-      <multiplicity id="69" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="70">    
-    <end type="SOURCE" refId="36" navigable="false">      
-      <attribute id="71" name="memberService"/>      
-      <multiplicity id="72" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="35" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="73">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="74" name="productDAO"/>      
-      <multiplicity id="75" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="76">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <association id="77">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="78" name="qnaDao"/>      
-      <multiplicity id="79" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="80">    
+  <generalization id="41">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="2"/>  
   </generalization>  
-  <association id="81">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="82" name="productService"/>      
-      <multiplicity id="83" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="84">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="85" name="basketService"/>      
-      <multiplicity id="86" minimum="0" maximum="1"/>    
+  <realization id="42">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <association id="43">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="44" name="productDAO">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="87">    
-    <end type="SOURCE" refId="28" navigable="false">      
-      <attribute id="88" name="reviewService"/>      
-      <multiplicity id="89" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="90">    
-    <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="91" name="memberDAO"/>      
-      <multiplicity id="92" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="93">    
-    <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="94" name="search"/>      
-      <multiplicity id="95" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="40" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="96">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="97" name="basketDAO"/>      
-      <multiplicity id="98" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="99">    
-    <end type="SOURCE" refId="37" navigable="false">      
-      <attribute id="100" name="search"/>      
-      <multiplicity id="101" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="40" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="102">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <association id="103">    
+  <association id="46">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="104" name="noticeService"/>      
-      <multiplicity id="105" minimum="0" maximum="1"/>    
+      <attribute id="47" name="noticeService">        
+        <position height="0" width="0" x="-214" y="225"/>      
+      </attribute>      
+      <multiplicity id="48" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-214" y="225"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="50" name="basketDAO">        
+        <position height="0" width="0" x="8" y="151"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="1">        
+        <position height="0" width="0" x="8" y="151"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="53" name="qnaDao">        
+        <position height="0" width="0" x="1031" y="-121"/>      
+      </attribute>      
+      <multiplicity id="54" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1031" y="-121"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="56" name="qnaService">        
+        <position height="0" width="0" x="579" y="-339"/>      
+      </attribute>      
+      <multiplicity id="57" minimum="0" maximum="1">        
+        <position height="0" width="0" x="579" y="-339"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="59" name="reviewService">        
+        <position height="0" width="0" x="-281" y="992"/>      
+      </attribute>      
+      <multiplicity id="60" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-281" y="992"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="62" name="fileDTO">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="63" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="64">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="65" name="memberService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="66" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="68" name="rowNumber">        
+        <position height="0" width="0" x="28" y="-2675"/>      
+      </attribute>      
+      <multiplicity id="69" minimum="0" maximum="1">        
+        <position height="0" width="0" x="28" y="-2675"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="70">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <association id="71">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="72" name="search">        
+        <position height="0" width="0" x="123" y="-2497"/>      
+      </attribute>      
+      <multiplicity id="73" minimum="0" maximum="1">        
+        <position height="0" width="0" x="123" y="-2497"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="74">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <association id="75">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="76" name="reviewDAO">        
+        <position height="0" width="0" x="-334" y="1402"/>      
+      </attribute>      
+      <multiplicity id="77" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-334" y="1402"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="78">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="79">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="80" name="fileDAO">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="81" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="82">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="83" name="productService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="84" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="86" name="noticeDAO">        
+        <position height="0" width="0" x="196" y="574"/>      
+      </attribute>      
+      <multiplicity id="87" minimum="0" maximum="1">        
+        <position height="0" width="0" x="196" y="574"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="88">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="89" name="search">        
+        <position height="0" width="0" x="123" y="-2497"/>      
+      </attribute>      
+      <multiplicity id="90" minimum="0" maximum="1">        
+        <position height="0" width="0" x="123" y="-2497"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="91">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="92" name="memberDAO">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="93" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="94">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="95">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="96">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="97" name="basketService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="98" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="99">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <association id="100">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="101" name="search">        
+        <position height="0" width="0" x="123" y="-2497"/>      
+      </attribute>      
+      <multiplicity id="102" minimum="0" maximum="1">        
+        <position height="0" width="0" x="123" y="-2497"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="103">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <generalization id="104">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

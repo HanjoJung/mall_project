@@ -58,10 +58,6 @@ public class MemberController extends HttpServlet {
 				actionFoward.setCheck(true);
 				actionFoward.setPath("../WEB-INF/view/member/memberCheckResult.jsp");
 			}
-		} else if (command.equals("/memberSnsLogin.do")) {
-			actionFoward = new ActionFoward();
-			actionFoward.setCheck(true);
-			actionFoward.setPath("../WEB-INF/view/member/memberSnsLogin.jsp");
 		} else if (command.equals("/memberLogout.do")) {
 			actionFoward = memberService.logout(request, response);
 		} else if (command.equals("/memberSelectOne.do")) {
@@ -70,6 +66,23 @@ public class MemberController extends HttpServlet {
 			actionFoward = memberService.update(request, response);
 		} else if (command.equals("/memberDelete.do")) {
 			actionFoward = memberService.delete(request, response);
+		} else if (command.equals("/memberSnsLogin.do")) {
+			actionFoward = new ActionFoward();
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/member/memberSnsLogin.jsp");
+		} 
+		else if (command.equals("/kakaoLogin.do")) {
+			actionFoward = new ActionFoward();
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/member/kakaoLogin.jsp");
+		} else if (command.equals("/facebookLogin.do")) {
+			actionFoward = new ActionFoward();
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/member/facebookLogin.jsp");
+		} else if (command.equals("/snsLogin.do")) {
+			actionFoward = new ActionFoward();
+			actionFoward.setCheck(true);
+			actionFoward.setPath("../WEB-INF/view/member/snsLogin.jsp");
 		}
 		if (actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());

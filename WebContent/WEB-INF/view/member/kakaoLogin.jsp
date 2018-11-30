@@ -26,7 +26,7 @@
 						var thumbnail_image = res.properties.thumbnail_image; //유저가 프로필 이미지
 
 						$.ajax({
-							url : "${pageContext.request.contextPath}/ajax/memberCheckId.do",
+							url : "${pageContext.request.contextPath}/member/memberCheckId.do",
 							type : "POST",
 							data : {
 								id : userEmail
@@ -34,7 +34,7 @@
 							success : function(data) {
 								data = data.trim();
 								if (data == '1') {
-								var url = "${pageContext.request.contextPath}/ajax/snsLogin.do?id="
+								var url = "${pageContext.request.contextPath}/member/snsLogin.do?id="
 									+ userEmail
 									+ "&snsid=" + userID
 									+ "&name=" + userName 
@@ -42,7 +42,7 @@
 									location.href = url;
 								} else {
 									$.ajax({
-										url : "${pageContext.request.contextPath}/ajax/memberCheckSns.do",
+										url : "${pageContext.request.contextPath}/member/memberCheckSns.do",
 										type : "POST",
 										data : {
 											snsid : userID,
@@ -50,11 +50,11 @@
 										},
 										success : function(data) {
 											if(data == '1'){
-												location.href = "${pageContext.request.contextPath}/ajax/snsLogin."
+												location.href = "${pageContext.request.contextPath}/member/snsLogin."
 												+ "do?sns="+sns+"&snsid="+userID+"&name="+userName+"&id="+userEmail;
 											}else{
 											$.ajax({
-												url : "${pageContext.request.contextPath}/ajax/memberLogin.do",
+												url : "${pageContext.request.contextPath}/member/memberLogin.do",
 												type : "POST",
 												data : {
 													id : userEmail,
